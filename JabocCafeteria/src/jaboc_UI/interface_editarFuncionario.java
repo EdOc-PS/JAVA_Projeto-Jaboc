@@ -229,7 +229,7 @@ public class interface_editarFuncionario extends javax.swing.JFrame {
     private void editarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarFuncionarioActionPerformed
         if(listaFuncionarios == null){
             JOptionPane.showMessageDialog(null, "Não há funcionários cadastrados!","Erro",WIDTH);
-        }else if("".equals(nomeFuncionario_Editar.getText()) && "".equals(cpfFuncionario_Editar.getText()) && "".equals(enderecoFuncionario_Editar.getText()) && "".equals(telefoneFuncionario_Editar.getText()) && "".equals(cargoFuncionario_Editar.getText())){
+        }else if("".equals(nomeFuncionario_Editar.getText()) || "".equals(cpfFuncionario_Editar.getText()) || "".equals(enderecoFuncionario_Editar.getText()) || "".equals(telefoneFuncionario_Editar.getText()) || "".equals(cargoFuncionario_Editar.getText())){
             JOptionPane.showMessageDialog(null,"Campo vazio!","Erro",WIDTH);
         }else{    
             listaFuncionarios.getItem(indiceFuncionario).getTitularFuncionario().setNomeFuncionario(nomeFuncionario_Editar.getText());
@@ -262,37 +262,6 @@ public class interface_editarFuncionario extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(interface_editarFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(interface_editarFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(interface_editarFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(interface_editarFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new interface_editarFuncionario().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField cargoFuncionario_Editar;

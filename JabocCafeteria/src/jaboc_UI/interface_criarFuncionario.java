@@ -39,7 +39,6 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
         cpfFuncionario = new javax.swing.JTextField();
         telefoneFuncionario = new javax.swing.JTextField();
         enderecoFuncionario = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
         criarFuncionario = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -48,11 +47,11 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         CargoGerente = new javax.swing.JRadioButton();
         CargoCozinheiro = new javax.swing.JRadioButton();
+        jSeparator1 = new javax.swing.JSeparator();
+        jLabel7 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
 
         nomeFuncionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -65,9 +64,6 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
                 enderecoFuncionarioActionPerformed(evt);
             }
         });
-
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Teste");
 
         criarFuncionario.setText("Enviar");
         criarFuncionario.addActionListener(new java.awt.event.ActionListener() {
@@ -97,20 +93,27 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
             }
         });
 
+        jLabel7.setText("Cadastrar Funcionário");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(88, 88, 88)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator1)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(149, 149, 149)
+                        .addComponent(criarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5)
                     .addComponent(jLabel4)
                     .addComponent(jLabel3)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel2)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addComponent(CargoGerente)
@@ -122,22 +125,20 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
                             .addComponent(jLabel6)
                             .addGap(43, 43, 43))
                         .addComponent(cpfFuncionario, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(criarFuncionario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 228, Short.MAX_VALUE)
-                        .addComponent(telefoneFuncionario, javax.swing.GroupLayout.Alignment.LEADING)))
-                .addContainerGap(73, Short.MAX_VALUE))
+                        .addComponent(telefoneFuncionario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(71, 71, 71)
+                        .addComponent(jLabel7)
+                        .addGap(41, 41, 41)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(60, 60, 60)
-                        .addComponent(jLabel1)
-                        .addGap(18, 18, 18))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel2)
-                        .addGap(3, 3, 3)))
+                .addComponent(jLabel7)
+                .addGap(25, 25, 25)
+                .addComponent(jLabel2)
+                .addGap(3, 3, 3)
                 .addComponent(nomeFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(9, 9, 9)
                 .addComponent(jLabel3)
@@ -157,9 +158,11 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(CargoGerente)
                     .addComponent(CargoCozinheiro))
-                .addGap(26, 26, 26)
+                .addGap(42, 42, 42)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 108, Short.MAX_VALUE)
                 .addComponent(criarFuncionario)
-                .addContainerGap(60, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         jButton1.setText("jButton1");
@@ -176,20 +179,20 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(155, 155, 155)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(44, 44, 44)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(jButton1)
+                .addContainerGap(403, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(jButton1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -206,7 +209,7 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
     }//GEN-LAST:event_CargoCozinheiroActionPerformed
 
     private void criarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_criarFuncionarioActionPerformed
-        if(!"".equals(nomeFuncionario.getText()) && !"".equals(cpfFuncionario.getText()) && !"".equals(enderecoFuncionario.getText()) && !"".equals(telefoneFuncionario.getText())){    
+        if(!"".equals(nomeFuncionario.getText()) && !"".equals(cpfFuncionario.getText()) && !"".equals(enderecoFuncionario.getText()) && !"".equals(telefoneFuncionario.getText())){
             String cargo = "Sem cargo";
             if(CargoGerente.isSelected()){
                 cargo = "Gerente";
@@ -223,7 +226,7 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
             telefoneFuncionario.setText("");
         }else{
             JOptionPane.showMessageDialog(null, "Os campos estão vazios!", "Information", JOptionPane.INFORMATION_MESSAGE);
-        }    
+        }
     }//GEN-LAST:event_criarFuncionarioActionPerformed
 
     private void enderecoFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enderecoFuncionarioActionPerformed
@@ -280,13 +283,14 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
     private javax.swing.JButton criarFuncionario;
     private javax.swing.JTextField enderecoFuncionario;
     private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextField nomeFuncionario;
     private javax.swing.JTextField telefoneFuncionario;
     // End of variables declaration//GEN-END:variables
