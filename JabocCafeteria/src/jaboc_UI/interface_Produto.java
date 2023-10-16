@@ -12,7 +12,8 @@ import javax.swing.JOptionPane;
  * @author eeuar
  */
 public class interface_Produto extends javax.swing.JFrame {
-    Produto Produto;
+    private Produto Produto;
+    int idP = 1;
     /**
      * Creates new form interface_Produto
      */
@@ -64,7 +65,7 @@ public class interface_Produto extends javax.swing.JFrame {
 
         jLabel5.setText("Preco:");
 
-        tipoProduto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cafe", "Salgados", "Doces", "Outras bebidas" }));
+        tipoProduto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cafe", "Salgado", "Doce", "Outras bebidas" }));
 
         jButtonProduto.setText("Enviar");
         jButtonProduto.addActionListener(new java.awt.event.ActionListener() {
@@ -146,11 +147,11 @@ public class interface_Produto extends javax.swing.JFrame {
         int qtdeP = Integer.parseInt(qtdeProduto.getText());
         float precoP = Float.parseFloat(precoProduto.getText());
         String tipoP = tipoProduto.getSelectedItem().toString();
-        int idP = 1;
-        Produto = new Produto(nomeProduto.getText(), qtdeP, idP, tipoP, precoP);
+       
+        Produto = new Produto(nomeProduto.getText(), qtdeP, idP++, tipoP, precoP);
         
         System.out.println(Produto.toString());
-        JOptionPane.showMessageDialog(null, "Produto cadastrado com sucesso!");
+        JOptionPane.showMessageDialog(null, Produto.toString() ,"Produto cadastrado com sucesso!", WIDTH);
     }//GEN-LAST:event_jButtonProdutoActionPerformed
 
     /**
