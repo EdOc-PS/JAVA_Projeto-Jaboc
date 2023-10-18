@@ -32,7 +32,6 @@ public class interface_criarCliente extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel8 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -53,13 +52,6 @@ public class interface_criarCliente extends javax.swing.JFrame {
         jLabel8.setText("jLabel8");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
 
         jLabel2.setText("CPF:");
 
@@ -111,9 +103,6 @@ public class interface_criarCliente extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jSeparator1)
                         .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(jLabel5)
-                            .addGap(460, 460, 460))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addGap(213, 213, 213)
@@ -129,18 +118,21 @@ public class interface_criarCliente extends javax.swing.JFrame {
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(nomeCliente)
                                         .addComponent(cpfCliente)
-                                        .addComponent(enderecoCliente)
-                                        .addComponent(telefoneCliente))))
+                                        .addComponent(telefoneCliente)
+                                        .addComponent(enderecoCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 316, Short.MAX_VALUE))))
                             .addGap(111, 111, 111))
                         .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(22, 22, 22)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel7))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(senhaCliente)
-                                .addComponent(verificarSenhaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel5)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addGap(22, 22, 22)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jLabel7))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(senhaCliente)
+                                        .addComponent(verificarSenhaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 120, Short.MAX_VALUE)))
                     .addContainerGap()))
         );
@@ -190,22 +182,16 @@ public class interface_criarCliente extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(68, 68, 68)
+                .addContainerGap(80, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(78, Short.MAX_VALUE))
+                .addGap(80, 80, 80))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addContainerGap(29, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(240, Short.MAX_VALUE))
+                .addGap(20, 20, 20))
         );
 
         pack();
@@ -218,30 +204,24 @@ public class interface_criarCliente extends javax.swing.JFrame {
     private void criaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_criaClienteActionPerformed
        if(!"".equals(nomeCliente.getText()) && !"".equals(cpfCliente.getText()) && !"".equals(enderecoCliente.getText()) && !"".equals(telefoneCliente.getText())){
             Cliente = new Cliente(nomeCliente.getText(), cpfCliente.getText(), enderecoCliente.getText(), telefoneCliente.getText());
-        }else{
+            if(Conta_Cliente.verificarSenha(senhaCliente.getText(), verificarSenhaCliente.getText())){
+                JOptionPane.showMessageDialog(null, "ID da conta: " + IdConta + "\n" + Cliente.toString(),"Conta cadastrada!",WIDTH);
+                Conta_Cliente = new Conta_Cliente(IdConta++,Cliente,senhaCliente.getText());
+                this.dispose();
+                }else{
+                    JOptionPane.showMessageDialog(null,"Senhas informadas incorretamente!", "Erro",WIDTH);
+                    senhaCliente.setText("");
+                    verificarSenhaCliente.setText("");
+                }
+       }else{
            JOptionPane.showMessageDialog(null, "Os campos estão vazios!", "Information", JOptionPane.INFORMATION_MESSAGE);
        }
-       
-       if(Cliente.verificarSenha(senhaCliente.getText(), verificarSenhaCliente.getText())){
-           JOptionPane.showMessageDialog(null, "ID da conta: " + IdConta + "\n" + Cliente.toString(),"Conta cadastrada!",WIDTH);
-           Conta_Cliente = new Conta_Cliente(IdConta++,Cliente,senhaCliente.getText());
-           this.dispose();
-       }else{
-           JOptionPane.showMessageDialog(null,"Senhas informadas incorretamente!", "Erro",WIDTH);
-           senhaCliente.setText("");
-           verificarSenhaCliente.setText("");
-       }
+             
     }//GEN-LAST:event_criaClienteActionPerformed
 
     private void cpfClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cpfClienteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cpfClienteActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    interface_editarCliente editarCliente = new interface_editarCliente();
-    editarCliente.setVisible(true);
-    editarCliente.recebeConta(Conta_Cliente);
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void senhaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_senhaClienteActionPerformed
         // TODO add your handling code here:
@@ -287,7 +267,6 @@ public class interface_criarCliente extends javax.swing.JFrame {
     private javax.swing.JTextField cpfCliente;
     private javax.swing.JButton criaCliente;
     private javax.swing.JTextField enderecoCliente;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
