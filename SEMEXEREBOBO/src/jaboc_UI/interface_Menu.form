@@ -48,8 +48,8 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jLabel2" min="-2" pref="360" max="-2" attributes="0"/>
-                  <EmptySpace pref="136" max="32767" attributes="0"/>
+                  <Component id="jLabel2" min="-2" pref="350" max="-2" attributes="0"/>
+                  <EmptySpace pref="159" max="32767" attributes="0"/>
                   <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -58,7 +58,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Component id="jPanel2" alignment="1" max="32767" attributes="0"/>
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
                   <Component id="jLabel2" min="-2" pref="273" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -76,21 +76,25 @@
         <Container class="javax.swing.JPanel" name="jPanel2">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="69" green="69" id="Control Dk Shadow" palette="2" red="69" type="palette"/>
+              <Color blue="81" green="41" red="77" type="rgb"/>
             </Property>
           </Properties>
 
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="60" max="32767" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <EmptySpace pref="45" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jButton1" min="-2" pref="199" max="-2" attributes="0"/>
-                          <Component id="jButton2" min="-2" pref="199" max="-2" attributes="0"/>
-                          <Component id="jLabel1" min="-2" pref="199" max="-2" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="jLabel1" min="-2" pref="199" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -99,33 +103,14 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
                       <Component id="jLabel1" min="-2" pref="96" max="-2" attributes="0"/>
-                      <EmptySpace pref="101" max="32767" attributes="0"/>
-                      <Component id="jButton1" min="-2" pref="70" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jButton2" min="-2" pref="70" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="106" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
+                      <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="103" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JButton" name="jButton1">
-              <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" id="Window" palette="2" red="ff" type="palette"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="jButton1"/>
-                <Property name="borderPainted" type="boolean" value="false"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JButton" name="jButton2">
-              <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" id="Window" palette="2" red="ff" type="palette"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="jButton2"/>
-              </Properties>
-            </Component>
             <Component class="javax.swing.JLabel" name="jLabel1">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -138,6 +123,59 @@
                 <Property name="text" type="java.lang.String" value="Bem Vindo!"/>
               </Properties>
             </Component>
+            <Container class="javax.swing.JPanel" name="jPanel3">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="e0" red="e0" type="rgb"/>
+                </Property>
+              </Properties>
+
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jButton2" min="-2" pref="199" max="-2" attributes="0"/>
+                              <Component id="jButton1" min="-2" pref="199" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace pref="14" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+                          <Component id="jButton1" min="-2" pref="70" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="jButton2" min="-2" pref="70" max="-2" attributes="0"/>
+                          <EmptySpace pref="22" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
+              <SubComponents>
+                <Component class="javax.swing.JButton" name="jButton1">
+                  <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="f0" green="f0" id="Control" palette="2" red="f0" type="palette"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Cardapio"/>
+                    <Property name="borderPainted" type="boolean" value="false"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="jButton2">
+                  <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="f0" green="f0" id="Control" palette="2" red="f0" type="palette"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Criar Conta"/>
+                    <Property name="borderPainted" type="boolean" value="false"/>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
           </SubComponents>
         </Container>
       </SubComponents>
