@@ -53,9 +53,6 @@ public class Cliente {
         this.telefoneCliente = telefoneCliente;
     }
     
-    public boolean verificarSenha(String senha, String verificarSenha){
-        return (senha.equals(verificarSenha) && !senha.equals(""));
-    }
     public String toString(){
         return "Nome: " + this.nomeCliente + "\nCPF: " + this.cpfCliente+"\nEndereço: " + this.enderecoCliente + "\nTelefone: " + this.telefoneCliente;
     }

@@ -42,7 +42,7 @@ public class Conta_Funcionario {
     public void setSenha(String senha) {
         this.senhaFuncionario = senha;
     }
-    
-    
-    
+    public boolean verificarSenha(String senha, String verificarSenha){
+        return (senha.equals(verificarSenha) && !senha.equals(""));
+    }  
 }

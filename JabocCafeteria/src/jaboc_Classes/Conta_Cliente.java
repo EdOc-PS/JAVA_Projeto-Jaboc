@@ -56,4 +56,7 @@ public class Conta_Cliente {
             return false;
         }    
     }
+    public boolean verificarSenha(String senha, String verificarSenha){
+        return (senha.equals(verificarSenha) && !senha.equals(""));
+    }
 }
