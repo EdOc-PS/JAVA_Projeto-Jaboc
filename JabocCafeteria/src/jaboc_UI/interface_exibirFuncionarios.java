@@ -186,6 +186,7 @@ public class interface_exibirFuncionarios extends javax.swing.JFrame {
     private void editarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarFuncionarioActionPerformed
         interface_editarFuncionario editarFuncionario = new interface_editarFuncionario();
         editarFuncionario.setVisible(true);
+        this.dispose();
         editarFuncionario.receberListaFuncionarios(listaFuncionarios);
     }//GEN-LAST:event_editarFuncionarioActionPerformed
 
@@ -196,6 +197,7 @@ public class interface_exibirFuncionarios extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         interface_apagarFuncionario apagarFuncionario = new interface_apagarFuncionario();
         apagarFuncionario.setVisible(true);
+        apagarFuncionario.txtAreaIneditavel();
         this.dispose();
         apagarFuncionario.receberListaFuncionarios(listaFuncionarios);
     }//GEN-LAST:event_jButton2ActionPerformed
