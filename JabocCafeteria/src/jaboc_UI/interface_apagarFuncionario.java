@@ -137,8 +137,9 @@ public class interface_apagarFuncionario extends javax.swing.JFrame {
         if(listaFuncionarios != null){   
             
             if(indiceFuncionario != -1){
-                if(listaFuncionarios.removerItem(indiceFuncionario));
-                 JOptionPane.showMessageDialog(null, listaFuncionarios.getItem(indiceFuncionario), "Funcionário apagado!",WIDTH);
+                JOptionPane.showMessageDialog(null, listaFuncionarios.getItem(indiceFuncionario).getIdFuncionario(), "Funcionário apagado!",WIDTH);
+                System.out.println(listaFuncionarios.getItem(indiceFuncionario));
+                System.out.println(listaFuncionarios.removerItem(indiceFuncionario));                
             }else{
                 JOptionPane.showMessageDialog(null, "Funcionario inexistente!", "Erro", WIDTH);
                 verificarCPF_Funcionario.setText("");

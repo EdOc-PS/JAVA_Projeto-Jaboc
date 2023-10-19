@@ -57,14 +57,26 @@ public class listaFuncionarios {
     }   
     //Esse método remove um Item com base na posição informada.
     public boolean removerItem(int posItem){
-        if(posItem < this.getTamanho() && posItem > 0 && this.lista[posItem] != null){
+        if(posItem < this.getTamanho() && posItem >= 0 && this.lista[posItem] != null){
             this.lista[posItem] = null;
             this.setNAtualElementos(this.getNAtualElementos() - 1);
+            this.preencheLista(posItem);
             return true;
         }else{
             return false;
         }
     }   
+    //Esse método preenche os espaços que ficaram vazios na lista, após um item ser apagado.
+    private void preencheLista(int indice){
+        if(indice == this.tamanhoMax - 2){
+            return;
+        }
+        if(this.lista[indice] == null){
+            this.lista[indice] = this.lista[indice + 1];
+            this.lista[indice + 1] = null;
+        }    
+        preencheLista(indice + 1);
+    }
     //Esse método retorna o item armazenado na posição "posItem" ou null caso essa posição não exista.
     public Conta_Funcionario getItem(int posItem){
         if(posItem < this.getTamanho() && this.lista[posItem] != null){
@@ -74,14 +86,11 @@ public class listaFuncionarios {
         }
     }
     //Esse método retorna o ultimoItem de uma lista
-    public Conta_Funcionario ultimoItem(int indice, Conta_Funcionario ultimoItem){
-        if(indice == this.tamanhoMax){
-            return ultimoItem;
-        }
-        if(this.lista[indice] != null){
+    public Conta_Funcionario ultimoItem(int indice){
+        if(this.lista[indice] != null && this.lista[indice + 1] == null){
             return this.lista[indice];
         }
-        return ultimoItem(indice + 1, ultimoItem);
+        return ultimoItem(indice + 1);
     }
     //Esse método inverte a posição dos elementos da Lista. Os primeiros serão os últimos, e os últimos serão os primeiros.
     public void inverteLista(int posInicial, int posFinal){

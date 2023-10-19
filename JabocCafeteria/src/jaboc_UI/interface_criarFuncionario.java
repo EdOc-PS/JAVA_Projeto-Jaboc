@@ -253,7 +253,7 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
         listaFuncionarios = lista;
 
         if (listaFuncionarios.getNAtualElementos() > 0) {
-            Id_ContaFuncionario = listaFuncionarios.ultimoItem(0, null).getIdFuncionario() + 1;
+            Id_ContaFuncionario = listaFuncionarios.ultimoItem(0).getIdFuncionario() + 1;
         }
     }
 
