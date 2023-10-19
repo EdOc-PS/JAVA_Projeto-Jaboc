@@ -48,9 +48,9 @@ public class interface_editarFuncionario extends javax.swing.JFrame {
         telefoneFuncionario_Editar = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        cargoFuncionario_Editar = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         sair_EditarFuncionario = new javax.swing.JButton();
+        cargoFuncionario_Editar = new javax.swing.JComboBox<>();
 
         javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
         jDialog1.getContentPane().setLayout(jDialog1Layout);
@@ -133,6 +133,8 @@ public class interface_editarFuncionario extends javax.swing.JFrame {
             }
         });
 
+        cargoFuncionario_Editar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cozinheiro(a)", "Auxiliar de Cozinha", "Garçom", "Balconista", "Faxineiro(a)", "Administrador", " " }));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -166,11 +168,11 @@ public class interface_editarFuncionario extends javax.swing.JFrame {
                             .addComponent(jLabel9))
                         .addGap(57, 57, 57)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(cargoFuncionario_Editar, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
-                            .addComponent(enderecoFuncionario_Editar)
+                            .addComponent(enderecoFuncionario_Editar, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
                             .addComponent(cpfFuncionario_Editar)
                             .addComponent(nomeFuncionario_Editar)
-                            .addComponent(telefoneFuncionario_Editar, javax.swing.GroupLayout.Alignment.TRAILING)))
+                            .addComponent(telefoneFuncionario_Editar, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(cargoFuncionario_Editar, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(243, 243, 243)
                         .addComponent(editarFuncionario)))
@@ -204,9 +206,9 @@ public class interface_editarFuncionario extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel8)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nomeFuncionario_Editar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5)
+                    .addComponent(nomeFuncionario_Editar, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
@@ -222,8 +224,8 @@ public class interface_editarFuncionario extends javax.swing.JFrame {
                     .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cargoFuncionario_Editar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9))
+                    .addComponent(jLabel9)
+                    .addComponent(cargoFuncionario_Editar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(editarFuncionario)
                 .addContainerGap(33, Short.MAX_VALUE))
@@ -246,7 +248,7 @@ public class interface_editarFuncionario extends javax.swing.JFrame {
                 cpfFuncionario_Editar.setText(listaFuncionarios.getItem(indiceFuncionario).getTitularFuncionario().getCpfFuncionario());
                 enderecoFuncionario_Editar.setText(listaFuncionarios.getItem(indiceFuncionario).getTitularFuncionario().getEnderecoFuncionario());
                 telefoneFuncionario_Editar.setText(listaFuncionarios.getItem(indiceFuncionario).getTitularFuncionario().getTelefoneFuncionario());
-                cargoFuncionario_Editar.setText(listaFuncionarios.getItem(indiceFuncionario).getTitularFuncionario().getCargoFuncionario());
+                cargoFuncionario_Editar.setSelectedItem(listaFuncionarios.getItem(indiceFuncionario).getTitularFuncionario().getCargoFuncionario());
 
             }else if(indiceFuncionario == -1){
                 JOptionPane.showMessageDialog(null, "CPF inexistente!", "Erro", JOptionPane.INFORMATION_MESSAGE);    
@@ -265,14 +267,14 @@ public class interface_editarFuncionario extends javax.swing.JFrame {
     private void editarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarFuncionarioActionPerformed
         if(listaFuncionarios == null){
             JOptionPane.showMessageDialog(null, "Não há funcionários cadastrados!","Erro",WIDTH);
-        }else if("".equals(nomeFuncionario_Editar.getText()) || "".equals(cpfFuncionario_Editar.getText()) || "".equals(enderecoFuncionario_Editar.getText()) || "".equals(telefoneFuncionario_Editar.getText()) || "".equals(cargoFuncionario_Editar.getText())){
+        }else if("".equals(nomeFuncionario_Editar.getText()) || "".equals(cpfFuncionario_Editar.getText()) || "".equals(enderecoFuncionario_Editar.getText()) || "".equals(telefoneFuncionario_Editar.getText()) || "".equals(cargoFuncionario_Editar.getSelectedItem())){
             JOptionPane.showMessageDialog(null,"Campo vazio!","Erro",WIDTH);
         }else{    
             listaFuncionarios.getItem(indiceFuncionario).getTitularFuncionario().setNomeFuncionario(nomeFuncionario_Editar.getText());
             listaFuncionarios.getItem(indiceFuncionario).getTitularFuncionario().setCpfFuncionario(cpfFuncionario_Editar.getText());
             listaFuncionarios.getItem(indiceFuncionario).getTitularFuncionario().setEnderecoFuncionario(enderecoFuncionario_Editar.getText());
             listaFuncionarios.getItem(indiceFuncionario).getTitularFuncionario().setTelefoneFuncionario(telefoneFuncionario_Editar.getText());
-            listaFuncionarios.getItem(indiceFuncionario).getTitularFuncionario().setCargoFuncionario(cargoFuncionario_Editar.getText());
+            listaFuncionarios.getItem(indiceFuncionario).getTitularFuncionario().setCargoFuncionario(String.valueOf(cargoFuncionario_Editar.getSelectedItem()));
 
             JOptionPane.showMessageDialog(null, listaFuncionarios.getItem(indiceFuncionario).getTitularFuncionario().toString(), "Funcionário editado!", JOptionPane.INFORMATION_MESSAGE);
 
@@ -280,7 +282,7 @@ public class interface_editarFuncionario extends javax.swing.JFrame {
             cpfFuncionario_Editar.setText("");
             enderecoFuncionario_Editar.setText("");
             telefoneFuncionario_Editar.setText("");
-            cargoFuncionario_Editar.setText("");
+            cargoFuncionario_Editar.setSelectedItem("Cozinheiro(a)");
         }    
         
     }//GEN-LAST:event_editarFuncionarioActionPerformed
@@ -307,7 +309,7 @@ public class interface_editarFuncionario extends javax.swing.JFrame {
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField cargoFuncionario_Editar;
+    private javax.swing.JComboBox<String> cargoFuncionario_Editar;
     private javax.swing.JTextField cpfFuncionario_Editar;
     private javax.swing.JButton editarFuncionario;
     private javax.swing.JTextField enderecoFuncionario_Editar;

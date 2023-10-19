@@ -167,10 +167,7 @@ public class interface_exibirFuncionarios extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void carregarTabela_FuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carregarTabela_FuncionarioActionPerformed
-        for(int i =0;i < 3;i++){
-            System.out.println(listaFuncionarios.getItem(i));
-        }
-        System.out.println(listaFuncionarios.getNAtualElementos());
+
         if(listaFuncionarios != null){
             //Usando o Casting. Forçando a jtable a ser uma DefaultTableModel.
             DefaultTableModel tabelaFuncionarios = (DefaultTableModel) tabelaFuncionario.getModel();

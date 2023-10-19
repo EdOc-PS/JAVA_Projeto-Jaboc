@@ -91,11 +91,11 @@
                       </Group>
                       <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="cargoFuncionario_Editar" pref="400" max="32767" attributes="0"/>
-                          <Component id="enderecoFuncionario_Editar" alignment="0" max="32767" attributes="0"/>
+                          <Component id="enderecoFuncionario_Editar" alignment="0" pref="400" max="32767" attributes="0"/>
                           <Component id="cpfFuncionario_Editar" alignment="0" max="32767" attributes="0"/>
                           <Component id="nomeFuncionario_Editar" alignment="0" max="32767" attributes="0"/>
                           <Component id="telefoneFuncionario_Editar" alignment="1" max="32767" attributes="0"/>
+                          <Component id="cargoFuncionario_Editar" alignment="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
@@ -140,9 +140,9 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="nomeFuncionario_Editar" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                  <Component id="nomeFuncionario_Editar" min="-2" pref="22" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
@@ -163,8 +163,8 @@
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="cargoFuncionario_Editar" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="cargoFuncionario_Editar" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="editarFuncionario" min="-2" max="-2" attributes="0"/>
@@ -253,8 +253,6 @@
         <Property name="text" type="java.lang.String" value="Editar Funcion&#xe1;rio"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="cargoFuncionario_Editar">
-    </Component>
     <Component class="javax.swing.JLabel" name="jLabel9">
       <Properties>
         <Property name="text" type="java.lang.String" value="Cargo:"/>
@@ -267,6 +265,24 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sair_EditarFuncionarioActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="cargoFuncionario_Editar">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="7">
+            <StringItem index="0" value="Cozinheiro(a)"/>
+            <StringItem index="1" value="Auxiliar de Cozinha"/>
+            <StringItem index="2" value="Gar&#xe7;om"/>
+            <StringItem index="3" value="Balconista"/>
+            <StringItem index="4" value="Faxineiro(a)"/>
+            <StringItem index="5" value="Administrador"/>
+            <StringItem index="6" value=" "/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>

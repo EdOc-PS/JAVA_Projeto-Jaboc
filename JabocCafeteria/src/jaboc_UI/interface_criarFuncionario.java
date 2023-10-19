@@ -3,18 +3,22 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package jaboc_UI;
+
 import jaboc_Classes.Funcionario;
 import jaboc_Classes.Conta_Funcionario;
 import jaboc_Classes.listaFuncionarios;
 import javax.swing.JOptionPane;
+
 /**
  *
  * @author eeuar
  */
 public class interface_criarFuncionario extends javax.swing.JFrame {
+
     private Funcionario Funcionario;
     private int Id_ContaFuncionario = 1;
     listaFuncionarios listaFuncionarios;
+
     /**
      * Creates new form NewJFrame
      */
@@ -45,14 +49,13 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        CargoGerente = new javax.swing.JRadioButton();
-        CargoCozinheiro = new javax.swing.JRadioButton();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel7 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         senhaFuncionario = new javax.swing.JTextField();
         verificarSenhaFuncionario = new javax.swing.JTextField();
+        cargoFuncionario = new javax.swing.JComboBox<>();
         sair_criarFuncionario = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -86,17 +89,6 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
 
         jLabel6.setText("telefone");
 
-        buttonGroup1.add(CargoGerente);
-        CargoGerente.setText("Gerente");
-
-        buttonGroup1.add(CargoCozinheiro);
-        CargoCozinheiro.setText("Cozinheiro");
-        CargoCozinheiro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CargoCozinheiroActionPerformed(evt);
-            }
-        });
-
         jLabel7.setText("Cadastrar Funcionário");
 
         jLabel1.setText("Crie uma senha:");
@@ -109,12 +101,20 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
             }
         });
 
+        cargoFuncionario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cozinheiro(a)", "Auxiliar de Cozinha", "Garçom", "Balconista", "Faxineiro(a)", "Administrador", " " }));
+        cargoFuncionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cargoFuncionarioActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator1)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -125,16 +125,12 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
                             .addComponent(jLabel5))
                         .addGap(70, 70, 70)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(CargoGerente)
-                                .addGap(27, 27, 27)
-                                .addComponent(CargoCozinheiro))
                             .addComponent(enderecoFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, 316, Short.MAX_VALUE)
                             .addComponent(telefoneFuncionario)
                             .addComponent(cpfFuncionario)
-                            .addComponent(nomeFuncionario))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jSeparator1))
+                            .addComponent(nomeFuncionario)
+                            .addComponent(cargoFuncionario, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
@@ -178,16 +174,11 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
                     .addComponent(enderecoFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(CargoGerente)
-                            .addComponent(jLabel5)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(CargoCozinheiro)))
-                .addGap(34, 34, 34)
+                .addGap(15, 15, 15)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cargoFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5))
+                .addGap(18, 18, 18)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -225,7 +216,7 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(38, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addComponent(sair_criarFuncionario)
                 .addGap(0, 0, Short.MAX_VALUE))
@@ -234,45 +225,38 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void CargoCozinheiroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CargoCozinheiroActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_CargoCozinheiroActionPerformed
-
     private void criarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_criarFuncionarioActionPerformed
-        if(!"".equals(nomeFuncionario.getText()) && !"".equals(cpfFuncionario.getText()) && !"".equals(enderecoFuncionario.getText()) && !"".equals(telefoneFuncionario.getText())){
-            String cargo = "Sem cargo";
-            if(CargoGerente.isSelected()){
-                cargo = "Gerente";
-            }else if(CargoCozinheiro.isSelected()){
-                cargo = "Cozinhero";
+        if (!"".equals(nomeFuncionario.getText()) && !"".equals(cpfFuncionario.getText()) && !"".equals(enderecoFuncionario.getText()) && !"".equals(telefoneFuncionario.getText())) {
+
+            if (senhaFuncionario.getText().equals(verificarSenhaFuncionario.getText()) && !senhaFuncionario.getText().equals("")) {
+                Funcionario = new Funcionario(nomeFuncionario.getText(), cpfFuncionario.getText(), enderecoFuncionario.getText(), telefoneFuncionario.getText(), 
+                        String.valueOf(cargoFuncionario.getSelectedItem()));
+                
+                listaFuncionarios.inserirItem(new Conta_Funcionario(Id_ContaFuncionario++, Funcionario, senhaFuncionario.getText()));
+                JOptionPane.showMessageDialog(null, Funcionario.toString(), "Funcionário cadastrado!", WIDTH);
+                nomeFuncionario.setText("");
+                cpfFuncionario.setText("");
+                enderecoFuncionario.setText("");
+                telefoneFuncionario.setText("");
+                cargoFuncionario.setSelectedItem("Cozinheiro(a)");
+            } else {
+                JOptionPane.showMessageDialog(null, "Senhas informadas incorretamente!", "Erro", WIDTH);
+                senhaFuncionario.setText("");
+                verificarSenhaFuncionario.setText("");
             }
-            
-                if(senhaFuncionario.getText().equals(verificarSenhaFuncionario.getText()) && !senhaFuncionario.getText().equals("")){
-                    Funcionario = new Funcionario(nomeFuncionario.getText(), cpfFuncionario.getText(), enderecoFuncionario.getText(), telefoneFuncionario.getText(), cargo);
-                    listaFuncionarios.inserirItem(new Conta_Funcionario(Id_ContaFuncionario++, Funcionario, senhaFuncionario.getText()));
-                    JOptionPane.showMessageDialog(null, Funcionario.toString(), "Funcionário cadastrado!", WIDTH);
-                    nomeFuncionario.setText("");
-                    cpfFuncionario.setText("");
-                    enderecoFuncionario.setText("");
-                    telefoneFuncionario.setText("");
-                }else{
-                    JOptionPane.showMessageDialog(null,"Senhas informadas incorretamente!","Erro",WIDTH);
-                    senhaFuncionario.setText("");
-                    verificarSenhaFuncionario.setText("");
-                }
-            
-        }else{
+
+        } else {
             JOptionPane.showMessageDialog(null, "Os campos estão vazios!", "Information", JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_criarFuncionarioActionPerformed
-    public void recebeListaFuncionarios(listaFuncionarios lista){
+    public void recebeListaFuncionarios(listaFuncionarios lista) {
         listaFuncionarios = lista;
-        
-        if(listaFuncionarios.getNAtualElementos() > 0){
-            Id_ContaFuncionario = listaFuncionarios.ultimoItem(0,null).getIdFuncionario() + 1;
+
+        if (listaFuncionarios.getNAtualElementos() > 0) {
+            Id_ContaFuncionario = listaFuncionarios.ultimoItem(0, null).getIdFuncionario() + 1;
         }
     }
-    
+
     private void enderecoFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enderecoFuncionarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_enderecoFuncionarioActionPerformed
@@ -289,19 +273,22 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
         interface_exibirFuncionarios exibirFuncionarios = new interface_exibirFuncionarios();
         exibirFuncionarios.setVisible(true);
         this.dispose();
-        exibirFuncionarios.recebeListaFuncionarios(listaFuncionarios);       
+        exibirFuncionarios.recebeListaFuncionarios(listaFuncionarios);
     }//GEN-LAST:event_sair_criarFuncionarioActionPerformed
-    
+
+    private void cargoFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargoFuncionarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cargoFuncionarioActionPerformed
+
     /**
      * @param args the command line arguments
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JRadioButton CargoCozinheiro;
-    private javax.swing.JRadioButton CargoGerente;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.ButtonGroup buttonGroup3;
+    private javax.swing.JComboBox<String> cargoFuncionario;
     private javax.swing.JTextField cpfFuncionario;
     private javax.swing.JButton criarFuncionario;
     private javax.swing.JTextField enderecoFuncionario;
