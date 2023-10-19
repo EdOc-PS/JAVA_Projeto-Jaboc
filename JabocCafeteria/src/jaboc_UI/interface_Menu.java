@@ -8,13 +8,15 @@ package jaboc_UI;
  *
  * @author eeuar
  */
-public class interface_Menu extends javax.swing.JFrame {
 
+public class interface_Menu extends javax.swing.JFrame {
+   
     /**
      * Creates new form interface_Menu
      */
     public interface_Menu() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
