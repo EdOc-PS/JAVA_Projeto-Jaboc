@@ -65,6 +65,11 @@ public class interface_Menu extends javax.swing.JFrame {
         jButton2.setText("Criar Conta");
         jButton2.setBorderPainted(false);
         jButton2.setFocusPainted(false);
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cardapio.png"))); // NOI18N
@@ -186,6 +191,11 @@ public class interface_Menu extends javax.swing.JFrame {
         i_cC.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+       interface_Cardapio iC = new interface_Cardapio();
+       iC.setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
