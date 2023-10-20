@@ -164,6 +164,9 @@
                       <Color blue="65" green="54" red="4f" type="rgb"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Cardapio"/>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="null"/>
+                    </Property>
                     <Property name="borderPainted" type="boolean" value="false"/>
                     <Property name="focusPainted" type="boolean" value="false"/>
                   </Properties>
@@ -183,6 +186,13 @@
                       <Color blue="65" green="54" red="4f" type="rgb"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Criar Conta"/>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                        <LineBorder>
+                          <Color PropertyName="color" blue="cc" green="cc" red="cc" type="rgb"/>
+                        </LineBorder>
+                      </Border>
+                    </Property>
                     <Property name="borderPainted" type="boolean" value="false"/>
                     <Property name="focusPainted" type="boolean" value="false"/>
                   </Properties>

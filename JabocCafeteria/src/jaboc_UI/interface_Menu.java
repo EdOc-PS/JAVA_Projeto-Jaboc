@@ -51,6 +51,7 @@ public class interface_Menu extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("Gill Sans MT", 1, 16)); // NOI18N
         jButton1.setForeground(new java.awt.Color(79, 84, 101));
         jButton1.setText("Cardapio");
+        jButton1.setBorder(null);
         jButton1.setBorderPainted(false);
         jButton1.setFocusPainted(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -63,6 +64,7 @@ public class interface_Menu extends javax.swing.JFrame {
         jButton2.setFont(new java.awt.Font("Gill Sans MT", 1, 16)); // NOI18N
         jButton2.setForeground(new java.awt.Color(79, 84, 101));
         jButton2.setText("Criar Conta");
+        jButton2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
         jButton2.setBorderPainted(false);
         jButton2.setFocusPainted(false);
         jButton2.addActionListener(new java.awt.event.ActionListener() {
