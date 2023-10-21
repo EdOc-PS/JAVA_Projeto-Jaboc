@@ -6,6 +6,7 @@ package jaboc_UI;
 
 import jaboc_Classes.Produto;
 import jaboc_Classes.listaProdutos;
+import java.awt.Color;
 import javax.swing.JOptionPane;
 
 /**
@@ -13,9 +14,11 @@ import javax.swing.JOptionPane;
  * @author eeuar
  */
 public class interface_criarProduto extends javax.swing.JFrame {
+
     private Produto produto;
     listaProdutos listaProdutos = new listaProdutos();
     int idP = 1;
+
     /**
      * Creates new form interface_Produto
      */
@@ -39,7 +42,7 @@ public class interface_criarProduto extends javax.swing.JFrame {
         jComboBox2 = new javax.swing.JComboBox<>();
         jPanel1 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
-        jButton5 = new javax.swing.JButton();
+        bVoltar = new javax.swing.JButton();
         criaCliente2 = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
@@ -67,15 +70,23 @@ public class interface_criarProduto extends javax.swing.JFrame {
         jPanel5.setBackground(new java.awt.Color(252, 252, 252));
         jPanel5.setPreferredSize(new java.awt.Dimension(244, 233));
 
-        jButton5.setBackground(new java.awt.Color(252, 252, 252));
-        jButton5.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
-        jButton5.setForeground(new java.awt.Color(79, 84, 101));
-        jButton5.setText("Voltar");
-        jButton5.setBorderPainted(false);
-        jButton5.setFocusPainted(false);
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        bVoltar.setBackground(new java.awt.Color(252, 252, 252));
+        bVoltar.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        bVoltar.setForeground(new java.awt.Color(79, 84, 101));
+        bVoltar.setText("Voltar");
+        bVoltar.setBorderPainted(false);
+        bVoltar.setFocusPainted(false);
+        bVoltar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                bVoltarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                bVoltarMouseExited(evt);
+            }
+        });
+        bVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                bVoltarActionPerformed(evt);
             }
         });
 
@@ -106,7 +117,7 @@ public class interface_criarProduto extends javax.swing.JFrame {
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(bVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(7, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
@@ -114,7 +125,7 @@ public class interface_criarProduto extends javax.swing.JFrame {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 286, Short.MAX_VALUE)
                 .addComponent(criaCliente2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -124,14 +135,14 @@ public class interface_criarProduto extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(151, 140, 130));
         jPanel2.setPreferredSize(new java.awt.Dimension(406, 159));
 
-        precoProduto.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        precoProduto.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
         precoProduto.setForeground(new java.awt.Color(79, 84, 101));
 
         jLabel5.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Preco:");
 
-        qtdeProduto.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        qtdeProduto.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
         qtdeProduto.setForeground(new java.awt.Color(79, 84, 101));
         qtdeProduto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -143,7 +154,7 @@ public class interface_criarProduto extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Quantidade:");
 
-        tipoProduto.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        tipoProduto.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
         tipoProduto.setForeground(new java.awt.Color(79, 84, 101));
         tipoProduto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cafe", "Salgado", "Doce", "Outras bebidas" }));
         tipoProduto.setFocusable(false);
@@ -153,7 +164,7 @@ public class interface_criarProduto extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Tipo:");
 
-        nomeProduto.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        nomeProduto.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
         nomeProduto.setForeground(new java.awt.Color(79, 84, 101));
         nomeProduto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -239,22 +250,23 @@ public class interface_criarProduto extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        interface_Menu iM = new interface_Menu();
-        iM.setVisible(true);
+    private void bVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVoltarActionPerformed
+        interface_gerenciarCardapio i_editarCardapio = new interface_gerenciarCardapio();
+        i_editarCardapio.recebeListaProdutos(listaProdutos);
+        i_editarCardapio.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_bVoltarActionPerformed
 
     private void criaCliente2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_criaCliente2ActionPerformed
-         int qtdeP = Integer.parseInt(qtdeProduto.getText());
+        int qtdeP = Integer.parseInt(qtdeProduto.getText());
         float precoP = Float.parseFloat(precoProduto.getText());
         String tipoP = tipoProduto.getSelectedItem().toString();
-       
+
         produto = new Produto(nomeProduto.getText(), qtdeP, idP++, tipoP, precoP);
-        listaProdutos.inserirItem(produto);   
-       
-        JOptionPane.showMessageDialog(null, produto.toString() ,"Produto cadastrado com sucesso!", WIDTH);
-        
+        listaProdutos.inserirItem(produto);
+
+        JOptionPane.showMessageDialog(null, produto.toString(), "O produto cadastrado com sucesso!", WIDTH);
+
         nomeProduto.setText("");
         qtdeProduto.setText("");
         precoProduto.setText("");
@@ -269,13 +281,22 @@ public class interface_criarProduto extends javax.swing.JFrame {
     private void nomeProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeProdutoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_nomeProdutoActionPerformed
-    public void recebeListaProduto(listaProdutos lista) {
+
+    private void bVoltarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bVoltarMouseEntered
+        bVoltar.setBackground(new Color(237, 237, 237));
+    }//GEN-LAST:event_bVoltarMouseEntered
+
+    private void bVoltarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bVoltarMouseExited
+        bVoltar.setBackground(new Color(252, 252, 252));
+    }//GEN-LAST:event_bVoltarMouseExited
+    public void recebeListaProdutos(listaProdutos lista) {
         listaProdutos = lista;
     }
+
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void criarProduto(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -309,8 +330,8 @@ public class interface_criarProduto extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bVoltar;
     private javax.swing.JButton criaCliente2;
-    private javax.swing.JButton jButton5;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel13;
