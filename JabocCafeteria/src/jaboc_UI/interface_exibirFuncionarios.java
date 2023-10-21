@@ -6,6 +6,8 @@ package jaboc_UI;
 
 import jaboc_Classes.listaFuncionarios;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.text.DefaultFormatterFactory;
+import javax.swing.text.MaskFormatter;
 
 /**
  *
@@ -30,18 +32,27 @@ public class interface_exibirFuncionarios extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tabelaFuncionario = new javax.swing.JTable();
         carregarTabela_Funcionario = new javax.swing.JButton();
-        editarFuncionario = new javax.swing.JButton();
-        jSeparator1 = new javax.swing.JSeparator();
-        criarFuncionario = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
         sair_exibirFuncionario = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        criarFuncionario = new javax.swing.JButton();
+        editarFuncionario = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(164, 144, 124));
+
+        jPanel2.setBackground(new java.awt.Color(141, 123, 104));
+
+        tabelaFuncionario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+        tabelaFuncionario.setFont(new java.awt.Font("Gill Sans MT", 0, 12)); // NOI18N
         tabelaFuncionario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -58,84 +69,173 @@ public class interface_exibirFuncionarios extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
+        tabelaFuncionario.setGridColor(new java.awt.Color(204, 204, 204));
+        tabelaFuncionario.setRowHeight(30);
+        tabelaFuncionario.setRowSelectionAllowed(false);
+        tabelaFuncionario.setSelectionBackground(new java.awt.Color(255, 255, 255));
         jScrollPane2.setViewportView(tabelaFuncionario);
 
+        carregarTabela_Funcionario.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        carregarTabela_Funcionario.setForeground(new java.awt.Color(74, 89, 101));
         carregarTabela_Funcionario.setText("Carregar tabela");
+        carregarTabela_Funcionario.setFocusPainted(false);
+        carregarTabela_Funcionario.setFocusable(false);
         carregarTabela_Funcionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 carregarTabela_FuncionarioActionPerformed(evt);
             }
         });
 
-        editarFuncionario.setText("Editar Funcionário");
-        editarFuncionario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                editarFuncionarioActionPerformed(evt);
-            }
-        });
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 650, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(20, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(carregarTabela_Funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(268, 268, 268))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 288, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(carregarTabela_Funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(14, 14, 14))
+        );
 
-        criarFuncionario.setText("Criar Funcionário");
-        criarFuncionario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                criarFuncionarioActionPerformed(evt);
-            }
-        });
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
-        jButton2.setText("Apagar Funcionário");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
+        jLabel2.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(79, 84, 101));
+        jLabel2.setText("Funcionários");
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 23, Short.MAX_VALUE))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSeparator1)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(252, 252, 252)
-                        .addComponent(carregarTabela_Funcionario))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 605, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(criarFuncionario)
-                .addGap(100, 100, 100)
-                .addComponent(editarFuncionario)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 100, Short.MAX_VALUE)
-                .addComponent(jButton2)
-                .addGap(28, 28, 28))
+                        .addGap(23, 23, 23)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(9, 9, 9)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(carregarTabela_Funcionario)
-                .addGap(18, 18, 18)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(editarFuncionario)
-                    .addComponent(criarFuncionario)
-                    .addComponent(jButton2))
-                .addGap(31, 31, 31))
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
-        sair_exibirFuncionario.setText("X");
+        jPanel5.setBackground(new java.awt.Color(252, 252, 252));
+
+        sair_exibirFuncionario.setBackground(new java.awt.Color(252, 252, 252));
+        sair_exibirFuncionario.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        sair_exibirFuncionario.setForeground(new java.awt.Color(79, 84, 101));
+        sair_exibirFuncionario.setText("VOLTAR");
+        sair_exibirFuncionario.setBorderPainted(false);
         sair_exibirFuncionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 sair_exibirFuncionarioActionPerformed(evt);
             }
         });
 
-        jLabel1.setText("Funcionários");
+        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logo4.png"))); // NOI18N
+        jLabel11.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+
+        criarFuncionario.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        criarFuncionario.setForeground(new java.awt.Color(79, 84, 101));
+        criarFuncionario.setText("Criar Funcionário");
+        criarFuncionario.setFocusPainted(false);
+        criarFuncionario.setFocusable(false);
+        criarFuncionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                criarFuncionarioActionPerformed(evt);
+            }
+        });
+
+        editarFuncionario.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        editarFuncionario.setForeground(new java.awt.Color(79, 84, 101));
+        editarFuncionario.setText("Editar Funcionário");
+        editarFuncionario.setFocusPainted(false);
+        editarFuncionario.setFocusable(false);
+        editarFuncionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editarFuncionarioActionPerformed(evt);
+            }
+        });
+
+        jButton2.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(79, 84, 101));
+        jButton2.setText("Apagar Funcionário");
+        jButton2.setFocusPainted(false);
+        jButton2.setFocusable(false);
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(sair_exibirFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(editarFuncionario)
+                            .addComponent(criarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 42, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(sair_exibirFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
+                        .addComponent(criarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(27, 27, 27)
+                .addComponent(editarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(102, 102, 102))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -143,28 +243,61 @@ public class interface_exibirFuncionarios extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(sair_exibirFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(1, 1, 1)
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(sair_exibirFuncionario)
-                    .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        interface_apagarFuncionario apagarFuncionario = new interface_apagarFuncionario();
+        apagarFuncionario.setVisible(true);
+        apagarFuncionario.txtAreaIneditavel();
+        this.dispose();
+        apagarFuncionario.receberListaFuncionarios(listaFuncionarios);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void editarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarFuncionarioActionPerformed
+        interface_editarFuncionario editarFuncionario = new interface_editarFuncionario();
+        editarFuncionario.setVisible(true);
+        this.dispose();
+        editarFuncionario.receberListaFuncionarios(listaFuncionarios);
+    }//GEN-LAST:event_editarFuncionarioActionPerformed
+
+    private void criarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_criarFuncionarioActionPerformed
+        interface_criarFuncionario criarFuncionario = new interface_criarFuncionario();
+        
+        try{
+            MaskFormatter CPF = new MaskFormatter("###.###.###.-##");
+            MaskFormatter telefone = new MaskFormatter("(##) #####-####");
+            //Esse new DefaultFormatterFactory(Mask), está setando um novo objeto do tipo máscara parao mewu jFormattedField. Composionalidade! O JFormattedFields tem uma Mascará.
+            criarFuncionario.getCpfFuncionario().setFormatterFactory(new DefaultFormatterFactory(CPF));
+            criarFuncionario.getTelefoneFuncionario().setFormatterFactory(new DefaultFormatterFactory(telefone));
+        }catch(Exception e){
+            //Esse catch informará um erro caso o usuário informe uma máscara incorreta.
+                e.printStackTrace();
+        } 
+        criarFuncionario.setVisible(true);
+        criarFuncionario.recebeListaFuncionarios(listaFuncionarios);
+        this.dispose();
+    }//GEN-LAST:event_criarFuncionarioActionPerformed
+
+    private void sair_exibirFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sair_exibirFuncionarioActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_sair_exibirFuncionarioActionPerformed
 
     private void carregarTabela_FuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carregarTabela_FuncionarioActionPerformed
 
@@ -175,39 +308,13 @@ public class interface_exibirFuncionarios extends javax.swing.JFrame {
             for(int pos_Lista = 0; pos_Lista < listaFuncionarios.getTamanho();pos_Lista++){
                 if(listaFuncionarios.getItem(pos_Lista)!= null){
                     tabelaFuncionarios.addRow(new String[]{String.valueOf(listaFuncionarios.getItem(pos_Lista).getIdFuncionario()),listaFuncionarios.getItem(pos_Lista).getTitularFuncionario().getNomeFuncionario(), listaFuncionarios.getItem(pos_Lista).getTitularFuncionario().getCpfFuncionario(),
-                    listaFuncionarios.getItem(pos_Lista).getTitularFuncionario().getEnderecoFuncionario(), listaFuncionarios.getItem(pos_Lista).getTitularFuncionario().getTelefoneFuncionario(), 
-                    listaFuncionarios.getItem(pos_Lista).getTitularFuncionario().getCargoFuncionario()});
-                }
+                        listaFuncionarios.getItem(pos_Lista).getTitularFuncionario().getEnderecoFuncionario(), listaFuncionarios.getItem(pos_Lista).getTitularFuncionario().getTelefoneFuncionario(),
+                        listaFuncionarios.getItem(pos_Lista).getTitularFuncionario().getCargoFuncionario()});
             }
-            carregarTabela_Funcionario.setVisible(false);
-        }    
+        }
+        carregarTabela_Funcionario.setVisible(false);
+        }
     }//GEN-LAST:event_carregarTabela_FuncionarioActionPerformed
-
-    private void editarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarFuncionarioActionPerformed
-        interface_editarFuncionario editarFuncionario = new interface_editarFuncionario();
-        editarFuncionario.setVisible(true);
-        this.dispose();
-        editarFuncionario.receberListaFuncionarios(listaFuncionarios);
-    }//GEN-LAST:event_editarFuncionarioActionPerformed
-
-    private void sair_exibirFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sair_exibirFuncionarioActionPerformed
-        this.dispose();
-    }//GEN-LAST:event_sair_exibirFuncionarioActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        interface_apagarFuncionario apagarFuncionario = new interface_apagarFuncionario();
-        apagarFuncionario.setVisible(true);
-        apagarFuncionario.txtAreaIneditavel();
-        this.dispose();
-        apagarFuncionario.receberListaFuncionarios(listaFuncionarios);
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void criarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_criarFuncionarioActionPerformed
-        interface_criarFuncionario criarFuncionario = new interface_criarFuncionario();
-        criarFuncionario.setVisible(true);
-        criarFuncionario.recebeListaFuncionarios(listaFuncionarios);
-        this.dispose();
-    }//GEN-LAST:event_criarFuncionarioActionPerformed
     public void recebeListaFuncionarios(listaFuncionarios lista){
         listaFuncionarios = lista;
     }
@@ -220,7 +327,7 @@ public class interface_exibirFuncionarios extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -252,10 +359,13 @@ public class interface_exibirFuncionarios extends javax.swing.JFrame {
     private javax.swing.JButton criarFuncionario;
     private javax.swing.JButton editarFuncionario;
     private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JButton sair_exibirFuncionario;
     private javax.swing.JTable tabelaFuncionario;
     // End of variables declaration//GEN-END:variables
