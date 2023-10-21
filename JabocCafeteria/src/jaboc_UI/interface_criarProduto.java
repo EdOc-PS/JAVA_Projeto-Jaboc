@@ -21,6 +21,7 @@ public class interface_criarProduto extends javax.swing.JFrame {
      */
     public interface_criarProduto() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
