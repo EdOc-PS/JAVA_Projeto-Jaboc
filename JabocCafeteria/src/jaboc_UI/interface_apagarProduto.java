@@ -100,7 +100,7 @@ public class interface_apagarProduto extends javax.swing.JFrame {
                 .addContainerGap(349, Short.MAX_VALUE))
         );
 
-        jPanel2.setBackground(new java.awt.Color(151, 140, 130));
+        jPanel2.setBackground(new java.awt.Color(200, 182, 166));
         jPanel2.setPreferredSize(new java.awt.Dimension(400, 101));
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -151,10 +151,10 @@ public class interface_apagarProduto extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(verificarId_Produto, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(verificarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20))
+                .addGap(15, 15, 15))
         );
 
-        jPanel4.setBackground(new java.awt.Color(151, 140, 130));
+        jPanel4.setBackground(new java.awt.Color(200, 182, 166));
 
         textArea_Produto.setColumns(20);
         textArea_Produto.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
@@ -217,8 +217,8 @@ public class interface_apagarProduto extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addGap(52, 52, 52)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(17, 17, 17)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29))
         );

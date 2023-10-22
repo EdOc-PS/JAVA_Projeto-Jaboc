@@ -53,7 +53,8 @@ public class interface_gerenciarCardapio extends javax.swing.JFrame {
         bVoltar.setBackground(new java.awt.Color(252, 252, 252));
         bVoltar.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
         bVoltar.setForeground(new java.awt.Color(79, 84, 101));
-        bVoltar.setText("Voltar");
+        bVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_back.png"))); // NOI18N
+        bVoltar.setText("  Voltar");
         bVoltar.setBorderPainted(false);
         bVoltar.setFocusPainted(false);
         bVoltar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -91,6 +92,7 @@ public class interface_gerenciarCardapio extends javax.swing.JFrame {
         transferirCardapio.setBackground(new java.awt.Color(252, 252, 252));
         transferirCardapio.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
         transferirCardapio.setForeground(new java.awt.Color(79, 84, 101));
+        transferirCardapio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_lixo.png"))); // NOI18N
         transferirCardapio.setText("Excluir");
         transferirCardapio.setBorderPainted(false);
         transferirCardapio.setFocusPainted(false);
@@ -103,6 +105,7 @@ public class interface_gerenciarCardapio extends javax.swing.JFrame {
         jButton1.setBackground(new java.awt.Color(252, 252, 252));
         jButton1.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(79, 84, 101));
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_editar.png"))); // NOI18N
         jButton1.setText("Editar");
         jButton1.setBorderPainted(false);
         jButton1.setFocusPainted(false);
@@ -115,6 +118,7 @@ public class interface_gerenciarCardapio extends javax.swing.JFrame {
         jButton6.setBackground(new java.awt.Color(252, 252, 252));
         jButton6.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
         jButton6.setForeground(new java.awt.Color(79, 84, 101));
+        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_adicionar.png"))); // NOI18N
         jButton6.setText("Adicionar");
         jButton6.setBorderPainted(false);
         jButton6.setFocusPainted(false);
@@ -128,13 +132,13 @@ public class interface_gerenciarCardapio extends javax.swing.JFrame {
         jPanel10.setLayout(jPanel10Layout);
         jPanel10Layout.setHorizontalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel10Layout.createSequentialGroup()
+                .addGap(15, 15, 15)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(transferirCardapio, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(12, 12, 12))
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                    .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(transferirCardapio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(15, 15, 15))
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -161,7 +165,7 @@ public class interface_gerenciarCardapio extends javax.swing.JFrame {
                         .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(bVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 6, Short.MAX_VALUE)))
                 .addGap(13, 13, 13))
         );
         jPanel6Layout.setVerticalGroup(
@@ -195,6 +199,8 @@ public class interface_gerenciarCardapio extends javax.swing.JFrame {
         tabelaCardapio.setFocusable(false);
         tabelaCardapio.setSelectionBackground(new java.awt.Color(255, 255, 255));
         tabelaCardapio.setSelectionForeground(new java.awt.Color(79, 84, 101));
+        tabelaCardapio.setEnabled(false);
+        tabelaCardapio.setRowHeight(25);
         jScrollPane1.setViewportView(tabelaCardapio);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -218,7 +224,8 @@ public class interface_gerenciarCardapio extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Gill Sans MT", 1, 30)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("GERENCIAR CARDÁPIO");
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_editar2.png"))); // NOI18N
+        jLabel7.setText(" GERENCIAR CARDÁPIO");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -302,6 +309,7 @@ public class interface_gerenciarCardapio extends javax.swing.JFrame {
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         interface_criarProduto i_criarProduto = new interface_criarProduto();
         i_criarProduto.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void bVoltarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bVoltarMouseEntered

@@ -135,6 +135,7 @@ public class interface_Cardapio extends javax.swing.JFrame {
         ));
         tabelaCardapio.setSelectionBackground(new java.awt.Color(255, 255, 255));
         tabelaCardapio.setSelectionForeground(new java.awt.Color(79, 84, 101));
+        tabelaCardapio.setEnabled(false);
         jScrollPane1.setViewportView(tabelaCardapio);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -155,10 +156,10 @@ public class interface_Cardapio extends javax.swing.JFrame {
         );
 
         jLabel5.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel5.setFont(new java.awt.Font("Gill Sans MT", 1, 36)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Gill Sans MT", 1, 30)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("Cardápio");
+        jLabel5.setText("CARDÁPIO");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);

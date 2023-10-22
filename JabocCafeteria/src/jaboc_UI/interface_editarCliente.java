@@ -40,6 +40,7 @@ public class interface_editarCliente extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         bVoltar1 = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
+        editarCliente = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         nomeCliente_Editar = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
@@ -49,7 +50,6 @@ public class interface_editarCliente extends javax.swing.JFrame {
         enderecoCliente_Editar = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         telefoneCliente_Editar = new javax.swing.JTextField();
-        editarCliente = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         verificarCPF_Cliente = new javax.swing.JTextField();
@@ -135,17 +135,18 @@ public class interface_editarCliente extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(164, 144, 124));
 
-        jLabel7.setFont(new java.awt.Font("Gill Sans MT", 1, 36)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Gill Sans MT", 1, 30)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("Verificar Cliente");
+        jLabel7.setText("EDITAR CLIENTE");
 
         jPanel4.setBackground(new java.awt.Color(252, 252, 252));
 
         bVoltar1.setBackground(new java.awt.Color(252, 252, 252));
         bVoltar1.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
         bVoltar1.setForeground(new java.awt.Color(79, 84, 101));
-        bVoltar1.setText("Voltar");
+        bVoltar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_back.png"))); // NOI18N
+        bVoltar1.setText("  Voltar");
         bVoltar1.setBorderPainted(false);
         bVoltar1.setFocusPainted(false);
         bVoltar1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -166,15 +167,28 @@ public class interface_editarCliente extends javax.swing.JFrame {
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logo4.png"))); // NOI18N
         jLabel12.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
 
+        editarCliente.setBackground(new java.awt.Color(79, 84, 101));
+        editarCliente.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        editarCliente.setForeground(new java.awt.Color(252, 252, 252));
+        editarCliente.setText("Enviar");
+        editarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editarClienteActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+            .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(13, 13, 13)
-                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(bVoltar1, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(editarCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(bVoltar1, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(13, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
@@ -184,12 +198,15 @@ public class interface_editarCliente extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(bVoltar1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(editarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(14, 14, 14))
         );
 
-        jPanel2.setBackground(new java.awt.Color(200, 182, 166));
+        jPanel2.setBackground(new java.awt.Color(141, 123, 104));
 
         nomeCliente_Editar.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        nomeCliente_Editar.setForeground(new java.awt.Color(79, 84, 101));
         nomeCliente_Editar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nomeCliente_EditarActionPerformed(evt);
@@ -197,14 +214,15 @@ public class interface_editarCliente extends javax.swing.JFrame {
         });
 
         jLabel5.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setForeground(new java.awt.Color(79, 84, 101));
         jLabel5.setText("Nome:");
 
         jLabel2.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setForeground(new java.awt.Color(79, 84, 101));
         jLabel2.setText("CPF:");
 
         cpfCliente_Editar.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        cpfCliente_Editar.setForeground(new java.awt.Color(79, 84, 101));
         cpfCliente_Editar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cpfCliente_EditarActionPerformed(evt);
@@ -212,24 +230,18 @@ public class interface_editarCliente extends javax.swing.JFrame {
         });
 
         jLabel3.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setForeground(new java.awt.Color(79, 84, 101));
         jLabel3.setText("Endereço:");
 
         enderecoCliente_Editar.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        enderecoCliente_Editar.setForeground(new java.awt.Color(79, 84, 101));
 
         jLabel4.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setForeground(new java.awt.Color(79, 84, 101));
         jLabel4.setText("Telefone:");
 
         telefoneCliente_Editar.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
-
-        editarCliente.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
-        editarCliente.setText("Enviar");
-        editarCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                editarClienteActionPerformed(evt);
-            }
-        });
+        telefoneCliente_Editar.setForeground(new java.awt.Color(79, 84, 101));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -238,25 +250,22 @@ public class interface_editarCliente extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(editarCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(nomeCliente_Editar, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(enderecoCliente_Editar))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cpfCliente_Editar, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE)
-                            .addComponent(telefoneCliente_Editar)
-                            .addComponent(jLabel4))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nomeCliente_Editar, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(enderecoCliente_Editar))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cpfCliente_Editar, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE)
+                    .addComponent(telefoneCliente_Editar)
+                    .addComponent(jLabel4))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(8, 8, 8)
+                .addGap(15, 15, 15)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(jLabel2))
@@ -272,12 +281,10 @@ public class interface_editarCliente extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(enderecoCliente_Editar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(telefoneCliente_Editar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(15, 15, 15)
-                .addComponent(editarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
-        jPanel5.setBackground(new java.awt.Color(200, 182, 166));
+        jPanel5.setBackground(new java.awt.Color(141, 123, 104));
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
@@ -285,6 +292,7 @@ public class interface_editarCliente extends javax.swing.JFrame {
         jLabel1.setText("CPF:");
 
         verificarCPF_Cliente.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        verificarCPF_Cliente.setForeground(new java.awt.Color(79, 84, 101));
         verificarCPF_Cliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 verificarCPF_ClienteActionPerformed(evt);
@@ -297,6 +305,7 @@ public class interface_editarCliente extends javax.swing.JFrame {
         jLabel6.setText(" Senha:");
 
         verificarSenha_Cliente.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        verificarSenha_Cliente.setForeground(new java.awt.Color(79, 84, 101));
 
         verificarCliente.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
         verificarCliente.setText("Verificar");
@@ -356,13 +365,13 @@ public class interface_editarCliente extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(67, Short.MAX_VALUE)
+                .addContainerGap(97, Short.MAX_VALUE)
                 .addComponent(jLabel7)
-                .addGap(55, 55, 55)
+                .addGap(46, 46, 46)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37))
+                .addGap(34, 34, 34))
             .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
