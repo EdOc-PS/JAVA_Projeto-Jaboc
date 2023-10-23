@@ -19,7 +19,6 @@ public class interface_criarCliente extends javax.swing.JFrame {
     private Cliente Cliente;
     private Conta_Cliente Conta_Cliente;
     private int IdConta = 1;
-    private boolean contaCriada = false;
 
     /**
      * Creates new form interfaceCliente
@@ -129,7 +128,7 @@ public class interface_criarCliente extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(bVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 279, Short.MAX_VALUE)
                 .addComponent(criaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
         );
@@ -250,6 +249,11 @@ public class interface_criarCliente extends javax.swing.JFrame {
         senhaCliente.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         verificarSenhaCliente.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        verificarSenhaCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                verificarSenhaClienteActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
@@ -271,7 +275,7 @@ public class interface_criarCliente extends javax.swing.JFrame {
                 .addComponent(jLabel16)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(senhaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
+                .addGap(5, 5, 5)
                 .addComponent(jLabel17)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(verificarSenhaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -302,7 +306,7 @@ public class interface_criarCliente extends javax.swing.JFrame {
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(jLabel18)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(7, 7, 7)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -356,10 +360,11 @@ public class interface_criarCliente extends javax.swing.JFrame {
     private void criaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_criaClienteActionPerformed
         if (!"".equals(nomeCliente.getText()) && !"".equals(cpfCliente.getText()) && !"".equals(enderecoCliente.getText()) && !"".equals(telefoneCliente.getText())) {
             Cliente = new Cliente(nomeCliente.getText(), cpfCliente.getText(), enderecoCliente.getText(), telefoneCliente.getText());
-            if(senhaCliente.getText().equals(verificarSenhaCliente.getText()) && !senhaCliente.getText().equals("")) {
+            if (String.valueOf(senhaCliente.getPassword()).equals(String.valueOf(verificarSenhaCliente.getPassword())) && !String.valueOf(senhaCliente.getPassword()).equals("")) {
                 JOptionPane.showMessageDialog(null, "ID da conta: " + IdConta + "\n" + Cliente.toString(), "Conta cadastrada!", WIDTH);
-                Conta_Cliente = new Conta_Cliente(IdConta++, Cliente, String.valueOf(senhaCliente.getPassword()));
-                contaCriada = true;
+                Conta_Cliente = new Conta_Cliente(IdConta++, Cliente, String.valueOf(senhaCliente.getPassword()), true);
+                interface_Cardapio i_Cardapio = new interface_Cardapio();
+                i_Cardapio.setVisible(true);
                 this.dispose();
 
             } else {
@@ -387,8 +392,11 @@ public class interface_criarCliente extends javax.swing.JFrame {
         bVoltar.setBackground(new Color(252, 252, 252));
     }//GEN-LAST:event_bVoltarMouseExited
 
-    public boolean contaCriada() {
-        return contaCriada;
+    private void verificarSenhaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verificarSenhaClienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_verificarSenhaClienteActionPerformed
+    public void retornarCliente(Conta_Cliente conta) {
+        Conta_Cliente = conta;
     }
 
     /**

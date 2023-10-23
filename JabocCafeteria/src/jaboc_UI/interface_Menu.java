@@ -4,6 +4,7 @@
  */
 package jaboc_UI;
 
+import jaboc_Classes.Conta_Cliente;
 import java.awt.Color;
 
 /**
@@ -11,7 +12,7 @@ import java.awt.Color;
  * @author eeuar
  */
 public class interface_Menu extends javax.swing.JFrame {
-
+    private Conta_Cliente Conta_Cliente;
     /**
      * Creates new form interface_Menu
      */
@@ -210,13 +211,15 @@ public class interface_Menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bCardapioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCardapioActionPerformed
-        interface_criarCliente i_criarCliente = new interface_criarCliente();
-        if(i_criarCliente.contaCriada() == true) {
+       interface_criarCliente i_criarCliente = new interface_criarCliente();
+       i_criarCliente.retornarCliente(Conta_Cliente);
+        if(Conta_Cliente.isContaExistente()) {        
             interface_areaSenhaCliente i_areaSenhaCliente = new interface_areaSenhaCliente();
             i_areaSenhaCliente.setVisible(true);
             this.dispose();
 
         }else{
+            
             i_criarCliente.setVisible(true);
             this.dispose();
         }
@@ -243,7 +246,9 @@ public class interface_Menu extends javax.swing.JFrame {
     private void bGerenciaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bGerenciaMouseExited
         bGerencia.setBackground(new Color(252, 252, 252));
     }//GEN-LAST:event_bGerenciaMouseExited
-
+    
+   
+    
     /**
      * @param args the command line arguments
      */
