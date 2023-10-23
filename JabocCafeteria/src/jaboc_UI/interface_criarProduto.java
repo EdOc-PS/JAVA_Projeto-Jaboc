@@ -44,7 +44,7 @@ public class interface_criarProduto extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         bVoltar = new javax.swing.JButton();
-        criaCliente2 = new javax.swing.JButton();
+        criaProduto2 = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         precoProduto = new javax.swing.JTextField();
@@ -94,16 +94,16 @@ public class interface_criarProduto extends javax.swing.JFrame {
             }
         });
 
-        criaCliente2.setBackground(new java.awt.Color(79, 84, 101));
-        criaCliente2.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
-        criaCliente2.setForeground(new java.awt.Color(252, 252, 252));
-        criaCliente2.setText("Enviar");
-        criaCliente2.setBorderPainted(false);
-        criaCliente2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        criaCliente2.setFocusPainted(false);
-        criaCliente2.addActionListener(new java.awt.event.ActionListener() {
+        criaProduto2.setBackground(new java.awt.Color(79, 84, 101));
+        criaProduto2.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        criaProduto2.setForeground(new java.awt.Color(252, 252, 252));
+        criaProduto2.setText("Enviar");
+        criaProduto2.setBorderPainted(false);
+        criaProduto2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        criaProduto2.setFocusPainted(false);
+        criaProduto2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                criaCliente2ActionPerformed(evt);
+                criaProduto2ActionPerformed(evt);
             }
         });
 
@@ -118,7 +118,7 @@ public class interface_criarProduto extends javax.swing.JFrame {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(13, 13, 13)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(criaCliente2, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(criaProduto2, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -133,7 +133,7 @@ public class interface_criarProduto extends javax.swing.JFrame {
                     .addComponent(bVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 283, Short.MAX_VALUE)
-                .addComponent(criaCliente2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(criaProduto2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(16, 16, 16))
         );
 
@@ -280,22 +280,25 @@ public class interface_criarProduto extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_bVoltarActionPerformed
 
-    private void criaCliente2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_criaCliente2ActionPerformed
-        int qtdeP = Integer.parseInt(qtdeProduto.getText());
-        float precoP = Float.parseFloat(precoProduto.getText());
-        String tipoP = tipoProduto.getSelectedItem().toString();
+    private void criaProduto2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_criaProduto2ActionPerformed
+        if(!nomeProduto.getText().equals("") && !qtdeProduto.getText().equals("") && !precoProduto.getText().equals("")){
+            int qtdeP = Integer.parseInt(qtdeProduto.getText());
+            float precoP = Float.parseFloat(precoProduto.getText());
+            String tipoP = tipoProduto.getSelectedItem().toString();
 
-        produto = new Produto(nomeProduto.getText(), qtdeP, idP++, tipoP, precoP);
-        listaProdutos.inserirItem(produto);
+            produto = new Produto(nomeProduto.getText(), qtdeP, idP++, tipoP, precoP);
+            listaProdutos.inserirItem(produto);
 
-        JOptionPane.showMessageDialog(null, produto.toString(), "O produto cadastrado com sucesso!", WIDTH);
+            JOptionPane.showMessageDialog(null, produto.toString(), "O produto cadastrado com sucesso!", WIDTH);
 
-        nomeProduto.setText("");
-        qtdeProduto.setText("");
-        precoProduto.setText("");
-        tipoProduto.setSelectedItem("Cafe");
-
-    }//GEN-LAST:event_criaCliente2ActionPerformed
+            nomeProduto.setText("");
+            qtdeProduto.setText("");
+            precoProduto.setText("");
+            tipoProduto.setSelectedItem("Cafe");
+        }else{
+            JOptionPane.showMessageDialog(null, "Campos vazios!","Erro",WIDTH);
+        }
+    }//GEN-LAST:event_criaProduto2ActionPerformed
 
     private void qtdeProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_qtdeProdutoActionPerformed
         // TODO add your handling code here:
@@ -354,7 +357,7 @@ public class interface_criarProduto extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bVoltar;
-    private javax.swing.JButton criaCliente2;
+    private javax.swing.JButton criaProduto2;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel13;
