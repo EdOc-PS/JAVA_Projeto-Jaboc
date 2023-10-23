@@ -255,25 +255,31 @@ public class interface_apagarProduto extends javax.swing.JFrame {
     }//GEN-LAST:event_verificarId_ProdutoActionPerformed
 
     private void verificarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verificarProdutoActionPerformed
-        if (listaProdutos != null) {
-            indiceProduto = listaProdutos.buscarProduto(Integer.parseInt(verificarId_Produto.getText()), listaProdutos.getNAtualElementos(), -1) + 1;
-            textArea_Produto.setText(listaProdutos.getItem(indiceProduto).toString());
+        if (!listaProdutos.estaVazia()) {
+            if(!verificarId_Produto.getText().equals("")){
+                indiceProduto = listaProdutos.buscarProduto(Integer.parseInt(verificarId_Produto.getText()), listaProdutos.getNAtualElementos(), -1) + 1;
+                    if(indiceProduto != -1){
+                        textArea_Produto.setText(listaProdutos.getItem(indiceProduto).toString());
+                    }else{
+                        JOptionPane.showMessageDialog(null,"Produto inexistente!","Erro",WIDTH);
+                    }    
+            }else{
+                JOptionPane.showMessageDialog(null, "Campo de ID do produto vazio!","Erro", WIDTH);
+            }    
+        }else{
+            JOptionPane.showMessageDialog(null, "Produtos não cadastrados!","Erro", WIDTH);
         }
     }//GEN-LAST:event_verificarProdutoActionPerformed
 
     private void apagarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_apagarProdutoActionPerformed
-        if (listaProdutos != null) {
 
             if (indiceProduto != -1) {
-                JOptionPane.showMessageDialog(null, "O processo foi realizado com total sucesso", "O " + listaProdutos.getItem(indiceProduto).getNomeProduto() + " foi apagado!", WIDTH);
+                JOptionPane.showMessageDialog(null, "O processo foi realizado com total sucesso", "Informação" + listaProdutos.getItem(indiceProduto).getNomeProduto() + " foi apagado!", WIDTH);
                 listaProdutos.removerItem(indiceProduto);
             } else {
                 JOptionPane.showMessageDialog(null, "Produto não existe!", "Erro", WIDTH);
                 verificarId_Produto.setText("");
             }
-        } else {
-            JOptionPane.showMessageDialog(null, "Não há funcionários cadastrados!", "Erro", WIDTH);
-        }
     }//GEN-LAST:event_apagarProdutoActionPerformed
 
     private void bVoltarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bVoltarMouseEntered
