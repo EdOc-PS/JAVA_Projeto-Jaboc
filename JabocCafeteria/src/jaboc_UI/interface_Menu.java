@@ -4,6 +4,8 @@
  */
 package jaboc_UI;
 
+import java.awt.Color;
+
 /**
  *
  * @author eeuar
@@ -30,8 +32,8 @@ public class interface_Menu extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        bCardapio = new javax.swing.JButton();
+        bGerencia = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -42,34 +44,53 @@ public class interface_Menu extends javax.swing.JFrame {
         setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jPanel1.setBackground(new java.awt.Color(164, 144, 124));
+        jPanel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jPanel2.setBackground(new java.awt.Color(252, 252, 252));
 
         jPanel3.setBackground(new java.awt.Color(200, 182, 166));
 
-        jButton1.setBackground(new java.awt.Color(252, 252, 252));
-        jButton1.setFont(new java.awt.Font("Gill Sans MT", 1, 16)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(79, 84, 101));
-        jButton1.setText("Cardapio");
-        jButton1.setBorder(null);
-        jButton1.setBorderPainted(false);
-        jButton1.setFocusPainted(false);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        bCardapio.setBackground(new java.awt.Color(252, 252, 252));
+        bCardapio.setFont(new java.awt.Font("Gill Sans MT", 1, 16)); // NOI18N
+        bCardapio.setForeground(new java.awt.Color(79, 84, 101));
+        bCardapio.setText("Cardápio");
+        bCardapio.setBorder(null);
+        bCardapio.setBorderPainted(false);
+        bCardapio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bCardapio.setFocusPainted(false);
+        bCardapio.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                bCardapioMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                bCardapioMouseExited(evt);
+            }
+        });
+        bCardapio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                bCardapioActionPerformed(evt);
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(252, 252, 252));
-        jButton2.setFont(new java.awt.Font("Gill Sans MT", 1, 16)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(79, 84, 101));
-        jButton2.setText("Gerencia");
-        jButton2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
-        jButton2.setBorderPainted(false);
-        jButton2.setFocusPainted(false);
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        bGerencia.setBackground(new java.awt.Color(252, 252, 252));
+        bGerencia.setFont(new java.awt.Font("Gill Sans MT", 1, 16)); // NOI18N
+        bGerencia.setForeground(new java.awt.Color(79, 84, 101));
+        bGerencia.setText("Gerencia");
+        bGerencia.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+        bGerencia.setBorderPainted(false);
+        bGerencia.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bGerencia.setFocusPainted(false);
+        bGerencia.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                bGerenciaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                bGerenciaMouseExited(evt);
+            }
+        });
+        bGerencia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                bGerenciaActionPerformed(evt);
             }
         });
 
@@ -90,8 +111,8 @@ public class interface_Menu extends javax.swing.JFrame {
                     .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(bGerencia, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bCardapio, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20))
         );
         jPanel3Layout.setVerticalGroup(
@@ -100,10 +121,10 @@ public class interface_Menu extends javax.swing.JFrame {
                 .addGap(30, 30, 30)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(bCardapio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(bGerencia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE))
                 .addContainerGap(30, Short.MAX_VALUE))
         );
@@ -188,24 +209,40 @@ public class interface_Menu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void bCardapioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCardapioActionPerformed
         interface_criarCliente i_criarCliente = new interface_criarCliente();
         if(i_criarCliente.contaCriada() == true) {
-            interface_Cardapio i_Cardapio = new interface_Cardapio();
-            i_Cardapio.setVisible(true);
+            interface_areaSenhaCliente i_areaSenhaCliente = new interface_areaSenhaCliente();
+            i_areaSenhaCliente.setVisible(true);
             this.dispose();
 
         }else{
             i_criarCliente.setVisible(true);
             this.dispose();
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_bCardapioActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        interface_areaSenha i_areaSenha = new interface_areaSenha();
+    private void bGerenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bGerenciaActionPerformed
+        interface_areaSenhaGerencia i_areaSenha = new interface_areaSenhaGerencia();
         i_areaSenha.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_bGerenciaActionPerformed
+
+    private void bCardapioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bCardapioMouseEntered
+       bCardapio.setBackground(new Color(237, 237, 237));
+    }//GEN-LAST:event_bCardapioMouseEntered
+
+    private void bGerenciaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bGerenciaMouseEntered
+       bGerencia.setBackground(new Color(237, 237, 237));
+    }//GEN-LAST:event_bGerenciaMouseEntered
+
+    private void bCardapioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bCardapioMouseExited
+      bCardapio.setBackground(new Color(252, 252, 252));
+    }//GEN-LAST:event_bCardapioMouseExited
+
+    private void bGerenciaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bGerenciaMouseExited
+        bGerencia.setBackground(new Color(252, 252, 252));
+    }//GEN-LAST:event_bGerenciaMouseExited
 
     /**
      * @param args the command line arguments
@@ -243,8 +280,8 @@ public class interface_Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton bCardapio;
+    private javax.swing.JButton bGerencia;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

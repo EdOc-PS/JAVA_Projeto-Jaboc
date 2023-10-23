@@ -81,6 +81,14 @@ public class interface_areaGerencia extends javax.swing.JFrame {
         editarCardapio.setBorderPainted(false);
         editarCardapio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         editarCardapio.setFocusPainted(false);
+        editarCardapio.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                editarCardapioMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                editarCardapioMouseExited(evt);
+            }
+        });
         editarCardapio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 editarCardapioActionPerformed(evt);
@@ -95,6 +103,14 @@ public class interface_areaGerencia extends javax.swing.JFrame {
         editarFuncionario.setBorderPainted(false);
         editarFuncionario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         editarFuncionario.setFocusPainted(false);
+        editarFuncionario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                editarFuncionarioMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                editarFuncionarioMouseExited(evt);
+            }
+        });
         editarFuncionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 editarFuncionarioActionPerformed(evt);
@@ -224,6 +240,22 @@ public class interface_areaGerencia extends javax.swing.JFrame {
         i_exibirFuncionario.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_editarFuncionarioActionPerformed
+
+    private void editarCardapioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editarCardapioMouseEntered
+        editarCardapio.setBackground(new Color(237, 237, 237));
+    }//GEN-LAST:event_editarCardapioMouseEntered
+
+    private void editarCardapioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editarCardapioMouseExited
+        editarCardapio.setBackground(new Color(252, 252, 252));
+    }//GEN-LAST:event_editarCardapioMouseExited
+
+    private void editarFuncionarioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editarFuncionarioMouseEntered
+        editarFuncionario.setBackground(new Color(237, 237, 237));
+    }//GEN-LAST:event_editarFuncionarioMouseEntered
+
+    private void editarFuncionarioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editarFuncionarioMouseExited
+        editarFuncionario.setBackground(new Color(252, 252, 252));
+    }//GEN-LAST:event_editarFuncionarioMouseExited
 
     /**
      * @param args the command line arguments

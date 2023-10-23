@@ -142,7 +142,8 @@ public class interface_editarCliente extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Gill Sans MT", 1, 30)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("EDITAR CLIENTE");
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_editaruser.png"))); // NOI18N
+        jLabel7.setText(" EDITAR CLIENTE");
 
         jPanel4.setBackground(new java.awt.Color(252, 252, 252));
 
@@ -215,6 +216,7 @@ public class interface_editarCliente extends javax.swing.JFrame {
 
         nomeCliente_Editar.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
         nomeCliente_Editar.setForeground(new java.awt.Color(79, 84, 101));
+        nomeCliente_Editar.setToolTipText("");
         nomeCliente_Editar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nomeCliente_EditarActionPerformed(evt);
@@ -406,7 +408,7 @@ public class interface_editarCliente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
     private JTextField CPF() {
         try {
-            javax.swing.text.MaskFormatter cpf = new javax.swing.text.MaskFormatter("###.###.###-##");
+            javax.swing.text.MaskFormatter cpf = new javax.swing.text.MaskFormatter(" ###.###.###-##");
             return new javax.swing.JFormattedTextField(cpf);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Ocorreu um erro");
@@ -416,7 +418,7 @@ public class interface_editarCliente extends javax.swing.JFrame {
 
     public JTextField Telefone() {
         try {
-            javax.swing.text.MaskFormatter cpf = new javax.swing.text.MaskFormatter("(##)#####-####");
+            javax.swing.text.MaskFormatter cpf = new javax.swing.text.MaskFormatter(" (##)#####-####");
             return new javax.swing.JFormattedTextField(cpf);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Ocorreu um erro");
