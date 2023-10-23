@@ -356,7 +356,7 @@ public class interface_criarCliente extends javax.swing.JFrame {
     private void criaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_criaClienteActionPerformed
         if (!"".equals(nomeCliente.getText()) && !"".equals(cpfCliente.getText()) && !"".equals(enderecoCliente.getText()) && !"".equals(telefoneCliente.getText())) {
             Cliente = new Cliente(nomeCliente.getText(), cpfCliente.getText(), enderecoCliente.getText(), telefoneCliente.getText());
-            if (Conta_Cliente.verificarSenha(String.valueOf(senhaCliente.getPassword()), String.valueOf(verificarSenhaCliente.getPassword()))) {
+            if(senhaCliente.getText().equals(verificarSenhaCliente.getText()) && !senhaCliente.getText().equals("")) {
                 JOptionPane.showMessageDialog(null, "ID da conta: " + IdConta + "\n" + Cliente.toString(), "Conta cadastrada!", WIDTH);
                 Conta_Cliente = new Conta_Cliente(IdConta++, Cliente, String.valueOf(senhaCliente.getPassword()));
                 contaCriada = true;
