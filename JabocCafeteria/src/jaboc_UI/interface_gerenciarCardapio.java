@@ -54,8 +54,9 @@ public class interface_gerenciarCardapio extends javax.swing.JFrame {
         bVoltar.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
         bVoltar.setForeground(new java.awt.Color(79, 84, 101));
         bVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_back.png"))); // NOI18N
-        bVoltar.setText("  Voltar");
+        bVoltar.setText("   Voltar");
         bVoltar.setBorderPainted(false);
+        bVoltar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         bVoltar.setFocusPainted(false);
         bVoltar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -76,6 +77,7 @@ public class interface_gerenciarCardapio extends javax.swing.JFrame {
         carregarProduto.setForeground(new java.awt.Color(252, 252, 252));
         carregarProduto.setText("Carregar");
         carregarProduto.setBorderPainted(false);
+        carregarProduto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         carregarProduto.setFocusPainted(false);
         carregarProduto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -95,6 +97,7 @@ public class interface_gerenciarCardapio extends javax.swing.JFrame {
         transferirCardapio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_lixo.png"))); // NOI18N
         transferirCardapio.setText("Excluir");
         transferirCardapio.setBorderPainted(false);
+        transferirCardapio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         transferirCardapio.setFocusPainted(false);
         transferirCardapio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -108,6 +111,7 @@ public class interface_gerenciarCardapio extends javax.swing.JFrame {
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_editar.png"))); // NOI18N
         jButton1.setText("Editar");
         jButton1.setBorderPainted(false);
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton1.setFocusPainted(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -121,6 +125,7 @@ public class interface_gerenciarCardapio extends javax.swing.JFrame {
         jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_adicionar.png"))); // NOI18N
         jButton6.setText("Adicionar");
         jButton6.setBorderPainted(false);
+        jButton6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton6.setFocusPainted(false);
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -196,12 +201,19 @@ public class interface_gerenciarCardapio extends javax.swing.JFrame {
                 "Nome", "Quantidade", "Tipo", "Preco"
             }
         ));
+        tabelaCardapio.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         tabelaCardapio.setFocusable(false);
         tabelaCardapio.setSelectionBackground(new java.awt.Color(255, 255, 255));
         tabelaCardapio.setSelectionForeground(new java.awt.Color(79, 84, 101));
         tabelaCardapio.setEnabled(false);
         tabelaCardapio.setRowHeight(25);
         jScrollPane1.setViewportView(tabelaCardapio);
+        if (tabelaCardapio.getColumnModel().getColumnCount() > 0) {
+            tabelaCardapio.getColumnModel().getColumn(0).setHeaderValue("Nome");
+            tabelaCardapio.getColumnModel().getColumn(1).setHeaderValue("Quantidade");
+            tabelaCardapio.getColumnModel().getColumn(2).setHeaderValue("Tipo");
+            tabelaCardapio.getColumnModel().getColumn(3).setHeaderValue("Preco");
+        }
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -284,8 +296,8 @@ public class interface_gerenciarCardapio extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void bVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVoltarActionPerformed
-        interface_Menu iM = new interface_Menu();
-        iM.setVisible(true);
+        interface_areaGerencia i_areaGerencia = new interface_areaGerencia();
+        i_areaGerencia.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_bVoltarActionPerformed
 

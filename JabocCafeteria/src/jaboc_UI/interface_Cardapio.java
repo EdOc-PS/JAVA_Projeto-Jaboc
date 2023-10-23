@@ -50,8 +50,10 @@ public class interface_Cardapio extends javax.swing.JFrame {
         bVoltar.setBackground(new java.awt.Color(252, 252, 252));
         bVoltar.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
         bVoltar.setForeground(new java.awt.Color(79, 84, 101));
-        bVoltar.setText("Voltar");
+        bVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_back.png"))); // NOI18N
+        bVoltar.setText("   Voltar");
         bVoltar.setBorderPainted(false);
+        bVoltar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         bVoltar.setFocusPainted(false);
         bVoltar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -72,6 +74,7 @@ public class interface_Cardapio extends javax.swing.JFrame {
         verificarProduto.setForeground(new java.awt.Color(252, 252, 252));
         verificarProduto.setText("Verificar");
         verificarProduto.setBorderPainted(false);
+        verificarProduto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         verificarProduto.setFocusPainted(false);
         verificarProduto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -88,6 +91,7 @@ public class interface_Cardapio extends javax.swing.JFrame {
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Editar Conta");
         jButton2.setBorderPainted(false);
+        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton2.setFocusPainted(false);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);

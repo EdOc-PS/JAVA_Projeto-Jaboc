@@ -8,6 +8,7 @@ import jaboc_Classes.Produto;
 import jaboc_Classes.listaProdutos;
 import java.awt.Color;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 /**
  *
@@ -48,6 +49,7 @@ public class interface_criarProduto extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         precoProduto = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
+        qtdeProduto = Quantidade();
         qtdeProduto = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         tipoProduto = new javax.swing.JComboBox<>();
@@ -74,7 +76,8 @@ public class interface_criarProduto extends javax.swing.JFrame {
         bVoltar.setBackground(new java.awt.Color(252, 252, 252));
         bVoltar.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
         bVoltar.setForeground(new java.awt.Color(79, 84, 101));
-        bVoltar.setText("Voltar");
+        bVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_back.png"))); // NOI18N
+        bVoltar.setText("   Voltar");
         bVoltar.setBorderPainted(false);
         bVoltar.setFocusPainted(false);
         bVoltar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -96,6 +99,7 @@ public class interface_criarProduto extends javax.swing.JFrame {
         criaCliente2.setForeground(new java.awt.Color(252, 252, 252));
         criaCliente2.setText("Enviar");
         criaCliente2.setBorderPainted(false);
+        criaCliente2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         criaCliente2.setFocusPainted(false);
         criaCliente2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -260,6 +264,15 @@ public class interface_criarProduto extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private JTextField Quantidade() {
+        try {
+            javax.swing.text.MaskFormatter cpf = new javax.swing.text.MaskFormatter("###");
+            return new javax.swing.JFormattedTextField(cpf);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Ocorreu um erro");
+            return new JTextField();
+        }
+    }
     private void bVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVoltarActionPerformed
         interface_gerenciarCardapio i_editarCardapio = new interface_gerenciarCardapio();
         i_editarCardapio.recebeListaProdutos(listaProdutos);

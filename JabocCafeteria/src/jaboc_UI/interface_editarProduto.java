@@ -80,8 +80,9 @@ public class interface_editarProduto extends javax.swing.JFrame {
         bVoltar.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
         bVoltar.setForeground(new java.awt.Color(79, 84, 101));
         bVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_back.png"))); // NOI18N
-        bVoltar.setText("  Voltar");
+        bVoltar.setText("    Voltar");
         bVoltar.setBorderPainted(false);
+        bVoltar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         bVoltar.setFocusPainted(false);
         bVoltar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -106,6 +107,7 @@ public class interface_editarProduto extends javax.swing.JFrame {
         editarProduto.setForeground(new java.awt.Color(249, 249, 249));
         editarProduto.setText("Enviar");
         editarProduto.setBorderPainted(false);
+        editarProduto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         editarProduto.setFocusPainted(false);
         editarProduto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -156,9 +158,12 @@ public class interface_editarProduto extends javax.swing.JFrame {
             }
         });
 
+        verificarProduto.setBackground(new java.awt.Color(79, 84, 101));
         verificarProduto.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        verificarProduto.setForeground(new java.awt.Color(255, 255, 255));
         verificarProduto.setText("Verificar");
         verificarProduto.setBorderPainted(false);
+        verificarProduto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         verificarProduto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 verificarProdutoActionPerformed(evt);

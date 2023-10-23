@@ -8,9 +8,8 @@ package jaboc_UI;
  *
  * @author eeuar
  */
-
 public class interface_Menu extends javax.swing.JFrame {
-   
+
     /**
      * Creates new form interface_Menu
      */
@@ -40,6 +39,7 @@ public class interface_Menu extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jPanel1.setBackground(new java.awt.Color(164, 144, 124));
 
@@ -190,14 +190,21 @@ public class interface_Menu extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         interface_criarCliente i_criarCliente = new interface_criarCliente();
-        i_criarCliente.setVisible(true);
-        this.dispose();
+        if(i_criarCliente.contaCriada() == true) {
+            interface_Cardapio i_Cardapio = new interface_Cardapio();
+            i_Cardapio.setVisible(true);
+            this.dispose();
+
+        }else{
+            i_criarCliente.setVisible(true);
+            this.dispose();
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-       interface_Gerencia i_gerencia = new interface_Gerencia();
-       i_gerencia.setVisible(true);
-       this.dispose();
+        interface_areaSenha i_areaSenha = new interface_areaSenha();
+        i_areaSenha.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**

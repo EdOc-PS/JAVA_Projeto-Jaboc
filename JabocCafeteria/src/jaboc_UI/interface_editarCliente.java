@@ -7,12 +7,16 @@ package jaboc_UI;
 import jaboc_Classes.Conta_Cliente;
 import java.awt.Color;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+
 /**
  *
  * @author guilh
  */
 public class interface_editarCliente extends javax.swing.JFrame {
+
     Conta_Cliente Conta_Cliente;
+
     /**
      * Creates new form interface_editarCliente
      */
@@ -146,8 +150,9 @@ public class interface_editarCliente extends javax.swing.JFrame {
         bVoltar1.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
         bVoltar1.setForeground(new java.awt.Color(79, 84, 101));
         bVoltar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_back.png"))); // NOI18N
-        bVoltar1.setText("  Voltar");
+        bVoltar1.setText("   Voltar");
         bVoltar1.setBorderPainted(false);
+        bVoltar1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         bVoltar1.setFocusPainted(false);
         bVoltar1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -171,6 +176,9 @@ public class interface_editarCliente extends javax.swing.JFrame {
         editarCliente.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
         editarCliente.setForeground(new java.awt.Color(252, 252, 252));
         editarCliente.setText("Enviar");
+        editarCliente.setBorderPainted(false);
+        editarCliente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        editarCliente.setFocusPainted(false);
         editarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 editarClienteActionPerformed(evt);
@@ -205,7 +213,7 @@ public class interface_editarCliente extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(141, 123, 104));
 
-        nomeCliente_Editar.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        nomeCliente_Editar.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
         nomeCliente_Editar.setForeground(new java.awt.Color(79, 84, 101));
         nomeCliente_Editar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -221,7 +229,8 @@ public class interface_editarCliente extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(79, 84, 101));
         jLabel2.setText("CPF:");
 
-        cpfCliente_Editar.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        cpfCliente_Editar = CPF();
+        cpfCliente_Editar.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
         cpfCliente_Editar.setForeground(new java.awt.Color(79, 84, 101));
         cpfCliente_Editar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -233,14 +242,15 @@ public class interface_editarCliente extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(79, 84, 101));
         jLabel3.setText("Endereço:");
 
-        enderecoCliente_Editar.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        enderecoCliente_Editar.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
         enderecoCliente_Editar.setForeground(new java.awt.Color(79, 84, 101));
 
         jLabel4.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(79, 84, 101));
         jLabel4.setText("Telefone:");
 
-        telefoneCliente_Editar.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        telefoneCliente_Editar = Telefone();
+        telefoneCliente_Editar.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
         telefoneCliente_Editar.setForeground(new java.awt.Color(79, 84, 101));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -291,7 +301,8 @@ public class interface_editarCliente extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("CPF:");
 
-        verificarCPF_Cliente.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        verificarCPF_Cliente = CPF();
+        verificarCPF_Cliente.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
         verificarCPF_Cliente.setForeground(new java.awt.Color(79, 84, 101));
         verificarCPF_Cliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -304,11 +315,16 @@ public class interface_editarCliente extends javax.swing.JFrame {
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText(" Senha:");
 
-        verificarSenha_Cliente.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        verificarSenha_Cliente.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
         verificarSenha_Cliente.setForeground(new java.awt.Color(79, 84, 101));
 
+        verificarCliente.setBackground(new java.awt.Color(79, 84, 101));
         verificarCliente.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        verificarCliente.setForeground(new java.awt.Color(255, 255, 255));
         verificarCliente.setText("Verificar");
+        verificarCliente.setBorderPainted(false);
+        verificarCliente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        verificarCliente.setFocusPainted(false);
         verificarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 verificarClienteActionPerformed(evt);
@@ -388,7 +404,25 @@ public class interface_editarCliente extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    private JTextField CPF() {
+        try {
+            javax.swing.text.MaskFormatter cpf = new javax.swing.text.MaskFormatter("###.###.###-##");
+            return new javax.swing.JFormattedTextField(cpf);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Ocorreu um erro");
+            return new JTextField();
+        }
+    }
 
+    public JTextField Telefone() {
+        try {
+            javax.swing.text.MaskFormatter cpf = new javax.swing.text.MaskFormatter("(##)#####-####");
+            return new javax.swing.JFormattedTextField(cpf);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Ocorreu um erro");
+            return new JTextField();
+        }
+    }
     private void verificarCPF_ClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verificarCPF_ClienteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_verificarCPF_ClienteActionPerformed
@@ -402,30 +436,29 @@ public class interface_editarCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_cpfCliente_EditarActionPerformed
 
     private void verificarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verificarClienteActionPerformed
-        
-        if(Conta_Cliente != null){
-            if(Conta_Cliente.verificaCPF(verificarCPF_Cliente.getText()) && Conta_Cliente.verificaSenha(verificarSenha_Cliente.getText())){
+
+        if (Conta_Cliente != null) {
+            if (Conta_Cliente.verificaCPF(verificarCPF_Cliente.getText()) && Conta_Cliente.verificaSenha(verificarSenha_Cliente.getText())) {
                 nomeCliente_Editar.setText(Conta_Cliente.getTitular().getNomeCliente());
                 cpfCliente_Editar.setText(Conta_Cliente.getTitular().getCpfCliente());
                 enderecoCliente_Editar.setText(Conta_Cliente.getTitular().getEnderecoCliente());
                 telefoneCliente_Editar.setText(Conta_Cliente.getTitular().getTelefoneCliente());
-            }else if(!Conta_Cliente.verificaCPF(verificarCPF_Cliente.getText())){
-                JOptionPane.showMessageDialog(null,"CPF inexistente!", "Erro", WIDTH);
-            }else{
-                JOptionPane.showMessageDialog(null,"Senha incorreta!", "Erro", WIDTH);
+            } else if (!Conta_Cliente.verificaCPF(verificarCPF_Cliente.getText())) {
+                JOptionPane.showMessageDialog(null, "CPF inexistente!", "Erro", WIDTH);
+            } else {
+                JOptionPane.showMessageDialog(null, "Senha incorreta!", "Erro", WIDTH);
             }
-        }else{
-            JOptionPane.showMessageDialog(null, "Nenhum Cliente cadastrado!","Erro",WIDTH);
-        }    
+        } else {
+            JOptionPane.showMessageDialog(null, "Nenhum Cliente cadastrado!", "Erro", WIDTH);
+        }
     }//GEN-LAST:event_verificarClienteActionPerformed
 
     private void editarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarClienteActionPerformed
-        if(Conta_Cliente == null){
+        if (Conta_Cliente == null) {
             JOptionPane.showMessageDialog(null, "Nenhum Cliente cadastrado!", "Erro", WIDTH);
-        }     
-        else if("".equals(nomeCliente_Editar.getText()) || "".equals(cpfCliente_Editar.getText()) || "".equals(enderecoCliente_Editar.getText()) || "".equals(telefoneCliente_Editar.getText())){
-            JOptionPane.showMessageDialog(null,"Os campos estão vazios!","Erro",WIDTH);
-        }else{
+        } else if ("".equals(nomeCliente_Editar.getText()) || "".equals(cpfCliente_Editar.getText()) || "".equals(enderecoCliente_Editar.getText()) || "".equals(telefoneCliente_Editar.getText())) {
+            JOptionPane.showMessageDialog(null, "Os campos estão vazios!", "Erro", WIDTH);
+        } else {
             Conta_Cliente.getTitular().setNomeCliente(nomeCliente_Editar.getText());
             Conta_Cliente.getTitular().setCpfCliente(cpfCliente_Editar.getText());
             Conta_Cliente.getTitular().setEnderecoCliente(enderecoCliente_Editar.getText());
@@ -439,11 +472,11 @@ public class interface_editarCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_editarClienteActionPerformed
 
     private void bVoltarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bVoltarMouseEntered
-        bVoltar1.setBackground(new Color (237,237,237));
+        bVoltar1.setBackground(new Color(237, 237, 237));
     }//GEN-LAST:event_bVoltarMouseEntered
 
     private void bVoltarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bVoltarMouseExited
-        bVoltar1.setBackground(new Color(252,252,252));
+        bVoltar1.setBackground(new Color(252, 252, 252));
     }//GEN-LAST:event_bVoltarMouseExited
 
     private void bVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVoltarActionPerformed
@@ -453,29 +486,60 @@ public class interface_editarCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_bVoltarActionPerformed
 
     private void verificarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verificarProdutoActionPerformed
-   
+
     }//GEN-LAST:event_verificarProdutoActionPerformed
 
     private void bVoltar1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bVoltar1MouseEntered
-        bVoltar.setBackground(new Color (237,237,237));
+        bVoltar1.setBackground(new Color(237, 237, 237));
     }//GEN-LAST:event_bVoltar1MouseEntered
 
     private void bVoltar1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bVoltar1MouseExited
-        bVoltar.setBackground(new Color(252,252,252));
+        bVoltar1.setBackground(new Color(252, 252, 252));
     }//GEN-LAST:event_bVoltar1MouseExited
 
     private void bVoltar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVoltar1ActionPerformed
-        interface_Menu iM = new interface_Menu();
-        iM.setVisible(true);
+        interface_Cardapio i_Cardapio = new interface_Cardapio();
+        i_Cardapio.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_bVoltar1ActionPerformed
-    public void recebeConta(Conta_Cliente C){
+    public void recebeConta(Conta_Cliente C) {
         Conta_Cliente = C;
     }
+
     /**
      * @param args the command line arguments
      */
-  
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Windows".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(interface_Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(interface_Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(interface_Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(interface_Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new interface_editarCliente().setVisible(true);
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bVoltar;

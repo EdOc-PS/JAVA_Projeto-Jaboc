@@ -8,14 +8,19 @@ import jaboc_Classes.Cliente;
 import jaboc_Classes.Conta_Cliente;
 import java.awt.Color;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+
 /**
  *
  * @author guilh
  */
 public class interface_criarCliente extends javax.swing.JFrame {
+
     private Cliente Cliente;
-    private Conta_Cliente Conta_Cliente ;
+    private Conta_Cliente Conta_Cliente;
     private int IdConta = 1;
+    private boolean contaCriada = false;
+
     /**
      * Creates new form interfaceCliente
      */
@@ -49,10 +54,10 @@ public class interface_criarCliente extends javax.swing.JFrame {
         telefoneCliente = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
-        senhaCliente = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        verificarSenhaCliente = new javax.swing.JTextField();
+        senhaCliente = new javax.swing.JPasswordField();
+        verificarSenhaCliente = new javax.swing.JPasswordField();
         jLabel5 = new javax.swing.JLabel();
 
         jLabel8.setText("jLabel8");
@@ -67,7 +72,8 @@ public class interface_criarCliente extends javax.swing.JFrame {
         bVoltar.setBackground(new java.awt.Color(252, 252, 252));
         bVoltar.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
         bVoltar.setForeground(new java.awt.Color(79, 84, 101));
-        bVoltar.setText("Voltar");
+        bVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_back.png"))); // NOI18N
+        bVoltar.setText("   Voltar");
         bVoltar.setBorderPainted(false);
         bVoltar.setFocusPainted(false);
         bVoltar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -89,6 +95,7 @@ public class interface_criarCliente extends javax.swing.JFrame {
         criaCliente.setForeground(new java.awt.Color(252, 252, 252));
         criaCliente.setText("Enviar");
         criaCliente.setBorderPainted(false);
+        criaCliente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         criaCliente.setFocusPainted(false);
         criaCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -146,6 +153,7 @@ public class interface_criarCliente extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(252, 252, 252));
         jLabel2.setText("CPF:");
 
+        cpfCliente = CPF();
         cpfCliente.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
         cpfCliente.setForeground(new java.awt.Color(79, 84, 101));
         cpfCliente.addActionListener(new java.awt.event.ActionListener() {
@@ -162,6 +170,7 @@ public class interface_criarCliente extends javax.swing.JFrame {
         enderecoCliente.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
         enderecoCliente.setForeground(new java.awt.Color(79, 84, 101));
 
+        telefoneCliente = Telefone();
         telefoneCliente.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
         telefoneCliente.setForeground(new java.awt.Color(79, 84, 101));
 
@@ -171,14 +180,6 @@ public class interface_criarCliente extends javax.swing.JFrame {
 
         jPanel5.setBackground(new java.awt.Color(141, 123, 104));
 
-        senhaCliente.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
-        senhaCliente.setForeground(new java.awt.Color(79, 84, 101));
-        senhaCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                senhaClienteActionPerformed(evt);
-            }
-        });
-
         jLabel6.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(79, 84, 101));
         jLabel6.setText("Crie uma senha: ");
@@ -187,8 +188,9 @@ public class interface_criarCliente extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(79, 84, 101));
         jLabel7.setText("Informe a senha novamente:");
 
-        verificarSenhaCliente.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
-        verificarSenhaCliente.setForeground(new java.awt.Color(79, 84, 101));
+        senhaCliente.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+
+        verificarSenhaCliente.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -210,7 +212,7 @@ public class interface_criarCliente extends javax.swing.JFrame {
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(senhaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(14, 14, 14)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(verificarSenhaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -315,9 +317,26 @@ public class interface_criarCliente extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void senhaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_senhaClienteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_senhaClienteActionPerformed
+    private JTextField CPF() {
+        try {
+            javax.swing.text.MaskFormatter cpf = new javax.swing.text.MaskFormatter("###.###.###-##");
+            return new javax.swing.JFormattedTextField(cpf);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Ocorreu um erro");
+
+            return new JTextField();
+        }
+    }
+
+    private JTextField Telefone() {
+        try {
+            javax.swing.text.MaskFormatter cpf = new javax.swing.text.MaskFormatter("(##)#####-####");
+            return new javax.swing.JFormattedTextField(cpf);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Ocorreu um erro");
+            return new JTextField();
+        }
+    }
 
     private void cpfClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cpfClienteActionPerformed
         // TODO add your handling code here:
@@ -328,18 +347,20 @@ public class interface_criarCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_nomeClienteActionPerformed
 
     private void criaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_criaClienteActionPerformed
-        if(!"".equals(nomeCliente.getText()) && !"".equals(cpfCliente.getText()) && !"".equals(enderecoCliente.getText()) && !"".equals(telefoneCliente.getText())){
+        if (!"".equals(nomeCliente.getText()) && !"".equals(cpfCliente.getText()) && !"".equals(enderecoCliente.getText()) && !"".equals(telefoneCliente.getText())) {
             Cliente = new Cliente(nomeCliente.getText(), cpfCliente.getText(), enderecoCliente.getText(), telefoneCliente.getText());
-            if(Conta_Cliente.verificarSenha(senhaCliente.getText(), verificarSenhaCliente.getText())){
-                JOptionPane.showMessageDialog(null, "ID da conta: " + IdConta + "\n" + Cliente.toString(),"Conta cadastrada!",WIDTH);
-                Conta_Cliente = new Conta_Cliente(IdConta++,Cliente,senhaCliente.getText());
+            if (Conta_Cliente.verificarSenha(String.valueOf(senhaCliente.getPassword()), String.valueOf(verificarSenhaCliente.getPassword()))) {
+                JOptionPane.showMessageDialog(null, "ID da conta: " + IdConta + "\n" + Cliente.toString(), "Conta cadastrada!", WIDTH);
+                Conta_Cliente = new Conta_Cliente(IdConta++, Cliente, String.valueOf(senhaCliente.getPassword()));
+                contaCriada = true;
                 this.dispose();
-            }else{
-                JOptionPane.showMessageDialog(null,"Senhas informadas incorretamente!", "Erro",WIDTH);
+
+            } else {
+                JOptionPane.showMessageDialog(null, "A senhas não são iguais!", "Erro", WIDTH);
                 senhaCliente.setText("");
                 verificarSenhaCliente.setText("");
             }
-        }else{
+        } else {
             JOptionPane.showMessageDialog(null, "Os campos estão vazios!", "Information", JOptionPane.INFORMATION_MESSAGE);
         }
 
@@ -352,15 +373,17 @@ public class interface_criarCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_bVoltarActionPerformed
 
     private void bVoltarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bVoltarMouseEntered
-       bVoltar.setBackground(new Color(237, 237, 237));
+        bVoltar.setBackground(new Color(237, 237, 237));
     }//GEN-LAST:event_bVoltarMouseEntered
 
     private void bVoltarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bVoltarMouseExited
         bVoltar.setBackground(new Color(252, 252, 252));
     }//GEN-LAST:event_bVoltarMouseExited
-                                     
 
-   
+    public boolean contaCriada() {
+        return contaCriada;
+    }
+
     /**
      * @param args the command line arguments
      */
@@ -416,8 +439,8 @@ public class interface_criarCliente extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JTextField nomeCliente;
-    private javax.swing.JTextField senhaCliente;
+    private javax.swing.JPasswordField senhaCliente;
     private javax.swing.JTextField telefoneCliente;
-    private javax.swing.JTextField verificarSenhaCliente;
+    private javax.swing.JPasswordField verificarSenhaCliente;
     // End of variables declaration//GEN-END:variables
 }
