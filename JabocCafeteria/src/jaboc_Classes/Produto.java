@@ -68,7 +68,7 @@ public class Produto {
 
     @Override
     public String toString() {
-        return "O novo Produto contem:\n" + "Nome: " + nomeProduto + "\nQuantidade: " + qtdeProduto + "\nIdentificação: " + idProduto + "\nTipo: " + tipoProduto + "\nPreco: " + precoProduto;
+        return "Nome: " + nomeProduto + "\nQuantidade: " + qtdeProduto + "\nIdentificação: " + idProduto + "\nTipo: " + tipoProduto + "\nPreco: " + precoProduto;
     }
 
 }
