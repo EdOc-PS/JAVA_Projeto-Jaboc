@@ -382,7 +382,10 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="ADICIONAR PRODUTO"/>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/img/icons/i_adicionar2.png"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value=" ADICIONAR PRODUTO"/>
           </Properties>
         </Component>
       </SubComponents>

@@ -4,7 +4,7 @@
  */
 package jaboc_UI;
 
-import jaboc_Classes.Conta_Cliente;
+import jaboc_Classes.Cliente;
 import java.awt.Color;
 
 /**
@@ -12,7 +12,6 @@ import java.awt.Color;
  * @author eeuar
  */
 public class interface_Menu extends javax.swing.JFrame {
-    private Conta_Cliente Conta_Cliente;
     /**
      * Creates new form interface_Menu
      */
@@ -212,8 +211,8 @@ public class interface_Menu extends javax.swing.JFrame {
 
     private void bCardapioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCardapioActionPerformed
        interface_criarCliente i_criarCliente = new interface_criarCliente();
-       i_criarCliente.retornarCliente(Conta_Cliente);
-        if(Conta_Cliente.isContaExistente()) {        
+    
+        if(i_criarCliente.retornaCriada()) {        
             interface_areaSenhaCliente i_areaSenhaCliente = new interface_areaSenhaCliente();
             i_areaSenhaCliente.setVisible(true);
             this.dispose();

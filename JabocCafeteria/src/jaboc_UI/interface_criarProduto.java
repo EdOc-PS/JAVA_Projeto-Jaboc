@@ -225,7 +225,8 @@ public class interface_criarProduto extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Gill Sans MT", 1, 30)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("ADICIONAR PRODUTO");
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_adicionar2.png"))); // NOI18N
+        jLabel6.setText(" ADICIONAR PRODUTO");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
