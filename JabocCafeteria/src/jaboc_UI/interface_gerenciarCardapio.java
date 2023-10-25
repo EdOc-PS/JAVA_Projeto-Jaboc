@@ -79,6 +79,11 @@ public class interface_gerenciarCardapio extends javax.swing.JFrame {
         carregarProduto.setBorderPainted(false);
         carregarProduto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         carregarProduto.setFocusPainted(false);
+        carregarProduto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                carregarProdutoMouseClicked(evt);
+            }
+        });
         carregarProduto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 carregarProdutoActionPerformed(evt);
@@ -339,7 +344,7 @@ public class interface_gerenciarCardapio extends javax.swing.JFrame {
                 }
             }
         }
-        carregarProduto.setVisible(false);
+       
     }//GEN-LAST:event_carregarProdutoActionPerformed
 
     private void bAdicionar_ProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAdicionar_ProdutoActionPerformed
@@ -379,6 +384,11 @@ public class interface_gerenciarCardapio extends javax.swing.JFrame {
     private void bExcluir_ProdutoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bExcluir_ProdutoMouseExited
         bExcluir_Produto.setBackground(new Color(252, 252, 252));
     }//GEN-LAST:event_bExcluir_ProdutoMouseExited
+
+    private void carregarProdutoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carregarProdutoMouseClicked
+        carregarProduto.setBackground(new Color(71,77,91));
+        carregarProduto.setEnabled(false);
+    }//GEN-LAST:event_carregarProdutoMouseClicked
     public void recebeListaProdutos(listaProdutos lista) {
         listaProdutos = lista;
     }
