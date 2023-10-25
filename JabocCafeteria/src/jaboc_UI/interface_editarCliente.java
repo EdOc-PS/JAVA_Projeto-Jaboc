@@ -465,11 +465,13 @@ public class interface_editarCliente extends javax.swing.JFrame {
             Conta_Cliente.getTitular().setCpfCliente(cpfCliente_Editar.getText());
             Conta_Cliente.getTitular().setEnderecoCliente(enderecoCliente_Editar.getText());
             Conta_Cliente.getTitular().setTelefoneCliente(telefoneCliente_Editar.getText());
-
+            Conta_Cliente.setContaAtiva(true);
+            
             nomeCliente_Editar.setText("");
             cpfCliente_Editar.setText("");
             enderecoCliente_Editar.setText("");
             telefoneCliente_Editar.setText("");
+            
         }
     }//GEN-LAST:event_editarClienteActionPerformed
 
@@ -482,8 +484,12 @@ public class interface_editarCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_bVoltarMouseExited
 
     private void bVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVoltarActionPerformed
-        interface_Menu iM = new interface_Menu();
-        iM.setVisible(true);
+        interface_Cardapio i_Cardapio = new interface_Cardapio();
+        i_Cardapio.setVisible(true);
+        i_Cardapio.recebeConta(Conta_Cliente);
+        
+        interface_Menu i_Menu = new interface_Menu();
+        i_Menu.recebeConta(Conta_Cliente);
         this.dispose();
     }//GEN-LAST:event_bVoltarActionPerformed
 
@@ -504,8 +510,8 @@ public class interface_editarCliente extends javax.swing.JFrame {
         i_Cardapio.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_bVoltar1ActionPerformed
-    public void recebeConta(Conta_Cliente C) {
-        Conta_Cliente = C;
+    public void recebeConta(Conta_Cliente conta) {
+        Conta_Cliente = conta;
     }
 
     /**

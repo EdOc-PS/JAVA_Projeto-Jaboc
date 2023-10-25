@@ -16,7 +16,7 @@ import javax.swing.JTextField;
  */
 public class interface_criarCliente extends javax.swing.JFrame {
 
-    private Cliente Cliente = new Cliente();
+    private Cliente Cliente;
     private Conta_Cliente Conta_Cliente;
     private int IdConta = 1;
 
@@ -359,13 +359,19 @@ public class interface_criarCliente extends javax.swing.JFrame {
 
     private void criaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_criaClienteActionPerformed
         if (!"".equals(nomeCliente.getText()) && !"".equals(cpfCliente.getText()) && !"".equals(enderecoCliente.getText()) && !"".equals(telefoneCliente.getText())) {
-            Cliente = new Cliente(nomeCliente.getText(), cpfCliente.getText(), enderecoCliente.getText(), telefoneCliente.getText(), true);
+            Cliente = new Cliente(nomeCliente.getText(), cpfCliente.getText(), enderecoCliente.getText(), telefoneCliente.getText());
+           
             if (String.valueOf(senhaCliente.getPassword()).equals(String.valueOf(verificarSenhaCliente.getPassword())) && !String.valueOf(senhaCliente.getPassword()).equals("")) {
                 JOptionPane.showMessageDialog(null, "ID da conta: " + IdConta + "\n" + Cliente.toString(), "Conta cadastrada!", WIDTH);
-                Conta_Cliente = new Conta_Cliente(IdConta++, Cliente, String.valueOf(senhaCliente.getPassword()));
+                Conta_Cliente = new Conta_Cliente(IdConta++, Cliente, String.valueOf(senhaCliente.getPassword()), true);
+                
                 interface_Cardapio i_Cardapio = new interface_Cardapio();
                 i_Cardapio.setVisible(true);
+                i_Cardapio.recebeConta(Conta_Cliente);           
                 this.dispose();
+                
+                interface_areaSenhaCliente i_areaSenhaCliente = new interface_areaSenhaCliente();
+                i_areaSenhaCliente.recebeConta(Conta_Cliente);
 
             } else {
                 JOptionPane.showMessageDialog(null, "A senhas não são iguais!", "Erro", WIDTH);
@@ -395,9 +401,8 @@ public class interface_criarCliente extends javax.swing.JFrame {
     private void verificarSenhaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verificarSenhaClienteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_verificarSenhaClienteActionPerformed
-   public boolean retornaCriada(){
-        return Cliente.isContaCriada();
-    }
+
+
     /**
      * @param args the command line arguments
      */

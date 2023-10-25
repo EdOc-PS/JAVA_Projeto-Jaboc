@@ -4,6 +4,8 @@
  */
 package jaboc_UI;
 
+import jaboc_Classes.Cliente;
+import jaboc_Classes.Conta_Cliente;
 import jaboc_Classes.listaProdutos;
 import java.awt.Color;
 import javax.swing.table.DefaultTableModel;
@@ -13,7 +15,8 @@ import javax.swing.table.DefaultTableModel;
  * @author 0057138
  */
 public class interface_Cardapio extends javax.swing.JFrame {
-
+    private Conta_Cliente Conta_Cliente;
+    private Cliente Cliente;
     private listaProdutos listaProdutos = new listaProdutos();
 
     public interface_Cardapio() {
@@ -127,9 +130,8 @@ public class interface_Cardapio extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(bVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(bEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(bVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 287, Short.MAX_VALUE)
                 .addComponent(verificarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -220,8 +222,9 @@ public class interface_Cardapio extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVoltarActionPerformed
-        interface_Menu iM = new interface_Menu();
-        iM.setVisible(true);
+        interface_Menu i_Menu = new interface_Menu();
+        i_Menu.setVisible(true);
+        i_Menu.recebeConta(Conta_Cliente);
         this.dispose();
     }//GEN-LAST:event_bVoltarActionPerformed
 
@@ -251,11 +254,14 @@ public class interface_Cardapio extends javax.swing.JFrame {
     }//GEN-LAST:event_bVoltarMouseExited
 
     private void bEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bEditarActionPerformed
-        // TODO add your handling code here:
+        interface_editarCliente i_editarCliente = new interface_editarCliente();
+        i_editarCliente.setVisible(true);
+        i_editarCliente.recebeConta(Conta_Cliente);
+        this.dispose();
     }//GEN-LAST:event_bEditarActionPerformed
 
     private void bEditarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bEditarMouseEntered
-        bEditar.setBackground(new Color(210,224,251));
+        bEditar.setBackground(new Color(210, 224, 251));
     }//GEN-LAST:event_bEditarMouseEntered
 
     private void bEditarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bEditarMouseExited
@@ -264,11 +270,14 @@ public class interface_Cardapio extends javax.swing.JFrame {
     public void recebeListaProduto(listaProdutos lista) {
         listaProdutos = lista;
     }
+    public void recebeConta(Conta_Cliente conta) {
+        Conta_Cliente = conta;
+    }
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void cardapio(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.

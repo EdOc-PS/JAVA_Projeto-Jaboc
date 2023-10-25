@@ -319,7 +319,7 @@ public class interface_criarProduto extends javax.swing.JFrame {
     public void recebeListaProdutos(listaProdutos lista) {
         listaProdutos = lista;
     }
-
+   
     /**
      * @param args the command line arguments
      */

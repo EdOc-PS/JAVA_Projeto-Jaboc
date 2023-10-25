@@ -16,13 +16,15 @@ import javax.swing.JOptionPane;
 public class interface_areaSenhaCliente extends javax.swing.JFrame {
 
     private Cliente Cliente;
-    private Conta_Cliente Conta_Cliente;
+    Conta_Cliente Conta_Cliente;
 
     /**
      * Creates new form interface_areaSenhaCliente
      */
     public interface_areaSenhaCliente() {
         initComponents();
+        setLocationRelativeTo(null);
+
     }
 
     /**
@@ -227,13 +229,14 @@ public class interface_areaSenhaCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_bVoltar4ActionPerformed
 
     private void editarProduto4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarProduto4ActionPerformed
+        
         if (Conta_Cliente.verificarSenha(String.valueOf(txtSenhaCliente.getPassword()), String.valueOf(txtverificarSenhaCliente.getPassword()))) {
             if (String.valueOf(txtSenhaCliente.getPassword()).equals(Conta_Cliente.getSenha())) {
                 interface_Cardapio i_Cardapio = new interface_Cardapio();
                 i_Cardapio.setVisible(true);
                 this.dispose();
-            }else{
-                  JOptionPane.showMessageDialog(null, "A senha está incorreta", "Erro", WIDTH);
+            } else {
+                JOptionPane.showMessageDialog(null, "A senha está incorreta", "Erro", WIDTH);
             }
         } else {
             JOptionPane.showMessageDialog(null, "A senhas não são iguais!", "Erro", WIDTH);
@@ -250,6 +253,9 @@ public class interface_areaSenhaCliente extends javax.swing.JFrame {
     private void txtverificarSenhaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtverificarSenhaClienteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtverificarSenhaClienteActionPerformed
+    public void recebeConta(Conta_Cliente conta) {
+        this.Conta_Cliente = conta;
+    }
 
     /**
      * @param args the command line arguments

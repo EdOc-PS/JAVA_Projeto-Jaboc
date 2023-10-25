@@ -9,16 +9,17 @@ package jaboc_Classes;
  * @author guilh
  */
 public class Cliente {
+
     private String nomeCliente;
     private String cpfCliente;
     private String enderecoCliente;
     private String telefoneCliente;
-    
-    public Cliente(String nome, String CPF, String endereco, String telefone){
+
+    public Cliente(String nome, String CPF, String endereco, String telefone) {
         this.nomeCliente = nome;
         this.setCpfCliente(CPF);
         this.enderecoCliente = endereco;
-        this.telefoneCliente = telefone;
+        this.telefoneCliente = telefone;    
     }
 
     public String getNomeCliente() {
@@ -52,8 +53,11 @@ public class Cliente {
     public void setTelefoneCliente(String telefoneCliente) {
         this.telefoneCliente = telefoneCliente;
     }
+
     
-    public String toString(){
-        return "Nome: " + this.nomeCliente + "\nCPF: " + this.cpfCliente+"\nEndereço: " + this.enderecoCliente + "\nTelefone: " + this.telefoneCliente;
+
+    @Override
+    public String toString() {
+        return "Nome: " + this.nomeCliente + "\nCPF: " + this.cpfCliente + "\nEndereço: " + this.enderecoCliente + "\nTelefone: " + this.telefoneCliente;
     }
 }

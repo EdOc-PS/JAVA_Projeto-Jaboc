@@ -12,11 +12,21 @@ public class Conta_Cliente {
     private int IdCliente;
     private Cliente titularCliente;
     private String senha;
+    private boolean contaAtiva;
     
-    public Conta_Cliente(int IdCliente, Cliente titular, String senha){
+    public Conta_Cliente(int IdCliente, Cliente titular, String senha, boolean contaAtiva){
         this.IdCliente = IdCliente;
         this.titularCliente = titular;
         this.senha = senha;
+        this.contaAtiva = contaAtiva;
+    }
+
+    public boolean isContaAtiva() {
+        return contaAtiva;
+    }
+
+    public void setContaAtiva(boolean contaAtiva) {
+        this.contaAtiva = contaAtiva;
     }
 
     public int getIdCliente() {

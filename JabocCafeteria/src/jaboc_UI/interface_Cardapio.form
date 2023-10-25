@@ -105,10 +105,8 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                              <Component id="bVoltar" alignment="0" min="-2" pref="60" max="-2" attributes="0"/>
-                              <Component id="bEditar" alignment="0" min="-2" pref="60" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="bVoltar" alignment="0" min="-2" pref="60" max="-2" attributes="0"/>
+                          <Component id="bEditar" alignment="0" min="-2" pref="60" max="-2" attributes="0"/>
                           <Component id="jLabel11" alignment="0" min="-2" pref="155" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="287" max="32767" attributes="0"/>

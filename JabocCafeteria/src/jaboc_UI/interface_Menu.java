@@ -5,6 +5,7 @@
 package jaboc_UI;
 
 import jaboc_Classes.Cliente;
+import jaboc_Classes.Conta_Cliente;
 import java.awt.Color;
 
 /**
@@ -12,6 +13,9 @@ import java.awt.Color;
  * @author eeuar
  */
 public class interface_Menu extends javax.swing.JFrame {
+
+    private Conta_Cliente Conta_Cliente;
+
     /**
      * Creates new form interface_Menu
      */
@@ -210,15 +214,13 @@ public class interface_Menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bCardapioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCardapioActionPerformed
-       interface_criarCliente i_criarCliente = new interface_criarCliente();
-    
-        if(i_criarCliente.retornaCriada()) {        
+        interface_criarCliente i_criarCliente = new interface_criarCliente();
+
+        if (Conta_Cliente!= null && Conta_Cliente.isContaAtiva()== true) {
             interface_areaSenhaCliente i_areaSenhaCliente = new interface_areaSenhaCliente();
             i_areaSenhaCliente.setVisible(true);
             this.dispose();
-
-        }else{
-            
+        } else {
             i_criarCliente.setVisible(true);
             this.dispose();
         }
@@ -231,23 +233,24 @@ public class interface_Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_bGerenciaActionPerformed
 
     private void bCardapioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bCardapioMouseEntered
-       bCardapio.setBackground(new Color(237, 237, 237));
+        bCardapio.setBackground(new Color(237, 237, 237));
     }//GEN-LAST:event_bCardapioMouseEntered
 
     private void bGerenciaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bGerenciaMouseEntered
-       bGerencia.setBackground(new Color(237, 237, 237));
+        bGerencia.setBackground(new Color(237, 237, 237));
     }//GEN-LAST:event_bGerenciaMouseEntered
 
     private void bCardapioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bCardapioMouseExited
-      bCardapio.setBackground(new Color(252, 252, 252));
+        bCardapio.setBackground(new Color(252, 252, 252));
     }//GEN-LAST:event_bCardapioMouseExited
 
     private void bGerenciaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bGerenciaMouseExited
         bGerencia.setBackground(new Color(252, 252, 252));
     }//GEN-LAST:event_bGerenciaMouseExited
-    
-   
-    
+    public void recebeConta(Conta_Cliente conta) {
+        Conta_Cliente = conta;
+    }
+
     /**
      * @param args the command line arguments
      */
