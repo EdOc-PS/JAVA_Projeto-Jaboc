@@ -4,6 +4,7 @@
  */
 package jaboc_UI;
 
+import jaboc_Classes.listaFuncionarios;
 import jaboc_Classes.listaProdutos;
 import java.awt.Color;
 import javax.swing.table.DefaultTableModel;
@@ -13,9 +14,10 @@ import javax.swing.table.DefaultTableModel;
  * @author 0057138
  */
 public class interface_gerenciarCardapio extends javax.swing.JFrame {
-
+    
     private listaProdutos listaProdutos = new listaProdutos();
-
+    private listaFuncionarios listaFuncionarios;
+    
     public interface_gerenciarCardapio() {
         initComponents();
         setLocationRelativeTo(null);
@@ -79,11 +81,6 @@ public class interface_gerenciarCardapio extends javax.swing.JFrame {
         carregarProduto.setBorderPainted(false);
         carregarProduto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         carregarProduto.setFocusPainted(false);
-        carregarProduto.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                carregarProdutoMouseClicked(evt);
-            }
-        });
         carregarProduto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 carregarProdutoActionPerformed(evt);
@@ -311,8 +308,9 @@ public class interface_gerenciarCardapio extends javax.swing.JFrame {
 
     private void bExcluir_ProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bExcluir_ProdutoActionPerformed
         interface_apagarProduto i_apagarProduto = new interface_apagarProduto();
-        i_apagarProduto.setVisible(true);
-        i_apagarProduto.recebeListaProdutos(listaProdutos);
+         i_apagarProduto.recebeListaProdutos(listaProdutos);
+         i_apagarProduto.recebeListaFuncionarios(listaFuncionarios);
+        i_apagarProduto.setVisible(true);       
         this.dispose();
     }//GEN-LAST:event_bExcluir_ProdutoActionPerformed
 
@@ -320,12 +318,15 @@ public class interface_gerenciarCardapio extends javax.swing.JFrame {
 
         interface_editarProduto i_editarProduto = new interface_editarProduto();
         i_editarProduto.recebeListaProdutos(listaProdutos);
+        i_editarProduto.recebeListaFuncionarios(listaFuncionarios);
         i_editarProduto.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_bEdiatr_ProdutoActionPerformed
 
     private void bVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVoltarActionPerformed
         interface_areaGerencia i_areaGerencia = new interface_areaGerencia();
+        i_areaGerencia.recebeListaProdutos(listaProdutos);
+        i_areaGerencia.recebeListaFuncionarios(listaFuncionarios);
         i_areaGerencia.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_bVoltarActionPerformed
@@ -344,11 +345,13 @@ public class interface_gerenciarCardapio extends javax.swing.JFrame {
                 }
             }
         }
-       
+        carregarProduto.setVisible(false);
     }//GEN-LAST:event_carregarProdutoActionPerformed
 
     private void bAdicionar_ProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAdicionar_ProdutoActionPerformed
         interface_criarProduto i_criarProduto = new interface_criarProduto();
+        i_criarProduto.recebeListaProdutos(listaProdutos);
+        i_criarProduto.recebeListaFuncionarios(listaFuncionarios);
         i_criarProduto.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_bAdicionar_ProdutoActionPerformed
@@ -384,15 +387,12 @@ public class interface_gerenciarCardapio extends javax.swing.JFrame {
     private void bExcluir_ProdutoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bExcluir_ProdutoMouseExited
         bExcluir_Produto.setBackground(new Color(252, 252, 252));
     }//GEN-LAST:event_bExcluir_ProdutoMouseExited
-
-    private void carregarProdutoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carregarProdutoMouseClicked
-        carregarProduto.setBackground(new Color(71,77,91));
-        carregarProduto.setEnabled(false);
-    }//GEN-LAST:event_carregarProdutoMouseClicked
-    public void recebeListaProdutos(listaProdutos lista) {
-        listaProdutos = lista;
+    public void recebeListaProdutos(listaProdutos listaProdutos) {
+        this.listaProdutos = listaProdutos;
     }
-
+    public void recebeListaFuncionarios(listaFuncionarios listaFuncionarios){
+        this.listaFuncionarios = listaFuncionarios;
+    }
     /**
      * @param args the command line arguments
      */

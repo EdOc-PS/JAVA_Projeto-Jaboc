@@ -4,6 +4,7 @@
  */
 package jaboc_UI;
 
+import jaboc_Classes.listaFuncionarios;
 import jaboc_Classes.listaProdutos;
 import java.awt.Color;
 import static java.awt.image.ImageObserver.WIDTH;
@@ -14,8 +15,8 @@ import javax.swing.JOptionPane;
  * @author eeuar
  */
 public class interface_apagarProduto extends javax.swing.JFrame {
-
-    listaProdutos listaProdutos;
+    private listaFuncionarios listaFuncionarios;
+    private listaProdutos listaProdutos;
     int indiceProduto;
 
     /**
@@ -245,9 +246,10 @@ public class interface_apagarProduto extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVoltarActionPerformed
-        interface_gerenciarCardapio i_editarCardapio = new interface_gerenciarCardapio();
-        i_editarCardapio.recebeListaProdutos(listaProdutos);
-        i_editarCardapio.setVisible(true);
+        interface_gerenciarCardapio i_gerenciarCardapio = new interface_gerenciarCardapio();
+        i_gerenciarCardapio.recebeListaProdutos(listaProdutos);
+        i_gerenciarCardapio.recebeListaFuncionarios(listaFuncionarios);
+        i_gerenciarCardapio.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_bVoltarActionPerformed
 
@@ -293,11 +295,12 @@ public class interface_apagarProduto extends javax.swing.JFrame {
     public void txtAreaIneditavel() {
         textArea_Produto.setEditable(false);
     }
-
-    public void recebeListaProdutos(listaProdutos lista) {
-        listaProdutos = lista;
+    public void recebeListaProdutos(listaProdutos listaProdutos) {
+        this.listaProdutos = listaProdutos;
     }
-
+    public void recebeListaFuncionarios(listaFuncionarios listaFuncionarios){
+        this.listaFuncionarios = listaFuncionarios;
+    }
     /**
      * @param args the command line arguments
      */

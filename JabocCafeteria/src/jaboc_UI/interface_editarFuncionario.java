@@ -5,14 +5,16 @@
 package jaboc_UI;
 
 import jaboc_Classes.listaFuncionarios;
+import jaboc_Classes.listaProdutos;
 import javax.swing.JOptionPane;
 /**
  *
  * @author guilh
  */
 public class interface_editarFuncionario extends javax.swing.JFrame {
-    listaFuncionarios listaFuncionarios;
-    int indiceFuncionario;
+    private listaFuncionarios listaFuncionarios;
+    private listaProdutos listaProdutos;
+    private int indiceFuncionario;
     /**
      * Creates new form interface_editarFuncionario
      */
@@ -351,7 +353,7 @@ public class interface_editarFuncionario extends javax.swing.JFrame {
     }//GEN-LAST:event_verificarFuncionarioActionPerformed
 
     private void editarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarFuncionarioActionPerformed
-        if("".equals(nomeFuncionario_Editar.getText()) || "".equals(cpfFuncionario_Editar.getText()) || "".equals(enderecoFuncionario_Editar.getText()) || "".equals(telefoneFuncionario_Editar.getText()) || "".equals(cargoFuncionario_Editar.getSelectedItem())){
+        if("".equals(nomeFuncionario_Editar.getText()) || "   .   .   -  ".equals(cpfFuncionario_Editar.getText()) || "".equals(enderecoFuncionario_Editar.getText()) || "(  )      -    ".equals(telefoneFuncionario_Editar.getText()) || "".equals(cargoFuncionario_Editar.getSelectedItem())){
             JOptionPane.showMessageDialog(null,"Campo vazio!","Erro",WIDTH);
         }else{    
             listaFuncionarios.getItem(indiceFuncionario).getTitularFuncionario().setNomeFuncionario(nomeFuncionario_Editar.getText());
@@ -380,16 +382,20 @@ public class interface_editarFuncionario extends javax.swing.JFrame {
 
     private void sair_EditarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sair_EditarFuncionarioActionPerformed
         interface_exibirFuncionarios exibirFuncionarios = new interface_exibirFuncionarios();
-        exibirFuncionarios.setVisible(true);
-        this.dispose();
+        exibirFuncionarios.setVisible(true);       
         exibirFuncionarios.recebeListaFuncionarios(listaFuncionarios);  
+        exibirFuncionarios.recebeListaProdutos(listaProdutos);
+        this.dispose();
     }//GEN-LAST:event_sair_EditarFuncionarioActionPerformed
 
     private void verificarSenha_FuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verificarSenha_FuncionarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_verificarSenha_FuncionarioActionPerformed
-    public void receberListaFuncionarios(listaFuncionarios listaF){
-        listaFuncionarios = listaF;
+    public void receberListaFuncionarios(listaFuncionarios listaFuncionarios){
+        this.listaFuncionarios = listaFuncionarios;
+    }
+    public void receberListaProdutos(listaProdutos listaProdutos){
+        this.listaProdutos = listaProdutos;
     }
     public javax.swing.JPanel getJPanel2(){
         return this.jPanel2;

@@ -274,7 +274,7 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="editarFuncionario" min="-2" max="-2" attributes="0"/>
                               <Component id="criarFuncionario" min="-2" pref="150" max="-2" attributes="0"/>
-                              <Component id="jButton2" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
+                              <Component id="apagarFuncionario" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="0" pref="42" max="32767" attributes="0"/>
                       </Group>
@@ -300,7 +300,7 @@
                   <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                   <Component id="editarFuncionario" min="-2" pref="50" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                  <Component id="jButton2" min="-2" pref="50" max="-2" attributes="0"/>
+                  <Component id="apagarFuncionario" min="-2" pref="50" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="102" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -366,7 +366,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="editarFuncionarioActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton2">
+        <Component class="javax.swing.JButton" name="apagarFuncionario">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Gill Sans MT" size="14" style="1"/>
@@ -379,7 +379,7 @@
             <Property name="focusable" type="boolean" value="false"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="apagarFuncionarioActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

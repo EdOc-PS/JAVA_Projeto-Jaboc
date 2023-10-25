@@ -5,6 +5,7 @@
 package jaboc_UI;
 
 import jaboc_Classes.listaFuncionarios;
+import jaboc_Classes.listaProdutos;
 import javax.swing.JOptionPane;
 
 /**
@@ -12,7 +13,8 @@ import javax.swing.JOptionPane;
  * @author guilh
  */
 public class interface_apagarFuncionario extends javax.swing.JFrame {
-    listaFuncionarios listaFuncionarios;
+    private listaFuncionarios listaFuncionarios;
+    private listaProdutos listaProdutos;    
     int indiceFuncionario;
     /**
      * Creates new form interface_apagarFuncionario
@@ -249,15 +251,19 @@ public class interface_apagarFuncionario extends javax.swing.JFrame {
 
     private void sair_ApagarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sair_ApagarFuncionarioActionPerformed
         interface_exibirFuncionarios exibirFuncionarios = new interface_exibirFuncionarios();
-        exibirFuncionarios.setVisible(true);
-        this.dispose();
+        exibirFuncionarios.setVisible(true);     
         exibirFuncionarios.recebeListaFuncionarios(listaFuncionarios);  
+        exibirFuncionarios.recebeListaProdutos(listaProdutos);
+        this.dispose();
     }//GEN-LAST:event_sair_ApagarFuncionarioActionPerformed
     public void txtAreaIneditavel(){
         txtArea_Funcionario.setEditable(false);
     }
-    public void receberListaFuncionarios(listaFuncionarios lista){
-        listaFuncionarios = lista;
+    public void receberListaFuncionarios(listaFuncionarios listaFuncionarios){
+        this.listaFuncionarios = listaFuncionarios;
+    }
+    public void receberListaProdutos(listaProdutos listaProdutos){
+        this.listaProdutos = listaProdutos;
     }
     public javax.swing.JFormattedTextField getVerificarCPF_Funcionario(){
         return this.verificarCPF_Funcionario;

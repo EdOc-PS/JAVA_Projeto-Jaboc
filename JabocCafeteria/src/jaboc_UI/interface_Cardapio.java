@@ -8,8 +8,6 @@ import jaboc_Classes.Cliente;
 import jaboc_Classes.Conta_Cliente;
 import jaboc_Classes.listaProdutos;
 import java.awt.Color;
-import static java.awt.image.ImageObserver.WIDTH;
-import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -78,13 +76,8 @@ public class interface_Cardapio extends javax.swing.JFrame {
         verificarProduto.setForeground(new java.awt.Color(252, 252, 252));
         verificarProduto.setText("Verificar");
         verificarProduto.setBorderPainted(false);
-        verificarProduto.setCursor(new java.awt.Cursor(java.awt.Cursor.E_RESIZE_CURSOR));
+        verificarProduto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         verificarProduto.setFocusPainted(false);
-        verificarProduto.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                verificarProdutoMouseClicked(evt);
-            }
-        });
         verificarProduto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 verificarProdutoActionPerformed(evt);
@@ -237,7 +230,7 @@ public class interface_Cardapio extends javax.swing.JFrame {
 
     private void verificarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verificarProdutoActionPerformed
         DefaultTableModel cardapio = (DefaultTableModel) tabelaCardapio.getModel();
-        if (listaProdutos != null) {        
+        if (listaProdutos != null) {
             for (int i = 0; i < listaProdutos.getTamanho(); i++) {
                 if (listaProdutos.getItem(i) != null) {
                     String[] dados = {
@@ -249,7 +242,7 @@ public class interface_Cardapio extends javax.swing.JFrame {
                 }
             }
         }
-      
+        verificarProduto.setVisible(false);
     }//GEN-LAST:event_verificarProdutoActionPerformed
 
     private void bVoltarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bVoltarMouseEntered
@@ -274,11 +267,6 @@ public class interface_Cardapio extends javax.swing.JFrame {
     private void bEditarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bEditarMouseExited
         bEditar.setBackground(new Color(252, 252, 252));
     }//GEN-LAST:event_bEditarMouseExited
-
-    private void verificarProdutoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_verificarProdutoMouseClicked
-       verificarProduto.setBackground(new Color(72,76,92));
-       verificarProduto.setEnabled(false);
-    }//GEN-LAST:event_verificarProdutoMouseClicked
     public void recebeListaProduto(listaProdutos lista) {
         listaProdutos = lista;
     }
@@ -289,7 +277,7 @@ public class interface_Cardapio extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void cardapio(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.

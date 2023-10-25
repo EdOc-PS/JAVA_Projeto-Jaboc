@@ -6,6 +6,8 @@ package jaboc_UI;
 
 import jaboc_Classes.Cliente;
 import jaboc_Classes.Conta_Cliente;
+import jaboc_Classes.listaFuncionarios;
+import jaboc_Classes.listaProdutos;
 import java.awt.Color;
 
 /**
@@ -13,7 +15,8 @@ import java.awt.Color;
  * @author eeuar
  */
 public class interface_Menu extends javax.swing.JFrame {
-
+    private listaFuncionarios listaFuncionarios = new listaFuncionarios();
+    private listaProdutos listaProdutos = new listaProdutos();
     private Conta_Cliente Conta_Cliente;
 
     /**
@@ -228,6 +231,8 @@ public class interface_Menu extends javax.swing.JFrame {
 
     private void bGerenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bGerenciaActionPerformed
         interface_areaSenhaGerencia i_areaSenha = new interface_areaSenhaGerencia();
+        i_areaSenha.recebeListaFuncionarios(listaFuncionarios);
+        i_areaSenha.recebeListaProdutos(listaProdutos);
         i_areaSenha.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_bGerenciaActionPerformed
@@ -250,7 +255,12 @@ public class interface_Menu extends javax.swing.JFrame {
     public void recebeConta(Conta_Cliente conta) {
         Conta_Cliente = conta;
     }
-
+    public void recebeListaFuncionarios(listaFuncionarios listaFuncionarios){
+        this.listaFuncionarios = listaFuncionarios;
+    }
+    public void recebeListaProdutos(listaProdutos listaProdutos){
+        this.listaProdutos = listaProdutos;
+    }
     /**
      * @param args the command line arguments
      */

@@ -5,6 +5,7 @@
 package jaboc_UI;
 
 import jaboc_Classes.Produto;
+import jaboc_Classes.listaFuncionarios;
 import jaboc_Classes.listaProdutos;
 import java.awt.Color;
 import javax.swing.JOptionPane;
@@ -17,7 +18,8 @@ import javax.swing.JTextField;
 public class interface_criarProduto extends javax.swing.JFrame {
 
     private Produto produto;
-    listaProdutos listaProdutos = new listaProdutos();
+    private listaProdutos listaProdutos = new listaProdutos();
+    private listaFuncionarios listaFuncionarios;
     int idP = 1;
 
     /**
@@ -275,9 +277,10 @@ public class interface_criarProduto extends javax.swing.JFrame {
         }
     }
     private void bVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVoltarActionPerformed
-        interface_gerenciarCardapio i_editarCardapio = new interface_gerenciarCardapio();
-        i_editarCardapio.recebeListaProdutos(listaProdutos);
-        i_editarCardapio.setVisible(true);
+        interface_gerenciarCardapio i_gerenciarCardapio = new interface_gerenciarCardapio();
+        i_gerenciarCardapio.recebeListaProdutos(listaProdutos);
+        i_gerenciarCardapio.recebeListaFuncionarios(listaFuncionarios);
+        i_gerenciarCardapio.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_bVoltarActionPerformed
 
@@ -316,10 +319,15 @@ public class interface_criarProduto extends javax.swing.JFrame {
     private void bVoltarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bVoltarMouseExited
         bVoltar.setBackground(new Color(252, 252, 252));
     }//GEN-LAST:event_bVoltarMouseExited
-    public void recebeListaProdutos(listaProdutos lista) {
-        listaProdutos = lista;
+    public void recebeListaProdutos(listaProdutos listaProdutos) {
+        this.listaProdutos = listaProdutos;
+        if(this.listaProdutos.getNAtualElementos() > 0){
+            idP = this.listaProdutos.ultimoItem(0).getIdProduto() + 1;
+        }
     }
-   
+    public void recebeListaFuncionarios(listaFuncionarios listaFuncionarios){
+        this.listaFuncionarios = listaFuncionarios;
+    }
     /**
      * @param args the command line arguments
      */

@@ -5,6 +5,7 @@
 package jaboc_UI;
 
 import jaboc_Classes.listaFuncionarios;
+import jaboc_Classes.listaProdutos;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.text.DefaultFormatterFactory;
 import javax.swing.text.MaskFormatter;
@@ -14,7 +15,8 @@ import javax.swing.text.MaskFormatter;
  * @author guilh
  */
 public class interface_exibirFuncionarios extends javax.swing.JFrame {
-    listaFuncionarios listaFuncionarios = new listaFuncionarios();
+    private listaFuncionarios listaFuncionarios;
+    private listaProdutos listaProdutos;
     /**
      * Creates new form interface_exibirFuncionarios
      */
@@ -43,7 +45,7 @@ public class interface_exibirFuncionarios extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         criarFuncionario = new javax.swing.JButton();
         editarFuncionario = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        apagarFuncionario = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -190,14 +192,14 @@ public class interface_exibirFuncionarios extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(79, 84, 101));
-        jButton2.setText("Apagar Funcionário");
-        jButton2.setFocusPainted(false);
-        jButton2.setFocusable(false);
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        apagarFuncionario.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        apagarFuncionario.setForeground(new java.awt.Color(79, 84, 101));
+        apagarFuncionario.setText("Apagar Funcionário");
+        apagarFuncionario.setFocusPainted(false);
+        apagarFuncionario.setFocusable(false);
+        apagarFuncionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                apagarFuncionarioActionPerformed(evt);
             }
         });
 
@@ -215,7 +217,7 @@ public class interface_exibirFuncionarios extends javax.swing.JFrame {
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(editarFuncionario)
                             .addComponent(criarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(apagarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 42, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -233,7 +235,7 @@ public class interface_exibirFuncionarios extends javax.swing.JFrame {
                 .addGap(27, 27, 27)
                 .addComponent(editarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(apagarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(102, 102, 102))
         );
 
@@ -262,29 +264,49 @@ public class interface_exibirFuncionarios extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void apagarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_apagarFuncionarioActionPerformed
         interface_apagarFuncionario apagarFuncionario = new interface_apagarFuncionario();
+        
+        try{
+            apagarFuncionario.getVerificarCPF_Funcionario().setFormatterFactory(new DefaultFormatterFactory(mascaraCPF()));
+        }catch(Exception e){
+            e.printStackTrace();
+        }
         apagarFuncionario.setVisible(true);
-        apagarFuncionario.txtAreaIneditavel();
-        this.dispose();
+        apagarFuncionario.txtAreaIneditavel();      
         apagarFuncionario.receberListaFuncionarios(listaFuncionarios);
-    }//GEN-LAST:event_jButton2ActionPerformed
+        apagarFuncionario.receberListaProdutos(listaProdutos);
+        this.dispose();
+    }//GEN-LAST:event_apagarFuncionarioActionPerformed
 
     private void editarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarFuncionarioActionPerformed
         interface_editarFuncionario editarFuncionario = new interface_editarFuncionario();
-        editarFuncionario.setVisible(true);
-        this.dispose();
+        
+        try{
+            MaskFormatter telefone_editarFuncionario = new MaskFormatter("(##) #####-####");
+            
+            editarFuncionario.getVerificarCPF_Funcionario().setFormatterFactory(new DefaultFormatterFactory(mascaraCPF()));
+            editarFuncionario.getCpfFuncionario_Editar().setFormatterFactory(new DefaultFormatterFactory(mascaraCPF()));
+            editarFuncionario.getTelefoneFuncionario_Editar().setFormatterFactory(new DefaultFormatterFactory(telefone_editarFuncionario));
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        
+        editarFuncionario.getJPanel2().setVisible(false);
+        editarFuncionario.getBTNEditarFuncionario().setVisible(false);
+        editarFuncionario.setVisible(true);        
         editarFuncionario.receberListaFuncionarios(listaFuncionarios);
+        editarFuncionario.receberListaProdutos(listaProdutos);
+        this.dispose();
     }//GEN-LAST:event_editarFuncionarioActionPerformed
 
     private void criarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_criarFuncionarioActionPerformed
         interface_criarFuncionario criarFuncionario = new interface_criarFuncionario();
         
         try{
-            MaskFormatter CPF = new MaskFormatter("###.###.###.-##");
             MaskFormatter telefone = new MaskFormatter("(##) #####-####");
             //Esse new DefaultFormatterFactory(Mask), está setando um novo objeto do tipo máscara parao mewu jFormattedField. Composionalidade! O JFormattedFields tem uma Mascará.
-            criarFuncionario.getCpfFuncionario().setFormatterFactory(new DefaultFormatterFactory(CPF));
+            criarFuncionario.getCpfFuncionario().setFormatterFactory(new DefaultFormatterFactory(mascaraCPF()));
             criarFuncionario.getTelefoneFuncionario().setFormatterFactory(new DefaultFormatterFactory(telefone));
         }catch(Exception e){
             //Esse catch informará um erro caso o usuário informe uma máscara incorreta.
@@ -292,10 +314,16 @@ public class interface_exibirFuncionarios extends javax.swing.JFrame {
         } 
         criarFuncionario.setVisible(true);
         criarFuncionario.recebeListaFuncionarios(listaFuncionarios);
+        criarFuncionario.recebeListaProdutos(listaProdutos);
+        criarFuncionario.recebeListaProdutos(listaProdutos);
         this.dispose();
     }//GEN-LAST:event_criarFuncionarioActionPerformed
 
     private void sair_exibirFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sair_exibirFuncionarioActionPerformed
+        interface_areaGerencia areaGerencia = new interface_areaGerencia();
+        areaGerencia.recebeListaFuncionarios(listaFuncionarios);
+        areaGerencia.recebeListaProdutos(listaProdutos);
+        areaGerencia.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_sair_exibirFuncionarioActionPerformed
 
@@ -315,8 +343,23 @@ public class interface_exibirFuncionarios extends javax.swing.JFrame {
         carregarTabela_Funcionario.setVisible(false);
         }
     }//GEN-LAST:event_carregarTabela_FuncionarioActionPerformed
-    public void recebeListaFuncionarios(listaFuncionarios lista){
-        listaFuncionarios = lista;
+    public MaskFormatter mascaraCPF(){
+        MaskFormatter CPF = null;
+        try{
+            CPF = new MaskFormatter("###.###.###-##");
+            //Esse new DefaultFormatterFactory(Mask), está setando um novo objeto do tipo máscara parao mewu jFormattedField. Composionalidade! O JFormattedFields tem uma Mascará.            
+        }catch(Exception e){
+            //Esse catch informará um erro caso o usuário informe uma máscara incorreta.
+                e.printStackTrace();
+        }
+        return CPF;
+    }
+    
+    public void recebeListaFuncionarios(listaFuncionarios listaFuncionarios){
+        this.listaFuncionarios = listaFuncionarios;
+    }
+    public void recebeListaProdutos(listaProdutos listaProdutos){
+        this.listaProdutos = listaProdutos;
     }
     
     public static void main(String args[]) {
@@ -355,10 +398,10 @@ public class interface_exibirFuncionarios extends javax.swing.JFrame {
      */  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton apagarFuncionario;
     private javax.swing.JButton carregarTabela_Funcionario;
     private javax.swing.JButton criarFuncionario;
     private javax.swing.JButton editarFuncionario;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;

@@ -58,11 +58,11 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Component id="jPanel3" alignment="0" max="32767" attributes="0"/>
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
-                  <Component id="jLabel1" min="-2" pref="90" max="-2" attributes="0"/>
-                  <EmptySpace pref="93" max="32767" attributes="0"/>
+                  <EmptySpace pref="77" max="32767" attributes="0"/>
+                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="169" max="-2" attributes="0"/>
                   <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="156" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="114" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -81,7 +81,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="enviarSenha" min="-2" pref="215" max="-2" attributes="0"/>
+                          <Component id="editarProduto" min="-2" pref="215" max="-2" attributes="0"/>
                           <Group type="102" attributes="0">
                               <Component id="jLabel11" min="-2" pref="60" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
@@ -101,7 +101,7 @@
                           <Component id="jLabel11" alignment="0" min="-2" pref="155" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="enviarSenha" min="-2" pref="50" max="-2" attributes="0"/>
+                      <Component id="editarProduto" min="-2" pref="50" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -119,10 +119,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="65" green="54" red="4f" type="rgb"/>
                 </Property>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/img/icons/i_back.png"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="   Voltar"/>
+                <Property name="text" type="java.lang.String" value="Voltar"/>
                 <Property name="borderPainted" type="boolean" value="false"/>
                 <Property name="focusPainted" type="boolean" value="false"/>
               </Properties>
@@ -141,7 +138,7 @@
                 <Property name="verticalAlignment" type="int" value="3"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="enviarSenha">
+            <Component class="javax.swing.JButton" name="editarProduto">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="65" green="54" red="4f" type="rgb"/>
@@ -160,7 +157,7 @@
                 <Property name="focusPainted" type="boolean" value="false"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="enviarSenhaActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="editarProdutoActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>
@@ -178,7 +175,7 @@
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace pref="26" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="senhaAdm" min="-2" pref="344" max="-2" attributes="0"/>
+                          <Component id="textSenha" min="-2" pref="344" max="-2" attributes="0"/>
                           <Component id="jLabel2" min="-2" pref="93" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
@@ -191,14 +188,14 @@
                       <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
-                      <Component id="senhaAdm" min="-2" pref="50" max="-2" attributes="0"/>
+                      <Component id="textSenha" min="-2" pref="50" max="-2" attributes="0"/>
                       <EmptySpace pref="20" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JPasswordField" name="senhaAdm">
+            <Component class="javax.swing.JPasswordField" name="textSenha">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="1"/>
@@ -230,10 +227,7 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/img/icons/i_chave.png"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value=" DIGITE A SENHA"/>
+            <Property name="text" type="java.lang.String" value="DIGITE A SENHA"/>
           </Properties>
         </Component>
       </SubComponents>

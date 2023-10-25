@@ -75,5 +75,12 @@ public class listaProdutos{
         }
         return buscarProduto(chave, indice - 1, posItem);
     }
+    //Esse método retorna o ultimoItem de uma lista
+    public Produto ultimoItem(int indice){
+        if(this.lista[indice] != null && this.lista[indice + 1] == null){
+            return this.lista[indice];
+        }
+        return ultimoItem(indice + 1);
+    }
 }
 

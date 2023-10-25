@@ -7,6 +7,7 @@ package jaboc_UI;
 import jaboc_Classes.Funcionario;
 import jaboc_Classes.Conta_Funcionario;
 import jaboc_Classes.listaFuncionarios;
+import jaboc_Classes.listaProdutos;
 import javax.swing.JOptionPane;
 import javax.swing.text.DefaultFormatterFactory;
 import javax.swing.text.MaskFormatter;
@@ -19,8 +20,8 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
 
     private Funcionario Funcionario;
     private int Id_ContaFuncionario = 1;
-    listaFuncionarios listaFuncionarios;
-        
+    private listaFuncionarios listaFuncionarios;
+    private listaProdutos listaProdutos;    
     /**
      * Creates new form NewJFrame
      */
@@ -309,7 +310,7 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void criarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_criarFuncionarioActionPerformed
-        if (!"".equals(nomeFuncionario.getText()) && !"".equals(cpfFuncionario.getText()) && !"".equals(enderecoFuncionario.getText()) && !"".equals(telefoneFuncionario.getText())) {
+        if (!"".equals(nomeFuncionario.getText()) && !"   .   .   -  ".equals(cpfFuncionario.getText()) && !"".equals(enderecoFuncionario.getText()) && !"(  )      -    ".equals(telefoneFuncionario.getText())) {
 
             if (senhaFuncionario.getText().equals(verificarSenhaFuncionario.getText()) && !senhaFuncionario.getText().equals("")) {
                 Funcionario = new Funcionario(nomeFuncionario.getText(), cpfFuncionario.getText(), enderecoFuncionario.getText(), telefoneFuncionario.getText(), 
@@ -321,6 +322,8 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
                 cpfFuncionario.setText("");
                 enderecoFuncionario.setText("");
                 telefoneFuncionario.setText("");
+                senhaFuncionario.setText("");
+                verificarSenhaFuncionario.setText("");
                 cargoFuncionario.setSelectedItem("Cozinheiro(a)");
             } else {
                 JOptionPane.showMessageDialog(null, "Senhas informadas incorretamente!", "Erro", WIDTH);
@@ -332,14 +335,16 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Os campos estão vazios!", "Information", JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_criarFuncionarioActionPerformed
-    public void recebeListaFuncionarios(listaFuncionarios lista) {
-        listaFuncionarios = lista;
+    public void recebeListaFuncionarios(listaFuncionarios listaFuncionarios) {
+        this.listaFuncionarios = listaFuncionarios;
 
-        if (listaFuncionarios.getNAtualElementos() > 0) {
-            Id_ContaFuncionario = listaFuncionarios.ultimoItem(0).getIdFuncionario() + 1;
+        if (this.listaFuncionarios.getNAtualElementos() > 0) {
+            Id_ContaFuncionario = this.listaFuncionarios.ultimoItem(0).getIdFuncionario() + 1;
         }
+    }    
+    public void recebeListaProdutos(listaProdutos listaProdutos){
+        this.listaProdutos = listaProdutos;
     }
-
     private void enderecoFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enderecoFuncionarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_enderecoFuncionarioActionPerformed
@@ -351,8 +356,9 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
     private void sair_criarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sair_criarFuncionarioActionPerformed
         interface_exibirFuncionarios exibirFuncionarios = new interface_exibirFuncionarios();
         exibirFuncionarios.setVisible(true);
-        this.dispose();
         exibirFuncionarios.recebeListaFuncionarios(listaFuncionarios);
+        exibirFuncionarios.recebeListaProdutos(listaProdutos);
+        this.dispose();
     }//GEN-LAST:event_sair_criarFuncionarioActionPerformed
 
     private void cargoFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargoFuncionarioActionPerformed

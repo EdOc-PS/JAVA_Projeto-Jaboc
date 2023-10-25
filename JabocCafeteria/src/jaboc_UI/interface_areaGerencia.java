@@ -4,6 +4,8 @@
  */
 package jaboc_UI;
 
+import jaboc_Classes.listaFuncionarios;
+import jaboc_Classes.listaProdutos;
 import java.awt.Color;
 
 /**
@@ -11,7 +13,8 @@ import java.awt.Color;
  * @author eeuar
  */
 public class interface_areaGerencia extends javax.swing.JFrame {
-
+    private listaFuncionarios listaFuncionarios;
+    private listaProdutos listaProdutos;
     /**
      * Creates new form interface_Gerencia
      */
@@ -225,18 +228,24 @@ public class interface_areaGerencia extends javax.swing.JFrame {
 
     private void bVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVoltarActionPerformed
         interface_Menu iM = new interface_Menu();
+        iM.recebeListaFuncionarios(listaFuncionarios);
+        iM.recebeListaProdutos(listaProdutos);
         iM.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_bVoltarActionPerformed
 
     private void editarCardapioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarCardapioActionPerformed
-        interface_gerenciarCardapio i_gerencairCardapio = new interface_gerenciarCardapio();
-        i_gerencairCardapio.setVisible(true);
+        interface_gerenciarCardapio i_gerenciarCardapio = new interface_gerenciarCardapio();
+        i_gerenciarCardapio.recebeListaProdutos(listaProdutos);
+        i_gerenciarCardapio.recebeListaFuncionarios(listaFuncionarios);
+        i_gerenciarCardapio.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_editarCardapioActionPerformed
 
     private void editarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarFuncionarioActionPerformed
         interface_exibirFuncionarios i_exibirFuncionario = new interface_exibirFuncionarios();
+        i_exibirFuncionario.recebeListaFuncionarios(listaFuncionarios);
+        i_exibirFuncionario.recebeListaProdutos(listaProdutos);
         i_exibirFuncionario.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_editarFuncionarioActionPerformed
@@ -256,7 +265,12 @@ public class interface_areaGerencia extends javax.swing.JFrame {
     private void editarFuncionarioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editarFuncionarioMouseExited
         editarFuncionario.setBackground(new Color(252, 252, 252));
     }//GEN-LAST:event_editarFuncionarioMouseExited
-
+    public void recebeListaFuncionarios(listaFuncionarios listaFuncionarios){
+        this.listaFuncionarios = listaFuncionarios;
+    }
+    public void recebeListaProdutos(listaProdutos listaProdutos){
+        this.listaProdutos = listaProdutos;
+    }
     /**
      * @param args the command line arguments
      */

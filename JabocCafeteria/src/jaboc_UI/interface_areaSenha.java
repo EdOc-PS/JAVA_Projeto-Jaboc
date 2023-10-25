@@ -15,14 +15,14 @@ import javax.swing.JOptionPane;
  *
  * @author eeuar
  */
-public class interface_areaSenhaGerencia extends javax.swing.JFrame {
+public class interface_areaSenha extends javax.swing.JFrame {
     private listaFuncionarios listaFuncionarios;
     private listaProdutos listaProdutos;
-    Administrador admin = new Administrador("Jaboc",null, null, null, "Administrador", "admin123");
+    private Administrador admin = new Administrador("Jaboc",null, null, null, "Administrador", "admin123");
     /**
      * Creates new form interface_areaSenha
      */
-    public interface_areaSenhaGerencia() {
+    public interface_areaSenha() {
         initComponents();
         setLocationRelativeTo(null);
     }
@@ -40,9 +40,9 @@ public class interface_areaSenhaGerencia extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         bVoltar = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
-        enviarSenha = new javax.swing.JButton();
+        editarProduto = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
-        senhaAdm = new javax.swing.JPasswordField();
+        textSenha = new javax.swing.JPasswordField();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -55,8 +55,7 @@ public class interface_areaSenhaGerencia extends javax.swing.JFrame {
         bVoltar.setBackground(new java.awt.Color(252, 252, 252));
         bVoltar.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
         bVoltar.setForeground(new java.awt.Color(79, 84, 101));
-        bVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_back.png"))); // NOI18N
-        bVoltar.setText("   Voltar");
+        bVoltar.setText("Voltar");
         bVoltar.setBorderPainted(false);
         bVoltar.setFocusPainted(false);
         bVoltar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -77,16 +76,16 @@ public class interface_areaSenhaGerencia extends javax.swing.JFrame {
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logo4.png"))); // NOI18N
         jLabel11.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
 
-        enviarSenha.setBackground(new java.awt.Color(79, 84, 101));
-        enviarSenha.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
-        enviarSenha.setForeground(new java.awt.Color(249, 249, 249));
-        enviarSenha.setText("Enviar");
-        enviarSenha.setBorderPainted(false);
-        enviarSenha.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        enviarSenha.setFocusPainted(false);
-        enviarSenha.addActionListener(new java.awt.event.ActionListener() {
+        editarProduto.setBackground(new java.awt.Color(79, 84, 101));
+        editarProduto.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        editarProduto.setForeground(new java.awt.Color(249, 249, 249));
+        editarProduto.setText("Enviar");
+        editarProduto.setBorderPainted(false);
+        editarProduto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        editarProduto.setFocusPainted(false);
+        editarProduto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                enviarSenhaActionPerformed(evt);
+                editarProdutoActionPerformed(evt);
             }
         });
 
@@ -97,7 +96,7 @@ public class interface_areaSenhaGerencia extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(13, 13, 13)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(enviarSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(editarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -112,13 +111,13 @@ public class interface_areaSenhaGerencia extends javax.swing.JFrame {
                     .addComponent(bVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(enviarSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(editarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(17, 17, 17))
         );
 
         jPanel2.setBackground(new java.awt.Color(200, 182, 166));
 
-        senhaAdm.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        textSenha.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -131,7 +130,7 @@ public class interface_areaSenhaGerencia extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(26, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(senhaAdm, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26))
         );
@@ -141,7 +140,7 @@ public class interface_areaSenhaGerencia extends javax.swing.JFrame {
                 .addGap(15, 15, 15)
                 .addComponent(jLabel2)
                 .addGap(3, 3, 3)
-                .addComponent(senhaAdm, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(textSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
@@ -149,8 +148,7 @@ public class interface_areaSenhaGerencia extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Gill Sans MT", 1, 30)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_chave.png"))); // NOI18N
-        jLabel1.setText(" DIGITE A SENHA");
+        jLabel1.setText("DIGITE A SENHA");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -168,11 +166,11 @@ public class interface_areaSenhaGerencia extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(60, 60, 60)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
+                .addContainerGap(77, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(169, 169, 169)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(156, 156, 156))
+                .addGap(114, 114, 114))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -203,19 +201,16 @@ public class interface_areaSenhaGerencia extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_bVoltarActionPerformed
 
-    private void enviarSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviarSenhaActionPerformed
-       if(String.valueOf(senhaAdm.getPassword()).equals(admin.getSenha())){
+    private void editarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarProdutoActionPerformed
+       if(String.valueOf(textSenha.getPassword()).equals(admin.getSenha())){
            interface_areaGerencia i_gerencia = new interface_areaGerencia();
-           i_gerencia.recebeListaFuncionarios(listaFuncionarios);
-           i_gerencia.recebeListaProdutos(listaProdutos);
            i_gerencia.setVisible(true);
            this.dispose();
        }else{
             JOptionPane.showMessageDialog(null, "A senha digitada não confere com a do sistema", "Senha errada!", WIDTH);
        }
         
-    }//GEN-LAST:event_enviarSenhaActionPerformed
-  
+    }//GEN-LAST:event_editarProdutoActionPerformed
     public void recebeListaFuncionarios(listaFuncionarios listaFuncionarios){
         this.listaFuncionarios = listaFuncionarios;
     }
@@ -239,34 +234,33 @@ public class interface_areaSenhaGerencia extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(interface_areaSenhaGerencia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(interface_areaSenha.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(interface_areaSenhaGerencia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(interface_areaSenha.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(interface_areaSenhaGerencia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(interface_areaSenha.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(interface_areaSenhaGerencia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(interface_areaSenha.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new interface_areaSenhaGerencia().setVisible(true);
+                new interface_areaSenha().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bVoltar;
-    private javax.swing.JButton enviarSenha;
+    private javax.swing.JButton editarProduto;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPasswordField senhaAdm;
+    private javax.swing.JPasswordField textSenha;
     // End of variables declaration//GEN-END:variables
 }
