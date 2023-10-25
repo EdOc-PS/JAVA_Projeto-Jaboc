@@ -14,10 +14,10 @@ import javax.swing.table.DefaultTableModel;
  * @author 0057138
  */
 public class interface_gerenciarCardapio extends javax.swing.JFrame {
-    
+
     private listaProdutos listaProdutos = new listaProdutos();
     private listaFuncionarios listaFuncionarios;
-    
+
     public interface_gerenciarCardapio() {
         initComponents();
         setLocationRelativeTo(null);
@@ -81,6 +81,11 @@ public class interface_gerenciarCardapio extends javax.swing.JFrame {
         carregarProduto.setBorderPainted(false);
         carregarProduto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         carregarProduto.setFocusPainted(false);
+        carregarProduto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                carregarProdutoMouseClicked(evt);
+            }
+        });
         carregarProduto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 carregarProdutoActionPerformed(evt);
@@ -224,7 +229,7 @@ public class interface_gerenciarCardapio extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Nome", "Quantidade", "Tipo", "Preco"
+                "Nome", "Quantidade", "Tipo", "Preco", "Id"
             }
         ));
         tabelaCardapio.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -308,9 +313,9 @@ public class interface_gerenciarCardapio extends javax.swing.JFrame {
 
     private void bExcluir_ProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bExcluir_ProdutoActionPerformed
         interface_apagarProduto i_apagarProduto = new interface_apagarProduto();
-         i_apagarProduto.recebeListaProdutos(listaProdutos);
-         i_apagarProduto.recebeListaFuncionarios(listaFuncionarios);
-        i_apagarProduto.setVisible(true);       
+        i_apagarProduto.recebeListaProdutos(listaProdutos);
+        i_apagarProduto.recebeListaFuncionarios(listaFuncionarios);
+        i_apagarProduto.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_bExcluir_ProdutoActionPerformed
 
@@ -340,12 +345,12 @@ public class interface_gerenciarCardapio extends javax.swing.JFrame {
                         listaProdutos.getItem(i).getNomeProduto(),
                         String.valueOf(listaProdutos.getItem(i).getQtdeProduto()),
                         String.valueOf(listaProdutos.getItem(i).getPrecoProduto()),
-                        listaProdutos.getItem(i).getTipoProduto()};
+                        listaProdutos.getItem(i).getTipoProduto(),
+                        String.valueOf(listaProdutos.getItem(i).getIdProduto())};
                     cardapio.addRow(dados);
                 }
             }
         }
-        carregarProduto.setVisible(false);
     }//GEN-LAST:event_carregarProdutoActionPerformed
 
     private void bAdicionar_ProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAdicionar_ProdutoActionPerformed
@@ -381,18 +386,25 @@ public class interface_gerenciarCardapio extends javax.swing.JFrame {
     }//GEN-LAST:event_bAdicionar_ProdutoMouseExited
 
     private void bExcluir_ProdutoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bExcluir_ProdutoMouseEntered
-        bExcluir_Produto.setBackground(new Color(255,188,188));
+        bExcluir_Produto.setBackground(new Color(255, 188, 188));
     }//GEN-LAST:event_bExcluir_ProdutoMouseEntered
 
     private void bExcluir_ProdutoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bExcluir_ProdutoMouseExited
         bExcluir_Produto.setBackground(new Color(252, 252, 252));
     }//GEN-LAST:event_bExcluir_ProdutoMouseExited
+
+    private void carregarProdutoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carregarProdutoMouseClicked
+        carregarProduto.setBackground(new Color(69, 71, 78));
+        carregarProduto.setEnabled(false);
+    }//GEN-LAST:event_carregarProdutoMouseClicked
     public void recebeListaProdutos(listaProdutos listaProdutos) {
         this.listaProdutos = listaProdutos;
     }
-    public void recebeListaFuncionarios(listaFuncionarios listaFuncionarios){
+
+    public void recebeListaFuncionarios(listaFuncionarios listaFuncionarios) {
         this.listaFuncionarios = listaFuncionarios;
     }
+
     /**
      * @param args the command line arguments
      */

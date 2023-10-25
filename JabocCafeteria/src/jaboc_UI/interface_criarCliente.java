@@ -75,6 +75,7 @@ public class interface_criarCliente extends javax.swing.JFrame {
         bVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_back.png"))); // NOI18N
         bVoltar.setText("   Voltar");
         bVoltar.setBorderPainted(false);
+        bVoltar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         bVoltar.setFocusPainted(false);
         bVoltar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -406,7 +407,7 @@ public class interface_criarCliente extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void criarCliente(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.

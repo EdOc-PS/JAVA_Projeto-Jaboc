@@ -15,6 +15,7 @@ import javax.swing.table.DefaultTableModel;
  * @author 0057138
  */
 public class interface_Cardapio extends javax.swing.JFrame {
+
     private Conta_Cliente Conta_Cliente;
     private Cliente Cliente;
     private listaProdutos listaProdutos = new listaProdutos();
@@ -78,6 +79,11 @@ public class interface_Cardapio extends javax.swing.JFrame {
         verificarProduto.setBorderPainted(false);
         verificarProduto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         verificarProduto.setFocusPainted(false);
+        verificarProduto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                verificarProdutoMouseClicked(evt);
+            }
+        });
         verificarProduto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 verificarProdutoActionPerformed(evt);
@@ -241,8 +247,7 @@ public class interface_Cardapio extends javax.swing.JFrame {
                     cardapio.addRow(dados);
                 }
             }
-        }
-        verificarProduto.setVisible(false);
+        }     
     }//GEN-LAST:event_verificarProdutoActionPerformed
 
     private void bVoltarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bVoltarMouseEntered
@@ -267,9 +272,15 @@ public class interface_Cardapio extends javax.swing.JFrame {
     private void bEditarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bEditarMouseExited
         bEditar.setBackground(new Color(252, 252, 252));
     }//GEN-LAST:event_bEditarMouseExited
+
+    private void verificarProdutoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_verificarProdutoMouseClicked
+        verificarProduto.setBackground(new Color(69, 71, 78));
+        verificarProduto.setEnabled(false);
+    }//GEN-LAST:event_verificarProdutoMouseClicked
     public void recebeListaProduto(listaProdutos lista) {
         listaProdutos = lista;
     }
+
     public void recebeConta(Conta_Cliente conta) {
         Conta_Cliente = conta;
     }
