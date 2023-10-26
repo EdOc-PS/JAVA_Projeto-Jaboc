@@ -298,7 +298,7 @@
                       <Color blue="65" green="54" red="4f" type="rgb"/>
                     </Property>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/img/icons/caneta-do-usuario.png"/>
+                      <Image iconType="3" name="/img/icons/i_edfuncionario2.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Editar Funcion&#xe1;rio"/>
                     <Property name="borderPainted" type="boolean" value="false"/>
@@ -416,9 +416,9 @@
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/img/icons/i_adicionar.png"/>
+              <Image iconType="3" name="/img/icons/i_lista.png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="GERENCIAR FUNCION&#xc1;RIOS"/>
+            <Property name="text" type="java.lang.String" value=" GERENCIAR FUNCION&#xc1;RIOS"/>
           </Properties>
         </Component>
       </SubComponents>

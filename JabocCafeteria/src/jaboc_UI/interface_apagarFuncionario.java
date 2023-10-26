@@ -23,6 +23,7 @@ public class interface_apagarFuncionario extends javax.swing.JFrame {
      */
     public interface_apagarFuncionario() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**

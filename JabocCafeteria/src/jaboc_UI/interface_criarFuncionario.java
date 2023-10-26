@@ -29,6 +29,7 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
      */
     public interface_criarFuncionario() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -122,14 +123,14 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(79, 84, 101));
         jLabel1.setText("Crie uma senha:");
 
-        senhaFuncionario.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
+        senhaFuncionario.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         senhaFuncionario.setForeground(new java.awt.Color(79, 84, 101));
 
         jLabel8.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(79, 84, 101));
         jLabel8.setText("Informe a senha novamente:");
 
-        verificarSenhaFuncionario.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
+        verificarSenhaFuncionario.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         verificarSenhaFuncionario.setForeground(new java.awt.Color(79, 84, 101));
 
         cpfFuncionario.setForeground(new java.awt.Color(79, 84, 101));
@@ -152,24 +153,23 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
                 .addGap(20, 20, 20)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(verificarSenhaFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, 418, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(cargoFuncionario, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel8)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel6)
-                                    .addComponent(nomeFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-                                    .addComponent(telefoneFuncionario))
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel3)
-                                    .addComponent(cpfFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-                                    .addComponent(enderecoFuncionario)))))
+                    .addComponent(cargoFuncionario, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel1)
+                        .addComponent(jLabel8)
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabel2)
+                                .addComponent(jLabel5)
+                                .addComponent(jLabel6)
+                                .addComponent(nomeFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                                .addComponent(telefoneFuncionario))
+                            .addGap(18, 18, 18)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabel4)
+                                .addComponent(jLabel3)
+                                .addComponent(cpfFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                                .addComponent(enderecoFuncionario))))
                     .addComponent(senhaFuncionario))
                 .addContainerGap(20, Short.MAX_VALUE))
         );
@@ -242,6 +242,7 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
         criarFuncionario2.setText("Enviar");
         criarFuncionario2.setBorderPainted(false);
         criarFuncionario2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        criarFuncionario2.setFocusPainted(false);
         criarFuncionario2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 criarFuncionarioActionPerformed(evt);
@@ -396,13 +397,9 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup3;
     private javax.swing.JComboBox<String> cargoFuncionario;
     private javax.swing.JFormattedTextField cpfFuncionario;
-    private javax.swing.JButton criarFuncionario;
-    private javax.swing.JButton criarFuncionario1;
     private javax.swing.JButton criarFuncionario2;
     private javax.swing.JTextField enderecoFuncionario;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -411,15 +408,11 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextField nomeFuncionario;
-    private javax.swing.JButton sair_criarFuncionario;
-    private javax.swing.JButton sair_criarFuncionario1;
     private javax.swing.JButton sair_criarFuncionario2;
     private javax.swing.JPasswordField senhaFuncionario;
     private javax.swing.JFormattedTextField telefoneFuncionario;

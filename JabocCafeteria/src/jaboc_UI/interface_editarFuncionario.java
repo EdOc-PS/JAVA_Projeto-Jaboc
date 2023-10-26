@@ -22,6 +22,7 @@ public class interface_editarFuncionario extends javax.swing.JFrame {
      */
     public interface_editarFuncionario() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -259,6 +260,8 @@ public class interface_editarFuncionario extends javax.swing.JFrame {
         sair_EditarFuncionario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_back.png"))); // NOI18N
         sair_EditarFuncionario.setText("   Voltar");
         sair_EditarFuncionario.setBorderPainted(false);
+        sair_EditarFuncionario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        sair_EditarFuncionario.setFocusPainted(false);
         sair_EditarFuncionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 sair_EditarFuncionarioActionPerformed(evt);
@@ -270,6 +273,7 @@ public class interface_editarFuncionario extends javax.swing.JFrame {
         editarFuncionario.setForeground(new java.awt.Color(255, 255, 255));
         editarFuncionario.setText("Enviar");
         editarFuncionario.setBorderPainted(false);
+        editarFuncionario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         editarFuncionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 editarFuncionarioActionPerformed(evt);

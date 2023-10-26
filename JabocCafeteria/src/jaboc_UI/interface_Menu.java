@@ -61,7 +61,6 @@ public class interface_Menu extends javax.swing.JFrame {
         bCardapio.setFont(new java.awt.Font("Gill Sans MT", 1, 16)); // NOI18N
         bCardapio.setForeground(new java.awt.Color(79, 84, 101));
         bCardapio.setText("Cardápio");
-        bCardapio.setBorder(null);
         bCardapio.setBorderPainted(false);
         bCardapio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         bCardapio.setFocusPainted(false);
@@ -83,7 +82,6 @@ public class interface_Menu extends javax.swing.JFrame {
         bGerencia.setFont(new java.awt.Font("Gill Sans MT", 1, 16)); // NOI18N
         bGerencia.setForeground(new java.awt.Color(79, 84, 101));
         bGerencia.setText("Gerencia");
-        bGerencia.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
         bGerencia.setBorderPainted(false);
         bGerencia.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         bGerencia.setFocusPainted(false);
@@ -235,10 +233,11 @@ public class interface_Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_bCardapioActionPerformed
 
     private void bGerenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bGerenciaActionPerformed
-        interface_areaSenhaGerencia i_areaSenha = new interface_areaSenhaGerencia();
-        i_areaSenha.recebeListaFuncionarios(listaFuncionarios);
-        i_areaSenha.recebeListaProdutos(listaProdutos);
-        i_areaSenha.setVisible(true);
+        interface_areaSenhaGerencia i_areaSenhaGerencia = new interface_areaSenhaGerencia();
+        i_areaSenhaGerencia.recebeListaFuncionarios(listaFuncionarios);
+        i_areaSenhaGerencia.recebeListaProdutos(listaProdutos);
+        i_areaSenhaGerencia.recebeConta(Conta_Cliente);
+        i_areaSenhaGerencia.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_bGerenciaActionPerformed
 

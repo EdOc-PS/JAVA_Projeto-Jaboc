@@ -17,14 +17,17 @@ import javax.swing.text.MaskFormatter;
  * @author guilh
  */
 public class interface_exibirFuncionarios extends javax.swing.JFrame {
+
     private listaFuncionarios listaFuncionarios;
     private listaProdutos listaProdutos;
     private Conta_Cliente Conta_Cliente;
+
     /**
      * Creates new form interface_exibirFuncionarios
      */
     public interface_exibirFuncionarios() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -129,7 +132,7 @@ public class interface_exibirFuncionarios extends javax.swing.JFrame {
         editarFuncionario.setBackground(new java.awt.Color(252, 252, 252));
         editarFuncionario.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
         editarFuncionario.setForeground(new java.awt.Color(79, 84, 101));
-        editarFuncionario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/caneta-do-usuario.png"))); // NOI18N
+        editarFuncionario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_edfuncionario2.png"))); // NOI18N
         editarFuncionario.setText("Editar Funcionário");
         editarFuncionario.setBorderPainted(false);
         editarFuncionario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -271,8 +274,8 @@ public class interface_exibirFuncionarios extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Gill Sans MT", 1, 30)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_adicionar.png"))); // NOI18N
-        jLabel1.setText("GERENCIAR FUNCIONÁRIOS");
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_lista.png"))); // NOI18N
+        jLabel1.setText(" GERENCIAR FUNCIONÁRIOS");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -313,30 +316,30 @@ public class interface_exibirFuncionarios extends javax.swing.JFrame {
 
     private void carregarTabela_FuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carregarTabela_FuncionarioActionPerformed
 
-        if(listaFuncionarios != null){
+        if (listaFuncionarios != null) {
             //Usando o Casting. Forçando a jtable a ser uma DefaultTableModel.
             DefaultTableModel tabelaFuncionarios = (DefaultTableModel) tabelaFuncionario.getModel();
 
-            for(int pos_Lista = 0; pos_Lista < listaFuncionarios.getTamanho();pos_Lista++){
-                if(listaFuncionarios.getItem(pos_Lista)!= null){
-                    tabelaFuncionarios.addRow(new String[]{String.valueOf(listaFuncionarios.getItem(pos_Lista).getIdFuncionario()),listaFuncionarios.getItem(pos_Lista).getTitularFuncionario().getNomeFuncionario(), listaFuncionarios.getItem(pos_Lista).getTitularFuncionario().getCpfFuncionario(),
+            for (int pos_Lista = 0; pos_Lista < listaFuncionarios.getTamanho(); pos_Lista++) {
+                if (listaFuncionarios.getItem(pos_Lista) != null) {
+                    tabelaFuncionarios.addRow(new String[]{String.valueOf(listaFuncionarios.getItem(pos_Lista).getIdFuncionario()), listaFuncionarios.getItem(pos_Lista).getTitularFuncionario().getNomeFuncionario(), listaFuncionarios.getItem(pos_Lista).getTitularFuncionario().getCpfFuncionario(),
                         listaFuncionarios.getItem(pos_Lista).getTitularFuncionario().getEnderecoFuncionario(), listaFuncionarios.getItem(pos_Lista).getTitularFuncionario().getTelefoneFuncionario(),
                         listaFuncionarios.getItem(pos_Lista).getTitularFuncionario().getCargoFuncionario()});
+                }
             }
-            }   
-        tabelaFuncionario.setEnabled(false);
+            tabelaFuncionario.setEnabled(false);
         }
     }//GEN-LAST:event_carregarTabela_FuncionarioActionPerformed
 
     private void criarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_criarFuncionarioActionPerformed
         interface_criarFuncionario criarFuncionario = new interface_criarFuncionario();
 
-        try{
+        try {
             MaskFormatter telefone = new MaskFormatter(" (##) #####-####");
             //Esse new DefaultFormatterFactory(Mask), está setando um novo objeto do tipo máscara parao mewu jFormattedField. Composionalidade! O JFormattedFields tem uma Mascará.
             criarFuncionario.getCpfFuncionario().setFormatterFactory(new DefaultFormatterFactory(mascaraCPF()));
             criarFuncionario.getTelefoneFuncionario().setFormatterFactory(new DefaultFormatterFactory(telefone));
-        }catch(Exception e){
+        } catch (Exception e) {
             //Esse catch informará um erro caso o usuário informe uma máscara incorreta.
             e.printStackTrace();
         }
@@ -348,7 +351,7 @@ public class interface_exibirFuncionarios extends javax.swing.JFrame {
     }//GEN-LAST:event_criarFuncionarioActionPerformed
 
     private void criarFuncionarioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_criarFuncionarioMouseExited
-        criarFuncionario.setBackground(new Color(252,252,252));    // TODO add your handling code here:
+        criarFuncionario.setBackground(new Color(252, 252, 252));    // TODO add your handling code here:
     }//GEN-LAST:event_criarFuncionarioMouseExited
 
     private void criarFuncionarioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_criarFuncionarioMouseEntered
@@ -358,9 +361,9 @@ public class interface_exibirFuncionarios extends javax.swing.JFrame {
     private void apagarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_apagarFuncionarioActionPerformed
         interface_apagarFuncionario apagarFuncionario = new interface_apagarFuncionario();
 
-        try{
+        try {
             apagarFuncionario.getVerificarCPF_Funcionario().setFormatterFactory(new DefaultFormatterFactory(mascaraCPF()));
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         apagarFuncionario.setVisible(true);
@@ -372,23 +375,23 @@ public class interface_exibirFuncionarios extends javax.swing.JFrame {
     }//GEN-LAST:event_apagarFuncionarioActionPerformed
 
     private void apagarFuncionarioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_apagarFuncionarioMouseExited
-        apagarFuncionario.setBackground(new Color(252,252,252));
+        apagarFuncionario.setBackground(new Color(252, 252, 252));
     }//GEN-LAST:event_apagarFuncionarioMouseExited
 
     private void apagarFuncionarioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_apagarFuncionarioMouseEntered
-        apagarFuncionario.setBackground(new Color(255,188,188));
+        apagarFuncionario.setBackground(new Color(255, 188, 188));
     }//GEN-LAST:event_apagarFuncionarioMouseEntered
 
     private void editarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarFuncionarioActionPerformed
         interface_editarFuncionario editarFuncionario = new interface_editarFuncionario();
 
-        try{
+        try {
             MaskFormatter telefone_editarFuncionario = new MaskFormatter(" (##) #####-####");
 
             editarFuncionario.getVerificarCPF_Funcionario().setFormatterFactory(new DefaultFormatterFactory(mascaraCPF()));
             editarFuncionario.getCpfFuncionario_Editar().setFormatterFactory(new DefaultFormatterFactory(mascaraCPF()));
             editarFuncionario.getTelefoneFuncionario_Editar().setFormatterFactory(new DefaultFormatterFactory(telefone_editarFuncionario));
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
@@ -402,11 +405,11 @@ public class interface_exibirFuncionarios extends javax.swing.JFrame {
     }//GEN-LAST:event_editarFuncionarioActionPerformed
 
     private void editarFuncionarioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editarFuncionarioMouseExited
-        editarFuncionario.setBackground(new Color(252,252,252));
+        editarFuncionario.setBackground(new Color(252, 252, 252));
     }//GEN-LAST:event_editarFuncionarioMouseExited
 
     private void editarFuncionarioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editarFuncionarioMouseEntered
-        editarFuncionario.setBackground(new Color(210,224,251));
+        editarFuncionario.setBackground(new Color(210, 224, 251));
     }//GEN-LAST:event_editarFuncionarioMouseEntered
 
     private void sair_exibirFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sair_exibirFuncionarioActionPerformed
@@ -419,36 +422,38 @@ public class interface_exibirFuncionarios extends javax.swing.JFrame {
     }//GEN-LAST:event_sair_exibirFuncionarioActionPerformed
 
     private void sair_exibirFuncionarioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sair_exibirFuncionarioMouseEntered
-         sair_exibirFuncionario.setBackground(new Color(237, 237, 237));
+        sair_exibirFuncionario.setBackground(new Color(237, 237, 237));
     }//GEN-LAST:event_sair_exibirFuncionarioMouseEntered
 
     private void sair_exibirFuncionarioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sair_exibirFuncionarioMouseExited
         sair_exibirFuncionario.setBackground(new Color(252, 252, 252));
     }//GEN-LAST:event_sair_exibirFuncionarioMouseExited
-    public MaskFormatter mascaraCPF(){
+    public MaskFormatter mascaraCPF() {
         MaskFormatter CPF = null;
-        try{
+        try {
             CPF = new MaskFormatter(" ###.###.###-##");
             //Esse new DefaultFormatterFactory(Mask), está setando um novo objeto do tipo máscara parao mewu jFormattedField. Composionalidade! O JFormattedFields tem uma Mascará.            
-        }catch(Exception e){
+        } catch (Exception e) {
             //Esse catch informará um erro caso o usuário informe uma máscara incorreta.
-                e.printStackTrace();
+            e.printStackTrace();
         }
         return CPF;
     }
-    
-    public void recebeListaFuncionarios(listaFuncionarios listaFuncionarios){
+
+    public void recebeListaFuncionarios(listaFuncionarios listaFuncionarios) {
         this.listaFuncionarios = listaFuncionarios;
     }
-    public void recebeListaProdutos(listaProdutos listaProdutos){
+
+    public void recebeListaProdutos(listaProdutos listaProdutos) {
         this.listaProdutos = listaProdutos;
     }
-    public void recebeConta(Conta_Cliente Conta_Cliente){
+
+    public void recebeConta(Conta_Cliente Conta_Cliente) {
         this.Conta_Cliente = Conta_Cliente;
     }
     /**
      * @param args the command line arguments
-     */  
+     */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton apagarFuncionario;
