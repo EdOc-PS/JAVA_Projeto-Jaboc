@@ -20,7 +20,7 @@ public class interface_areaSenhaGerencia extends javax.swing.JFrame {
     private listaFuncionarios listaFuncionarios;
     private listaProdutos listaProdutos;
     private Conta_Cliente Conta_Cliente;
-    Administrador admin = new Administrador("Jaboc",null, null, null, "Administrador", "admin123");
+    Administrador admin = new Administrador("Jaboc",null, null, null, "Administrador", "123");
     /**
      * Creates new form interface_areaSenha
      */

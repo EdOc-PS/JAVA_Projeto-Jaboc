@@ -7,16 +7,20 @@ package jaboc_UI;
 import jaboc_Classes.Conta_Cliente;
 import jaboc_Classes.listaFuncionarios;
 import jaboc_Classes.listaProdutos;
+import java.awt.Color;
 import javax.swing.JOptionPane;
+
 /**
  *
  * @author guilh
  */
 public class interface_editarFuncionario extends javax.swing.JFrame {
+
     private listaFuncionarios listaFuncionarios;
     private listaProdutos listaProdutos;
     private Conta_Cliente Conta_Cliente;
     private int indiceFuncionario;
+
     /**
      * Creates new form interface_editarFuncionario
      */
@@ -262,6 +266,14 @@ public class interface_editarFuncionario extends javax.swing.JFrame {
         sair_EditarFuncionario.setBorderPainted(false);
         sair_EditarFuncionario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         sair_EditarFuncionario.setFocusPainted(false);
+        sair_EditarFuncionario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                sair_EditarFuncionarioMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                sair_EditarFuncionarioMouseExited(evt);
+            }
+        });
         sair_EditarFuncionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 sair_EditarFuncionarioActionPerformed(evt);
@@ -335,7 +347,7 @@ public class interface_editarFuncionario extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(37, Short.MAX_VALUE))
-            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 510, Short.MAX_VALUE)
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 521, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -353,9 +365,11 @@ public class interface_editarFuncionario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void editarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarFuncionarioActionPerformed
-        if("".equals(nomeFuncionario_Editar.getText()) || "   .   .   -  ".equals(cpfFuncionario_Editar.getText()) || "".equals(enderecoFuncionario_Editar.getText()) || "(  )      -    ".equals(telefoneFuncionario_Editar.getText()) || "".equals(cargoFuncionario_Editar.getSelectedItem())){
-            JOptionPane.showMessageDialog(null,"Campo vazio!","Erro",WIDTH);
-        }else{    
+        if ("".equals(nomeFuncionario_Editar.getText()) || "   .   .   -  ".equals(cpfFuncionario_Editar.getText())
+                || "".equals(enderecoFuncionario_Editar.getText()) || "(  )      -    ".equals(telefoneFuncionario_Editar.getText())
+                || "".equals(cargoFuncionario_Editar.getSelectedItem())) {
+            JOptionPane.showMessageDialog(null, "Campo vazio!", "Erro", WIDTH);
+        } else {
             listaFuncionarios.getItem(indiceFuncionario).getTitularFuncionario().setNomeFuncionario(nomeFuncionario_Editar.getText());
             listaFuncionarios.getItem(indiceFuncionario).getTitularFuncionario().setCpfFuncionario(cpfFuncionario_Editar.getText());
             listaFuncionarios.getItem(indiceFuncionario).getTitularFuncionario().setEnderecoFuncionario(enderecoFuncionario_Editar.getText());
@@ -369,11 +383,11 @@ public class interface_editarFuncionario extends javax.swing.JFrame {
             enderecoFuncionario_Editar.setText("");
             telefoneFuncionario_Editar.setText("");
             cargoFuncionario_Editar.setSelectedItem("Cozinheiro(a)");
-            
+
             jPanel2.setVisible(false);
             editarFuncionario.setVisible(false);
-        }    
-        
+        }
+
     }//GEN-LAST:event_editarFuncionarioActionPerformed
 
     private void nomeFuncionario_EditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeFuncionario_EditarActionPerformed
@@ -382,8 +396,8 @@ public class interface_editarFuncionario extends javax.swing.JFrame {
 
     private void sair_EditarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sair_EditarFuncionarioActionPerformed
         interface_exibirFuncionarios exibirFuncionarios = new interface_exibirFuncionarios();
-        exibirFuncionarios.setVisible(true);       
-        exibirFuncionarios.recebeListaFuncionarios(listaFuncionarios);  
+        exibirFuncionarios.setVisible(true);
+        exibirFuncionarios.recebeListaFuncionarios(listaFuncionarios);
         exibirFuncionarios.recebeListaProdutos(listaProdutos);
         exibirFuncionarios.recebeConta(Conta_Cliente);
         this.dispose();
@@ -391,10 +405,10 @@ public class interface_editarFuncionario extends javax.swing.JFrame {
 
     private void verificarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verificarFuncionarioActionPerformed
 
-        if(listaFuncionarios != null){
+        if (listaFuncionarios != null) {
             indiceFuncionario = listaFuncionarios.buscarContaFuncionario(verificarCPF_Funcionario.getText(), listaFuncionarios.getNAtualElementos(), -1);
 
-            if(indiceFuncionario != - 1 && verificarSenha_Funcionario.getText().equals(listaFuncionarios.getItem(indiceFuncionario).getSenha())){
+            if (indiceFuncionario != - 1 && verificarSenha_Funcionario.getText().equals(listaFuncionarios.getItem(indiceFuncionario).getSenha())) {
                 verificarCPF_Funcionario.setText("");
                 verificarSenha_Funcionario.setText("");
 
@@ -407,41 +421,56 @@ public class interface_editarFuncionario extends javax.swing.JFrame {
                 telefoneFuncionario_Editar.setText(listaFuncionarios.getItem(indiceFuncionario).getTitularFuncionario().getTelefoneFuncionario());
                 cargoFuncionario_Editar.setSelectedItem(listaFuncionarios.getItem(indiceFuncionario).getTitularFuncionario().getCargoFuncionario());
 
-            }else if(indiceFuncionario == -1){
+            } else if (indiceFuncionario == -1) {
                 JOptionPane.showMessageDialog(null, "CPF inexistente!", "Erro", JOptionPane.INFORMATION_MESSAGE);
-            }else{
+            } else {
                 JOptionPane.showMessageDialog(null, "Senha incorreta!", "Erro", JOptionPane.INFORMATION_MESSAGE);
             }
-        }else{
-            JOptionPane.showMessageDialog(null,"Não há funcionários cadastrados!","Erro",WIDTH);
+        } else {
+            JOptionPane.showMessageDialog(null, "Não há funcionários cadastrados!", "Erro", WIDTH);
         }
     }//GEN-LAST:event_verificarFuncionarioActionPerformed
 
     private void verificarSenha_FuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verificarSenha_FuncionarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_verificarSenha_FuncionarioActionPerformed
-    public void receberListaFuncionarios(listaFuncionarios listaFuncionarios){
+
+    private void sair_EditarFuncionarioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sair_EditarFuncionarioMouseEntered
+        sair_EditarFuncionario.setBackground(new Color(237, 237, 237));
+    }//GEN-LAST:event_sair_EditarFuncionarioMouseEntered
+
+    private void sair_EditarFuncionarioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sair_EditarFuncionarioMouseExited
+        sair_EditarFuncionario.setBackground(new Color(252, 252, 252));
+    }//GEN-LAST:event_sair_EditarFuncionarioMouseExited
+    public void receberListaFuncionarios(listaFuncionarios listaFuncionarios) {
         this.listaFuncionarios = listaFuncionarios;
     }
-    public void receberListaProdutos(listaProdutos listaProdutos){
+
+    public void receberListaProdutos(listaProdutos listaProdutos) {
         this.listaProdutos = listaProdutos;
     }
-    public void recebeConta(Conta_Cliente Conta_Cliente){
+
+    public void recebeConta(Conta_Cliente Conta_Cliente) {
         this.Conta_Cliente = Conta_Cliente;
     }
-    public javax.swing.JPanel getJPanel2(){
+
+    public javax.swing.JPanel getJPanel2() {
         return this.jPanel2;
     }
-    public javax.swing.JButton getBTNEditarFuncionario(){
+
+    public javax.swing.JButton getBTNEditarFuncionario() {
         return this.editarFuncionario;
     }
-    public javax.swing.JFormattedTextField getVerificarCPF_Funcionario(){
+
+    public javax.swing.JFormattedTextField getVerificarCPF_Funcionario() {
         return this.verificarCPF_Funcionario;
     }
-    public javax.swing.JFormattedTextField getCpfFuncionario_Editar(){
+
+    public javax.swing.JFormattedTextField getCpfFuncionario_Editar() {
         return this.cpfFuncionario_Editar;
     }
-    public javax.swing.JFormattedTextField getTelefoneFuncionario_Editar(){
+
+    public javax.swing.JFormattedTextField getTelefoneFuncionario_Editar() {
         return this.telefoneFuncionario_Editar;
     }
     /**

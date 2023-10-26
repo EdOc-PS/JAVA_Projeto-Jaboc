@@ -7,6 +7,7 @@ package jaboc_UI;
 import jaboc_Classes.Conta_Cliente;
 import jaboc_Classes.listaFuncionarios;
 import jaboc_Classes.listaProdutos;
+import java.awt.Color;
 import javax.swing.JOptionPane;
 
 /**
@@ -133,6 +134,14 @@ public class interface_apagarFuncionario extends javax.swing.JFrame {
         sair_ApagarFuncionario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_back.png"))); // NOI18N
         sair_ApagarFuncionario.setText("   Voltar");
         sair_ApagarFuncionario.setBorderPainted(false);
+        sair_ApagarFuncionario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                sair_ApagarFuncionarioMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                sair_ApagarFuncionarioMouseExited(evt);
+            }
+        });
         sair_ApagarFuncionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 sair_ApagarFuncionarioActionPerformed(evt);
@@ -209,7 +218,7 @@ public class interface_apagarFuncionario extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(51, 51, 51))
-            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 510, Short.MAX_VALUE)
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 516, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -265,6 +274,14 @@ public class interface_apagarFuncionario extends javax.swing.JFrame {
         exibirFuncionarios.recebeConta(Conta_Cliente);
         this.dispose();
     }//GEN-LAST:event_sair_ApagarFuncionarioActionPerformed
+
+    private void sair_ApagarFuncionarioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sair_ApagarFuncionarioMouseEntered
+       sair_ApagarFuncionario.setBackground(new Color(237, 237, 237));
+    }//GEN-LAST:event_sair_ApagarFuncionarioMouseEntered
+
+    private void sair_ApagarFuncionarioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sair_ApagarFuncionarioMouseExited
+        sair_ApagarFuncionario.setBackground(new Color(252, 252, 252));
+    }//GEN-LAST:event_sair_ApagarFuncionarioMouseExited
     public void txtAreaIneditavel(){
         txtArea_Funcionario.setEditable(false);
     }

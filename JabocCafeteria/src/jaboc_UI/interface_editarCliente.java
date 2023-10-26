@@ -461,7 +461,8 @@ public class interface_editarCliente extends javax.swing.JFrame {
     private void editarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarClienteActionPerformed
         if (Conta_Cliente == null) {
             JOptionPane.showMessageDialog(null, "Nenhum Cliente cadastrado!", "Erro", WIDTH);
-        } else if ("".equals(nomeCliente_Editar.getText()) || "".equals(cpfCliente_Editar.getText()) || "".equals(enderecoCliente_Editar.getText()) || "".equals(telefoneCliente_Editar.getText())) {
+        } else if ("".equals(nomeCliente_Editar.getText()) || "".equals(cpfCliente_Editar.getText()) || "".equals(enderecoCliente_Editar.getText()) 
+                || "(  )      -    ".equals(telefoneCliente_Editar.getText())) {
             JOptionPane.showMessageDialog(null, "Os campos estão vazios!", "Erro", WIDTH);
         } else {
             Conta_Cliente.getTitular().setNomeCliente(nomeCliente_Editar.getText());

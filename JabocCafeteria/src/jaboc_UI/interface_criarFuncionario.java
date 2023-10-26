@@ -9,6 +9,7 @@ import jaboc_Classes.Funcionario;
 import jaboc_Classes.Conta_Funcionario;
 import jaboc_Classes.listaFuncionarios;
 import jaboc_Classes.listaProdutos;
+import java.awt.Color;
 import javax.swing.JOptionPane;
 import javax.swing.text.DefaultFormatterFactory;
 import javax.swing.text.MaskFormatter;
@@ -22,8 +23,9 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
     private Funcionario Funcionario;
     private int Id_ContaFuncionario = 1;
     private listaFuncionarios listaFuncionarios;
-    private listaProdutos listaProdutos; 
+    private listaProdutos listaProdutos;
     private Conta_Cliente Conta_Cliente;
+
     /**
      * Creates new form NewJFrame
      */
@@ -226,6 +228,14 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
         sair_criarFuncionario2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         sair_criarFuncionario2.setFocusPainted(false);
         sair_criarFuncionario2.setFocusable(false);
+        sair_criarFuncionario2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                sair_criarFuncionario2MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                sair_criarFuncionario2MouseExited(evt);
+            }
+        });
         sair_criarFuncionario2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 sair_criarFuncionarioActionPerformed(evt);
@@ -323,11 +333,13 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
         if (this.listaFuncionarios.getNAtualElementos() > 0) {
             Id_ContaFuncionario = this.listaFuncionarios.ultimoItem(0).getIdFuncionario() + 1;
         }
-    }    
-    public void recebeListaProdutos(listaProdutos listaProdutos){
+    }
+
+    public void recebeListaProdutos(listaProdutos listaProdutos) {
         this.listaProdutos = listaProdutos;
     }
-    public void recebeConta(Conta_Cliente Conta_Cliente){
+
+    public void recebeConta(Conta_Cliente Conta_Cliente) {
         this.Conta_Cliente = Conta_Cliente;
     }
     private void enderecoFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enderecoFuncionarioActionPerformed
@@ -351,7 +363,7 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
 
             if (senhaFuncionario.getText().equals(verificarSenhaFuncionario.getText()) && !senhaFuncionario.getText().equals("")) {
                 Funcionario = new Funcionario(nomeFuncionario.getText(), cpfFuncionario.getText(), enderecoFuncionario.getText(), telefoneFuncionario.getText(),
-                    String.valueOf(cargoFuncionario.getSelectedItem()));
+                        String.valueOf(cargoFuncionario.getSelectedItem()));
 
                 listaFuncionarios.inserirItem(new Conta_Funcionario(Id_ContaFuncionario++, Funcionario, senhaFuncionario.getText()));
                 JOptionPane.showMessageDialog(null, Funcionario.toString(), "Funcionário cadastrado!", WIDTH);
@@ -381,10 +393,19 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
         exibirFuncionarios.recebeConta(Conta_Cliente);
         this.dispose();
     }//GEN-LAST:event_sair_criarFuncionarioActionPerformed
-    public javax.swing.JFormattedTextField getCpfFuncionario(){
+
+    private void sair_criarFuncionario2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sair_criarFuncionario2MouseEntered
+        sair_criarFuncionario2.setBackground(new Color(237, 237, 237));
+    }//GEN-LAST:event_sair_criarFuncionario2MouseEntered
+
+    private void sair_criarFuncionario2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sair_criarFuncionario2MouseExited
+        sair_criarFuncionario2.setBackground(new Color(252, 252, 252));
+    }//GEN-LAST:event_sair_criarFuncionario2MouseExited
+    public javax.swing.JFormattedTextField getCpfFuncionario() {
         return this.cpfFuncionario;
-    } 
-    public javax.swing.JFormattedTextField getTelefoneFuncionario(){
+    }
+
+    public javax.swing.JFormattedTextField getTelefoneFuncionario() {
         return this.telefoneFuncionario;
     }
     /**

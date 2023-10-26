@@ -98,7 +98,7 @@
                   <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="37" max="32767" attributes="0"/>
               </Group>
-              <Component id="jPanel4" alignment="0" pref="510" max="32767" attributes="0"/>
+              <Component id="jPanel4" alignment="0" pref="521" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
       </Layout>
@@ -488,6 +488,8 @@
                 <Property name="focusPainted" type="boolean" value="false"/>
               </Properties>
               <Events>
+                <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="sair_EditarFuncionarioMouseEntered"/>
+                <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="sair_EditarFuncionarioMouseExited"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sair_EditarFuncionarioActionPerformed"/>
               </Events>
             </Component>

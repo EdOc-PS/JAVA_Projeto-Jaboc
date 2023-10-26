@@ -20,7 +20,7 @@ public class interface_areaSenhaCliente extends javax.swing.JFrame {
     private Cliente Cliente;
     private listaProdutos listaProdutos;
     private listaFuncionarios listaFuncionarios;
-    Conta_Cliente Conta_Cliente;
+    private Conta_Cliente Conta_Cliente;
 
     /**
      * Creates new form interface_areaSenhaCliente
