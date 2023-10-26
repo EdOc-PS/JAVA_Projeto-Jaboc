@@ -67,6 +67,8 @@ public class interface_apagarFuncionario extends javax.swing.JFrame {
             }
         });
 
+        verificarCPF_Funcionario.setFont(new java.awt.Font("Gill Sans MT", 0, 12)); // NOI18N
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -98,6 +100,7 @@ public class interface_apagarFuncionario extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(200, 182, 166));
 
         txtArea_Funcionario.setColumns(20);
+        txtArea_Funcionario.setFont(new java.awt.Font("Gill Sans MT", 0, 12)); // NOI18N
         txtArea_Funcionario.setRows(5);
         jScrollPane1.setViewportView(txtArea_Funcionario);
 
@@ -121,6 +124,7 @@ public class interface_apagarFuncionario extends javax.swing.JFrame {
         jPanel4.setBackground(new java.awt.Color(252, 252, 252));
         jPanel4.setPreferredSize(new java.awt.Dimension(243, 237));
 
+        sair_ApagarFuncionario.setBackground(new java.awt.Color(252, 252, 252));
         sair_ApagarFuncionario.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
         sair_ApagarFuncionario.setForeground(new java.awt.Color(79, 84, 101));
         sair_ApagarFuncionario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_back.png"))); // NOI18N
@@ -174,8 +178,9 @@ public class interface_apagarFuncionario extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jLabel2.setFont(new java.awt.Font("Gill Sans MT", 1, 36)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Gill Sans MT", 1, 32)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_apagarFuncionario.png"))); // NOI18N
         jLabel2.setText("APAGAR FUNCIONÁRIO");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -188,7 +193,7 @@ public class interface_apagarFuncionario extends javax.swing.JFrame {
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 100, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 148, Short.MAX_VALUE)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -201,7 +206,7 @@ public class interface_apagarFuncionario extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15))
-            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 527, Short.MAX_VALUE)
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 547, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

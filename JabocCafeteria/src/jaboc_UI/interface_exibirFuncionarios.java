@@ -6,6 +6,7 @@ package jaboc_UI;
 
 import jaboc_Classes.listaFuncionarios;
 import jaboc_Classes.listaProdutos;
+import java.awt.Color;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.text.DefaultFormatterFactory;
 import javax.swing.text.MaskFormatter;
@@ -37,15 +38,15 @@ public class interface_exibirFuncionarios extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tabelaFuncionario = new javax.swing.JTable();
-        carregarTabela_Funcionario = new javax.swing.JButton();
-        jPanel4 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         sair_exibirFuncionario = new javax.swing.JButton();
-        jLabel11 = new javax.swing.JLabel();
-        criarFuncionario = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
         editarFuncionario = new javax.swing.JButton();
         apagarFuncionario = new javax.swing.JButton();
+        criarFuncionario = new javax.swing.JButton();
+        jLabel14 = new javax.swing.JLabel();
+        carregarTabela_Funcionario = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -53,7 +54,6 @@ public class interface_exibirFuncionarios extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(141, 123, 104));
 
-        tabelaFuncionario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
         tabelaFuncionario.setFont(new java.awt.Font("Gill Sans MT", 0, 12)); // NOI18N
         tabelaFuncionario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -77,9 +77,141 @@ public class interface_exibirFuncionarios extends javax.swing.JFrame {
         tabelaFuncionario.setSelectionBackground(new java.awt.Color(255, 255, 255));
         jScrollPane2.setViewportView(tabelaFuncionario);
 
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 650, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 288, Short.MAX_VALUE)
+                .addGap(20, 20, 20))
+        );
+
+        jPanel5.setBackground(new java.awt.Color(252, 252, 252));
+
+        sair_exibirFuncionario.setBackground(new java.awt.Color(252, 252, 252));
+        sair_exibirFuncionario.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        sair_exibirFuncionario.setForeground(new java.awt.Color(79, 84, 101));
+        sair_exibirFuncionario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_back.png"))); // NOI18N
+        sair_exibirFuncionario.setText("VOLTAR");
+        sair_exibirFuncionario.setBorder(null);
+        sair_exibirFuncionario.setBorderPainted(false);
+        sair_exibirFuncionario.setFocusPainted(false);
+        sair_exibirFuncionario.setFocusable(false);
+        sair_exibirFuncionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sair_exibirFuncionarioActionPerformed(evt);
+            }
+        });
+
+        jPanel3.setBackground(new java.awt.Color(164, 144, 124));
+
+        editarFuncionario.setBackground(new java.awt.Color(252, 252, 252));
+        editarFuncionario.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        editarFuncionario.setForeground(new java.awt.Color(79, 84, 101));
+        editarFuncionario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_editar.png"))); // NOI18N
+        editarFuncionario.setText("Editar Funcionário");
+        editarFuncionario.setBorder(null);
+        editarFuncionario.setFocusPainted(false);
+        editarFuncionario.setFocusable(false);
+        editarFuncionario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                editarFuncionarioMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                editarFuncionarioMouseExited(evt);
+            }
+        });
+        editarFuncionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editarFuncionarioActionPerformed(evt);
+            }
+        });
+
+        apagarFuncionario.setBackground(new java.awt.Color(252, 252, 252));
+        apagarFuncionario.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        apagarFuncionario.setForeground(new java.awt.Color(79, 84, 101));
+        apagarFuncionario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_lixo.png"))); // NOI18N
+        apagarFuncionario.setText("Apagar Funcionário");
+        apagarFuncionario.setBorder(null);
+        apagarFuncionario.setFocusPainted(false);
+        apagarFuncionario.setFocusable(false);
+        apagarFuncionario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                apagarFuncionarioMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                apagarFuncionarioMouseExited(evt);
+            }
+        });
+        apagarFuncionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                apagarFuncionarioActionPerformed(evt);
+            }
+        });
+
+        criarFuncionario.setBackground(new java.awt.Color(252, 252, 252));
+        criarFuncionario.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        criarFuncionario.setForeground(new java.awt.Color(79, 84, 101));
+        criarFuncionario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_adicionar.png"))); // NOI18N
+        criarFuncionario.setText("Criar Funcionário");
+        criarFuncionario.setBorder(null);
+        criarFuncionario.setFocusPainted(false);
+        criarFuncionario.setFocusable(false);
+        criarFuncionario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                criarFuncionarioMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                criarFuncionarioMouseExited(evt);
+            }
+        });
+        criarFuncionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                criarFuncionarioActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(criarFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(editarFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(apagarFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(criarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addComponent(editarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(apagarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(15, 15, 15))
+        );
+
+        jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logo4.png"))); // NOI18N
+        jLabel14.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+
+        carregarTabela_Funcionario.setBackground(new java.awt.Color(74, 89, 101));
         carregarTabela_Funcionario.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
-        carregarTabela_Funcionario.setForeground(new java.awt.Color(74, 89, 101));
+        carregarTabela_Funcionario.setForeground(new java.awt.Color(255, 255, 255));
         carregarTabela_Funcionario.setText("Carregar tabela");
+        carregarTabela_Funcionario.setBorder(null);
         carregarTabela_Funcionario.setFocusPainted(false);
         carregarTabela_Funcionario.setFocusable(false);
         carregarTabela_Funcionario.addActionListener(new java.awt.event.ActionListener() {
@@ -88,244 +220,81 @@ public class interface_exibirFuncionarios extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 650, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(carregarTabela_Funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(268, 268, 268))
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(sair_exibirFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(13, 13, 13)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(carregarTabela_Funcionario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 7, Short.MAX_VALUE)))
+                .addContainerGap())
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 288, Short.MAX_VALUE)
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(sair_exibirFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(carregarTabela_Funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(14, 14, 14))
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(carregarTabela_Funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
-        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
-
-        jLabel2.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(79, 84, 101));
-        jLabel2.setText("Funcionários");
-
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 23, Short.MAX_VALUE))
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        jLabel1.setFont(new java.awt.Font("Gill Sans MT", 1, 42)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_gerenciarFuncionarios.png"))); // NOI18N
+        jLabel1.setText("GERENCIAR FUNCIONÁRIOS");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addGap(40, 40, 40)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 690, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(80, 80, 80)
+                .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
-        );
-
-        jPanel5.setBackground(new java.awt.Color(252, 252, 252));
-
-        sair_exibirFuncionario.setBackground(new java.awt.Color(252, 252, 252));
-        sair_exibirFuncionario.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
-        sair_exibirFuncionario.setForeground(new java.awt.Color(79, 84, 101));
-        sair_exibirFuncionario.setText("VOLTAR");
-        sair_exibirFuncionario.setBorderPainted(false);
-        sair_exibirFuncionario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sair_exibirFuncionarioActionPerformed(evt);
-            }
-        });
-
-        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logo4.png"))); // NOI18N
-        jLabel11.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-
-        criarFuncionario.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
-        criarFuncionario.setForeground(new java.awt.Color(79, 84, 101));
-        criarFuncionario.setText("Criar Funcionário");
-        criarFuncionario.setFocusPainted(false);
-        criarFuncionario.setFocusable(false);
-        criarFuncionario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                criarFuncionarioActionPerformed(evt);
-            }
-        });
-
-        editarFuncionario.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
-        editarFuncionario.setForeground(new java.awt.Color(79, 84, 101));
-        editarFuncionario.setText("Editar Funcionário");
-        editarFuncionario.setFocusPainted(false);
-        editarFuncionario.setFocusable(false);
-        editarFuncionario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                editarFuncionarioActionPerformed(evt);
-            }
-        });
-
-        apagarFuncionario.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
-        apagarFuncionario.setForeground(new java.awt.Color(79, 84, 101));
-        apagarFuncionario.setText("Apagar Funcionário");
-        apagarFuncionario.setFocusPainted(false);
-        apagarFuncionario.setFocusable(false);
-        apagarFuncionario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                apagarFuncionarioActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(sair_exibirFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(editarFuncionario)
-                            .addComponent(criarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(apagarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 42, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(sair_exibirFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
-                        .addComponent(criarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(27, 27, 27)
-                .addComponent(editarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addComponent(apagarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(102, 102, 102))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(1, 1, 1)
-                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void apagarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_apagarFuncionarioActionPerformed
-        interface_apagarFuncionario apagarFuncionario = new interface_apagarFuncionario();
-        
-        try{
-            apagarFuncionario.getVerificarCPF_Funcionario().setFormatterFactory(new DefaultFormatterFactory(mascaraCPF()));
-        }catch(Exception e){
-            e.printStackTrace();
-        }
-        apagarFuncionario.setVisible(true);
-        apagarFuncionario.txtAreaIneditavel();      
-        apagarFuncionario.receberListaFuncionarios(listaFuncionarios);
-        apagarFuncionario.receberListaProdutos(listaProdutos);
-        this.dispose();
-    }//GEN-LAST:event_apagarFuncionarioActionPerformed
-
-    private void editarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarFuncionarioActionPerformed
-        interface_editarFuncionario editarFuncionario = new interface_editarFuncionario();
-        
-        try{
-            MaskFormatter telefone_editarFuncionario = new MaskFormatter("(##) #####-####");
-            
-            editarFuncionario.getVerificarCPF_Funcionario().setFormatterFactory(new DefaultFormatterFactory(mascaraCPF()));
-            editarFuncionario.getCpfFuncionario_Editar().setFormatterFactory(new DefaultFormatterFactory(mascaraCPF()));
-            editarFuncionario.getTelefoneFuncionario_Editar().setFormatterFactory(new DefaultFormatterFactory(telefone_editarFuncionario));
-        }catch(Exception e){
-            e.printStackTrace();
-        }
-        
-        editarFuncionario.getJPanel2().setVisible(false);
-        editarFuncionario.getBTNEditarFuncionario().setVisible(false);
-        editarFuncionario.setVisible(true);        
-        editarFuncionario.receberListaFuncionarios(listaFuncionarios);
-        editarFuncionario.receberListaProdutos(listaProdutos);
-        this.dispose();
-    }//GEN-LAST:event_editarFuncionarioActionPerformed
-
-    private void criarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_criarFuncionarioActionPerformed
-        interface_criarFuncionario criarFuncionario = new interface_criarFuncionario();
-        
-        try{
-            MaskFormatter telefone = new MaskFormatter("(##) #####-####");
-            //Esse new DefaultFormatterFactory(Mask), está setando um novo objeto do tipo máscara parao mewu jFormattedField. Composionalidade! O JFormattedFields tem uma Mascará.
-            criarFuncionario.getCpfFuncionario().setFormatterFactory(new DefaultFormatterFactory(mascaraCPF()));
-            criarFuncionario.getTelefoneFuncionario().setFormatterFactory(new DefaultFormatterFactory(telefone));
-        }catch(Exception e){
-            //Esse catch informará um erro caso o usuário informe uma máscara incorreta.
-                e.printStackTrace();
-        } 
-        criarFuncionario.setVisible(true);
-        criarFuncionario.recebeListaFuncionarios(listaFuncionarios);
-        criarFuncionario.recebeListaProdutos(listaProdutos);
-        criarFuncionario.recebeListaProdutos(listaProdutos);
-        this.dispose();
-    }//GEN-LAST:event_criarFuncionarioActionPerformed
-
-    private void sair_exibirFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sair_exibirFuncionarioActionPerformed
-        interface_areaGerencia areaGerencia = new interface_areaGerencia();
-        areaGerencia.recebeListaFuncionarios(listaFuncionarios);
-        areaGerencia.recebeListaProdutos(listaProdutos);
-        areaGerencia.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_sair_exibirFuncionarioActionPerformed
 
     private void carregarTabela_FuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carregarTabela_FuncionarioActionPerformed
 
@@ -340,9 +309,97 @@ public class interface_exibirFuncionarios extends javax.swing.JFrame {
                         listaFuncionarios.getItem(pos_Lista).getTitularFuncionario().getCargoFuncionario()});
             }
         }
-        carregarTabela_Funcionario.setVisible(false);
+        carregarTabela_Funcionario.setEnabled(false);
+        tabelaFuncionario.setEnabled(false);
         }
     }//GEN-LAST:event_carregarTabela_FuncionarioActionPerformed
+
+    private void sair_exibirFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sair_exibirFuncionarioActionPerformed
+        interface_areaGerencia areaGerencia = new interface_areaGerencia();
+        areaGerencia.recebeListaFuncionarios(listaFuncionarios);
+        areaGerencia.recebeListaProdutos(listaProdutos);
+        areaGerencia.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_sair_exibirFuncionarioActionPerformed
+
+    private void editarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarFuncionarioActionPerformed
+        interface_editarFuncionario editarFuncionario = new interface_editarFuncionario();
+
+        try{
+            MaskFormatter telefone_editarFuncionario = new MaskFormatter("(##) #####-####");
+
+            editarFuncionario.getVerificarCPF_Funcionario().setFormatterFactory(new DefaultFormatterFactory(mascaraCPF()));
+            editarFuncionario.getCpfFuncionario_Editar().setFormatterFactory(new DefaultFormatterFactory(mascaraCPF()));
+            editarFuncionario.getTelefoneFuncionario_Editar().setFormatterFactory(new DefaultFormatterFactory(telefone_editarFuncionario));
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+
+        editarFuncionario.getJPanel2().setVisible(false);
+        editarFuncionario.getBTNEditarFuncionario().setVisible(false);
+        editarFuncionario.setVisible(true);
+        editarFuncionario.receberListaFuncionarios(listaFuncionarios);
+        editarFuncionario.receberListaProdutos(listaProdutos);
+        this.dispose();
+    }//GEN-LAST:event_editarFuncionarioActionPerformed
+
+    private void apagarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_apagarFuncionarioActionPerformed
+        interface_apagarFuncionario apagarFuncionario = new interface_apagarFuncionario();
+
+        try{
+            apagarFuncionario.getVerificarCPF_Funcionario().setFormatterFactory(new DefaultFormatterFactory(mascaraCPF()));
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        apagarFuncionario.setVisible(true);
+        apagarFuncionario.txtAreaIneditavel();
+        apagarFuncionario.receberListaFuncionarios(listaFuncionarios);
+        apagarFuncionario.receberListaProdutos(listaProdutos);
+        this.dispose();
+    }//GEN-LAST:event_apagarFuncionarioActionPerformed
+
+    private void criarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_criarFuncionarioActionPerformed
+        interface_criarFuncionario criarFuncionario = new interface_criarFuncionario();
+
+        try{
+            MaskFormatter telefone = new MaskFormatter("(##) #####-####");
+            //Esse new DefaultFormatterFactory(Mask), está setando um novo objeto do tipo máscara parao mewu jFormattedField. Composionalidade! O JFormattedFields tem uma Mascará.
+            criarFuncionario.getCpfFuncionario().setFormatterFactory(new DefaultFormatterFactory(mascaraCPF()));
+            criarFuncionario.getTelefoneFuncionario().setFormatterFactory(new DefaultFormatterFactory(telefone));
+        }catch(Exception e){
+            //Esse catch informará um erro caso o usuário informe uma máscara incorreta.
+            e.printStackTrace();
+        }
+        criarFuncionario.setVisible(true);
+        criarFuncionario.recebeListaFuncionarios(listaFuncionarios);
+        criarFuncionario.recebeListaProdutos(listaProdutos);
+        criarFuncionario.recebeListaProdutos(listaProdutos);
+        this.dispose();
+    }//GEN-LAST:event_criarFuncionarioActionPerformed
+
+    private void criarFuncionarioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_criarFuncionarioMouseEntered
+        criarFuncionario.setBackground(new Color(215, 229, 202));
+    }//GEN-LAST:event_criarFuncionarioMouseEntered
+
+    private void criarFuncionarioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_criarFuncionarioMouseExited
+        criarFuncionario.setBackground(new Color(252,252,252));    // TODO add your handling code here:
+    }//GEN-LAST:event_criarFuncionarioMouseExited
+
+    private void editarFuncionarioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editarFuncionarioMouseEntered
+        editarFuncionario.setBackground(new Color(210,224,251));
+    }//GEN-LAST:event_editarFuncionarioMouseEntered
+
+    private void editarFuncionarioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editarFuncionarioMouseExited
+        editarFuncionario.setBackground(new Color(252,252,252));
+    }//GEN-LAST:event_editarFuncionarioMouseExited
+
+    private void apagarFuncionarioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_apagarFuncionarioMouseEntered
+        apagarFuncionario.setBackground(new Color(255,188,188));
+    }//GEN-LAST:event_apagarFuncionarioMouseEntered
+
+    private void apagarFuncionarioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_apagarFuncionarioMouseExited
+        apagarFuncionario.setBackground(new Color(252,252,252));
+    }//GEN-LAST:event_apagarFuncionarioMouseExited
     public MaskFormatter mascaraCPF(){
         MaskFormatter CPF = null;
         try{
@@ -362,37 +419,6 @@ public class interface_exibirFuncionarios extends javax.swing.JFrame {
         this.listaProdutos = listaProdutos;
     }
     
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Windows".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(interface_editarProduto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(interface_editarProduto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(interface_editarProduto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(interface_editarProduto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new interface_exibirFuncionarios().setVisible(true);
-            }
-        });
-    }
     /**
      * @param args the command line arguments
      */  
@@ -402,11 +428,11 @@ public class interface_exibirFuncionarios extends javax.swing.JFrame {
     private javax.swing.JButton carregarTabela_Funcionario;
     private javax.swing.JButton criarFuncionario;
     private javax.swing.JButton editarFuncionario;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JButton sair_exibirFuncionario;
