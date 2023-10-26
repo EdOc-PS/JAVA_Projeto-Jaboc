@@ -4,6 +4,7 @@
  */
 package jaboc_UI;
 
+import jaboc_Classes.Conta_Cliente;
 import jaboc_Classes.Produto;
 import jaboc_Classes.listaFuncionarios;
 import jaboc_Classes.listaProdutos;
@@ -20,6 +21,7 @@ public class interface_criarProduto extends javax.swing.JFrame {
     private Produto produto;
     private listaProdutos listaProdutos = new listaProdutos();
     private listaFuncionarios listaFuncionarios;
+    private Conta_Cliente Conta_Cliente;
     int idP = 1;
 
     /**
@@ -248,7 +250,7 @@ public class interface_criarProduto extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(98, 98, 98)
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(77, 77, 77)
+                .addGap(59, 59, 59)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -280,12 +282,13 @@ public class interface_criarProduto extends javax.swing.JFrame {
         interface_gerenciarCardapio i_gerenciarCardapio = new interface_gerenciarCardapio();
         i_gerenciarCardapio.recebeListaProdutos(listaProdutos);
         i_gerenciarCardapio.recebeListaFuncionarios(listaFuncionarios);
+        i_gerenciarCardapio.recebeConta(Conta_Cliente);
         i_gerenciarCardapio.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_bVoltarActionPerformed
 
     private void criaProduto2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_criaProduto2ActionPerformed
-        if(!nomeProduto.getText().equals("") && !qtdeProduto.getText().equals("") && !precoProduto.getText().equals("")){
+        if (!nomeProduto.getText().equals("") && !qtdeProduto.getText().equals("") && !precoProduto.getText().equals("")) {
             int qtdeP = Integer.parseInt(qtdeProduto.getText());
             float precoP = Float.parseFloat(precoProduto.getText());
             String tipoP = tipoProduto.getSelectedItem().toString();
@@ -299,11 +302,11 @@ public class interface_criarProduto extends javax.swing.JFrame {
             qtdeProduto.setText("");
             precoProduto.setText("");
             tipoProduto.setSelectedItem("Cafe");
-            
+
             interface_Cardapio i_Cardapio = new interface_Cardapio();
             i_Cardapio.recebeListaProduto(listaProdutos);
-        }else{
-            JOptionPane.showMessageDialog(null, "Campos vazios!","Erro",WIDTH);
+        } else {
+            JOptionPane.showMessageDialog(null, "Campos vazios!", "Erro", WIDTH);
         }
     }//GEN-LAST:event_criaProduto2ActionPerformed
 
@@ -324,13 +327,19 @@ public class interface_criarProduto extends javax.swing.JFrame {
     }//GEN-LAST:event_bVoltarMouseExited
     public void recebeListaProdutos(listaProdutos listaProdutos) {
         this.listaProdutos = listaProdutos;
-        if(this.listaProdutos.getNAtualElementos() > 0){
+        if (this.listaProdutos.getNAtualElementos() > 0) {
             idP = this.listaProdutos.ultimoItem(0).getIdProduto() + 1;
         }
     }
-    public void recebeListaFuncionarios(listaFuncionarios listaFuncionarios){
+
+    public void recebeListaFuncionarios(listaFuncionarios listaFuncionarios) {
         this.listaFuncionarios = listaFuncionarios;
     }
+
+    public void recebeConta(Conta_Cliente Conta_Cliente) {
+        this.Conta_Cliente = Conta_Cliente;
+    }
+
     /**
      * @param args the command line arguments
      */

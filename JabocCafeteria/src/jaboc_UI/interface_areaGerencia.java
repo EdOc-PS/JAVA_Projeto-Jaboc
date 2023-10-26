@@ -4,6 +4,7 @@
  */
 package jaboc_UI;
 
+import jaboc_Classes.Conta_Cliente;
 import jaboc_Classes.listaFuncionarios;
 import jaboc_Classes.listaProdutos;
 import java.awt.Color;
@@ -15,6 +16,7 @@ import java.awt.Color;
 public class interface_areaGerencia extends javax.swing.JFrame {
     private listaFuncionarios listaFuncionarios;
     private listaProdutos listaProdutos;
+    private Conta_Cliente Conta_Cliente;
     /**
      * Creates new form interface_Gerencia
      */
@@ -227,10 +229,11 @@ public class interface_areaGerencia extends javax.swing.JFrame {
     }//GEN-LAST:event_bVoltarMouseExited
 
     private void bVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVoltarActionPerformed
-        interface_Menu iM = new interface_Menu();
-        iM.recebeListaFuncionarios(listaFuncionarios);
-        iM.recebeListaProdutos(listaProdutos);
-        iM.setVisible(true);
+        interface_Menu i_Menu = new interface_Menu();
+        i_Menu.recebeListaFuncionarios(listaFuncionarios);
+        i_Menu.recebeListaProdutos(listaProdutos);
+        i_Menu.recebeConta(Conta_Cliente);
+        i_Menu.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_bVoltarActionPerformed
 
@@ -238,15 +241,17 @@ public class interface_areaGerencia extends javax.swing.JFrame {
         interface_gerenciarCardapio i_gerenciarCardapio = new interface_gerenciarCardapio();
         i_gerenciarCardapio.recebeListaProdutos(listaProdutos);
         i_gerenciarCardapio.recebeListaFuncionarios(listaFuncionarios);
+        i_gerenciarCardapio.recebeConta(Conta_Cliente);
         i_gerenciarCardapio.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_editarCardapioActionPerformed
 
     private void editarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarFuncionarioActionPerformed
-        interface_exibirFuncionarios i_exibirFuncionario = new interface_exibirFuncionarios();
-        i_exibirFuncionario.recebeListaFuncionarios(listaFuncionarios);
-        i_exibirFuncionario.recebeListaProdutos(listaProdutos);
-        i_exibirFuncionario.setVisible(true);
+        interface_exibirFuncionarios i_gerenciarFuncionarios = new interface_exibirFuncionarios();
+        i_gerenciarFuncionarios.recebeListaFuncionarios(listaFuncionarios);
+        i_gerenciarFuncionarios.recebeListaProdutos(listaProdutos);
+        i_gerenciarFuncionarios.recebeConta(Conta_Cliente);
+        i_gerenciarFuncionarios.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_editarFuncionarioActionPerformed
 
@@ -270,6 +275,9 @@ public class interface_areaGerencia extends javax.swing.JFrame {
     }
     public void recebeListaProdutos(listaProdutos listaProdutos){
         this.listaProdutos = listaProdutos;
+    }
+    public void recebeConta(Conta_Cliente Conta_Cliente){
+        this.Conta_Cliente = Conta_Cliente;
     }
     /**
      * @param args the command line arguments

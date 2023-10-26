@@ -4,6 +4,7 @@
  */
 package jaboc_UI;
 
+import jaboc_Classes.Conta_Cliente;
 import jaboc_Classes.listaFuncionarios;
 import jaboc_Classes.listaProdutos;
 import java.awt.Color;
@@ -17,6 +18,7 @@ import javax.swing.JOptionPane;
 public class interface_apagarProduto extends javax.swing.JFrame {
     private listaFuncionarios listaFuncionarios;
     private listaProdutos listaProdutos;
+    private Conta_Cliente Conta_Cliente;
     int indiceProduto;
 
     /**
@@ -59,7 +61,8 @@ public class interface_apagarProduto extends javax.swing.JFrame {
         bVoltar.setBackground(new java.awt.Color(252, 252, 252));
         bVoltar.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
         bVoltar.setForeground(new java.awt.Color(79, 84, 101));
-        bVoltar.setText("Voltar");
+        bVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_back.png"))); // NOI18N
+        bVoltar.setText("   Voltar");
         bVoltar.setBorderPainted(false);
         bVoltar.setFocusPainted(false);
         bVoltar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -249,6 +252,7 @@ public class interface_apagarProduto extends javax.swing.JFrame {
         interface_gerenciarCardapio i_gerenciarCardapio = new interface_gerenciarCardapio();
         i_gerenciarCardapio.recebeListaProdutos(listaProdutos);
         i_gerenciarCardapio.recebeListaFuncionarios(listaFuncionarios);
+        i_gerenciarCardapio.recebeConta(Conta_Cliente);
         i_gerenciarCardapio.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_bVoltarActionPerformed
@@ -300,6 +304,9 @@ public class interface_apagarProduto extends javax.swing.JFrame {
     }
     public void recebeListaFuncionarios(listaFuncionarios listaFuncionarios){
         this.listaFuncionarios = listaFuncionarios;
+    }
+    public void recebeConta(Conta_Cliente Conta_Cliente){
+        this.Conta_Cliente = Conta_Cliente;
     }
     /**
      * @param args the command line arguments

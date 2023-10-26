@@ -5,6 +5,7 @@
 package jaboc_UI;
 
 import jaboc_Classes.Administrador;
+import jaboc_Classes.Conta_Cliente;
 import jaboc_Classes.listaFuncionarios;
 import jaboc_Classes.listaProdutos;
 import java.awt.Color;
@@ -18,6 +19,7 @@ import javax.swing.JOptionPane;
 public class interface_areaSenhaGerencia extends javax.swing.JFrame {
     private listaFuncionarios listaFuncionarios;
     private listaProdutos listaProdutos;
+    private Conta_Cliente Conta_Cliente;
     Administrador admin = new Administrador("Jaboc",null, null, null, "Administrador", "admin123");
     /**
      * Creates new form interface_areaSenha
@@ -130,11 +132,11 @@ public class interface_areaSenhaGerencia extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(30, Short.MAX_VALUE)
+                .addContainerGap(20, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(senhaAdm, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30))
+                .addGap(20, 20, 20))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -158,11 +160,11 @@ public class interface_areaSenhaGerencia extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(101, 101, 101)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 396, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 102, Short.MAX_VALUE)
+                .addGap(111, 111, 111)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -201,6 +203,7 @@ public class interface_areaSenhaGerencia extends javax.swing.JFrame {
     private void bVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVoltarActionPerformed
         interface_Menu i_Menu = new  interface_Menu();
         i_Menu.setVisible(true);
+        i_Menu.recebeConta(Conta_Cliente);
         this.dispose();
     }//GEN-LAST:event_bVoltarActionPerformed
 
@@ -209,6 +212,7 @@ public class interface_areaSenhaGerencia extends javax.swing.JFrame {
            interface_areaGerencia i_gerencia = new interface_areaGerencia();
            i_gerencia.recebeListaFuncionarios(listaFuncionarios);
            i_gerencia.recebeListaProdutos(listaProdutos);
+           i_gerencia.recebeConta(Conta_Cliente);
            i_gerencia.setVisible(true);
            this.dispose();
        }else{
@@ -222,6 +226,9 @@ public class interface_areaSenhaGerencia extends javax.swing.JFrame {
     }
     public void recebeListaProdutos(listaProdutos listaProdutos){
         this.listaProdutos = listaProdutos;
+    }
+    public void recebeConta(Conta_Cliente Conta_Cliente){
+        this.Conta_Cliente = Conta_Cliente;
     }
     /**
      * @param args the command line arguments

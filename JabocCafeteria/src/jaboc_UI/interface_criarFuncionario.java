@@ -4,6 +4,7 @@
  */
 package jaboc_UI;
 
+import jaboc_Classes.Conta_Cliente;
 import jaboc_Classes.Funcionario;
 import jaboc_Classes.Conta_Funcionario;
 import jaboc_Classes.listaFuncionarios;
@@ -21,7 +22,8 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
     private Funcionario Funcionario;
     private int Id_ContaFuncionario = 1;
     private listaFuncionarios listaFuncionarios;
-    private listaProdutos listaProdutos;    
+    private listaProdutos listaProdutos; 
+    private Conta_Cliente Conta_Cliente;
     /**
      * Creates new form NewJFrame
      */
@@ -41,10 +43,6 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
         buttonGroup1 = new javax.swing.ButtonGroup();
         buttonGroup2 = new javax.swing.ButtonGroup();
         buttonGroup3 = new javax.swing.ButtonGroup();
-        jPanel1 = new javax.swing.JPanel();
-        sair_criarFuncionario = new javax.swing.JButton();
-        jLabel12 = new javax.swing.JLabel();
-        criarFuncionario = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         nomeFuncionario = new javax.swing.JTextField();
@@ -63,76 +61,20 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
         cpfFuncionario = new javax.swing.JFormattedTextField();
         telefoneFuncionario = new javax.swing.JFormattedTextField();
         jLabel9 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
+        sair_criarFuncionario2 = new javax.swing.JButton();
+        jLabel14 = new javax.swing.JLabel();
+        criarFuncionario2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(252, 252, 252));
-
-        sair_criarFuncionario.setBackground(new java.awt.Color(252, 252, 252));
-        sair_criarFuncionario.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
-        sair_criarFuncionario.setForeground(new java.awt.Color(79, 84, 101));
-        sair_criarFuncionario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_back.png"))); // NOI18N
-        sair_criarFuncionario.setText("Voltar");
-        sair_criarFuncionario.setBorderPainted(false);
-        sair_criarFuncionario.setFocusPainted(false);
-        sair_criarFuncionario.setFocusable(false);
-        sair_criarFuncionario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sair_criarFuncionarioActionPerformed(evt);
-            }
-        });
-
-        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logo4.png"))); // NOI18N
-        jLabel12.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-
-        criarFuncionario.setBackground(new java.awt.Color(79, 84, 101));
-        criarFuncionario.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
-        criarFuncionario.setForeground(new java.awt.Color(255, 255, 255));
-        criarFuncionario.setText("Enviar");
-        criarFuncionario.setBorderPainted(false);
-        criarFuncionario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                criarFuncionarioActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(0, 7, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12)
-                        .addComponent(sair_criarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(criarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(15, 15, 15))))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(sair_criarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(criarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-
-        jPanel3.setBackground(new java.awt.Color(141, 123, 104));
+        jPanel3.setBackground(new java.awt.Color(164, 144, 124));
         jPanel3.setFont(new java.awt.Font("Gill Sans MT", 0, 12)); // NOI18N
 
-        jPanel2.setBackground(new java.awt.Color(164, 144, 124));
+        jPanel2.setBackground(new java.awt.Color(141, 123, 104));
 
-        nomeFuncionario.setFont(new java.awt.Font("Gill Sans MT", 0, 12)); // NOI18N
+        nomeFuncionario.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
+        nomeFuncionario.setForeground(new java.awt.Color(79, 84, 101));
         nomeFuncionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nomeFuncionarioActionPerformed(evt);
@@ -147,7 +89,8 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Cargo:");
 
-        cargoFuncionario.setFont(new java.awt.Font("Gill Sans MT", 0, 12)); // NOI18N
+        cargoFuncionario.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
+        cargoFuncionario.setForeground(new java.awt.Color(79, 84, 101));
         cargoFuncionario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cozinheiro(a)", "Auxiliar de Cozinha", "Garçom", "Balconista", "Faxineiro(a)", "Administrador", " " }));
         cargoFuncionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -155,7 +98,8 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
             }
         });
 
-        enderecoFuncionario.setFont(new java.awt.Font("Gill Sans MT", 0, 12)); // NOI18N
+        enderecoFuncionario.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
+        enderecoFuncionario.setForeground(new java.awt.Color(79, 84, 101));
         enderecoFuncionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 enderecoFuncionarioActionPerformed(evt);
@@ -163,7 +107,7 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
         });
 
         jLabel4.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(79, 84, 101));
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Endereço");
 
         jLabel3.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
@@ -171,17 +115,24 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
         jLabel3.setText("CPF:");
 
         jLabel6.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(79, 84, 101));
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Telefone");
 
         jLabel1.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(79, 84, 101));
         jLabel1.setText("Crie uma senha:");
 
+        senhaFuncionario.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
+        senhaFuncionario.setForeground(new java.awt.Color(79, 84, 101));
+
         jLabel8.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setForeground(new java.awt.Color(79, 84, 101));
         jLabel8.setText("Informe a senha novamente:");
 
+        verificarSenhaFuncionario.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
+        verificarSenhaFuncionario.setForeground(new java.awt.Color(79, 84, 101));
+
+        cpfFuncionario.setForeground(new java.awt.Color(79, 84, 101));
         cpfFuncionario.setFont(new java.awt.Font("Gill Sans MT", 0, 12)); // NOI18N
         cpfFuncionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -189,6 +140,7 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
             }
         });
 
+        telefoneFuncionario.setForeground(new java.awt.Color(79, 84, 101));
         telefoneFuncionario.setFont(new java.awt.Font("Gill Sans MT", 0, 12)); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -198,35 +150,37 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
             .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel1)
-                    .addComponent(senhaFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE)
-                    .addComponent(verificarSenhaFuncionario)
-                    .addComponent(jLabel8)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel2)
-                            .addComponent(nomeFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6)
-                            .addComponent(telefoneFuncionario))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4)
-                            .addComponent(enderecoFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
-                            .addComponent(cpfFuncionario)))
-                    .addComponent(cargoFuncionario, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(verificarSenhaFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, 418, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(cargoFuncionario, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel8)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel6)
+                                    .addComponent(nomeFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                                    .addComponent(telefoneFuncionario))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel3)
+                                    .addComponent(cpfFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                                    .addComponent(enderecoFuncionario)))))
+                    .addComponent(senhaFuncionario))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(24, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(5, 5, 5)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nomeFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cpfFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -240,9 +194,9 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
                     .addComponent(telefoneFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(5, 5, 5)
                 .addComponent(cargoFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(8, 8, 8)
+                .addGap(15, 15, 15)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1)
@@ -252,14 +206,73 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(verificarSenhaFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30))
+                .addGap(20, 20, 20))
         );
 
-        jLabel9.setFont(new java.awt.Font("Gill Sans MT", 1, 36)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Gill Sans MT", 1, 30)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setText("CRIAR FUNCIONÁRIO");
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_addFuncionario2.png"))); // NOI18N
+        jLabel9.setText(" CRIAR FUNCIONÁRIO");
 
-        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/criarFuncionario.png"))); // NOI18N
+        jPanel5.setBackground(new java.awt.Color(252, 252, 252));
+
+        sair_criarFuncionario2.setBackground(new java.awt.Color(252, 252, 252));
+        sair_criarFuncionario2.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        sair_criarFuncionario2.setForeground(new java.awt.Color(79, 84, 101));
+        sair_criarFuncionario2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_back.png"))); // NOI18N
+        sair_criarFuncionario2.setText("   Voltar");
+        sair_criarFuncionario2.setBorderPainted(false);
+        sair_criarFuncionario2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        sair_criarFuncionario2.setFocusPainted(false);
+        sair_criarFuncionario2.setFocusable(false);
+        sair_criarFuncionario2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sair_criarFuncionarioActionPerformed(evt);
+            }
+        });
+
+        jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logo4.png"))); // NOI18N
+        jLabel14.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+
+        criarFuncionario2.setBackground(new java.awt.Color(79, 84, 101));
+        criarFuncionario2.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        criarFuncionario2.setForeground(new java.awt.Color(255, 255, 255));
+        criarFuncionario2.setText("Enviar");
+        criarFuncionario2.setBorderPainted(false);
+        criarFuncionario2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        criarFuncionario2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                criarFuncionarioActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(criarFuncionario2, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(sair_criarFuncionario2, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(15, Short.MAX_VALUE))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(sair_criarFuncionario2, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(criarFuncionario2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(16, 16, 16))
+        );
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -268,60 +281,77 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(100, 100, 100)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(90, 90, 90)
-                        .addComponent(jLabel11)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(100, Short.MAX_VALUE))
+                        .addGap(46, 46, 46)
+                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 504, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(55, 55, 55))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(70, 70, 70)))
+                .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(50, 50, 50)
-                        .addComponent(jLabel9)
-                        .addGap(33, 33, 33))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel11)
-                        .addGap(18, 18, 18)))
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(38, 38, 38)
+                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(29, Short.MAX_VALUE))
+            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    public void recebeListaFuncionarios(listaFuncionarios listaFuncionarios) {
+        this.listaFuncionarios = listaFuncionarios;
+
+        if (this.listaFuncionarios.getNAtualElementos() > 0) {
+            Id_ContaFuncionario = this.listaFuncionarios.ultimoItem(0).getIdFuncionario() + 1;
+        }
+    }    
+    public void recebeListaProdutos(listaProdutos listaProdutos){
+        this.listaProdutos = listaProdutos;
+    }
+    public void recebeConta(Conta_Cliente Conta_Cliente){
+        this.Conta_Cliente = Conta_Cliente;
+    }
+    private void enderecoFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enderecoFuncionarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_enderecoFuncionarioActionPerformed
+
+    private void nomeFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeFuncionarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nomeFuncionarioActionPerformed
+
+    private void cargoFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargoFuncionarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cargoFuncionarioActionPerformed
+
+    private void cpfFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cpfFuncionarioActionPerformed
+
+    }//GEN-LAST:event_cpfFuncionarioActionPerformed
 
     private void criarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_criarFuncionarioActionPerformed
         if (!"".equals(nomeFuncionario.getText()) && !"   .   .   -  ".equals(cpfFuncionario.getText()) && !"".equals(enderecoFuncionario.getText()) && !"(  )      -    ".equals(telefoneFuncionario.getText())) {
 
             if (senhaFuncionario.getText().equals(verificarSenhaFuncionario.getText()) && !senhaFuncionario.getText().equals("")) {
-                Funcionario = new Funcionario(nomeFuncionario.getText(), cpfFuncionario.getText(), enderecoFuncionario.getText(), telefoneFuncionario.getText(), 
-                        String.valueOf(cargoFuncionario.getSelectedItem()));
-                
+                Funcionario = new Funcionario(nomeFuncionario.getText(), cpfFuncionario.getText(), enderecoFuncionario.getText(), telefoneFuncionario.getText(),
+                    String.valueOf(cargoFuncionario.getSelectedItem()));
+
                 listaFuncionarios.inserirItem(new Conta_Funcionario(Id_ContaFuncionario++, Funcionario, senhaFuncionario.getText()));
                 JOptionPane.showMessageDialog(null, Funcionario.toString(), "Funcionário cadastrado!", WIDTH);
                 nomeFuncionario.setText("");
@@ -341,39 +371,15 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Os campos estão vazios!", "Information", JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_criarFuncionarioActionPerformed
-    public void recebeListaFuncionarios(listaFuncionarios listaFuncionarios) {
-        this.listaFuncionarios = listaFuncionarios;
-
-        if (this.listaFuncionarios.getNAtualElementos() > 0) {
-            Id_ContaFuncionario = this.listaFuncionarios.ultimoItem(0).getIdFuncionario() + 1;
-        }
-    }    
-    public void recebeListaProdutos(listaProdutos listaProdutos){
-        this.listaProdutos = listaProdutos;
-    }
-    private void enderecoFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enderecoFuncionarioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_enderecoFuncionarioActionPerformed
-
-    private void nomeFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeFuncionarioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_nomeFuncionarioActionPerformed
 
     private void sair_criarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sair_criarFuncionarioActionPerformed
         interface_exibirFuncionarios exibirFuncionarios = new interface_exibirFuncionarios();
         exibirFuncionarios.setVisible(true);
         exibirFuncionarios.recebeListaFuncionarios(listaFuncionarios);
         exibirFuncionarios.recebeListaProdutos(listaProdutos);
+        exibirFuncionarios.recebeConta(Conta_Cliente);
         this.dispose();
     }//GEN-LAST:event_sair_criarFuncionarioActionPerformed
-
-    private void cargoFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargoFuncionarioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cargoFuncionarioActionPerformed
-
-    private void cpfFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cpfFuncionarioActionPerformed
-
-    }//GEN-LAST:event_cpfFuncionarioActionPerformed
     public javax.swing.JFormattedTextField getCpfFuncionario(){
         return this.cpfFuncionario;
     } 
@@ -391,10 +397,13 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cargoFuncionario;
     private javax.swing.JFormattedTextField cpfFuncionario;
     private javax.swing.JButton criarFuncionario;
+    private javax.swing.JButton criarFuncionario1;
+    private javax.swing.JButton criarFuncionario2;
     private javax.swing.JTextField enderecoFuncionario;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -405,9 +414,13 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextField nomeFuncionario;
     private javax.swing.JButton sair_criarFuncionario;
+    private javax.swing.JButton sair_criarFuncionario1;
+    private javax.swing.JButton sair_criarFuncionario2;
     private javax.swing.JPasswordField senhaFuncionario;
     private javax.swing.JFormattedTextField telefoneFuncionario;
     private javax.swing.JPasswordField verificarSenhaFuncionario;

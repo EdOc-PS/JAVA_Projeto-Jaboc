@@ -4,6 +4,7 @@
  */
 package jaboc_UI;
 
+import jaboc_Classes.Conta_Cliente;
 import jaboc_Classes.listaFuncionarios;
 import jaboc_Classes.listaProdutos;
 import java.awt.Color;
@@ -17,6 +18,7 @@ public class interface_gerenciarCardapio extends javax.swing.JFrame {
 
     private listaProdutos listaProdutos = new listaProdutos();
     private listaFuncionarios listaFuncionarios;
+    private Conta_Cliente Conta_Cliente;
 
     public interface_gerenciarCardapio() {
         initComponents();
@@ -57,7 +59,6 @@ public class interface_gerenciarCardapio extends javax.swing.JFrame {
         bVoltar.setForeground(new java.awt.Color(79, 84, 101));
         bVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_back.png"))); // NOI18N
         bVoltar.setText("   Voltar");
-        bVoltar.setBorder(null);
         bVoltar.setBorderPainted(false);
         bVoltar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         bVoltar.setFocusPainted(false);
@@ -316,6 +317,7 @@ public class interface_gerenciarCardapio extends javax.swing.JFrame {
         interface_apagarProduto i_apagarProduto = new interface_apagarProduto();
         i_apagarProduto.recebeListaProdutos(listaProdutos);
         i_apagarProduto.recebeListaFuncionarios(listaFuncionarios);
+        i_apagarProduto.recebeConta(Conta_Cliente);
         i_apagarProduto.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_bExcluir_ProdutoActionPerformed
@@ -325,6 +327,7 @@ public class interface_gerenciarCardapio extends javax.swing.JFrame {
         interface_editarProduto i_editarProduto = new interface_editarProduto();
         i_editarProduto.recebeListaProdutos(listaProdutos);
         i_editarProduto.recebeListaFuncionarios(listaFuncionarios);
+        i_editarProduto.recebeConta(Conta_Cliente);
         i_editarProduto.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_bEdiatr_ProdutoActionPerformed
@@ -333,6 +336,7 @@ public class interface_gerenciarCardapio extends javax.swing.JFrame {
         interface_areaGerencia i_areaGerencia = new interface_areaGerencia();
         i_areaGerencia.recebeListaProdutos(listaProdutos);
         i_areaGerencia.recebeListaFuncionarios(listaFuncionarios);
+        i_areaGerencia.recebeConta(Conta_Cliente);
         i_areaGerencia.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_bVoltarActionPerformed
@@ -358,6 +362,7 @@ public class interface_gerenciarCardapio extends javax.swing.JFrame {
         interface_criarProduto i_criarProduto = new interface_criarProduto();
         i_criarProduto.recebeListaProdutos(listaProdutos);
         i_criarProduto.recebeListaFuncionarios(listaFuncionarios);
+        i_criarProduto.recebeConta(Conta_Cliente);
         i_criarProduto.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_bAdicionar_ProdutoActionPerformed
@@ -406,9 +411,47 @@ public class interface_gerenciarCardapio extends javax.swing.JFrame {
         this.listaFuncionarios = listaFuncionarios;
     }
 
+    public void recebeConta(Conta_Cliente Conta_Cliente) {
+        this.Conta_Cliente = Conta_Cliente;
+    }
+
     /**
      * @param args the command line arguments
      */
+    public static void gerenciaCardapio(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Windows".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(interface_gerenciarCardapio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(interface_gerenciarCardapio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(interface_gerenciarCardapio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(interface_gerenciarCardapio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new interface_gerenciarCardapio().setVisible(true);
+            }
+        });
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

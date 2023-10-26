@@ -4,6 +4,7 @@
  */
 package jaboc_UI;
 
+import jaboc_Classes.Conta_Cliente;
 import jaboc_Classes.listaFuncionarios;
 import jaboc_Classes.listaProdutos;
 import java.awt.Color;
@@ -18,6 +19,7 @@ import javax.swing.text.MaskFormatter;
 public class interface_exibirFuncionarios extends javax.swing.JFrame {
     private listaFuncionarios listaFuncionarios;
     private listaProdutos listaProdutos;
+    private Conta_Cliente Conta_Cliente;
     /**
      * Creates new form interface_exibirFuncionarios
      */
@@ -54,7 +56,7 @@ public class interface_exibirFuncionarios extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(141, 123, 104));
 
-        tabelaFuncionario.setFont(new java.awt.Font("Gill Sans MT", 0, 12)); // NOI18N
+        tabelaFuncionario.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
         tabelaFuncionario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -75,6 +77,8 @@ public class interface_exibirFuncionarios extends javax.swing.JFrame {
         tabelaFuncionario.setRowHeight(30);
         tabelaFuncionario.setRowSelectionAllowed(false);
         tabelaFuncionario.setSelectionBackground(new java.awt.Color(255, 255, 255));
+        tabelaFuncionario.setRowHeight(25);
+        tabelaFuncionario.setEnabled(false);
         jScrollPane2.setViewportView(tabelaFuncionario);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -82,9 +86,9 @@ public class interface_exibirFuncionarios extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 650, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(14, 14, 14)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 529, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(15, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -100,25 +104,35 @@ public class interface_exibirFuncionarios extends javax.swing.JFrame {
         sair_exibirFuncionario.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
         sair_exibirFuncionario.setForeground(new java.awt.Color(79, 84, 101));
         sair_exibirFuncionario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_back.png"))); // NOI18N
-        sair_exibirFuncionario.setText("VOLTAR");
+        sair_exibirFuncionario.setText("   Voltar");
         sair_exibirFuncionario.setBorder(null);
         sair_exibirFuncionario.setBorderPainted(false);
+        sair_exibirFuncionario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         sair_exibirFuncionario.setFocusPainted(false);
         sair_exibirFuncionario.setFocusable(false);
+        sair_exibirFuncionario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                sair_exibirFuncionarioMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                sair_exibirFuncionarioMouseExited(evt);
+            }
+        });
         sair_exibirFuncionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 sair_exibirFuncionarioActionPerformed(evt);
             }
         });
 
-        jPanel3.setBackground(new java.awt.Color(164, 144, 124));
+        jPanel3.setBackground(new java.awt.Color(141, 123, 104));
 
         editarFuncionario.setBackground(new java.awt.Color(252, 252, 252));
         editarFuncionario.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
         editarFuncionario.setForeground(new java.awt.Color(79, 84, 101));
-        editarFuncionario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_editar.png"))); // NOI18N
+        editarFuncionario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/caneta-do-usuario.png"))); // NOI18N
         editarFuncionario.setText("Editar Funcionário");
-        editarFuncionario.setBorder(null);
+        editarFuncionario.setBorderPainted(false);
+        editarFuncionario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         editarFuncionario.setFocusPainted(false);
         editarFuncionario.setFocusable(false);
         editarFuncionario.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -138,9 +152,10 @@ public class interface_exibirFuncionarios extends javax.swing.JFrame {
         apagarFuncionario.setBackground(new java.awt.Color(252, 252, 252));
         apagarFuncionario.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
         apagarFuncionario.setForeground(new java.awt.Color(79, 84, 101));
-        apagarFuncionario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_lixo.png"))); // NOI18N
+        apagarFuncionario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_deletarFuncionario.png"))); // NOI18N
         apagarFuncionario.setText("Apagar Funcionário");
-        apagarFuncionario.setBorder(null);
+        apagarFuncionario.setBorderPainted(false);
+        apagarFuncionario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         apagarFuncionario.setFocusPainted(false);
         apagarFuncionario.setFocusable(false);
         apagarFuncionario.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -160,9 +175,10 @@ public class interface_exibirFuncionarios extends javax.swing.JFrame {
         criarFuncionario.setBackground(new java.awt.Color(252, 252, 252));
         criarFuncionario.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
         criarFuncionario.setForeground(new java.awt.Color(79, 84, 101));
-        criarFuncionario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_adicionar.png"))); // NOI18N
+        criarFuncionario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/I_addFuncionario.png"))); // NOI18N
         criarFuncionario.setText("Criar Funcionário");
-        criarFuncionario.setBorder(null);
+        criarFuncionario.setBorderPainted(false);
+        criarFuncionario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         criarFuncionario.setFocusPainted(false);
         criarFuncionario.setFocusable(false);
         criarFuncionario.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -185,10 +201,11 @@ public class interface_exibirFuncionarios extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(15, 15, 15)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(criarFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(editarFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(apagarFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(editarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(criarFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                        .addComponent(apagarFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)))
                 .addContainerGap(15, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -196,9 +213,9 @@ public class interface_exibirFuncionarios extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addComponent(criarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
-                .addComponent(editarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(editarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                 .addComponent(apagarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15))
         );
@@ -207,11 +224,12 @@ public class interface_exibirFuncionarios extends javax.swing.JFrame {
         jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logo4.png"))); // NOI18N
         jLabel14.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
 
-        carregarTabela_Funcionario.setBackground(new java.awt.Color(74, 89, 101));
+        carregarTabela_Funcionario.setBackground(new java.awt.Color(79, 84, 101));
         carregarTabela_Funcionario.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
         carregarTabela_Funcionario.setForeground(new java.awt.Color(255, 255, 255));
         carregarTabela_Funcionario.setText("Carregar tabela");
-        carregarTabela_Funcionario.setBorder(null);
+        carregarTabela_Funcionario.setBorderPainted(false);
+        carregarTabela_Funcionario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         carregarTabela_Funcionario.setFocusPainted(false);
         carregarTabela_Funcionario.setFocusable(false);
         carregarTabela_Funcionario.addActionListener(new java.awt.event.ActionListener() {
@@ -225,38 +243,35 @@ public class interface_exibirFuncionarios extends javax.swing.JFrame {
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(18, 18, 18)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addContainerGap()
                         .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(sair_exibirFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(13, 13, 13)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(carregarTabela_Funcionario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(0, 7, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addComponent(sair_exibirFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(carregarTabela_Funcionario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(sair_exibirFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(carregarTabela_Funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
-        jLabel1.setFont(new java.awt.Font("Gill Sans MT", 1, 42)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Gill Sans MT", 1, 30)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_gerenciarFuncionarios.png"))); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_adicionar.png"))); // NOI18N
         jLabel1.setText("GERENCIAR FUNCIONÁRIOS");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -264,21 +279,21 @@ public class interface_exibirFuncionarios extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 690, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
+                .addContainerGap(20, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 558, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(80, 80, 80)
+                .addGap(54, 54, 54)
                 .addComponent(jLabel1)
-                .addGap(18, 18, 18)
+                .addGap(44, 44, 44)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(49, Short.MAX_VALUE))
             .addComponent(jPanel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
@@ -308,40 +323,37 @@ public class interface_exibirFuncionarios extends javax.swing.JFrame {
                         listaFuncionarios.getItem(pos_Lista).getTitularFuncionario().getEnderecoFuncionario(), listaFuncionarios.getItem(pos_Lista).getTitularFuncionario().getTelefoneFuncionario(),
                         listaFuncionarios.getItem(pos_Lista).getTitularFuncionario().getCargoFuncionario()});
             }
-        }
-        carregarTabela_Funcionario.setEnabled(false);
+            }   
         tabelaFuncionario.setEnabled(false);
         }
     }//GEN-LAST:event_carregarTabela_FuncionarioActionPerformed
 
-    private void sair_exibirFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sair_exibirFuncionarioActionPerformed
-        interface_areaGerencia areaGerencia = new interface_areaGerencia();
-        areaGerencia.recebeListaFuncionarios(listaFuncionarios);
-        areaGerencia.recebeListaProdutos(listaProdutos);
-        areaGerencia.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_sair_exibirFuncionarioActionPerformed
-
-    private void editarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarFuncionarioActionPerformed
-        interface_editarFuncionario editarFuncionario = new interface_editarFuncionario();
+    private void criarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_criarFuncionarioActionPerformed
+        interface_criarFuncionario criarFuncionario = new interface_criarFuncionario();
 
         try{
-            MaskFormatter telefone_editarFuncionario = new MaskFormatter("(##) #####-####");
-
-            editarFuncionario.getVerificarCPF_Funcionario().setFormatterFactory(new DefaultFormatterFactory(mascaraCPF()));
-            editarFuncionario.getCpfFuncionario_Editar().setFormatterFactory(new DefaultFormatterFactory(mascaraCPF()));
-            editarFuncionario.getTelefoneFuncionario_Editar().setFormatterFactory(new DefaultFormatterFactory(telefone_editarFuncionario));
+            MaskFormatter telefone = new MaskFormatter(" (##) #####-####");
+            //Esse new DefaultFormatterFactory(Mask), está setando um novo objeto do tipo máscara parao mewu jFormattedField. Composionalidade! O JFormattedFields tem uma Mascará.
+            criarFuncionario.getCpfFuncionario().setFormatterFactory(new DefaultFormatterFactory(mascaraCPF()));
+            criarFuncionario.getTelefoneFuncionario().setFormatterFactory(new DefaultFormatterFactory(telefone));
         }catch(Exception e){
+            //Esse catch informará um erro caso o usuário informe uma máscara incorreta.
             e.printStackTrace();
         }
-
-        editarFuncionario.getJPanel2().setVisible(false);
-        editarFuncionario.getBTNEditarFuncionario().setVisible(false);
-        editarFuncionario.setVisible(true);
-        editarFuncionario.receberListaFuncionarios(listaFuncionarios);
-        editarFuncionario.receberListaProdutos(listaProdutos);
+        criarFuncionario.setVisible(true);
+        criarFuncionario.recebeListaFuncionarios(listaFuncionarios);
+        criarFuncionario.recebeListaProdutos(listaProdutos);
+        criarFuncionario.recebeConta(Conta_Cliente);
         this.dispose();
-    }//GEN-LAST:event_editarFuncionarioActionPerformed
+    }//GEN-LAST:event_criarFuncionarioActionPerformed
+
+    private void criarFuncionarioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_criarFuncionarioMouseExited
+        criarFuncionario.setBackground(new Color(252,252,252));    // TODO add your handling code here:
+    }//GEN-LAST:event_criarFuncionarioMouseExited
+
+    private void criarFuncionarioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_criarFuncionarioMouseEntered
+        criarFuncionario.setBackground(new Color(215, 229, 202));
+    }//GEN-LAST:event_criarFuncionarioMouseEntered
 
     private void apagarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_apagarFuncionarioActionPerformed
         interface_apagarFuncionario apagarFuncionario = new interface_apagarFuncionario();
@@ -355,55 +367,68 @@ public class interface_exibirFuncionarios extends javax.swing.JFrame {
         apagarFuncionario.txtAreaIneditavel();
         apagarFuncionario.receberListaFuncionarios(listaFuncionarios);
         apagarFuncionario.receberListaProdutos(listaProdutos);
+        apagarFuncionario.receberConta(Conta_Cliente);
         this.dispose();
     }//GEN-LAST:event_apagarFuncionarioActionPerformed
 
-    private void criarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_criarFuncionarioActionPerformed
-        interface_criarFuncionario criarFuncionario = new interface_criarFuncionario();
-
-        try{
-            MaskFormatter telefone = new MaskFormatter("(##) #####-####");
-            //Esse new DefaultFormatterFactory(Mask), está setando um novo objeto do tipo máscara parao mewu jFormattedField. Composionalidade! O JFormattedFields tem uma Mascará.
-            criarFuncionario.getCpfFuncionario().setFormatterFactory(new DefaultFormatterFactory(mascaraCPF()));
-            criarFuncionario.getTelefoneFuncionario().setFormatterFactory(new DefaultFormatterFactory(telefone));
-        }catch(Exception e){
-            //Esse catch informará um erro caso o usuário informe uma máscara incorreta.
-            e.printStackTrace();
-        }
-        criarFuncionario.setVisible(true);
-        criarFuncionario.recebeListaFuncionarios(listaFuncionarios);
-        criarFuncionario.recebeListaProdutos(listaProdutos);
-        criarFuncionario.recebeListaProdutos(listaProdutos);
-        this.dispose();
-    }//GEN-LAST:event_criarFuncionarioActionPerformed
-
-    private void criarFuncionarioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_criarFuncionarioMouseEntered
-        criarFuncionario.setBackground(new Color(215, 229, 202));
-    }//GEN-LAST:event_criarFuncionarioMouseEntered
-
-    private void criarFuncionarioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_criarFuncionarioMouseExited
-        criarFuncionario.setBackground(new Color(252,252,252));    // TODO add your handling code here:
-    }//GEN-LAST:event_criarFuncionarioMouseExited
-
-    private void editarFuncionarioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editarFuncionarioMouseEntered
-        editarFuncionario.setBackground(new Color(210,224,251));
-    }//GEN-LAST:event_editarFuncionarioMouseEntered
-
-    private void editarFuncionarioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editarFuncionarioMouseExited
-        editarFuncionario.setBackground(new Color(252,252,252));
-    }//GEN-LAST:event_editarFuncionarioMouseExited
+    private void apagarFuncionarioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_apagarFuncionarioMouseExited
+        apagarFuncionario.setBackground(new Color(252,252,252));
+    }//GEN-LAST:event_apagarFuncionarioMouseExited
 
     private void apagarFuncionarioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_apagarFuncionarioMouseEntered
         apagarFuncionario.setBackground(new Color(255,188,188));
     }//GEN-LAST:event_apagarFuncionarioMouseEntered
 
-    private void apagarFuncionarioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_apagarFuncionarioMouseExited
-        apagarFuncionario.setBackground(new Color(252,252,252));
-    }//GEN-LAST:event_apagarFuncionarioMouseExited
+    private void editarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarFuncionarioActionPerformed
+        interface_editarFuncionario editarFuncionario = new interface_editarFuncionario();
+
+        try{
+            MaskFormatter telefone_editarFuncionario = new MaskFormatter(" (##) #####-####");
+
+            editarFuncionario.getVerificarCPF_Funcionario().setFormatterFactory(new DefaultFormatterFactory(mascaraCPF()));
+            editarFuncionario.getCpfFuncionario_Editar().setFormatterFactory(new DefaultFormatterFactory(mascaraCPF()));
+            editarFuncionario.getTelefoneFuncionario_Editar().setFormatterFactory(new DefaultFormatterFactory(telefone_editarFuncionario));
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+
+        editarFuncionario.getJPanel2().setVisible(false);
+        editarFuncionario.getBTNEditarFuncionario().setVisible(false);
+        editarFuncionario.setVisible(true);
+        editarFuncionario.receberListaFuncionarios(listaFuncionarios);
+        editarFuncionario.receberListaProdutos(listaProdutos);
+        editarFuncionario.recebeConta(Conta_Cliente);
+        this.dispose();
+    }//GEN-LAST:event_editarFuncionarioActionPerformed
+
+    private void editarFuncionarioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editarFuncionarioMouseExited
+        editarFuncionario.setBackground(new Color(252,252,252));
+    }//GEN-LAST:event_editarFuncionarioMouseExited
+
+    private void editarFuncionarioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editarFuncionarioMouseEntered
+        editarFuncionario.setBackground(new Color(210,224,251));
+    }//GEN-LAST:event_editarFuncionarioMouseEntered
+
+    private void sair_exibirFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sair_exibirFuncionarioActionPerformed
+        interface_areaGerencia areaGerencia = new interface_areaGerencia();
+        areaGerencia.recebeListaFuncionarios(listaFuncionarios);
+        areaGerencia.recebeListaProdutos(listaProdutos);
+        areaGerencia.recebeConta(Conta_Cliente);
+        areaGerencia.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_sair_exibirFuncionarioActionPerformed
+
+    private void sair_exibirFuncionarioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sair_exibirFuncionarioMouseEntered
+         sair_exibirFuncionario.setBackground(new Color(237, 237, 237));
+    }//GEN-LAST:event_sair_exibirFuncionarioMouseEntered
+
+    private void sair_exibirFuncionarioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sair_exibirFuncionarioMouseExited
+        sair_exibirFuncionario.setBackground(new Color(252, 252, 252));
+    }//GEN-LAST:event_sair_exibirFuncionarioMouseExited
     public MaskFormatter mascaraCPF(){
         MaskFormatter CPF = null;
         try{
-            CPF = new MaskFormatter("###.###.###-##");
+            CPF = new MaskFormatter(" ###.###.###-##");
             //Esse new DefaultFormatterFactory(Mask), está setando um novo objeto do tipo máscara parao mewu jFormattedField. Composionalidade! O JFormattedFields tem uma Mascará.            
         }catch(Exception e){
             //Esse catch informará um erro caso o usuário informe uma máscara incorreta.
@@ -418,7 +443,9 @@ public class interface_exibirFuncionarios extends javax.swing.JFrame {
     public void recebeListaProdutos(listaProdutos listaProdutos){
         this.listaProdutos = listaProdutos;
     }
-    
+    public void recebeConta(Conta_Cliente Conta_Cliente){
+        this.Conta_Cliente = Conta_Cliente;
+    }
     /**
      * @param args the command line arguments
      */  

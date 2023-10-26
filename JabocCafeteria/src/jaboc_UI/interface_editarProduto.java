@@ -4,6 +4,7 @@
  */
 package jaboc_UI;
 
+import jaboc_Classes.Conta_Cliente;
 import jaboc_Classes.listaFuncionarios;
 import jaboc_Classes.listaProdutos;
 import java.awt.Color;
@@ -17,6 +18,7 @@ public class interface_editarProduto extends javax.swing.JFrame {
 
     private listaProdutos listaProdutos;
     private listaFuncionarios listaFuncionarios;
+    private Conta_Cliente Conta_Cliente;
     int indiceProduto;
 
     /**
@@ -390,6 +392,7 @@ public class interface_editarProduto extends javax.swing.JFrame {
         interface_gerenciarCardapio i_gerenciarCardapio = new interface_gerenciarCardapio();
         i_gerenciarCardapio.recebeListaProdutos(listaProdutos);
         i_gerenciarCardapio.recebeListaFuncionarios(listaFuncionarios);
+        i_gerenciarCardapio.recebeConta(Conta_Cliente);
         i_gerenciarCardapio.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_bVoltarActionPerformed
@@ -404,9 +407,15 @@ public class interface_editarProduto extends javax.swing.JFrame {
     public void recebeListaProdutos(listaProdutos lista) {
         listaProdutos = lista;
     }
-    public void recebeListaFuncionarios(listaFuncionarios listaFuncionarios){
+
+    public void recebeListaFuncionarios(listaFuncionarios listaFuncionarios) {
         this.listaFuncionarios = listaFuncionarios;
     }
+
+    public void recebeConta(Conta_Cliente Conta_Cliente) {
+        this.Conta_Cliente = Conta_Cliente;
+    }
+
     /**
      * @param args the command line arguments
      */

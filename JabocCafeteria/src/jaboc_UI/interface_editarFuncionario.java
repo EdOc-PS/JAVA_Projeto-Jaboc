@@ -4,6 +4,7 @@
  */
 package jaboc_UI;
 
+import jaboc_Classes.Conta_Cliente;
 import jaboc_Classes.listaFuncionarios;
 import jaboc_Classes.listaProdutos;
 import javax.swing.JOptionPane;
@@ -14,6 +15,7 @@ import javax.swing.JOptionPane;
 public class interface_editarFuncionario extends javax.swing.JFrame {
     private listaFuncionarios listaFuncionarios;
     private listaProdutos listaProdutos;
+    private Conta_Cliente Conta_Cliente;
     private int indiceFuncionario;
     /**
      * Creates new form interface_editarFuncionario
@@ -94,6 +96,7 @@ public class interface_editarFuncionario extends javax.swing.JFrame {
         jLabel6.setText("Senha:");
 
         verificarSenha_Funcionario.setFont(new java.awt.Font("Gill Sans MT", 0, 12)); // NOI18N
+        verificarSenha_Funcionario.setForeground(new java.awt.Color(79, 84, 101));
         verificarSenha_Funcionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 verificarSenha_FuncionarioActionPerformed(evt);
@@ -111,21 +114,24 @@ public class interface_editarFuncionario extends javax.swing.JFrame {
             }
         });
 
+        verificarCPF_Funcionario.setForeground(new java.awt.Color(79, 84, 101));
         verificarCPF_Funcionario.setFont(new java.awt.Font("Gill Sans MT", 0, 12)); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(25, 25, 25)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(verificarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(verificarFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(verificarCPF_Funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(verificarCPF_Funcionario))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(verificarSenha_Funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel6))))
@@ -142,7 +148,7 @@ public class interface_editarFuncionario extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(verificarSenha_Funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(verificarCPF_Funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(verificarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15))
         );
@@ -153,7 +159,8 @@ public class interface_editarFuncionario extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Nome:");
 
-        nomeFuncionario_Editar.setFont(new java.awt.Font("Gill Sans MT", 0, 12)); // NOI18N
+        nomeFuncionario_Editar.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
+        nomeFuncionario_Editar.setForeground(new java.awt.Color(79, 84, 101));
         nomeFuncionario_Editar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nomeFuncionario_EditarActionPerformed(evt);
@@ -164,7 +171,8 @@ public class interface_editarFuncionario extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("CPF:");
 
-        enderecoFuncionario_Editar.setFont(new java.awt.Font("Gill Sans MT", 0, 12)); // NOI18N
+        enderecoFuncionario_Editar.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
+        enderecoFuncionario_Editar.setForeground(new java.awt.Color(79, 84, 101));
 
         jLabel3.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -174,14 +182,18 @@ public class interface_editarFuncionario extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Telefone:");
 
-        cargoFuncionario_Editar.setFont(new java.awt.Font("Gill Sans MT", 0, 12)); // NOI18N
+        cargoFuncionario_Editar.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
+        cargoFuncionario_Editar.setForeground(new java.awt.Color(79, 84, 101));
         cargoFuncionario_Editar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cozinheiro(a)", "Auxiliar de Cozinha", "Garçom", "Balconista", "Faxineiro(a)", "Administrador", " " }));
 
         jLabel9.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Cargo:");
 
+        cpfFuncionario_Editar.setForeground(new java.awt.Color(79, 84, 101));
         cpfFuncionario_Editar.setFont(new java.awt.Font("Gill Sans MT", 0, 12)); // NOI18N
+
+        telefoneFuncionario_Editar.setForeground(new java.awt.Color(79, 84, 101));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -202,8 +214,10 @@ public class interface_editarFuncionario extends javax.swing.JFrame {
                             .addComponent(jLabel4)
                             .addComponent(cpfFuncionario_Editar)
                             .addComponent(telefoneFuncionario_Editar)))
-                    .addComponent(jLabel9)
-                    .addComponent(cargoFuncionario_Editar, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel9)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(cargoFuncionario_Editar, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(25, 25, 25))
         );
         jPanel2Layout.setVerticalGroup(
@@ -243,7 +257,7 @@ public class interface_editarFuncionario extends javax.swing.JFrame {
         sair_EditarFuncionario.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
         sair_EditarFuncionario.setForeground(new java.awt.Color(79, 84, 101));
         sair_EditarFuncionario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_back.png"))); // NOI18N
-        sair_EditarFuncionario.setText("VOLTAR");
+        sair_EditarFuncionario.setText("   Voltar");
         sair_EditarFuncionario.setBorderPainted(false);
         sair_EditarFuncionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -267,12 +281,12 @@ public class interface_editarFuncionario extends javax.swing.JFrame {
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(editarFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(14, Short.MAX_VALUE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(editarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(sair_EditarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
@@ -288,10 +302,11 @@ public class interface_editarFuncionario extends javax.swing.JFrame {
                 .addGap(15, 15, 15))
         );
 
-        jLabel7.setFont(new java.awt.Font("Gill Sans MT", 1, 32)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Gill Sans MT", 1, 30)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_editarFuncionario.png"))); // NOI18N
-        jLabel7.setText("EDITAR FUNCIONÁRIO");
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_edFuncionario.png"))); // NOI18N
+        jLabel7.setText(" EDITAR FUNCIONÁRIO");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -303,20 +318,20 @@ public class interface_editarFuncionario extends javax.swing.JFrame {
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 100, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 99, Short.MAX_VALUE)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(163, 163, 163)
+                .addGap(50, 50, 50)
                 .addComponent(jLabel7)
-                .addGap(18, 18, 18)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(39, 39, 39)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 594, Short.MAX_VALUE)
+                .addContainerGap(37, Short.MAX_VALUE))
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 510, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -332,34 +347,6 @@ public class interface_editarFuncionario extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void verificarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verificarFuncionarioActionPerformed
-               
-        if(listaFuncionarios != null){
-           indiceFuncionario = listaFuncionarios.buscarContaFuncionario(verificarCPF_Funcionario.getText(), listaFuncionarios.getNAtualElementos(), -1);
-              
-            if(indiceFuncionario != - 1 && verificarSenha_Funcionario.getText().equals(listaFuncionarios.getItem(indiceFuncionario).getSenha())){
-                verificarCPF_Funcionario.setText("");
-                verificarSenha_Funcionario.setText("");
-                
-                jPanel2.setVisible(true);
-                editarFuncionario.setVisible(true);
-                
-                nomeFuncionario_Editar.setText(listaFuncionarios.getItem(indiceFuncionario).getTitularFuncionario().getNomeFuncionario());
-                cpfFuncionario_Editar.setText(listaFuncionarios.getItem(indiceFuncionario).getTitularFuncionario().getCpfFuncionario());
-                enderecoFuncionario_Editar.setText(listaFuncionarios.getItem(indiceFuncionario).getTitularFuncionario().getEnderecoFuncionario());
-                telefoneFuncionario_Editar.setText(listaFuncionarios.getItem(indiceFuncionario).getTitularFuncionario().getTelefoneFuncionario());
-                cargoFuncionario_Editar.setSelectedItem(listaFuncionarios.getItem(indiceFuncionario).getTitularFuncionario().getCargoFuncionario());
-
-            }else if(indiceFuncionario == -1){
-                JOptionPane.showMessageDialog(null, "CPF inexistente!", "Erro", JOptionPane.INFORMATION_MESSAGE);    
-            }else{
-                JOptionPane.showMessageDialog(null, "Senha incorreta!", "Erro", JOptionPane.INFORMATION_MESSAGE);
-            }
-        }else{
-            JOptionPane.showMessageDialog(null,"Não há funcionários cadastrados!","Erro",WIDTH);
-        }    
-    }//GEN-LAST:event_verificarFuncionarioActionPerformed
 
     private void editarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarFuncionarioActionPerformed
         if("".equals(nomeFuncionario_Editar.getText()) || "   .   .   -  ".equals(cpfFuncionario_Editar.getText()) || "".equals(enderecoFuncionario_Editar.getText()) || "(  )      -    ".equals(telefoneFuncionario_Editar.getText()) || "".equals(cargoFuncionario_Editar.getSelectedItem())){
@@ -394,8 +381,37 @@ public class interface_editarFuncionario extends javax.swing.JFrame {
         exibirFuncionarios.setVisible(true);       
         exibirFuncionarios.recebeListaFuncionarios(listaFuncionarios);  
         exibirFuncionarios.recebeListaProdutos(listaProdutos);
+        exibirFuncionarios.recebeConta(Conta_Cliente);
         this.dispose();
     }//GEN-LAST:event_sair_EditarFuncionarioActionPerformed
+
+    private void verificarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verificarFuncionarioActionPerformed
+
+        if(listaFuncionarios != null){
+            indiceFuncionario = listaFuncionarios.buscarContaFuncionario(verificarCPF_Funcionario.getText(), listaFuncionarios.getNAtualElementos(), -1);
+
+            if(indiceFuncionario != - 1 && verificarSenha_Funcionario.getText().equals(listaFuncionarios.getItem(indiceFuncionario).getSenha())){
+                verificarCPF_Funcionario.setText("");
+                verificarSenha_Funcionario.setText("");
+
+                jPanel2.setVisible(true);
+                editarFuncionario.setVisible(true);
+
+                nomeFuncionario_Editar.setText(listaFuncionarios.getItem(indiceFuncionario).getTitularFuncionario().getNomeFuncionario());
+                cpfFuncionario_Editar.setText(listaFuncionarios.getItem(indiceFuncionario).getTitularFuncionario().getCpfFuncionario());
+                enderecoFuncionario_Editar.setText(listaFuncionarios.getItem(indiceFuncionario).getTitularFuncionario().getEnderecoFuncionario());
+                telefoneFuncionario_Editar.setText(listaFuncionarios.getItem(indiceFuncionario).getTitularFuncionario().getTelefoneFuncionario());
+                cargoFuncionario_Editar.setSelectedItem(listaFuncionarios.getItem(indiceFuncionario).getTitularFuncionario().getCargoFuncionario());
+
+            }else if(indiceFuncionario == -1){
+                JOptionPane.showMessageDialog(null, "CPF inexistente!", "Erro", JOptionPane.INFORMATION_MESSAGE);
+            }else{
+                JOptionPane.showMessageDialog(null, "Senha incorreta!", "Erro", JOptionPane.INFORMATION_MESSAGE);
+            }
+        }else{
+            JOptionPane.showMessageDialog(null,"Não há funcionários cadastrados!","Erro",WIDTH);
+        }
+    }//GEN-LAST:event_verificarFuncionarioActionPerformed
 
     private void verificarSenha_FuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verificarSenha_FuncionarioActionPerformed
         // TODO add your handling code here:
@@ -405,6 +421,9 @@ public class interface_editarFuncionario extends javax.swing.JFrame {
     }
     public void receberListaProdutos(listaProdutos listaProdutos){
         this.listaProdutos = listaProdutos;
+    }
+    public void recebeConta(Conta_Cliente Conta_Cliente){
+        this.Conta_Cliente = Conta_Cliente;
     }
     public javax.swing.JPanel getJPanel2(){
         return this.jPanel2;
