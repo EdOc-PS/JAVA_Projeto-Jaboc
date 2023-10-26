@@ -6,6 +6,8 @@ package jaboc_UI;
 
 import jaboc_Classes.Cliente;
 import jaboc_Classes.Conta_Cliente;
+import jaboc_Classes.listaFuncionarios;
+import jaboc_Classes.listaProdutos;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 
@@ -14,8 +16,10 @@ import javax.swing.JOptionPane;
  * @author eeuar
  */
 public class interface_areaSenhaCliente extends javax.swing.JFrame {
-
+    
     private Cliente Cliente;
+    private listaProdutos listaProdutos;
+    private listaFuncionarios listaFuncionarios;
     Conta_Cliente Conta_Cliente;
 
     /**
@@ -235,6 +239,8 @@ public class interface_areaSenhaCliente extends javax.swing.JFrame {
                 if (String.valueOf(txtSenhaCliente.getPassword()).equals(Conta_Cliente.getSenha())) {
                     interface_Cardapio i_Cardapio = new interface_Cardapio();
                     i_Cardapio.recebeConta(Conta_Cliente);
+                    i_Cardapio.recebeListaProduto(listaProdutos);
+                    i_Cardapio.recebeListaFuncionarios(listaFuncionarios);
                     i_Cardapio.setVisible(true);
                     this.dispose();
                 } else {
@@ -261,7 +267,12 @@ public class interface_areaSenhaCliente extends javax.swing.JFrame {
     public void recebeConta(Conta_Cliente conta) {
         this.Conta_Cliente = conta;
     }
-
+    public void recebeListaProdutos(listaProdutos listaProdutos){
+        this.listaProdutos = listaProdutos;
+    }
+    public void recebeListaFuncionarios(listaFuncionarios listaFuncionarios){
+        this.listaFuncionarios = listaFuncionarios;
+    }
     /**
      * @param args the command line arguments
      */

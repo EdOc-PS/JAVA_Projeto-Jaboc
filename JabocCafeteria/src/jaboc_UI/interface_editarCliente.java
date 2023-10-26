@@ -5,6 +5,8 @@
 package jaboc_UI;
 
 import jaboc_Classes.Conta_Cliente;
+import jaboc_Classes.listaFuncionarios;
+import jaboc_Classes.listaProdutos;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -15,8 +17,9 @@ import javax.swing.JTextField;
  */
 public class interface_editarCliente extends javax.swing.JFrame {
 
-    Conta_Cliente Conta_Cliente;
-
+    private Conta_Cliente Conta_Cliente;
+    private listaFuncionarios listaFuncionarios;
+    private listaProdutos listaProdutos;
     /**
      * Creates new form interface_editarCliente
      */
@@ -502,10 +505,18 @@ public class interface_editarCliente extends javax.swing.JFrame {
         interface_Cardapio i_Cardapio = new interface_Cardapio();
         i_Cardapio.setVisible(true);
         i_Cardapio.recebeConta(Conta_Cliente);
+        i_Cardapio.recebeListaFuncionarios(listaFuncionarios);
+        i_Cardapio.recebeListaProduto(listaProdutos);
         this.dispose();
     }//GEN-LAST:event_bVoltar1ActionPerformed
     public void recebeConta(Conta_Cliente conta) {
-        Conta_Cliente = conta;
+        this.Conta_Cliente = conta;
+    }
+    public void recebeListaFuncionarios(listaFuncionarios listaFuncionarios){
+        this.listaFuncionarios = listaFuncionarios;
+    }
+    public void recebeListaProdutos(listaProdutos listaProdutos){
+        this.listaProdutos = listaProdutos;
     }
 
     /**

@@ -223,8 +223,12 @@ public class interface_Menu extends javax.swing.JFrame {
             interface_areaSenhaCliente i_areaSenhaCliente = new interface_areaSenhaCliente();
             i_areaSenhaCliente.setVisible(true);
             i_areaSenhaCliente.recebeConta(Conta_Cliente);
+            i_areaSenhaCliente.recebeListaFuncionarios(listaFuncionarios);
+            i_areaSenhaCliente.recebeListaProdutos(listaProdutos);
             this.dispose();
         } else {
+            i_criarCliente.recebeListaFuncionarios(listaFuncionarios);
+            i_criarCliente.recebeListaProdutos(listaProdutos);
             i_criarCliente.setVisible(true);
             this.dispose();
         }

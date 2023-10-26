@@ -6,6 +6,8 @@ package jaboc_UI;
  */
 import jaboc_Classes.Cliente;
 import jaboc_Classes.Conta_Cliente;
+import jaboc_Classes.listaFuncionarios;
+import jaboc_Classes.listaProdutos;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -18,6 +20,8 @@ public class interface_criarCliente extends javax.swing.JFrame {
 
     private Cliente Cliente;
     private Conta_Cliente Conta_Cliente;
+    private listaFuncionarios listaFuncionarios;
+    private listaProdutos listaProdutos;
     private int IdConta = 1;
 
     /**
@@ -368,7 +372,9 @@ public class interface_criarCliente extends javax.swing.JFrame {
                 
                 interface_Cardapio i_Cardapio = new interface_Cardapio();
                 i_Cardapio.setVisible(true);
-                i_Cardapio.recebeConta(Conta_Cliente);           
+                i_Cardapio.recebeConta(Conta_Cliente); 
+                i_Cardapio.recebeListaFuncionarios(listaFuncionarios);
+                i_Cardapio.recebeListaProduto(listaProdutos);
                 this.dispose();
                 
 
@@ -385,6 +391,8 @@ public class interface_criarCliente extends javax.swing.JFrame {
 
     private void bVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVoltarActionPerformed
         interface_Menu iM = new interface_Menu();
+        iM.recebeListaFuncionarios(listaFuncionarios);
+        iM.recebeListaProdutos(listaProdutos);
         iM.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_bVoltarActionPerformed
@@ -400,8 +408,12 @@ public class interface_criarCliente extends javax.swing.JFrame {
     private void verificarSenhaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verificarSenhaClienteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_verificarSenhaClienteActionPerformed
-
-
+    public void recebeListaProdutos(listaProdutos listaProdutos){
+        this.listaProdutos = listaProdutos;
+    }
+    public void recebeListaFuncionarios(listaFuncionarios listaFuncionarios){
+        this.listaFuncionarios = listaFuncionarios;
+    }
     /**
      * @param args the command line arguments
      */

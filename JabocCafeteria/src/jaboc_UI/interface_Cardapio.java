@@ -6,6 +6,7 @@ package jaboc_UI;
 
 import jaboc_Classes.Cliente;
 import jaboc_Classes.Conta_Cliente;
+import jaboc_Classes.listaFuncionarios;
 import jaboc_Classes.listaProdutos;
 import java.awt.Color;
 import javax.swing.table.DefaultTableModel;
@@ -18,7 +19,8 @@ public class interface_Cardapio extends javax.swing.JFrame {
 
     private Conta_Cliente Conta_Cliente;
     private Cliente Cliente;
-    private listaProdutos listaProdutos = new listaProdutos();
+    private listaProdutos listaProdutos;
+    private listaFuncionarios listaFuncionarios;
 
     public interface_Cardapio() {
         initComponents();
@@ -231,6 +233,8 @@ public class interface_Cardapio extends javax.swing.JFrame {
         interface_Menu i_Menu = new interface_Menu();
         i_Menu.setVisible(true);
         i_Menu.recebeConta(Conta_Cliente);
+        i_Menu.recebeListaFuncionarios(listaFuncionarios);
+        i_Menu.recebeListaProdutos(listaProdutos);
         this.dispose();
     }//GEN-LAST:event_bVoltarActionPerformed
 
@@ -262,6 +266,8 @@ public class interface_Cardapio extends javax.swing.JFrame {
         interface_editarCliente i_editarCliente = new interface_editarCliente();
         i_editarCliente.setVisible(true);
         i_editarCliente.recebeConta(Conta_Cliente);
+        i_editarCliente.recebeListaFuncionarios(listaFuncionarios);
+        i_editarCliente.recebeListaProdutos(listaProdutos);
         this.dispose();
     }//GEN-LAST:event_bEditarActionPerformed
 
@@ -277,10 +283,12 @@ public class interface_Cardapio extends javax.swing.JFrame {
         verificarProduto.setBackground(new Color(69, 71, 78));
         verificarProduto.setEnabled(false);
     }//GEN-LAST:event_verificarProdutoMouseClicked
-    public void recebeListaProduto(listaProdutos lista) {
-        listaProdutos = lista;
+    public void recebeListaProduto(listaProdutos listaProdutos) {
+        this.listaProdutos = listaProdutos;
     }
-
+    public void recebeListaFuncionarios(listaFuncionarios listaFuncionarios){
+        this.listaFuncionarios = listaFuncionarios;
+    }
     public void recebeConta(Conta_Cliente conta) {
         Conta_Cliente = conta;
     }
