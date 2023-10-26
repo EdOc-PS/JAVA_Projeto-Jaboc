@@ -247,7 +247,7 @@ public class interface_Cardapio extends javax.swing.JFrame {
                     cardapio.addRow(dados);
                 }
             }
-        }     
+        }
     }//GEN-LAST:event_verificarProdutoActionPerformed
 
     private void bVoltarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bVoltarMouseEntered

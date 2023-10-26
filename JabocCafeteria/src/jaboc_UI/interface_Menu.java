@@ -222,6 +222,7 @@ public class interface_Menu extends javax.swing.JFrame {
         if (Conta_Cliente!= null && Conta_Cliente.isContaAtiva()== true) {
             interface_areaSenhaCliente i_areaSenhaCliente = new interface_areaSenhaCliente();
             i_areaSenhaCliente.setVisible(true);
+            i_areaSenhaCliente.recebeConta(Conta_Cliente);
             this.dispose();
         } else {
             i_criarCliente.setVisible(true);

@@ -299,6 +299,9 @@ public class interface_criarProduto extends javax.swing.JFrame {
             qtdeProduto.setText("");
             precoProduto.setText("");
             tipoProduto.setSelectedItem("Cafe");
+            
+            interface_Cardapio i_Cardapio = new interface_Cardapio();
+            i_Cardapio.recebeListaProduto(listaProdutos);
         }else{
             JOptionPane.showMessageDialog(null, "Campos vazios!","Erro",WIDTH);
         }

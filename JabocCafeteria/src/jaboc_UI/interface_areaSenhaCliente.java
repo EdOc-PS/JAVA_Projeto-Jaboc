@@ -224,26 +224,31 @@ public class interface_areaSenhaCliente extends javax.swing.JFrame {
 
     private void bVoltar4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVoltar4ActionPerformed
         interface_Menu i_Menu = new interface_Menu();
+        i_Menu .recebeConta(Conta_Cliente);
         i_Menu.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_bVoltar4ActionPerformed
 
     private void editarProduto4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarProduto4ActionPerformed
-        
-        if (Conta_Cliente.verificarSenha(String.valueOf(txtSenhaCliente.getPassword()), String.valueOf(txtverificarSenhaCliente.getPassword()))) {
-            if (String.valueOf(txtSenhaCliente.getPassword()).equals(Conta_Cliente.getSenha())) {
-                interface_Cardapio i_Cardapio = new interface_Cardapio();
-                i_Cardapio.setVisible(true);
-                this.dispose();
-            } else {
-                JOptionPane.showMessageDialog(null, "A senha está incorreta", "Erro", WIDTH);
+        if (!"".equals(txtSenhaCliente.getPassword()) && !"".equals(txtverificarSenhaCliente.getPassword())) {
+            if (Conta_Cliente.verificarSenha(String.valueOf(txtSenhaCliente.getPassword()), String.valueOf(txtverificarSenhaCliente.getPassword()))) {
+                if (String.valueOf(txtSenhaCliente.getPassword()).equals(Conta_Cliente.getSenha())) {
+                    interface_Cardapio i_Cardapio = new interface_Cardapio();
+                    i_Cardapio.recebeConta(Conta_Cliente);
+                    i_Cardapio.setVisible(true);
+                    this.dispose();
+                } else {
+                    JOptionPane.showMessageDialog(null, "A senha está incorreta", "Erro", WIDTH);
+                }
+            }else{
+                JOptionPane.showMessageDialog(null, "A senhas não são iguais!", "Erro", WIDTH);
+                txtSenhaCliente.setText("");
+                txtverificarSenhaCliente.setText("");
             }
-        } else {
-            JOptionPane.showMessageDialog(null, "A senhas não são iguais!", "Erro", WIDTH);
-            txtSenhaCliente.setText("");
-            txtverificarSenhaCliente.setText("");
+            
+        }else {
+            JOptionPane.showMessageDialog(null, "Os campos estão vazios!", "Information", JOptionPane.INFORMATION_MESSAGE);
         }
-
     }//GEN-LAST:event_editarProduto4ActionPerformed
 
     private void txtSenhaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSenhaClienteActionPerformed
