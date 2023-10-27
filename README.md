@@ -3,7 +3,8 @@
 <br>
 👇 Baixe o executável e confira o projeto: [Download](https://raw.githubusercontent.com/EdOc-PS/Projeto-Jaboc/main/JabocCafeteria/dist/JabocCafeteria.jar)
 <br>
-
+🔑 Senha para a acessar a gerência: 123
+<br><br>
 **Usados no Projeto:**
 
 - 📰 Diagrama UML: https://lucid.app/lucidchart/88644fbf-901c-4a58-b7b6-c9dddb4a31f1/edit?view_items=PxYDyldzbS1C&invitationId=inv_51db1cf9-0574-48df-8e9e-ecdc0350e321
