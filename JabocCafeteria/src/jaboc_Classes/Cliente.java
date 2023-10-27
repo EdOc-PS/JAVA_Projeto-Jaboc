@@ -17,7 +17,7 @@ public class Cliente {
 
     public Cliente(String nome, String CPF, String endereco, String telefone) {
         this.nomeCliente = nome;
-        this.setCpfCliente(CPF);
+        this.cpfCliente = CPF;
         this.enderecoCliente = endereco;
         this.telefoneCliente = telefone;    
     }

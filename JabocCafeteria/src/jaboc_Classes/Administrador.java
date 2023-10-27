@@ -14,7 +14,10 @@ public class Administrador extends Funcionario {
         this.senha = senha;
         
     }
-
+    public Administrador(String nomeAdministrador, String cpfAdministrador, String cargoAdministrador, String senha){
+        super(nomeAdministrador,cpfAdministrador, cargoAdministrador);
+        this.senha = senha;
+    }
     public String getSenha() {
         return senha;
     }

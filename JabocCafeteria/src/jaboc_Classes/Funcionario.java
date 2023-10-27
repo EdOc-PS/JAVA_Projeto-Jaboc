@@ -23,7 +23,13 @@ public class Funcionario {
         this.telefoneFuncionario = telefoneFuncionario;
         this.cargoFuncionario = cargoFuncionario;
     }
-
+    public Funcionario(String nomeFuncionario, String cpfFuncionario , String cargoFuncionario){
+        this.nomeFuncionario = nomeFuncionario;
+        this.cpfFuncionario = cpfFuncionario;
+        this.enderecoFuncionario = null;
+        this.telefoneFuncionario = null;
+        this.cargoFuncionario = cargoFuncionario;
+    }
     public String getNomeFuncionario() {
         return nomeFuncionario;
     }
