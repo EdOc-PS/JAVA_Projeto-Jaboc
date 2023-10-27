@@ -151,14 +151,14 @@ public class interface_Cardapio extends javax.swing.JFrame {
         jPanel4.setBackground(new java.awt.Color(200, 182, 166));
 
         tabelaCardapio.setBackground(new java.awt.Color(252, 252, 252));
-        tabelaCardapio.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        tabelaCardapio.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
         tabelaCardapio.setForeground(new java.awt.Color(79, 84, 101));
         tabelaCardapio.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Nome", "Quantidade", "Tipo", "Preco"
+                "Nome", "Quantidade", "Preço", "Tipo"
             }
         ));
         tabelaCardapio.setSelectionBackground(new java.awt.Color(255, 255, 255));
