@@ -8,7 +8,7 @@ import jaboc_Classes.Cliente;
 import jaboc_Classes.Conta_Cliente;
 import jaboc_Classes.listaFuncionarios;
 import jaboc_Classes.listaProdutos;
-import jaboc_UI.interface_Menu;
+import jaboc_UI.jabocUI_Administrador.interface_Menu;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -388,10 +388,10 @@ public class interface_criarCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_criaClienteActionPerformed
 
     private void bVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVoltarActionPerformed
-        interface_Menu iM = new interface_Menu();
-        iM.recebeListaFuncionarios(listaFuncionarios);
-        iM.recebeListaProdutos(listaProdutos);
-        iM.setVisible(true);
+        interface_Menu i_Menu = new interface_Menu();
+        i_Menu.recebeListaFuncionarios(listaFuncionarios);
+        i_Menu.recebeListaProdutos(listaProdutos);
+        i_Menu.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_bVoltarActionPerformed
 
