@@ -1,5 +1,5 @@
 ## Projeto-Jaboc ☕
-👉 Projeto de produção de uma cafeteria para a disciplina de POO
+🥤 Projeto de produção de uma cafeteria para a disciplina de POO
 <br>
 👇 Baixe o executável e confira o projeto: [Download](https://raw.githubusercontent.com/EdOc-PS/Projeto-Jaboc/main/JabocCafeteria/dist/JabocCafeteria.jar)
 <br>
