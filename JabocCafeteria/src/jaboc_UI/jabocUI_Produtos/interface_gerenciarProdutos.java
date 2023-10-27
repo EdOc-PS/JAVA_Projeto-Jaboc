@@ -10,7 +10,7 @@ import jaboc_UI.jabocUI_Produtos.interface_apagarProduto;
 import jaboc_Classes.Conta_Cliente;
 import jaboc_Classes.listaFuncionarios;
 import jaboc_Classes.listaProdutos;
-import jaboc_UI.interface_areaGerencia;
+import jaboc_UI.jabocUI_Administrador.interface_areaGerencia;
 import java.awt.Color;
 import javax.swing.table.DefaultTableModel;
 
