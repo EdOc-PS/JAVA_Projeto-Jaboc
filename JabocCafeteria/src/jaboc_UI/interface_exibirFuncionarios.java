@@ -65,15 +65,22 @@ public class interface_exibirFuncionarios extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "Nome", "CPF", "Endereço", "Telefone", "Cargo"
+                "Nome", "CPF", "Endereço", "Telefone", "Cargo"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
             }
         });
         tabelaFuncionario.setGridColor(new java.awt.Color(204, 204, 204));
@@ -133,7 +140,7 @@ public class interface_exibirFuncionarios extends javax.swing.JFrame {
         editarFuncionario.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
         editarFuncionario.setForeground(new java.awt.Color(79, 84, 101));
         editarFuncionario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_edfuncionario2.png"))); // NOI18N
-        editarFuncionario.setText("Editar Funcionário");
+        editarFuncionario.setText("Editar");
         editarFuncionario.setBorderPainted(false);
         editarFuncionario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         editarFuncionario.setFocusPainted(false);
@@ -156,7 +163,7 @@ public class interface_exibirFuncionarios extends javax.swing.JFrame {
         apagarFuncionario.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
         apagarFuncionario.setForeground(new java.awt.Color(79, 84, 101));
         apagarFuncionario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_deletarFuncionario.png"))); // NOI18N
-        apagarFuncionario.setText("Apagar Funcionário");
+        apagarFuncionario.setText("Apagar");
         apagarFuncionario.setBorderPainted(false);
         apagarFuncionario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         apagarFuncionario.setFocusPainted(false);
@@ -179,7 +186,7 @@ public class interface_exibirFuncionarios extends javax.swing.JFrame {
         criarFuncionario.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
         criarFuncionario.setForeground(new java.awt.Color(79, 84, 101));
         criarFuncionario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/I_addFuncionario.png"))); // NOI18N
-        criarFuncionario.setText("Criar Funcionário");
+        criarFuncionario.setText("Adicionar");
         criarFuncionario.setBorderPainted(false);
         criarFuncionario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         criarFuncionario.setFocusPainted(false);
@@ -322,7 +329,7 @@ public class interface_exibirFuncionarios extends javax.swing.JFrame {
 
             for (int pos_Lista = 0; pos_Lista < listaFuncionarios.getTamanho(); pos_Lista++) {
                 if (listaFuncionarios.getItem(pos_Lista) != null) {
-                    tabelaFuncionarios.addRow(new String[]{String.valueOf(listaFuncionarios.getItem(pos_Lista).getIdFuncionario()), listaFuncionarios.getItem(pos_Lista).getTitularFuncionario().getNomeFuncionario(), listaFuncionarios.getItem(pos_Lista).getTitularFuncionario().getCpfFuncionario(),
+                    tabelaFuncionarios.addRow(new String[]{ listaFuncionarios.getItem(pos_Lista).getTitularFuncionario().getNomeFuncionario(), listaFuncionarios.getItem(pos_Lista).getTitularFuncionario().getCpfFuncionario(),
                         listaFuncionarios.getItem(pos_Lista).getTitularFuncionario().getEnderecoFuncionario(), listaFuncionarios.getItem(pos_Lista).getTitularFuncionario().getTelefoneFuncionario(),
                         listaFuncionarios.getItem(pos_Lista).getTitularFuncionario().getCargoFuncionario()});
                 }
