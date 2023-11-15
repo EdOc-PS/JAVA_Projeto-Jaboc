@@ -8,15 +8,18 @@ import jaboc_UI.jabocUI_Clientes.interface_areaSenhaCliente;
 import jaboc_UI.jabocUI_Clientes.interface_criarCliente;
 import jaboc_Classes.Cliente;
 import jaboc_Classes.Conta_Cliente;
+import jaboc_Classes.Utilitarios;
 import jaboc_Classes.listaFuncionarios;
 import jaboc_Classes.listaProdutos;
 import java.awt.Color;
+import javax.swing.ImageIcon;
 
 /**
  *
  * @author eeuar
  */
 public class interface_Menu extends javax.swing.JFrame {
+
     private listaFuncionarios listaFuncionarios = new listaFuncionarios();
     private listaProdutos listaProdutos = new listaProdutos();
     private Conta_Cliente Conta_Cliente;
@@ -27,6 +30,8 @@ public class interface_Menu extends javax.swing.JFrame {
     public interface_Menu() {
         initComponents();
         setLocationRelativeTo(null);
+        Utilitarios u = new Utilitarios();
+        u.InserirIcone(this);
     }
 
     /**
@@ -219,7 +224,7 @@ public class interface_Menu extends javax.swing.JFrame {
     private void bCardapioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCardapioActionPerformed
         interface_criarCliente i_criarCliente = new interface_criarCliente();
 
-        if (Conta_Cliente!= null && Conta_Cliente.isContaAtiva()== true) {
+        if (Conta_Cliente != null && Conta_Cliente.isContaAtiva() == true) {
             interface_areaSenhaCliente i_areaSenhaCliente = new interface_areaSenhaCliente();
             i_areaSenhaCliente.setVisible(true);
             i_areaSenhaCliente.recebeConta(Conta_Cliente);
@@ -261,12 +266,15 @@ public class interface_Menu extends javax.swing.JFrame {
     public void recebeConta(Conta_Cliente conta) {
         Conta_Cliente = conta;
     }
-    public void recebeListaFuncionarios(listaFuncionarios listaFuncionarios){
+
+    public void recebeListaFuncionarios(listaFuncionarios listaFuncionarios) {
         this.listaFuncionarios = listaFuncionarios;
     }
-    public void recebeListaProdutos(listaProdutos listaProdutos){
+
+    public void recebeListaProdutos(listaProdutos listaProdutos) {
         this.listaProdutos = listaProdutos;
     }
+
     /**
      * @param args the command line arguments
      */
