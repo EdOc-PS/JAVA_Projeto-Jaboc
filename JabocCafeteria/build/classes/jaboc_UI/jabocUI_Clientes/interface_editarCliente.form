@@ -110,6 +110,11 @@
         </Component>
       </SubComponents>
     </Container>
+    <Component class="jaboc_UI.jabocUI_Utilidades.Button" name="botao1">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
+    </Component>
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>

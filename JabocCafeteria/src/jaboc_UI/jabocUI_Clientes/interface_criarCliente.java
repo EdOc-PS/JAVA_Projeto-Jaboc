@@ -4,11 +4,13 @@ package jaboc_UI.jabocUI_Clientes;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
+import jaboc_Biblioteca.glasspanepopup.GlassPanePopup;
 import jaboc_Classes.Cliente;
 import jaboc_Classes.Conta_Cliente;
 import jaboc_Classes.listaFuncionarios;
 import jaboc_Classes.listaProdutos;
 import jaboc_UI.jabocUI_Administrador.interface_Menu;
+import jaboc_UI.jabocUI_Utilidades.interface_mensagen;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -31,6 +33,7 @@ public class interface_criarCliente extends javax.swing.JFrame {
     public interface_criarCliente() {
         initComponents();
         setLocationRelativeTo(null);
+        GlassPanePopup.install(this);
     }
 
     /**
@@ -379,7 +382,7 @@ public class interface_criarCliente extends javax.swing.JFrame {
                 verificarSenhaCliente.setText("");
             }
         } else {
-            JOptionPane.showMessageDialog(null, "Os campos estão vazios!", "Information", JOptionPane.INFORMATION_MESSAGE);
+         GlassPanePopup.showPopup(new interface_mensagen());
         }
 
     }//GEN-LAST:event_criaClienteActionPerformed

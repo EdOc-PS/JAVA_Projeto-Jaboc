@@ -4,10 +4,12 @@
  */
 package jaboc_UI.jabocUI_Administrador;
 
+import jaboc_Biblioteca.glasspanepopup.GlassPanePopup;
 import jaboc_Classes.Administrador;
 import jaboc_Classes.Conta_Cliente;
 import jaboc_Classes.listaFuncionarios;
 import jaboc_Classes.listaProdutos;
+import jaboc_UI.jabocUI_Utilidades.interface_mensagen;
 import java.awt.Color;
 import static java.awt.image.ImageObserver.WIDTH;
 import javax.swing.JOptionPane;
@@ -27,6 +29,7 @@ public class interface_areaSenhaGerencia extends javax.swing.JFrame {
     public interface_areaSenhaGerencia() {
         initComponents();
         setLocationRelativeTo(null);
+        GlassPanePopup.install(this);
     }
 
     /**
@@ -216,7 +219,7 @@ public class interface_areaSenhaGerencia extends javax.swing.JFrame {
            i_gerencia.setVisible(true);
            this.dispose();
        }else{
-            JOptionPane.showMessageDialog(null, "A senha digitada não confere com a do sistema", "Senha errada!", WIDTH);
+            GlassPanePopup.showPopup(new interface_mensagen());
        }
         
     }//GEN-LAST:event_enviarSenhaActionPerformed

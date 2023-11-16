@@ -42,6 +42,7 @@ public class interface_editarCliente extends javax.swing.JFrame {
         verificarProduto = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
+        botao1 = new jaboc_UI.jabocUI_Utilidades.Button();
         jPanel1 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
@@ -550,6 +551,7 @@ public class interface_editarCliente extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bVoltar;
     private javax.swing.JButton bVoltar1;
+    public jaboc_UI.jabocUI_Utilidades.Button botao1;
     private javax.swing.JTextField cpfCliente_Editar;
     private javax.swing.JButton editarCliente;
     private javax.swing.JTextField enderecoCliente_Editar;
