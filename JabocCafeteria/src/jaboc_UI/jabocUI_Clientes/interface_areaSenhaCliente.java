@@ -4,12 +4,15 @@
  */
 package jaboc_UI.jabocUI_Clientes;
 
+import jaboc_Biblioteca.glasspanepopup.GlassPanePopup;
 import jaboc_UI.jabocUI_Clientes.interface_Cardapio;
 import jaboc_Classes.Cliente;
 import jaboc_Classes.Conta_Cliente;
 import jaboc_Classes.listaFuncionarios;
 import jaboc_Classes.listaProdutos;
 import jaboc_UI.jabocUI_Administrador.interface_Menu;
+import jaboc_UI.jabocUI_Utilidades.interface_mensagen;
+import jaboc_UI.jabocUI_Utilidades.interface_mensagenSenha;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 
@@ -18,7 +21,7 @@ import javax.swing.JOptionPane;
  * @author eeuar
  */
 public class interface_areaSenhaCliente extends javax.swing.JFrame {
-    
+
     private Cliente Cliente;
     private listaProdutos listaProdutos;
     private listaFuncionarios listaFuncionarios;
@@ -30,7 +33,7 @@ public class interface_areaSenhaCliente extends javax.swing.JFrame {
     public interface_areaSenhaCliente() {
         initComponents();
         setLocationRelativeTo(null);
-
+        GlassPanePopup.install(this);
     }
 
     /**
@@ -106,11 +109,11 @@ public class interface_areaSenhaCliente extends javax.swing.JFrame {
             .addGroup(jPanel10Layout.createSequentialGroup()
                 .addGap(13, 13, 13)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(editarProduto4, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel10Layout.createSequentialGroup()
                         .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(bVoltar4, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(bVoltar4, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(editarProduto4, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel10Layout.setVerticalGroup(
@@ -120,7 +123,7 @@ public class interface_areaSenhaCliente extends javax.swing.JFrame {
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(bVoltar4, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 282, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(editarProduto4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(17, 17, 17))
         );
@@ -203,7 +206,7 @@ public class interface_areaSenhaCliente extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(61, 61, 61)
                 .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(104, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -230,13 +233,21 @@ public class interface_areaSenhaCliente extends javax.swing.JFrame {
 
     private void bVoltar4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVoltar4ActionPerformed
         interface_Menu i_Menu = new interface_Menu();
-        i_Menu .recebeConta(Conta_Cliente);
+        i_Menu.recebeConta(Conta_Cliente);
         i_Menu.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_bVoltar4ActionPerformed
 
+    private void txtSenhaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSenhaClienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSenhaClienteActionPerformed
+
+    private void txtverificarSenhaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtverificarSenhaClienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtverificarSenhaClienteActionPerformed
+
     private void editarProduto4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarProduto4ActionPerformed
-        if (!"".equals(txtSenhaCliente.getPassword()) && !"".equals(txtverificarSenhaCliente.getPassword())) {
+        if (!"".equals(txtSenhaCliente.getText()) && !"".equals(txtverificarSenhaCliente.getText())) {
             if (Conta_Cliente.verificarSenha(String.valueOf(txtSenhaCliente.getPassword()), String.valueOf(txtverificarSenhaCliente.getPassword()))) {
                 if (String.valueOf(txtSenhaCliente.getPassword()).equals(Conta_Cliente.getSenha())) {
                     interface_Cardapio i_Cardapio = new interface_Cardapio();
@@ -248,33 +259,28 @@ public class interface_areaSenhaCliente extends javax.swing.JFrame {
                 } else {
                     JOptionPane.showMessageDialog(null, "A senha está incorreta", "Erro", WIDTH);
                 }
-            }else{
-                JOptionPane.showMessageDialog(null, "A senhas não são iguais!", "Erro", WIDTH);
+            } else {
+                GlassPanePopup.showPopup(new interface_mensagenSenha());
                 txtSenhaCliente.setText("");
                 txtverificarSenhaCliente.setText("");
             }
-            
-        }else {
-            JOptionPane.showMessageDialog(null, "Os campos estão vazios!", "Information", JOptionPane.INFORMATION_MESSAGE);
+
+        } else {
+            GlassPanePopup.showPopup(new interface_mensagen());
         }
     }//GEN-LAST:event_editarProduto4ActionPerformed
-
-    private void txtSenhaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSenhaClienteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtSenhaClienteActionPerformed
-
-    private void txtverificarSenhaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtverificarSenhaClienteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtverificarSenhaClienteActionPerformed
     public void recebeConta(Conta_Cliente conta) {
         this.Conta_Cliente = conta;
     }
-    public void recebeListaProdutos(listaProdutos listaProdutos){
+
+    public void recebeListaProdutos(listaProdutos listaProdutos) {
         this.listaProdutos = listaProdutos;
     }
-    public void recebeListaFuncionarios(listaFuncionarios listaFuncionarios){
+
+    public void recebeListaFuncionarios(listaFuncionarios listaFuncionarios) {
         this.listaFuncionarios = listaFuncionarios;
     }
+
     /**
      * @param args the command line arguments
      */

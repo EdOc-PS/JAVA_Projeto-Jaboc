@@ -43,13 +43,15 @@ public class interface_Menu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        panel1 = new jaboc_UI.jabocUI_Utilidades.Panel();
+        panel2 = new jaboc_UI.jabocUI_Utilidades.Panel();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
-        bCardapio = new javax.swing.JButton();
-        bGerencia = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        bGerencia = new jaboc_UI.jabocUI_Utilidades.Button();
+        bCardapio = new jaboc_UI.jabocUI_Utilidades.Button();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -64,34 +66,15 @@ public class interface_Menu extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(200, 182, 166));
 
-        bCardapio.setBackground(new java.awt.Color(252, 252, 252));
-        bCardapio.setFont(new java.awt.Font("Gill Sans MT", 1, 16)); // NOI18N
-        bCardapio.setForeground(new java.awt.Color(79, 84, 101));
-        bCardapio.setText("Cardápio");
-        bCardapio.setBorderPainted(false);
-        bCardapio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        bCardapio.setFocusPainted(false);
-        bCardapio.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                bCardapioMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                bCardapioMouseExited(evt);
-            }
-        });
-        bCardapio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bCardapioActionPerformed(evt);
-            }
-        });
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_cardapio.png"))); // NOI18N
+
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_config.png"))); // NOI18N
 
         bGerencia.setBackground(new java.awt.Color(252, 252, 252));
-        bGerencia.setFont(new java.awt.Font("Gill Sans MT", 1, 16)); // NOI18N
         bGerencia.setForeground(new java.awt.Color(79, 84, 101));
         bGerencia.setText("Gerencia");
-        bGerencia.setBorderPainted(false);
-        bGerencia.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        bGerencia.setFocusPainted(false);
         bGerencia.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 bGerenciaMouseEntered(evt);
@@ -106,11 +89,22 @@ public class interface_Menu extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_cardapio.png"))); // NOI18N
-
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_config.png"))); // NOI18N
+        bCardapio.setBackground(new java.awt.Color(252, 252, 252));
+        bCardapio.setForeground(new java.awt.Color(79, 84, 101));
+        bCardapio.setText("Cardápio");
+        bCardapio.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                bCardapioMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                bCardapioMouseExited(evt);
+            }
+        });
+        bCardapio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bCardapioActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -122,9 +116,9 @@ public class interface_Menu extends javax.swing.JFrame {
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(bGerencia, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bCardapio, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(bGerencia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(bCardapio, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE))
                 .addGap(20, 20, 20))
         );
         jPanel3Layout.setVerticalGroup(
@@ -136,8 +130,8 @@ public class interface_Menu extends javax.swing.JFrame {
                     .addComponent(bCardapio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(bGerencia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE))
+                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE)
+                    .addComponent(bGerencia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(30, Short.MAX_VALUE))
         );
 
@@ -186,14 +180,13 @@ public class interface_Menu extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 268, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                        .addGap(0, 262, Short.MAX_VALUE))
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -221,6 +214,23 @@ public class interface_Menu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void bGerenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bGerenciaActionPerformed
+        interface_areaSenhaGerencia i_areaSenhaGerencia = new interface_areaSenhaGerencia();
+        i_areaSenhaGerencia.recebeListaFuncionarios(listaFuncionarios);
+        i_areaSenhaGerencia.recebeListaProdutos(listaProdutos);
+        i_areaSenhaGerencia.recebeConta(Conta_Cliente);
+        i_areaSenhaGerencia.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_bGerenciaActionPerformed
+
+    private void bGerenciaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bGerenciaMouseEntered
+        bGerencia.setBackground(new Color(237, 237, 237));
+    }//GEN-LAST:event_bGerenciaMouseEntered
+
+    private void bGerenciaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bGerenciaMouseExited
+        bGerencia.setBackground(new Color(252, 252, 252));
+    }//GEN-LAST:event_bGerenciaMouseExited
+
     private void bCardapioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCardapioActionPerformed
         interface_criarCliente i_criarCliente = new interface_criarCliente();
 
@@ -239,30 +249,14 @@ public class interface_Menu extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_bCardapioActionPerformed
 
-    private void bGerenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bGerenciaActionPerformed
-        interface_areaSenhaGerencia i_areaSenhaGerencia = new interface_areaSenhaGerencia();
-        i_areaSenhaGerencia.recebeListaFuncionarios(listaFuncionarios);
-        i_areaSenhaGerencia.recebeListaProdutos(listaProdutos);
-        i_areaSenhaGerencia.recebeConta(Conta_Cliente);
-        i_areaSenhaGerencia.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_bGerenciaActionPerformed
-
     private void bCardapioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bCardapioMouseEntered
         bCardapio.setBackground(new Color(237, 237, 237));
     }//GEN-LAST:event_bCardapioMouseEntered
-
-    private void bGerenciaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bGerenciaMouseEntered
-        bGerencia.setBackground(new Color(237, 237, 237));
-    }//GEN-LAST:event_bGerenciaMouseEntered
 
     private void bCardapioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bCardapioMouseExited
         bCardapio.setBackground(new Color(252, 252, 252));
     }//GEN-LAST:event_bCardapioMouseExited
 
-    private void bGerenciaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bGerenciaMouseExited
-        bGerencia.setBackground(new Color(252, 252, 252));
-    }//GEN-LAST:event_bGerenciaMouseExited
     public void recebeConta(Conta_Cliente conta) {
         Conta_Cliente = conta;
     }
@@ -311,8 +305,8 @@ public class interface_Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton bCardapio;
-    private javax.swing.JButton bGerencia;
+    private jaboc_UI.jabocUI_Utilidades.Button bCardapio;
+    private jaboc_UI.jabocUI_Utilidades.Button bGerencia;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -321,5 +315,7 @@ public class interface_Menu extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private jaboc_UI.jabocUI_Utilidades.Panel panel1;
+    private jaboc_UI.jabocUI_Utilidades.Panel panel2;
     // End of variables declaration//GEN-END:variables
 }

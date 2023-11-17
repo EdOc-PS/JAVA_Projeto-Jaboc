@@ -4,9 +4,11 @@
  */
 package jaboc_UI.jabocUI_Clientes;
 
+import jaboc_Biblioteca.glasspanepopup.GlassPanePopup;
 import jaboc_Classes.Conta_Cliente;
 import jaboc_Classes.listaFuncionarios;
 import jaboc_Classes.listaProdutos;
+import jaboc_UI.jabocUI_Utilidades.interface_mensagen;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -26,6 +28,7 @@ public class interface_editarCliente extends javax.swing.JFrame {
     public interface_editarCliente() {
         initComponents();
         setLocationRelativeTo(null);
+        GlassPanePopup.install(this);
     }
 
     /**
@@ -474,7 +477,7 @@ public class interface_editarCliente extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Nenhum Cliente cadastrado!", "Erro", WIDTH);
         } else if ("".equals(nomeCliente_Editar.getText()) || "    .   .   -  ".equals(cpfCliente_Editar.getText()) || "".equals(enderecoCliente_Editar.getText()) 
                 || " (  )      -    ".equals(telefoneCliente_Editar.getText())) {
-            JOptionPane.showMessageDialog(null, "Os campos estão vazios!", "Erro", WIDTH);
+            GlassPanePopup.showPopup(new interface_mensagen());
         } else {
             Conta_Cliente.getTitular().setNomeCliente(nomeCliente_Editar.getText());
             Conta_Cliente.getTitular().setCpfCliente(cpfCliente_Editar.getText());

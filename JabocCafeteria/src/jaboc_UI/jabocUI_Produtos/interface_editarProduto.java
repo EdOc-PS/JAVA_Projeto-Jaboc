@@ -4,9 +4,11 @@
  */
 package jaboc_UI.jabocUI_Produtos;
 
+import jaboc_Biblioteca.glasspanepopup.GlassPanePopup;
 import jaboc_Classes.Conta_Cliente;
 import jaboc_Classes.listaFuncionarios;
 import jaboc_Classes.listaProdutos;
+import jaboc_UI.jabocUI_Utilidades.interface_mensagen;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 
@@ -27,6 +29,7 @@ public class interface_editarProduto extends javax.swing.JFrame {
     public interface_editarProduto() {
         initComponents();
         setLocationRelativeTo(null);
+        GlassPanePopup.install(this);
     }
 
     /**
@@ -341,7 +344,7 @@ public class interface_editarProduto extends javax.swing.JFrame {
 
     private void verificarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verificarProdutoActionPerformed
         if (verificarId_Produto.getText().equals("")) {
-            JOptionPane.showMessageDialog(null, "O campo está vazio!", "Erro", WIDTH);
+            GlassPanePopup.showPopup(new interface_mensagen());
         } else if (listaProdutos != null) {
             indiceProduto = listaProdutos.buscarProduto(Integer.parseInt(verificarId_Produto.getText()), listaProdutos.getNAtualElementos(), -1) + 1;
             if (indiceProduto != -1) {

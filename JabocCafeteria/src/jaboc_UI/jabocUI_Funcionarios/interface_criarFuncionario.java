@@ -4,12 +4,14 @@
  */
 package jaboc_UI.jabocUI_Funcionarios;
 
+import jaboc_Biblioteca.glasspanepopup.GlassPanePopup;
 import jaboc_UI.jabocUI_Funcionarios.interface_exibirFuncionarios;
 import jaboc_Classes.Conta_Cliente;
 import jaboc_Classes.Funcionario;
 import jaboc_Classes.Conta_Funcionario;
 import jaboc_Classes.listaFuncionarios;
 import jaboc_Classes.listaProdutos;
+import jaboc_UI.jabocUI_Utilidades.interface_mensagen;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 import javax.swing.text.DefaultFormatterFactory;
@@ -33,6 +35,7 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
     public interface_criarFuncionario() {
         initComponents();
         setLocationRelativeTo(null);
+        GlassPanePopup.install(this);
     }
 
     /**
@@ -378,7 +381,7 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
             }
 
         } else {
-            JOptionPane.showMessageDialog(null, "Os campos estão vazios!", "Information", JOptionPane.INFORMATION_MESSAGE);
+            GlassPanePopup.showPopup(new interface_mensagen());
         }
     }//GEN-LAST:event_criarFuncionarioActionPerformed
 

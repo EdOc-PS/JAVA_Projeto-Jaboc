@@ -4,10 +4,12 @@
  */
 package jaboc_UI.jabocUI_Funcionarios;
 
+import jaboc_Biblioteca.glasspanepopup.GlassPanePopup;
 import jaboc_UI.jabocUI_Funcionarios.interface_exibirFuncionarios;
 import jaboc_Classes.Conta_Cliente;
 import jaboc_Classes.listaFuncionarios;
 import jaboc_Classes.listaProdutos;
+import jaboc_UI.jabocUI_Utilidades.interface_mensagen;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 
@@ -28,6 +30,7 @@ public class interface_editarFuncionario extends javax.swing.JFrame {
     public interface_editarFuncionario() {
         initComponents();
         setLocationRelativeTo(null);
+        GlassPanePopup.install(this);
     }
 
     /**
@@ -369,7 +372,7 @@ public class interface_editarFuncionario extends javax.swing.JFrame {
         if ("".equals(nomeFuncionario_Editar.getText()) || "   .   .   -  ".equals(cpfFuncionario_Editar.getText())
                 || "".equals(enderecoFuncionario_Editar.getText()) || "(  )      -    ".equals(telefoneFuncionario_Editar.getText())
                 || "".equals(cargoFuncionario_Editar.getSelectedItem())) {
-            JOptionPane.showMessageDialog(null, "Campo vazio!", "Erro", WIDTH);
+            GlassPanePopup.showPopup(new interface_mensagen());
         } else {
             listaFuncionarios.getItem(indiceFuncionario).getTitularFuncionario().setNomeFuncionario(nomeFuncionario_Editar.getText());
             listaFuncionarios.getItem(indiceFuncionario).getTitularFuncionario().setCpfFuncionario(cpfFuncionario_Editar.getText());
