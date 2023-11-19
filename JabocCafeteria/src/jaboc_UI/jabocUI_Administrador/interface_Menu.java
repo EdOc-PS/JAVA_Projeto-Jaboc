@@ -4,26 +4,16 @@
  */
 package jaboc_UI.jabocUI_Administrador;
 
-import jaboc_UI.jabocUI_Clientes.interface_areaSenhaCliente;
-import jaboc_UI.jabocUI_Clientes.interface_criarCliente;
-import jaboc_Classes.Cliente;
+
 import jaboc_Classes.Conta_Cliente;
 import jaboc_Classes.Utilitarios;
-import jaboc_Classes.listaFuncionarios;
-import jaboc_Classes.listaProdutos;
 import java.awt.Color;
-import javax.swing.ImageIcon;
 
 /**
  *
  * @author eeuar
  */
 public class interface_Menu extends javax.swing.JFrame {
-
-    private listaFuncionarios listaFuncionarios = new listaFuncionarios();
-    private listaProdutos listaProdutos = new listaProdutos();
-    private Conta_Cliente Conta_Cliente;
-
     /**
      * Creates new form interface_Menu
      */
@@ -215,10 +205,7 @@ public class interface_Menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bGerenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bGerenciaActionPerformed
-        interface_areaSenhaGerencia i_areaSenhaGerencia = new interface_areaSenhaGerencia();
-        i_areaSenhaGerencia.recebeListaFuncionarios(listaFuncionarios);
-        i_areaSenhaGerencia.recebeListaProdutos(listaProdutos);
-        i_areaSenhaGerencia.recebeConta(Conta_Cliente);
+        interface_areaSenhaGerencia i_areaSenhaGerencia = new interface_areaSenhaGerencia();        
         i_areaSenhaGerencia.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_bGerenciaActionPerformed
@@ -232,21 +219,7 @@ public class interface_Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_bGerenciaMouseExited
 
     private void bCardapioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCardapioActionPerformed
-        interface_criarCliente i_criarCliente = new interface_criarCliente();
-
-        if (Conta_Cliente != null && Conta_Cliente.isContaAtiva() == true) {
-            interface_areaSenhaCliente i_areaSenhaCliente = new interface_areaSenhaCliente();
-            i_areaSenhaCliente.setVisible(true);
-            i_areaSenhaCliente.recebeConta(Conta_Cliente);
-            i_areaSenhaCliente.recebeListaFuncionarios(listaFuncionarios);
-            i_areaSenhaCliente.recebeListaProdutos(listaProdutos);
-            this.dispose();
-        } else {
-            i_criarCliente.recebeListaFuncionarios(listaFuncionarios);
-            i_criarCliente.recebeListaProdutos(listaProdutos);
-            i_criarCliente.setVisible(true);
-            this.dispose();
-        }
+        
     }//GEN-LAST:event_bCardapioActionPerformed
 
     private void bCardapioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bCardapioMouseEntered
@@ -256,22 +229,9 @@ public class interface_Menu extends javax.swing.JFrame {
     private void bCardapioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bCardapioMouseExited
         bCardapio.setBackground(new Color(252, 252, 252));
     }//GEN-LAST:event_bCardapioMouseExited
-
-    public void recebeConta(Conta_Cliente conta) {
-        Conta_Cliente = conta;
-    }
-
-    public void recebeListaFuncionarios(listaFuncionarios listaFuncionarios) {
-        this.listaFuncionarios = listaFuncionarios;
-    }
-
-    public void recebeListaProdutos(listaProdutos listaProdutos) {
-        this.listaProdutos = listaProdutos;
-    }
-
     /**
-     * @param args the command line arguments
-     */
+    * @param args the command line arguments
+    */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

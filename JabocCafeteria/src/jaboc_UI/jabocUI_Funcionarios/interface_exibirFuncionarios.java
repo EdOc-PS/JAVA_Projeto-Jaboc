@@ -5,8 +5,6 @@
 package jaboc_UI.jabocUI_Funcionarios;
 
 import jaboc_Classes.Conta_Cliente;
-import jaboc_Classes.listaFuncionarios;
-import jaboc_Classes.listaProdutos;
 import jaboc_UI.jabocUI_Administrador.interface_areaGerencia;
 import java.awt.Color;
 import javax.swing.table.DefaultTableModel;
@@ -18,11 +16,6 @@ import javax.swing.text.MaskFormatter;
  * @author guilh
  */
 public class interface_exibirFuncionarios extends javax.swing.JFrame {
-
-    private listaFuncionarios listaFuncionarios;
-    private listaProdutos listaProdutos;
-    private Conta_Cliente Conta_Cliente;
-
     /**
      * Creates new form interface_exibirFuncionarios
      */
@@ -328,20 +321,11 @@ public class interface_exibirFuncionarios extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void carregarTabela_FuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carregarTabela_FuncionarioActionPerformed
-
-        if (listaFuncionarios != null) {
+     
             //Usando o Casting. Forçando a jtable a ser uma DefaultTableModel.
             DefaultTableModel tabelaFuncionarios = (DefaultTableModel) tabelaFuncionario.getModel();
 
-            for (int pos_Lista = 0; pos_Lista < listaFuncionarios.getTamanho(); pos_Lista++) {
-                if (listaFuncionarios.getItem(pos_Lista) != null) {
-                    tabelaFuncionarios.addRow(new String[]{ listaFuncionarios.getItem(pos_Lista).getTitularFuncionario().getNomeFuncionario(), listaFuncionarios.getItem(pos_Lista).getTitularFuncionario().getCpfFuncionario(),
-                        listaFuncionarios.getItem(pos_Lista).getTitularFuncionario().getEnderecoFuncionario(), listaFuncionarios.getItem(pos_Lista).getTitularFuncionario().getTelefoneFuncionario(),
-                        listaFuncionarios.getItem(pos_Lista).getTitularFuncionario().getCargoFuncionario()});
-                }
-            }
             tabelaFuncionario.setEnabled(false);
-        }
     }//GEN-LAST:event_carregarTabela_FuncionarioActionPerformed
 
     private void criarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_criarFuncionarioActionPerformed
@@ -357,9 +341,6 @@ public class interface_exibirFuncionarios extends javax.swing.JFrame {
             e.printStackTrace();
         }
         criarFuncionario.setVisible(true);
-        criarFuncionario.recebeListaFuncionarios(listaFuncionarios);
-        criarFuncionario.recebeListaProdutos(listaProdutos);
-        criarFuncionario.recebeConta(Conta_Cliente);
         this.dispose();
     }//GEN-LAST:event_criarFuncionarioActionPerformed
 
@@ -381,9 +362,6 @@ public class interface_exibirFuncionarios extends javax.swing.JFrame {
         }
         apagarFuncionario.setVisible(true);
         apagarFuncionario.txtAreaIneditavel();
-        apagarFuncionario.receberListaFuncionarios(listaFuncionarios);
-        apagarFuncionario.receberListaProdutos(listaProdutos);
-        apagarFuncionario.receberConta(Conta_Cliente);
         this.dispose();
     }//GEN-LAST:event_apagarFuncionarioActionPerformed
 
@@ -411,9 +389,6 @@ public class interface_exibirFuncionarios extends javax.swing.JFrame {
         editarFuncionario.getJPanel2().setVisible(false);
         editarFuncionario.getBTNEditarFuncionario().setVisible(false);
         editarFuncionario.setVisible(true);
-        editarFuncionario.receberListaFuncionarios(listaFuncionarios);
-        editarFuncionario.receberListaProdutos(listaProdutos);
-        editarFuncionario.recebeConta(Conta_Cliente);
         this.dispose();
     }//GEN-LAST:event_editarFuncionarioActionPerformed
 
@@ -427,9 +402,6 @@ public class interface_exibirFuncionarios extends javax.swing.JFrame {
 
     private void sair_exibirFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sair_exibirFuncionarioActionPerformed
         interface_areaGerencia areaGerencia = new interface_areaGerencia();
-        areaGerencia.recebeListaFuncionarios(listaFuncionarios);
-        areaGerencia.recebeListaProdutos(listaProdutos);
-        areaGerencia.recebeConta(Conta_Cliente);
         areaGerencia.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_sair_exibirFuncionarioActionPerformed
@@ -457,22 +429,9 @@ public class interface_exibirFuncionarios extends javax.swing.JFrame {
         }
         return CPF;
     }
-
-    public void recebeListaFuncionarios(listaFuncionarios listaFuncionarios) {
-        this.listaFuncionarios = listaFuncionarios;
-    }
-
-    public void recebeListaProdutos(listaProdutos listaProdutos) {
-        this.listaProdutos = listaProdutos;
-    }
-
-    public void recebeConta(Conta_Cliente Conta_Cliente) {
-        this.Conta_Cliente = Conta_Cliente;
-    }
     /**
-     * @param args the command line arguments
-     */
-
+    * @param args the command line arguments
+    */
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton apagarFuncionario;
     private javax.swing.JButton carregarTabela_Funcionario;

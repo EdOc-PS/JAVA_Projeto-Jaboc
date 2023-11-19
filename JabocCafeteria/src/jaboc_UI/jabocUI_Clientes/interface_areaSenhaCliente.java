@@ -6,10 +6,6 @@ package jaboc_UI.jabocUI_Clientes;
 
 import jaboc_Biblioteca.glasspanepopup.GlassPanePopup;
 import jaboc_UI.jabocUI_Clientes.interface_Cardapio;
-import jaboc_Classes.Cliente;
-import jaboc_Classes.Conta_Cliente;
-import jaboc_Classes.listaFuncionarios;
-import jaboc_Classes.listaProdutos;
 import jaboc_UI.jabocUI_Administrador.interface_Menu;
 import jaboc_UI.jabocUI_Utilidades.interface_mensagen;
 import jaboc_UI.jabocUI_Utilidades.interface_mensagenSenha;
@@ -21,12 +17,6 @@ import javax.swing.JOptionPane;
  * @author eeuar
  */
 public class interface_areaSenhaCliente extends javax.swing.JFrame {
-
-    private Cliente Cliente;
-    private listaProdutos listaProdutos;
-    private listaFuncionarios listaFuncionarios;
-    private Conta_Cliente Conta_Cliente;
-
     /**
      * Creates new form interface_areaSenhaCliente
      */
@@ -233,7 +223,6 @@ public class interface_areaSenhaCliente extends javax.swing.JFrame {
 
     private void bVoltar4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVoltar4ActionPerformed
         interface_Menu i_Menu = new interface_Menu();
-        i_Menu.recebeConta(Conta_Cliente);
         i_Menu.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_bVoltar4ActionPerformed
@@ -247,43 +236,11 @@ public class interface_areaSenhaCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_txtverificarSenhaClienteActionPerformed
 
     private void editarProduto4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarProduto4ActionPerformed
-        if (!"".equals(txtSenhaCliente.getText()) && !"".equals(txtverificarSenhaCliente.getText())) {
-            if (Conta_Cliente.verificarSenha(String.valueOf(txtSenhaCliente.getPassword()), String.valueOf(txtverificarSenhaCliente.getPassword()))) {
-                if (String.valueOf(txtSenhaCliente.getPassword()).equals(Conta_Cliente.getSenha())) {
-                    interface_Cardapio i_Cardapio = new interface_Cardapio();
-                    i_Cardapio.recebeConta(Conta_Cliente);
-                    i_Cardapio.recebeListaProduto(listaProdutos);
-                    i_Cardapio.recebeListaFuncionarios(listaFuncionarios);
-                    i_Cardapio.setVisible(true);
-                    this.dispose();
-                } else {
-                    JOptionPane.showMessageDialog(null, "A senha está incorreta", "Erro", WIDTH);
-                }
-            } else {
-                GlassPanePopup.showPopup(new interface_mensagenSenha());
-                txtSenhaCliente.setText("");
-                txtverificarSenhaCliente.setText("");
-            }
-
-        } else {
-            GlassPanePopup.showPopup(new interface_mensagen());
-        }
+       
     }//GEN-LAST:event_editarProduto4ActionPerformed
-    public void recebeConta(Conta_Cliente conta) {
-        this.Conta_Cliente = conta;
-    }
-
-    public void recebeListaProdutos(listaProdutos listaProdutos) {
-        this.listaProdutos = listaProdutos;
-    }
-
-    public void recebeListaFuncionarios(listaFuncionarios listaFuncionarios) {
-        this.listaFuncionarios = listaFuncionarios;
-    }
-
     /**
-     * @param args the command line arguments
-     */
+    * @param args the command line arguments
+    */
     public static void SenhaCliente(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

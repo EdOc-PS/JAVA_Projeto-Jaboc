@@ -4,10 +4,6 @@
  */
 package jaboc_UI.jabocUI_Funcionarios;
 
-import jaboc_UI.jabocUI_Funcionarios.interface_exibirFuncionarios;
-import jaboc_Classes.Conta_Cliente;
-import jaboc_Classes.listaFuncionarios;
-import jaboc_Classes.listaProdutos;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 
@@ -16,10 +12,8 @@ import javax.swing.JOptionPane;
  * @author guilh
  */
 public class interface_apagarFuncionario extends javax.swing.JFrame {
-    private listaFuncionarios listaFuncionarios;
-    private listaProdutos listaProdutos; 
-    private Conta_Cliente Conta_Cliente;
-    int indiceFuncionario;
+    
+    private int indiceFuncionario;
     /**
      * Creates new form interface_apagarFuncionario
      */
@@ -240,39 +234,17 @@ public class interface_apagarFuncionario extends javax.swing.JFrame {
          
      };
     
-    
     private void apagarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_apagarFuncionarioActionPerformed
-            
-            if(indiceFuncionario != -1){
-                JOptionPane.showMessageDialog(null, "Funcionário apagado!", "Informação",WIDTH);
-                listaFuncionarios.removerItem(indiceFuncionario);
-                jPanel2.setVisible(false);
-                apagarFuncionario.setVisible(false);
-            }
+
     }//GEN-LAST:event_apagarFuncionarioActionPerformed
 
     private void verificarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verificarFuncionarioActionPerformed
-        if(!listaFuncionarios.estaVazia()){
-            indiceFuncionario = listaFuncionarios.buscarContaFuncionario(verificarCPF_Funcionario.getText(), listaFuncionarios.getNAtualElementos(), -1);
-            
-            if(indiceFuncionario != -1){
-                txtArea_Funcionario.setText(listaFuncionarios.getItem(indiceFuncionario).getTitularFuncionario().toString());
-                jPanel2.setVisible(true);
-                apagarFuncionario.setVisible(true);
-            }else{
-                JOptionPane.showMessageDialog(null,"CPF não encontrado!","Erro",WIDTH);
-            }    
-        }else{
-            JOptionPane.showMessageDialog(null, "Funcionários não cadastrados!","Erro",WIDTH);
-        }   
+        
     }//GEN-LAST:event_verificarFuncionarioActionPerformed
 
     private void sair_ApagarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sair_ApagarFuncionarioActionPerformed
         interface_exibirFuncionarios exibirFuncionarios = new interface_exibirFuncionarios();
         exibirFuncionarios.setVisible(true);     
-        exibirFuncionarios.recebeListaFuncionarios(listaFuncionarios);  
-        exibirFuncionarios.recebeListaProdutos(listaProdutos);
-        exibirFuncionarios.recebeConta(Conta_Cliente);
         this.dispose();
     }//GEN-LAST:event_sair_ApagarFuncionarioActionPerformed
 
@@ -285,16 +257,7 @@ public class interface_apagarFuncionario extends javax.swing.JFrame {
     }//GEN-LAST:event_sair_ApagarFuncionarioMouseExited
     public void txtAreaIneditavel(){
         txtArea_Funcionario.setEditable(false);
-    }
-    public void receberListaFuncionarios(listaFuncionarios listaFuncionarios){
-        this.listaFuncionarios = listaFuncionarios;
-    }
-    public void receberListaProdutos(listaProdutos listaProdutos){
-        this.listaProdutos = listaProdutos;
-    }
-    public void receberConta(Conta_Cliente Conta_Cliente){
-        this.Conta_Cliente = Conta_Cliente;
-    }
+    }   
     public javax.swing.JFormattedTextField getVerificarCPF_Funcionario(){
         return this.verificarCPF_Funcionario;
     }
@@ -304,7 +267,9 @@ public class interface_apagarFuncionario extends javax.swing.JFrame {
     public javax.swing.JButton getBTNApagarFuncionario(){
         return this.apagarFuncionario;
     }
-    
+    /**
+    * @param args the command line arguments
+    */
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton apagarFuncionario;
     private javax.swing.JLabel jLabel1;

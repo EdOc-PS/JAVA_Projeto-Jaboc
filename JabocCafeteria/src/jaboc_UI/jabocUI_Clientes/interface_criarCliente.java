@@ -7,8 +7,6 @@ package jaboc_UI.jabocUI_Clientes;
 import jaboc_Biblioteca.glasspanepopup.GlassPanePopup;
 import jaboc_Classes.Cliente;
 import jaboc_Classes.Conta_Cliente;
-import jaboc_Classes.listaFuncionarios;
-import jaboc_Classes.listaProdutos;
 import jaboc_UI.jabocUI_Administrador.interface_Menu;
 import jaboc_UI.jabocUI_Utilidades.interface_mensagen;
 import jaboc_UI.jabocUI_Utilidades.interface_mensagenSenha;
@@ -24,8 +22,6 @@ public class interface_criarCliente extends javax.swing.JFrame {
 
     private Cliente Cliente;
     private Conta_Cliente Conta_Cliente;
-    private listaFuncionarios listaFuncionarios;
-    private listaProdutos listaProdutos;
     private int IdConta = 1;
 
     /**
@@ -359,8 +355,6 @@ public class interface_criarCliente extends javax.swing.JFrame {
 
     private void bVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVoltarActionPerformed
         interface_Menu i_Menu = new interface_Menu();
-        i_Menu.recebeListaFuncionarios(listaFuncionarios);
-        i_Menu.recebeListaProdutos(listaProdutos);
         i_Menu.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_bVoltarActionPerformed
@@ -384,9 +378,6 @@ public class interface_criarCliente extends javax.swing.JFrame {
 
                 interface_Cardapio i_Cardapio = new interface_Cardapio();
                 i_Cardapio.setVisible(true);
-                i_Cardapio.recebeConta(Conta_Cliente);
-                i_Cardapio.recebeListaFuncionarios(listaFuncionarios);
-                i_Cardapio.recebeListaProduto(listaProdutos);
                 this.dispose();
 
             } else {
@@ -398,17 +389,9 @@ public class interface_criarCliente extends javax.swing.JFrame {
             GlassPanePopup.showPopup(new interface_mensagen());
         }        // TODO add your handling code here:
     }//GEN-LAST:event_buttonCirculo1ActionPerformed
-    public void recebeListaProdutos(listaProdutos listaProdutos) {
-        this.listaProdutos = listaProdutos;
-    }
-
-    public void recebeListaFuncionarios(listaFuncionarios listaFuncionarios) {
-        this.listaFuncionarios = listaFuncionarios;
-    }
-
     /**
-     * @param args the command line arguments
-     */
+    * @param args the command line arguments
+    */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

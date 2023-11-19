@@ -22,7 +22,7 @@ public class Conta_Cliente {
     }
 
     public boolean isContaAtiva() {
-        return contaAtiva;
+        return this.contaAtiva;
     }
 
     public void setContaAtiva(boolean contaAtiva) {
@@ -52,20 +52,15 @@ public class Conta_Cliente {
     public void setSenha(String senha) {
         this.senha = senha;
     }
+    
     public boolean verificaSenha(String senha){
-        if(senha.equals(this.senha)){
-            return true;
-        }else{
-            return false;
-        }
-    }    
+        return senha.equals(this.senha);
+    } 
+    
     public boolean verificaCPF(String CPF){
-        if(CPF.equals(this.titularCliente.getCpfCliente())){
-            return true;
-        }else{
-            return false;
-        }    
+        return CPF.equals(this.titularCliente.getCpf());    
     }
+    
     public boolean verificarSenha(String senha, String verificarSenha){
         return (senha.equals(verificarSenha) && !senha.equals(""));
     }

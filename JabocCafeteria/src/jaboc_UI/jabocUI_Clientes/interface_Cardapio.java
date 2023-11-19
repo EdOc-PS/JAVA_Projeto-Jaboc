@@ -4,11 +4,7 @@
  */
 package jaboc_UI.jabocUI_Clientes;
 
-import jaboc_UI.jabocUI_Clientes.interface_editarCliente;
 import jaboc_Classes.Cliente;
-import jaboc_Classes.Conta_Cliente;
-import jaboc_Classes.listaFuncionarios;
-import jaboc_Classes.listaProdutos;
 import jaboc_UI.jabocUI_Administrador.interface_Menu;
 import java.awt.Color;
 import javax.swing.table.DefaultTableModel;
@@ -18,11 +14,6 @@ import javax.swing.table.DefaultTableModel;
  * @author 0057138
  */
 public class interface_Cardapio extends javax.swing.JFrame {
-
-    private Conta_Cliente Conta_Cliente;
-    private Cliente Cliente;
-    private listaProdutos listaProdutos;
-    private listaFuncionarios listaFuncionarios;
 
     public interface_Cardapio() {
         initComponents();
@@ -234,26 +225,12 @@ public class interface_Cardapio extends javax.swing.JFrame {
     private void bVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVoltarActionPerformed
         interface_Menu i_Menu = new interface_Menu();
         i_Menu.setVisible(true);
-        i_Menu.recebeConta(Conta_Cliente);
-        i_Menu.recebeListaFuncionarios(listaFuncionarios);
-        i_Menu.recebeListaProdutos(listaProdutos);
         this.dispose();
     }//GEN-LAST:event_bVoltarActionPerformed
 
     private void verificarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verificarProdutoActionPerformed
         DefaultTableModel cardapio = (DefaultTableModel) tabelaCardapio.getModel();
-        if (listaProdutos != null) {
-            for (int i = 0; i < listaProdutos.getTamanho(); i++) {
-                if (listaProdutos.getItem(i) != null) {
-                    String[] dados = {
-                        listaProdutos.getItem(i).getNomeProduto(),
-                        String.valueOf(listaProdutos.getItem(i).getQtdeProduto()),
-                        String.valueOf(listaProdutos.getItem(i).getPrecoProduto()),
-                        listaProdutos.getItem(i).getTipoProduto()};
-                    cardapio.addRow(dados);
-                }
-            }
-        }
+        
     }//GEN-LAST:event_verificarProdutoActionPerformed
 
     private void bVoltarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bVoltarMouseEntered
@@ -269,9 +246,6 @@ public class interface_Cardapio extends javax.swing.JFrame {
         i_editarCliente.getJPanel2().setVisible(false);
         i_editarCliente.getEditarCliente().setVisible(false);
         i_editarCliente.setVisible(true);
-        i_editarCliente.recebeConta(Conta_Cliente);
-        i_editarCliente.recebeListaFuncionarios(listaFuncionarios);
-        i_editarCliente.recebeListaProdutos(listaProdutos);
         this.dispose();
     }//GEN-LAST:event_bEditarActionPerformed
 
@@ -287,19 +261,9 @@ public class interface_Cardapio extends javax.swing.JFrame {
         verificarProduto.setBackground(new Color(69, 71, 78));
         verificarProduto.setEnabled(false);
     }//GEN-LAST:event_verificarProdutoMouseClicked
-    public void recebeListaProduto(listaProdutos listaProdutos) {
-        this.listaProdutos = listaProdutos;
-    }
-    public void recebeListaFuncionarios(listaFuncionarios listaFuncionarios){
-        this.listaFuncionarios = listaFuncionarios;
-    }
-    public void recebeConta(Conta_Cliente conta) {
-        Conta_Cliente = conta;
-    }
-
     /**
-     * @param args the command line arguments
-     */
+    * @param args the command line arguments
+    */
     public static void cardapio(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

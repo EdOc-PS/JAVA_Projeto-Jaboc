@@ -7,8 +7,6 @@ package jaboc_UI.jabocUI_Funcionarios;
 import jaboc_Biblioteca.glasspanepopup.GlassPanePopup;
 import jaboc_UI.jabocUI_Funcionarios.interface_exibirFuncionarios;
 import jaboc_Classes.Conta_Cliente;
-import jaboc_Classes.listaFuncionarios;
-import jaboc_Classes.listaProdutos;
 import jaboc_UI.jabocUI_Utilidades.interface_mensagen;
 import java.awt.Color;
 import javax.swing.JOptionPane;
@@ -19,9 +17,6 @@ import javax.swing.JOptionPane;
  */
 public class interface_editarFuncionario extends javax.swing.JFrame {
 
-    private listaFuncionarios listaFuncionarios;
-    private listaProdutos listaProdutos;
-    private Conta_Cliente Conta_Cliente;
     private int indiceFuncionario;
 
     /**
@@ -373,14 +368,7 @@ public class interface_editarFuncionario extends javax.swing.JFrame {
                 || "".equals(enderecoFuncionario_Editar.getText()) || "(  )      -    ".equals(telefoneFuncionario_Editar.getText())
                 || "".equals(cargoFuncionario_Editar.getSelectedItem())) {
             GlassPanePopup.showPopup(new interface_mensagen());
-        } else {
-            listaFuncionarios.getItem(indiceFuncionario).getTitularFuncionario().setNomeFuncionario(nomeFuncionario_Editar.getText());
-            listaFuncionarios.getItem(indiceFuncionario).getTitularFuncionario().setCpfFuncionario(cpfFuncionario_Editar.getText());
-            listaFuncionarios.getItem(indiceFuncionario).getTitularFuncionario().setEnderecoFuncionario(enderecoFuncionario_Editar.getText());
-            listaFuncionarios.getItem(indiceFuncionario).getTitularFuncionario().setTelefoneFuncionario(telefoneFuncionario_Editar.getText());
-            listaFuncionarios.getItem(indiceFuncionario).getTitularFuncionario().setCargoFuncionario(String.valueOf(cargoFuncionario_Editar.getSelectedItem()));
-
-            JOptionPane.showMessageDialog(null, listaFuncionarios.getItem(indiceFuncionario).getTitularFuncionario().toString(), "Funcionário editado!", JOptionPane.INFORMATION_MESSAGE);
+        } else {        
 
             nomeFuncionario_Editar.setText("");
             cpfFuncionario_Editar.setText("");
@@ -401,38 +389,11 @@ public class interface_editarFuncionario extends javax.swing.JFrame {
     private void sair_EditarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sair_EditarFuncionarioActionPerformed
         interface_exibirFuncionarios exibirFuncionarios = new interface_exibirFuncionarios();
         exibirFuncionarios.setVisible(true);
-        exibirFuncionarios.recebeListaFuncionarios(listaFuncionarios);
-        exibirFuncionarios.recebeListaProdutos(listaProdutos);
-        exibirFuncionarios.recebeConta(Conta_Cliente);
         this.dispose();
     }//GEN-LAST:event_sair_EditarFuncionarioActionPerformed
 
     private void verificarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verificarFuncionarioActionPerformed
 
-        if (listaFuncionarios != null) {
-            indiceFuncionario = listaFuncionarios.buscarContaFuncionario(verificarCPF_Funcionario.getText(), listaFuncionarios.getNAtualElementos(), -1);
-
-            if (indiceFuncionario != - 1 && verificarSenha_Funcionario.getText().equals(listaFuncionarios.getItem(indiceFuncionario).getSenha())) {
-                verificarCPF_Funcionario.setText("");
-                verificarSenha_Funcionario.setText("");
-
-                jPanel2.setVisible(true);
-                editarFuncionario.setVisible(true);
-
-                nomeFuncionario_Editar.setText(listaFuncionarios.getItem(indiceFuncionario).getTitularFuncionario().getNomeFuncionario());
-                cpfFuncionario_Editar.setText(listaFuncionarios.getItem(indiceFuncionario).getTitularFuncionario().getCpfFuncionario());
-                enderecoFuncionario_Editar.setText(listaFuncionarios.getItem(indiceFuncionario).getTitularFuncionario().getEnderecoFuncionario());
-                telefoneFuncionario_Editar.setText(listaFuncionarios.getItem(indiceFuncionario).getTitularFuncionario().getTelefoneFuncionario());
-                cargoFuncionario_Editar.setSelectedItem(listaFuncionarios.getItem(indiceFuncionario).getTitularFuncionario().getCargoFuncionario());
-
-            } else if (indiceFuncionario == -1) {
-                JOptionPane.showMessageDialog(null, "CPF inexistente!", "Erro", JOptionPane.INFORMATION_MESSAGE);
-            } else {
-                JOptionPane.showMessageDialog(null, "Senha incorreta!", "Erro", JOptionPane.INFORMATION_MESSAGE);
-            }
-        } else {
-            JOptionPane.showMessageDialog(null, "Não há funcionários cadastrados!", "Erro", WIDTH);
-        }
     }//GEN-LAST:event_verificarFuncionarioActionPerformed
 
     private void verificarSenha_FuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verificarSenha_FuncionarioActionPerformed
@@ -446,17 +407,6 @@ public class interface_editarFuncionario extends javax.swing.JFrame {
     private void sair_EditarFuncionarioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sair_EditarFuncionarioMouseExited
         sair_EditarFuncionario.setBackground(new Color(252, 252, 252));
     }//GEN-LAST:event_sair_EditarFuncionarioMouseExited
-    public void receberListaFuncionarios(listaFuncionarios listaFuncionarios) {
-        this.listaFuncionarios = listaFuncionarios;
-    }
-
-    public void receberListaProdutos(listaProdutos listaProdutos) {
-        this.listaProdutos = listaProdutos;
-    }
-
-    public void recebeConta(Conta_Cliente Conta_Cliente) {
-        this.Conta_Cliente = Conta_Cliente;
-    }
 
     public javax.swing.JPanel getJPanel2() {
         return this.jPanel2;
@@ -478,9 +428,8 @@ public class interface_editarFuncionario extends javax.swing.JFrame {
         return this.telefoneFuncionario_Editar;
     }
     /**
-     * @param args the command line arguments
-     */
-
+    * @param args the command line arguments
+    */
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> cargoFuncionario_Editar;
     private javax.swing.JFormattedTextField cpfFuncionario_Editar;

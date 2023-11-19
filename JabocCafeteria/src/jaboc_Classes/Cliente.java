@@ -8,56 +8,14 @@ package jaboc_Classes;
  *
  * @author guilh
  */
-public class Cliente {
+public class Cliente extends Pessoa{
 
-    private String nomeCliente;
-    private String cpfCliente;
-    private String enderecoCliente;
-    private String telefoneCliente;
-
-    public Cliente(String nome, String CPF, String endereco, String telefone) {
-        this.nomeCliente = nome;
-        this.cpfCliente = CPF;
-        this.enderecoCliente = endereco;
-        this.telefoneCliente = telefone;    
-    }
-
-    public String getNomeCliente() {
-        return this.nomeCliente;
-    }
-
-    public void setNomeCliente(String nomeCliente) {
-        this.nomeCliente = nomeCliente;
-    }
-
-    public String getCpfCliente() {
-        return this.cpfCliente;
-    }
-
-    public void setCpfCliente(String cpfCliente) {
-        this.cpfCliente = cpfCliente;
-    }
-
-    public String getEnderecoCliente() {
-        return this.enderecoCliente;
-    }
-
-    public void setEnderecoCliente(String enderecoCliente) {
-        this.enderecoCliente = enderecoCliente;
-    }
-
-    public String getTelefoneCliente() {
-        return this.telefoneCliente;
-    }
-
-    public void setTelefoneCliente(String telefoneCliente) {
-        this.telefoneCliente = telefoneCliente;
-    }
-
-    
+    public Cliente(String nome, String cpf, String endereco, String telefone) {
+        super(nome, cpf, endereco, telefone);  
+    }       
 
     @Override
     public String toString() {
-        return "Nome: " + this.nomeCliente + "\nCPF: " + this.cpfCliente + "\nEndereço: " + this.enderecoCliente + "\nTelefone: " + this.telefoneCliente;
+        return super.toString();
     }
 }

@@ -8,18 +8,22 @@ package jaboc_Classes;
  * @author eeuar
  */
 public class Administrador extends Funcionario { 
+    
     private String senha;
+    
     public Administrador(String nomeFuncionario, String cpfFuncionario, String enderecoFuncionario, String telefoneFuncionario, String cargoFuncionario, String senha) {
         super(nomeFuncionario, cpfFuncionario, enderecoFuncionario, telefoneFuncionario, cargoFuncionario);
         this.senha = senha;
         
     }
+    
     public Administrador(String nomeAdministrador, String cpfAdministrador, String cargoAdministrador, String senha){
         super(nomeAdministrador,cpfAdministrador, cargoAdministrador);
         this.senha = senha;
     }
+    
     public String getSenha() {
-        return senha;
+        return this.senha;
     }
 
     public void setSenha(String senha) {

@@ -5,9 +5,6 @@
 package jaboc_UI.jabocUI_Clientes;
 
 import jaboc_Biblioteca.glasspanepopup.GlassPanePopup;
-import jaboc_Classes.Conta_Cliente;
-import jaboc_Classes.listaFuncionarios;
-import jaboc_Classes.listaProdutos;
 import jaboc_UI.jabocUI_Utilidades.interface_mensagen;
 import java.awt.Color;
 import javax.swing.JOptionPane;
@@ -18,10 +15,6 @@ import javax.swing.JTextField;
  * @author guilh
  */
 public class interface_editarCliente extends javax.swing.JFrame {
-
-    private Conta_Cliente Conta_Cliente;
-    private listaFuncionarios listaFuncionarios;
-    private listaProdutos listaProdutos;
     /**
      * Creates new form interface_editarCliente
      */
@@ -451,49 +444,10 @@ public class interface_editarCliente extends javax.swing.JFrame {
 
     private void verificarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verificarClienteActionPerformed
 
-        if (Conta_Cliente != null) {
-            if (Conta_Cliente.verificaCPF(verificarCPF_Cliente.getText()) && Conta_Cliente.verificaSenha(String.valueOf(verificarSenha_Cliente.getPassword()))) {
-                nomeCliente_Editar.setText(Conta_Cliente.getTitular().getNomeCliente());
-                cpfCliente_Editar.setText(Conta_Cliente.getTitular().getCpfCliente());
-                enderecoCliente_Editar.setText(Conta_Cliente.getTitular().getEnderecoCliente());
-                telefoneCliente_Editar.setText(Conta_Cliente.getTitular().getTelefoneCliente());
-                
-                verificarCPF_Cliente.setText("");
-                verificarSenha_Cliente.setText("");
-                jPanel2.setVisible(true);
-                editarCliente.setVisible(true);
-            } else if (!Conta_Cliente.verificaCPF(verificarCPF_Cliente.getText())) {
-                JOptionPane.showMessageDialog(null, "CPF inexistente!", "Erro", WIDTH);
-            } else {
-                JOptionPane.showMessageDialog(null, "Senha incorreta!", "Erro", WIDTH);
-            }
-        } else {
-            JOptionPane.showMessageDialog(null, "Nenhum Cliente cadastrado!", "Erro", WIDTH);
-        }
     }//GEN-LAST:event_verificarClienteActionPerformed
 
     private void editarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarClienteActionPerformed
-        if (Conta_Cliente == null) {
-            JOptionPane.showMessageDialog(null, "Nenhum Cliente cadastrado!", "Erro", WIDTH);
-        } else if ("".equals(nomeCliente_Editar.getText()) || "    .   .   -  ".equals(cpfCliente_Editar.getText()) || "".equals(enderecoCliente_Editar.getText()) 
-                || " (  )      -    ".equals(telefoneCliente_Editar.getText())) {
-            GlassPanePopup.showPopup(new interface_mensagen());
-        } else {
-            Conta_Cliente.getTitular().setNomeCliente(nomeCliente_Editar.getText());
-            Conta_Cliente.getTitular().setCpfCliente(cpfCliente_Editar.getText());
-            Conta_Cliente.getTitular().setEnderecoCliente(enderecoCliente_Editar.getText());
-            Conta_Cliente.getTitular().setTelefoneCliente(telefoneCliente_Editar.getText());
-
-            nomeCliente_Editar.setText("");
-            cpfCliente_Editar.setText("");
-            enderecoCliente_Editar.setText("");
-            telefoneCliente_Editar.setText("");
-            
-            JOptionPane.showMessageDialog(null, Conta_Cliente.getTitular().toString(),"Cliente editado!",WIDTH);
-            
-            jPanel2.setVisible(false);
-            editarCliente.setVisible(false);
-        }
+        
     }//GEN-LAST:event_editarClienteActionPerformed
 
     private void bVoltarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bVoltarMouseEntered
@@ -523,24 +477,13 @@ public class interface_editarCliente extends javax.swing.JFrame {
     private void bVoltar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVoltar1ActionPerformed
         interface_Cardapio i_Cardapio = new interface_Cardapio();
         i_Cardapio.setVisible(true);
-        i_Cardapio.recebeConta(Conta_Cliente);
-        i_Cardapio.recebeListaFuncionarios(listaFuncionarios);
-        i_Cardapio.recebeListaProduto(listaProdutos);
         this.dispose();
     }//GEN-LAST:event_bVoltar1ActionPerformed
 
     private void verificarSenha_ClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verificarSenha_ClienteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_verificarSenha_ClienteActionPerformed
-    public void recebeConta(Conta_Cliente conta) {
-        this.Conta_Cliente = conta;
-    }
-    public void recebeListaFuncionarios(listaFuncionarios listaFuncionarios){
-        this.listaFuncionarios = listaFuncionarios;
-    }
-    public void recebeListaProdutos(listaProdutos listaProdutos){
-        this.listaProdutos = listaProdutos;
-    }
+
     public javax.swing.JPanel getJPanel2(){
         return this.jPanel2;
     } 
@@ -548,9 +491,8 @@ public class interface_editarCliente extends javax.swing.JFrame {
         return this.editarCliente;
     }
     /**
-     * @param args the command line arguments
-     */
-
+    * @param args the command line arguments
+    */
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bVoltar;
     private javax.swing.JButton bVoltar1;
