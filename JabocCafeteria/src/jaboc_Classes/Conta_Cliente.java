@@ -8,25 +8,17 @@ package jaboc_Classes;
  *
  * @author guilh
  */
-public class Conta_Cliente {
+public final class Conta_Cliente {
     private int IdCliente;
-    private Cliente titularCliente;
+    private Pessoa titularCliente;
     private String senha;
-    private boolean contaAtiva;
+    private double gastoTotal;
     
-    public Conta_Cliente(int IdCliente, Cliente titular, String senha, boolean contaAtiva){
+    public Conta_Cliente(int IdCliente, Pessoa titular, String senha){
         this.IdCliente = IdCliente;
         this.titularCliente = titular;
         this.senha = senha;
-        this.contaAtiva = contaAtiva;
-    }
-
-    public boolean isContaAtiva() {
-        return contaAtiva;
-    }
-
-    public void setContaAtiva(boolean contaAtiva) {
-        this.contaAtiva = contaAtiva;
+        this.gastoTotal = 0;
     }
 
     public int getIdCliente() {
@@ -37,12 +29,12 @@ public class Conta_Cliente {
         this.IdCliente = IdCliente;
     }
 
-    public Cliente getTitular() {
+    public Pessoa getTitular() {
         return this.titularCliente;
     }
 
-    public void setTitular(Cliente titular) {
-        this.titularCliente = titular;
+    public void setTitular(Pessoa titularCliente) {
+        this.titularCliente = titularCliente;
     }
 
     public String getSenha() {
@@ -52,21 +44,35 @@ public class Conta_Cliente {
     public void setSenha(String senha) {
         this.senha = senha;
     }
-    public boolean verificaSenha(String senha){
-        if(senha.equals(this.senha)){
-            return true;
-        }else{
-            return false;
-        }
-    }    
-    public boolean verificaCPF(String CPF){
-        if(CPF.equals(this.titularCliente.getCpfCliente())){
-            return true;
-        }else{
-            return false;
-        }    
+    
+    public void setGastoTotal(double gastoTotal){
+        this.gastoTotal = gastoTotal;
     }
-    public boolean verificarSenha(String senha, String verificarSenha){
-        return (senha.equals(verificarSenha) && !senha.equals(""));
+    
+    public double getGastoTotal(){
+        return this.gastoTotal;
+    }
+    
+    public boolean verificaCPF(String CPF){
+        return CPF.equals(this.titularCliente.getCpf());    
+    }
+    
+    public boolean verificaSenha(String senha){
+        return senha.equals(this.senha);
+    } 
+    
+    public String criptografaSenha(){
+        String senhaCriptografada = "";
+        for(int posChar = 0; posChar < this.senha.length(); posChar++){
+            senhaCriptografada += '*';
+        }
+        return senhaCriptografada;
+    }
+    
+    @Override
+    public String toString(){
+        return super.toString() +
+                "\nSenha: "+ this.criptografaSenha() +
+                "\nGasto total: "+ this.gastoTotal;
     }
 }
