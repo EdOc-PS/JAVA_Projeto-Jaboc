@@ -9,7 +9,7 @@ import jaboc_Classes.Administrador;
 import jaboc_Classes.Conta_Cliente;
 import jaboc_Classes.listaFuncionarios;
 import jaboc_Classes.listaProdutos;
-import jaboc_UI.jabocUI_Utilidades.interface_mensagen;
+import jaboc_UI.jabocUI_Utilidades.interface_popUpmensagen;
 import java.awt.Color;
 import static java.awt.image.ImageObserver.WIDTH;
 import javax.swing.JOptionPane;
@@ -219,7 +219,7 @@ public class interface_areaSenhaGerencia extends javax.swing.JFrame {
            i_gerencia.setVisible(true);
            this.dispose();
        }else{
-            GlassPanePopup.showPopup(new interface_mensagen());
+            GlassPanePopup.showPopup(new interface_popUpmensagen());
        }
         
     }//GEN-LAST:event_enviarSenhaActionPerformed

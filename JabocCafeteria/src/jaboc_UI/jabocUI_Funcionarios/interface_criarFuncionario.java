@@ -11,7 +11,7 @@ import jaboc_Classes.Funcionario;
 import jaboc_Classes.Conta_Funcionario;
 import jaboc_Classes.listaFuncionarios;
 import jaboc_Classes.listaProdutos;
-import jaboc_UI.jabocUI_Utilidades.interface_mensagen;
+import jaboc_UI.jabocUI_Utilidades.interface_popUpmensagen;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 import javax.swing.text.DefaultFormatterFactory;
@@ -381,7 +381,7 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
             }
 
         } else {
-            GlassPanePopup.showPopup(new interface_mensagen());
+            GlassPanePopup.showPopup(new interface_popUpmensagen());
         }
     }//GEN-LAST:event_criarFuncionarioActionPerformed
 

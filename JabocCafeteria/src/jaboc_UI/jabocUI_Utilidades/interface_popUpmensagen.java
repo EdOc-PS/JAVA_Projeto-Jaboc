@@ -15,12 +15,12 @@ import java.awt.geom.RoundRectangle2D;
  *
  * @author eeuar
  */
-public class interface_mensagenSenha extends javax.swing.JPanel {
+public class interface_popUpmensagen extends javax.swing.JPanel {
 
     /**
      * Creates new form interface_mensagen
      */
-    public interface_mensagenSenha() {
+    public interface_popUpmensagen() {
         initComponents();
         setOpaque(false);
     }
@@ -51,7 +51,7 @@ public class interface_mensagenSenha extends javax.swing.JPanel {
         botao2 = new jaboc_UI.jabocUI_Utilidades.Button();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        bPopUp = new jaboc_UI.jabocUI_Utilidades.Button();
+        bPopUp = new jaboc_UI.jabocUI_Utilidades.ButtonCirculo();
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_atention.png"))); // NOI18N
@@ -90,12 +90,11 @@ public class interface_mensagenSenha extends javax.swing.JPanel {
         jLabel6.setFont(new java.awt.Font("Gill Sans MT", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(79, 84, 101));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("As senhas não são iguais!");
+        jLabel6.setText("Os campos estão vazíos!");
 
         bPopUp.setBackground(new java.awt.Color(250, 112, 112));
-        bPopUp.setForeground(new java.awt.Color(252, 252, 252));
+        bPopUp.setForeground(new java.awt.Color(255, 255, 255));
         bPopUp.setText("X");
-        bPopUp.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         bPopUp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bPopUpActionPerformed(evt);
@@ -110,7 +109,7 @@ public class interface_mensagenSenha extends javax.swing.JPanel {
             .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(bPopUp, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(bPopUp, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -118,11 +117,11 @@ public class interface_mensagenSenha extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(bPopUp, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(15, 15, 15))
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -132,7 +131,7 @@ public class interface_mensagenSenha extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private jaboc_UI.jabocUI_Utilidades.Button bPopUp;
+    private jaboc_UI.jabocUI_Utilidades.ButtonCirculo bPopUp;
     private jaboc_UI.jabocUI_Utilidades.Button botao1;
     private jaboc_UI.jabocUI_Utilidades.Button botao2;
     private javax.swing.JLabel jLabel3;

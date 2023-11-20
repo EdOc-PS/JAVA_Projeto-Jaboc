@@ -9,7 +9,7 @@ import jaboc_UI.jabocUI_Funcionarios.interface_exibirFuncionarios;
 import jaboc_Classes.Conta_Cliente;
 import jaboc_Classes.listaFuncionarios;
 import jaboc_Classes.listaProdutos;
-import jaboc_UI.jabocUI_Utilidades.interface_mensagen;
+import jaboc_UI.jabocUI_Utilidades.interface_popUpmensagen;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 
@@ -372,7 +372,7 @@ public class interface_editarFuncionario extends javax.swing.JFrame {
         if ("".equals(nomeFuncionario_Editar.getText()) || "   .   .   -  ".equals(cpfFuncionario_Editar.getText())
                 || "".equals(enderecoFuncionario_Editar.getText()) || "(  )      -    ".equals(telefoneFuncionario_Editar.getText())
                 || "".equals(cargoFuncionario_Editar.getSelectedItem())) {
-            GlassPanePopup.showPopup(new interface_mensagen());
+            GlassPanePopup.showPopup(new interface_popUpmensagen());
         } else {
             listaFuncionarios.getItem(indiceFuncionario).getTitularFuncionario().setNomeFuncionario(nomeFuncionario_Editar.getText());
             listaFuncionarios.getItem(indiceFuncionario).getTitularFuncionario().setCpfFuncionario(cpfFuncionario_Editar.getText());

@@ -8,7 +8,7 @@ import jaboc_Biblioteca.glasspanepopup.GlassPanePopup;
 import jaboc_Classes.Conta_Cliente;
 import jaboc_Classes.listaFuncionarios;
 import jaboc_Classes.listaProdutos;
-import jaboc_UI.jabocUI_Utilidades.interface_mensagen;
+import jaboc_UI.jabocUI_Utilidades.interface_popUpmensagen;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 
@@ -344,7 +344,7 @@ public class interface_editarProduto extends javax.swing.JFrame {
 
     private void verificarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verificarProdutoActionPerformed
         if (verificarId_Produto.getText().equals("")) {
-            GlassPanePopup.showPopup(new interface_mensagen());
+            GlassPanePopup.showPopup(new interface_popUpmensagen());
         } else if (listaProdutos != null) {
             indiceProduto = listaProdutos.buscarProduto(Integer.parseInt(verificarId_Produto.getText()), listaProdutos.getNAtualElementos(), -1) + 1;
             if (indiceProduto != -1) {

@@ -15,12 +15,12 @@ import java.awt.geom.RoundRectangle2D;
  *
  * @author eeuar
  */
-public class interface_mensagen extends javax.swing.JPanel {
+public class interface_popUpCadastro extends javax.swing.JPanel {
 
     /**
      * Creates new form interface_mensagen
      */
-    public interface_mensagen() {
+    public interface_popUpCadastro() {
         initComponents();
         setOpaque(false);
     }
@@ -90,7 +90,7 @@ public class interface_mensagen extends javax.swing.JPanel {
         jLabel6.setFont(new java.awt.Font("Gill Sans MT", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(79, 84, 101));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("Os campos estão vazíos!");
+        jLabel6.setText("As senhas não são iguais!");
 
         bPopUp.setBackground(new java.awt.Color(250, 112, 112));
         bPopUp.setForeground(new java.awt.Color(255, 255, 255));
@@ -117,11 +117,11 @@ public class interface_mensagen extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(bPopUp, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(15, 15, 15))
         );
     }// </editor-fold>//GEN-END:initComponents
 

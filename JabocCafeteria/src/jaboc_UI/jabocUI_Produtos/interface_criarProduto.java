@@ -10,7 +10,7 @@ import jaboc_Classes.Produto;
 import jaboc_Classes.listaFuncionarios;
 import jaboc_Classes.listaProdutos;
 import jaboc_UI.jabocUI_Clientes.interface_Cardapio;
-import jaboc_UI.jabocUI_Utilidades.interface_mensagen;
+import jaboc_UI.jabocUI_Utilidades.interface_popUpmensagen;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -310,7 +310,7 @@ public class interface_criarProduto extends javax.swing.JFrame {
             interface_Cardapio i_Cardapio = new interface_Cardapio();
             i_Cardapio.recebeListaProduto(listaProdutos);
         } else {
-            GlassPanePopup.showPopup(new interface_mensagen());
+            GlassPanePopup.showPopup(new interface_popUpmensagen());
         }
     }//GEN-LAST:event_criaProduto2ActionPerformed
 

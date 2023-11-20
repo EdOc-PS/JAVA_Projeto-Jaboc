@@ -11,8 +11,8 @@ import jaboc_Classes.Conta_Cliente;
 import jaboc_Classes.listaFuncionarios;
 import jaboc_Classes.listaProdutos;
 import jaboc_UI.jabocUI_Administrador.interface_Menu;
-import jaboc_UI.jabocUI_Utilidades.interface_mensagen;
-import jaboc_UI.jabocUI_Utilidades.interface_mensagenSenha;
+import jaboc_UI.jabocUI_Utilidades.interface_popUpmensagen;
+import jaboc_UI.jabocUI_Utilidades.interface_popUpSenha;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 
@@ -260,13 +260,13 @@ public class interface_areaSenhaCliente extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "A senha está incorreta", "Erro", WIDTH);
                 }
             } else {
-                GlassPanePopup.showPopup(new interface_mensagenSenha());
+                GlassPanePopup.showPopup(new interface_popUpSenha());
                 txtSenhaCliente.setText("");
                 txtverificarSenhaCliente.setText("");
             }
 
         } else {
-            GlassPanePopup.showPopup(new interface_mensagen());
+            GlassPanePopup.showPopup(new interface_popUpmensagen());
         }
     }//GEN-LAST:event_editarProduto4ActionPerformed
     public void recebeConta(Conta_Cliente conta) {
