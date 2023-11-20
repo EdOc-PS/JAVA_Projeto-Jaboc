@@ -8,42 +8,14 @@ package jaboc_Classes;
  *
  * @author guilh
  */
-public final class Conta_Cliente {
-    private int IdCliente;
-    private Pessoa titularCliente;
-    private String senha;
+public final class Conta_Cliente extends Conta{
+    
     private double gastoTotal;
     
-    public Conta_Cliente(int IdCliente, Pessoa titular, String senha){
-        this.IdCliente = IdCliente;
-        this.titularCliente = titular;
-        this.senha = senha;
+    public Conta_Cliente(int idCliente, Pessoa titular, String senha){
+        super(idCliente, titular, senha);
         this.gastoTotal = 0;
-    }
-
-    public int getIdCliente() {
-        return this.IdCliente;
-    }
-
-    public void setIdCliente(int IdCliente) {
-        this.IdCliente = IdCliente;
-    }
-
-    public Pessoa getTitular() {
-        return this.titularCliente;
-    }
-
-    public void setTitular(Pessoa titularCliente) {
-        this.titularCliente = titularCliente;
-    }
-
-    public String getSenha() {
-        return senha;
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
+    }    
     
     public void setGastoTotal(double gastoTotal){
         this.gastoTotal = gastoTotal;
@@ -51,28 +23,29 @@ public final class Conta_Cliente {
     
     public double getGastoTotal(){
         return this.gastoTotal;
-    }
+    }    
     
-    public boolean verificaCPF(String CPF){
-        return CPF.equals(this.titularCliente.getCpf());    
-    }
-    
-    public boolean verificaSenha(String senha){
-        return senha.equals(this.senha);
-    } 
-    
-    public String criptografaSenha(){
-        String senhaCriptografada = "";
-        for(int posChar = 0; posChar < this.senha.length(); posChar++){
-            senhaCriptografada += '*';
+    @Override
+    public boolean equals(Object outraConta){
+        if(this == outraConta){
+            return true;
+        }else if(this.getClass() != outraConta.getClass()){
+            return false;
+        }else{
+            Conta_Cliente contaC = (Conta_Cliente) outraConta;
+            return this.getIdConta() == contaC.getIdConta();
         }
-        return senhaCriptografada;
+    }
+    
+    @Override
+    public int hashCode(){
+        return this.getIdConta();
     }
     
     @Override
     public String toString(){
-        return super.toString() +
+        return  super.getTitular().toString() +
                 "\nSenha: "+ this.criptografaSenha() +
-                "\nGasto total: "+ this.gastoTotal;
+                "\nGasto total: R$"+ this.gastoTotal;
     }
 }
