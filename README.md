@@ -1,4 +1,4 @@
-## Projeto-Jaboc ☕
+![image](https://github.com/GuilhermeVRF/Projeto-Jaboc/assets/98266333/6aa60528-c15b-4058-92a7-84ca2b24e44a)## Projeto-Jaboc ☕
 🥤 Desenvolvimento de um projeto para a disciplina de POO, com foco na criação e operação de uma cafeteria.
 <br>
 👇 Baixe o executável e confira o projeto: [Download](https://raw.githubusercontent.com/EdOc-PS/Projeto-Jaboc/main/JabocCafeteria/dist/JabocCafeteria.jar)
@@ -11,7 +11,10 @@
 - 🎨 Paleta de cores usadas: https://colorhunt.co/palette/8d7b68a4907cc8b6a6f1dec9
 - 👩‍🍳 Icones: https://www.flaticon.com/br/icon-fonts-mas-baixados?weight=bold&type=uicon
 
--Coisas a fazer:
+-🛠️Coisas a fazer:
+<br>
+🦱 Guilherme Victor
+<br>
 Ao editar a conta de um cliente ou funcionário, criar uma instnância de Objeto a partir de um determinado dado coletado do banco de dados, paa assim facilitar a 
 manipulação dos atributos;
   <samp> Feito por <b><a href="https://github.com/EdOc-PS">Eduardo Octávio</a></b> e <b><a href="https://github.com/GuilhermeVRF">Guilherme Victor</a></b> </samp>
