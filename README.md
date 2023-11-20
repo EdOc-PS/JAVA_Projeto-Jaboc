@@ -1,4 +1,4 @@
-![image](https://github.com/GuilhermeVRF/Projeto-Jaboc/assets/98266333/6aa60528-c15b-4058-92a7-84ca2b24e44a)## Projeto-Jaboc ☕
+## Projeto-Jaboc ☕
 🥤 Desenvolvimento de um projeto para a disciplina de POO, com foco na criação e operação de uma cafeteria.
 <br>
 👇 Baixe o executável e confira o projeto: [Download](https://raw.githubusercontent.com/EdOc-PS/Projeto-Jaboc/main/JabocCafeteria/dist/JabocCafeteria.jar)
