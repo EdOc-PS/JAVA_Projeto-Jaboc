@@ -9,14 +9,14 @@ package jaboc_Classes;
  * @author guilh
  */
 public class Conta_Funcionario extends Conta{
-
+    
     private String cargoFuncionario;
     private double salario;
 
-    public Conta_Funcionario(int idFuncionario, Pessoa titularFuncionario, String senhaFuncionario, String cargoFuncionario, double salario){
-        super(idFuncionario, titularFuncionario, senhaFuncionario);
+    public Conta_Funcionario(Pessoa titularFuncionario, String senhaFuncionario, String cargoFuncionario, double salario){
+        super(titularFuncionario, senhaFuncionario);
         this.cargoFuncionario = cargoFuncionario;
-        this.salario = salario;
+        this.salario = salario;    
     }
     
     public void setCargoFuncionario(String cargoFuncionario){
@@ -30,28 +30,16 @@ public class Conta_Funcionario extends Conta{
     public void setSalario(double salario){
         this.salario = salario;
     }
-       
-    @Override
-    public boolean equals(Object outraConta){
-        if(this == outraConta){
-            return true;
-        }else if(this.getClass() != outraConta.getClass()){
-            return false;
-        }else{
-            Conta_Funcionario contaF = (Conta_Funcionario) outraConta;
-            return this.getIdConta() == contaF.getIdConta();
-        }
-    }
     
-    @Override
-    public int hashCode(){
-        return this.getIdConta();
+    public double getSalario(){
+        return this.salario;
     }
+   
     
     @Override
     public String toString(){
-        return  super.getTitular().toString() +
-                "\nSenha: "+ this.criptografaSenha() +
+        return super.toString() +
+                "\nCargo: "+ this.cargoFuncionario +
                 "\nSalário: R$"+ this.salario;
     }
 }
