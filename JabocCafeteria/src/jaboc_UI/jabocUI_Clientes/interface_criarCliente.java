@@ -24,8 +24,6 @@ public class interface_criarCliente extends javax.swing.JFrame {
 
     private Cliente Cliente;
     private Conta_Cliente Conta_Cliente;
-    private listaFuncionarios listaFuncionarios;
-    private listaProdutos listaProdutos;
     private int IdConta = 1;
 
     /**
@@ -70,9 +68,9 @@ public class interface_criarCliente extends javax.swing.JFrame {
         telefoneCliente = new jaboc_UI.jabocUI_Utilidades.TextField();
         panel2 = new jaboc_UI.jabocUI_Utilidades.Panel();
         jLabel16 = new javax.swing.JLabel();
-        senhaCliente = new javax.swing.JPasswordField();
         jLabel17 = new javax.swing.JLabel();
-        verificarSenhaCliente = new javax.swing.JPasswordField();
+        senhaCliente = new jaboc_UI.jabocUI_Utilidades.PasswordField();
+        verificarSenhaCliente = new jaboc_UI.jabocUI_Utilidades.PasswordField();
         panel3 = new jaboc_UI.jabocUI_Utilidades.Panel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -239,56 +237,48 @@ public class interface_criarCliente extends javax.swing.JFrame {
         jLabel16.setForeground(new java.awt.Color(79, 84, 101));
         jLabel16.setText("Crie uma senha: ");
 
-        senhaCliente.setForeground(new java.awt.Color(79, 84, 101));
-
         jLabel17.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(79, 84, 101));
         jLabel17.setText("Informe a senha novamente:");
-
-        verificarSenhaCliente.setForeground(new java.awt.Color(79, 84, 101));
-        verificarSenhaCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                verificarSenhaClienteActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout panel2Layout = new javax.swing.GroupLayout(panel2);
         panel2.setLayout(panel2Layout);
         panel2Layout.setHorizontalGroup(
             panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel2Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel17)
-                    .addGroup(panel2Layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(senhaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(verificarSenhaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addGap(20, 20, 20)
+                .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(verificarSenhaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel17)
+                        .addComponent(senhaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
         panel2Layout.setVerticalGroup(
             panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel2Layout.createSequentialGroup()
-                .addGap(9, 9, 9)
+                .addGap(20, 20, 20)
                 .addComponent(jLabel16)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(senhaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(senhaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(8, 8, 8)
                 .addComponent(jLabel17)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(verificarSenhaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addComponent(verificarSenhaCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
+                .addGap(20, 20, 20))
         );
 
         panel3.setBackground(new java.awt.Color(252, 252, 252));
 
+        jLabel6.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("Quer criar uma conta?");
 
-        jLabel7.setForeground(new java.awt.Color(51, 51, 255));
+        jLabel7.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(153, 0, 153));
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel7.setText("Clique aqui");
         jLabel7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -308,11 +298,11 @@ public class interface_criarCliente extends javax.swing.JFrame {
         panel3Layout.setHorizontalGroup(
             panel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel3Layout.createSequentialGroup()
-                .addGap(86, 86, 86)
+                .addGap(54, 54, 54)
                 .addComponent(jLabel6)
                 .addGap(2, 2, 2)
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(108, Short.MAX_VALUE))
+                .addContainerGap(59, Short.MAX_VALUE))
         );
         panel3Layout.setVerticalGroup(
             panel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -334,30 +324,28 @@ public class interface_criarCliente extends javax.swing.JFrame {
                         .addGap(75, 75, 75)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(panel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(panel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(panel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(panel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(66, 66, 66)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)))
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(124, 124, 124)
+                        .addComponent(panel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(49, 49, 49)
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(panel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(panel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
@@ -396,14 +384,8 @@ public class interface_criarCliente extends javax.swing.JFrame {
         }
     }
 
-    private void verificarSenhaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verificarSenhaClienteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_verificarSenhaClienteActionPerformed
-
     private void bVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVoltarActionPerformed
         interface_Menu i_Menu = new interface_Menu();
-        i_Menu.recebeListaFuncionarios(listaFuncionarios);
-        i_Menu.recebeListaProdutos(listaProdutos);
         i_Menu.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_bVoltarActionPerformed
@@ -426,14 +408,11 @@ public class interface_criarCliente extends javax.swing.JFrame {
             Cliente = new Cliente(nomeCliente.getText(), cpfCliente.getText(), enderecoCliente.getText(), telefoneCliente.getText());
 
             if (String.valueOf(senhaCliente.getPassword()).equals(String.valueOf(verificarSenhaCliente.getPassword())) && !String.valueOf(senhaCliente.getPassword()).equals("")) {
-                JOptionPane.showMessageDialog(null, "ID da conta: " + IdConta + "\n" + Cliente.toString(), "Conta cadastrada!", WIDTH);
-                Conta_Cliente = new Conta_Cliente(IdConta++, Cliente, String.valueOf(senhaCliente.getPassword()), true);
+                JOptionPane.showMessageDialog(null, "ID da conta: " + IdConta + "\n" + Cliente.toString(), "Conta cadastrada!", WIDTH);        
 
                 interface_Cardapio i_Cardapio = new interface_Cardapio();
                 i_Cardapio.setVisible(true);
                 i_Cardapio.recebeConta(Conta_Cliente);
-                i_Cardapio.recebeListaFuncionarios(listaFuncionarios);
-                i_Cardapio.recebeListaProduto(listaProdutos);
                 this.dispose();
 
             } else {
@@ -459,13 +438,7 @@ public class interface_criarCliente extends javax.swing.JFrame {
     private void jLabel7MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MousePressed
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel7MousePressed
-    public void recebeListaProdutos(listaProdutos listaProdutos) {
-        this.listaProdutos = listaProdutos;
-    }
 
-    public void recebeListaFuncionarios(listaFuncionarios listaFuncionarios) {
-        this.listaFuncionarios = listaFuncionarios;
-    }
 
     /**
      * @param args the command line arguments
@@ -525,7 +498,7 @@ public class interface_criarCliente extends javax.swing.JFrame {
     private jaboc_UI.jabocUI_Utilidades.Panel panel1;
     private jaboc_UI.jabocUI_Utilidades.Panel panel2;
     private jaboc_UI.jabocUI_Utilidades.Panel panel3;
-    private javax.swing.JPasswordField senhaCliente;
+    private jaboc_UI.jabocUI_Utilidades.PasswordField senhaCliente;
     private jaboc_UI.jabocUI_Utilidades.TextField telefoneCliente;
     private jaboc_UI.jabocUI_Utilidades.TextField textField1;
     private jaboc_UI.jabocUI_Utilidades.TextField textField2;
@@ -533,6 +506,6 @@ public class interface_criarCliente extends javax.swing.JFrame {
     private jaboc_UI.jabocUI_Utilidades.TextField textField4;
     private jaboc_UI.jabocUI_Utilidades.TextField textField5;
     private jaboc_UI.jabocUI_Utilidades.TextField textField6;
-    private javax.swing.JPasswordField verificarSenhaCliente;
+    private jaboc_UI.jabocUI_Utilidades.PasswordField verificarSenhaCliente;
     // End of variables declaration//GEN-END:variables
 }
