@@ -8,6 +8,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
+import java.awt.event.FocusEvent;
 import java.awt.geom.RoundRectangle2D;
 import javax.swing.JPasswordField;
 import javax.swing.border.EmptyBorder;
@@ -20,8 +21,9 @@ public class PasswordField extends JPasswordField{
     public PasswordField(){
         setOpaque(false);
         setBorder(new EmptyBorder(1, 3, 1 ,3));
-        setFont(new java.awt.Font("Seoge UI", 0, 10));
+        setFont(new java.awt.Font("Seoge UI", 0, 12));
         setForeground(new Color(153,153,153));
+        setEchoChar((char) 0);
     }
     @Override
     protected void paintComponent(Graphics g) {
@@ -34,4 +36,7 @@ public class PasswordField extends JPasswordField{
 
         super.paintComponent(g); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
     }
+     
+       
+            
 }
