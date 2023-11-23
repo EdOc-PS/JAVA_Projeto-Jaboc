@@ -47,7 +47,7 @@ public class DefaultOption implements Option {
 
     @Override
     public int duration() {
-        return 300;
+        return 200;
     }
 
     @Override

@@ -67,7 +67,7 @@ public class interface_criarCliente extends javax.swing.JFrame {
         itel2 = new javax.swing.JLabel();
         panel2 = new jaboc_UI.jabocUI_Utilidades.Panel();
         panel8 = new jaboc_UI.jabocUI_Utilidades.Panel();
-        passwordField1 = new jaboc_UI.jabocUI_Utilidades.PasswordField();
+        senhaCliente = new jaboc_UI.jabocUI_Utilidades.PasswordField();
         isenha = new javax.swing.JLabel();
         panel9 = new jaboc_UI.jabocUI_Utilidades.Panel();
         verificarSenhaCliente = new jaboc_UI.jabocUI_Utilidades.PasswordField();
@@ -136,7 +136,7 @@ public class interface_criarCliente extends javax.swing.JFrame {
                 .addComponent(bVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(40, Short.MAX_VALUE)
+                .addContainerGap(41, Short.MAX_VALUE)
                 .addComponent(SingUp, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(34, 34, 34))
         );
@@ -227,7 +227,7 @@ public class interface_criarCliente extends javax.swing.JFrame {
         panel6.setBackground(new java.awt.Color(255, 255, 255));
 
         telefoneCliente.setBackground(new java.awt.Color(255, 255, 255));
-        telefoneCliente.setText("Telefone");
+        telefoneCliente.setText(" Telefone:");
         telefoneCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 telefoneClienteActionPerformed(evt);
@@ -316,8 +316,8 @@ public class interface_criarCliente extends javax.swing.JFrame {
 
         panel8.setBackground(new java.awt.Color(255, 255, 255));
 
-        passwordField1.setBackground(new java.awt.Color(255, 255, 255));
-        passwordField1.setText("Senha:");
+        senhaCliente.setBackground(new java.awt.Color(255, 255, 255));
+        senhaCliente.setText("Senha:");
 
         isenha.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         isenha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconLabel/senha.png"))); // NOI18N
@@ -330,14 +330,14 @@ public class interface_criarCliente extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(isenha, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(passwordField1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(senhaCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panel8Layout.setVerticalGroup(
             panel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel8Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(panel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(passwordField1, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
+                    .addComponent(senhaCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
                     .addComponent(isenha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
@@ -393,7 +393,7 @@ public class interface_criarCliente extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("Quer criar uma conta?");
+        jLabel6.setText("Já tem uma conta?");
 
         loginAcess.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
         loginAcess.setForeground(new java.awt.Color(153, 0, 153));
@@ -439,19 +439,17 @@ public class interface_criarCliente extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(72, 72, 72)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(panel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(panel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 439, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(134, 134, 134)
-                        .addComponent(panel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
+                        .addGap(72, 72, 72)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(panel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(panel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(panel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(142, 142, 142)))
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -519,15 +517,11 @@ public class interface_criarCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_bVoltarMouseExited
 
     private void SingUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SingUpActionPerformed
-        if (!"".equals(nomeCliente.getText()) && !"    .   .   -  ".equals(cpfCliente.getText()) && !"".equals(enderecoCliente.getText())
-                && !" (  )      -    ".equals(telefoneCliente.getText())) {
-
-            if (String.valueOf(senhaCliente.getPassword()).equals(String.valueOf(verificarSenhaCliente.getPassword())) && !String.valueOf(senhaCliente.getPassword()).equals("")) {
-                JOptionPane.showMessageDialog(null, "ID da conta: " + IdConta + "\n" + Cliente.toString(), "Conta cadastrada!", WIDTH);
-
+        if (!" Nome:".equals(nomeCliente.getText()) && !" CPF:".equals(cpfCliente.getText()) && !" Endereço:".equals(enderecoCliente.getText())
+                && !" Telefone:".equals(telefoneCliente.getText())) {
+            if (String.valueOf(senhaCliente.getPassword()).equals(String.valueOf(verificarSenhaCliente.getPassword())) && !String.valueOf(senhaCliente.getPassword()).equals(" Senha:")) {
                 interface_Cardapio i_Cardapio = new interface_Cardapio();
                 i_Cardapio.setVisible(true);
-                i_Cardapio.recebeConta(Conta_Cliente);
                 this.dispose();
 
             } else {
@@ -639,7 +633,7 @@ public class interface_criarCliente extends javax.swing.JFrame {
     private jaboc_UI.jabocUI_Utilidades.Panel panel7;
     private jaboc_UI.jabocUI_Utilidades.Panel panel8;
     private jaboc_UI.jabocUI_Utilidades.Panel panel9;
-    private jaboc_UI.jabocUI_Utilidades.PasswordField passwordField1;
+    private jaboc_UI.jabocUI_Utilidades.PasswordField senhaCliente;
     private jaboc_UI.jabocUI_Utilidades.TextField telefoneCliente;
     private jaboc_UI.jabocUI_Utilidades.TextField textField1;
     private jaboc_UI.jabocUI_Utilidades.TextField textField2;

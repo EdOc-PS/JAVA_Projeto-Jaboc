@@ -6,11 +6,10 @@ package jaboc_UI.jabocUI_Administrador;
 
 import jaboc_UI.jabocUI_Clientes.interface_areaSenhaCliente;
 import jaboc_UI.jabocUI_Clientes.interface_criarCliente;
-import jaboc_Classes.Cliente;
+
 import jaboc_Classes.Conta_Cliente;
 import jaboc_Classes.Utilitarios;
-import jaboc_Classes.listaFuncionarios;
-import jaboc_Classes.listaProdutos;
+
 import java.awt.Color;
 import javax.swing.ImageIcon;
 
@@ -20,8 +19,6 @@ import javax.swing.ImageIcon;
  */
 public class interface_Menu extends javax.swing.JFrame {
 
-    private listaFuncionarios listaFuncionarios = new listaFuncionarios();
-    private listaProdutos listaProdutos = new listaProdutos();
     private Conta_Cliente Conta_Cliente;
 
     /**
@@ -151,13 +148,13 @@ public class interface_Menu extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(53, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(45, 45, 45))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(22, Short.MAX_VALUE)
                 .addComponent(panel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -221,8 +218,7 @@ public class interface_Menu extends javax.swing.JFrame {
 
     private void bGerenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bGerenciaActionPerformed
         interface_areaSenhaGerencia i_areaSenhaGerencia = new interface_areaSenhaGerencia();
-        i_areaSenhaGerencia.recebeListaFuncionarios(listaFuncionarios);
-        i_areaSenhaGerencia.recebeListaProdutos(listaProdutos);
+
         i_areaSenhaGerencia.recebeConta(Conta_Cliente);
         i_areaSenhaGerencia.setVisible(true);
         this.dispose();
@@ -238,20 +234,8 @@ public class interface_Menu extends javax.swing.JFrame {
 
     private void bCardapioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCardapioActionPerformed
         interface_criarCliente i_criarCliente = new interface_criarCliente();
-
-        if (Conta_Cliente != null && Conta_Cliente.isContaAtiva() == true) {
-            interface_areaSenhaCliente i_areaSenhaCliente = new interface_areaSenhaCliente();
-            i_areaSenhaCliente.setVisible(true);
-            i_areaSenhaCliente.recebeConta(Conta_Cliente);
-            i_areaSenhaCliente.recebeListaFuncionarios(listaFuncionarios);
-            i_areaSenhaCliente.recebeListaProdutos(listaProdutos);
-            this.dispose();
-        } else {
-            i_criarCliente.recebeListaFuncionarios(listaFuncionarios);
-            i_criarCliente.recebeListaProdutos(listaProdutos);
             i_criarCliente.setVisible(true);
-            this.dispose();
-        }
+            this.dispose();    
     }//GEN-LAST:event_bCardapioActionPerformed
 
     private void bCardapioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bCardapioMouseEntered
@@ -266,13 +250,7 @@ public class interface_Menu extends javax.swing.JFrame {
         Conta_Cliente = conta;
     }
 
-    public void recebeListaFuncionarios(listaFuncionarios listaFuncionarios) {
-        this.listaFuncionarios = listaFuncionarios;
-    }
-
-    public void recebeListaProdutos(listaProdutos listaProdutos) {
-        this.listaProdutos = listaProdutos;
-    }
+ 
 
     /**
      * @param args the command line arguments
