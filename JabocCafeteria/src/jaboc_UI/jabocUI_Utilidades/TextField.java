@@ -12,39 +12,50 @@ import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 
 import java.awt.geom.RoundRectangle2D;
+import java.text.ParseException;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
+import javax.swing.text.DefaultFormatterFactory;
+import javax.swing.text.MaskFormatter;
 
 /**
  *
  * @author eeuar
  */
 public class TextField extends JTextField {
-     String arm;
+
+    String arm;
+    int cont = 1;
+
     public TextField() {
-      
+
         setOpaque(false);
         setBorder(new EmptyBorder(1, 3, 1, 3));
-        setFont(new java.awt.Font("Gill Sans MT", 0, 13));
+        setFont(new java.awt.Font("Gill Sans MT", 0, 14));
         setForeground(new Color(153, 153, 153));
+
         this.addFocusListener(new FocusListener() {
 
             @Override
             public void focusGained(FocusEvent e) {
-                if (getText().equals(getText())) {
+                if (cont == 1) {
                     arm = getText();
+                    cont++;
+                }
+                if (getText().equals(arm)) {
                     setText("");
-                    
                 }
             }
 
             @Override
             public void focusLost(FocusEvent e) {
-               if (getText().equals("")) {
+                if (getText().equals("")) {
                     setText(arm);
                 }
             }
         });
+    
     }
 
     @Override
@@ -52,7 +63,7 @@ public class TextField extends JTextField {
         Graphics2D g2 = (Graphics2D) g.create();
         g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         g2.setColor(getBackground());
-        g2.fill(new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), 15, 15));
+        g2.fill(new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), 20, 20));
 
         g2.dispose();
 
