@@ -4,7 +4,6 @@
  */
 package jaboc_UI.jabocUI_Administrador;
 
-import jaboc_UI.jabocUI_Clientes.interface_areaSenhaCliente;
 import jaboc_UI.jabocUI_Clientes.interface_criarCliente;
 
 import jaboc_Classes.Conta_Cliente;

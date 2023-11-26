@@ -9,7 +9,7 @@ import jaboc_Classes.Conta_Cliente;
 import jaboc_Classes.Produto;
 import jaboc_Classes.listaFuncionarios;
 import jaboc_Classes.listaProdutos;
-import jaboc_UI.jabocUI_Clientes.interface_Cardapio;
+import jaboc_UI.jabocUI_Cardapio.interface_Cardapio;
 import jaboc_UI.jabocUI_Utilidades.interface_popUpmensagen;
 import java.awt.Color;
 import javax.swing.JOptionPane;

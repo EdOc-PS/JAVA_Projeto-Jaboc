@@ -5,9 +5,9 @@ package jaboc_UI.jabocUI_Clientes;
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 import jaboc_Biblioteca.glasspanepopup.GlassPanePopup;
-import jaboc_Classes.Cliente;
 
 import jaboc_UI.jabocUI_Administrador.interface_Menu;
+import jaboc_UI.jabocUI_Cardapio.interface_Cardapio;
 import jaboc_UI.jabocUI_Utilidades.interface_popUpmensagen;
 import jaboc_UI.jabocUI_Utilidades.interface_popUpSenha;
 import java.awt.Color;
