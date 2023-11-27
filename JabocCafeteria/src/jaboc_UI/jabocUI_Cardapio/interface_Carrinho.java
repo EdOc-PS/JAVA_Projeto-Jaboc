@@ -30,7 +30,7 @@ public class interface_Carrinho extends javax.swing.JPanel {
         setOpaque(false);
         JScrollBar bar = scrollCarrinho.getVerticalScrollBar();
         bar.setOpaque(false);
-        bar.setForeground(new Color(79, 84, 101));
+        bar.setForeground(new Color(223,204,251));
         bar.setPreferredSize(new Dimension(8, 5));
         bar.setUI(new ModernScrollBarUI());
         
@@ -39,10 +39,9 @@ public class interface_Carrinho extends javax.swing.JPanel {
     }
 
     private void addCarrinho() {
-        panelCarrinho.add(new interface_itemCarrinho("Pão", "Descrição"));
-        panelCarrinho.add(new interface_itemCarrinho("ProdutoX", "Descrição"));
-        panelCarrinho.add(new interface_itemCarrinho("ProdutoX", "Descrição"));
-         panelCarrinho.add(new interface_itemCarrinho("ProdutoX", "Descrição"));
+        panelCarrinho.add(new interface_itemCarrinho("Pão", "Descrição", "100"));
+        panelCarrinho.add(new interface_itemCarrinho("Pão", "Descrição", "100"));
+        panelCarrinho.add(new interface_itemCarrinho("Pão", "Descrição", "100"));
     }
 
     protected void paintComponent(Graphics g) {
@@ -69,6 +68,7 @@ public class interface_Carrinho extends javax.swing.JPanel {
         panelP = new jaboc_UI.jabocUI_Utilidades.Panel();
         scrollCarrinho = new javax.swing.JScrollPane();
         panelCarrinho = new javax.swing.JPanel();
+        button1 = new jaboc_UI.jabocUI_Utilidades.Button();
 
         bPopUp.setBackground(new java.awt.Color(250, 112, 112));
         bPopUp.setForeground(new java.awt.Color(255, 255, 255));
@@ -77,7 +77,7 @@ public class interface_Carrinho extends javax.swing.JPanel {
         panel1.setBackground(new java.awt.Color(255, 255, 255));
 
         carrinhotxt.setBackground(new java.awt.Color(79, 84, 101));
-        carrinhotxt.setFont(new java.awt.Font("Gill Sans MT", 1, 20)); // NOI18N
+        carrinhotxt.setFont(new java.awt.Font("Gill Sans MT", 1, 22)); // NOI18N
         carrinhotxt.setForeground(new java.awt.Color(79, 84, 101));
         carrinhotxt.setText("Carrinho");
 
@@ -91,12 +91,8 @@ public class interface_Carrinho extends javax.swing.JPanel {
             }
         });
 
-        panelP.setBackground(new java.awt.Color(255, 204, 204));
-
         scrollCarrinho.setBorder(null);
         scrollCarrinho.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-
-        panelCarrinho.setBackground(new java.awt.Color(255, 204, 204));
 
         javax.swing.GroupLayout panelCarrinhoLayout = new javax.swing.GroupLayout(panelCarrinho);
         panelCarrinho.setLayout(panelCarrinhoLayout);
@@ -106,7 +102,7 @@ public class interface_Carrinho extends javax.swing.JPanel {
         );
         panelCarrinhoLayout.setVerticalGroup(
             panelCarrinhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 474, Short.MAX_VALUE)
+            .addGap(0, 559, Short.MAX_VALUE)
         );
 
         scrollCarrinho.setViewportView(panelCarrinho);
@@ -117,44 +113,55 @@ public class interface_Carrinho extends javax.swing.JPanel {
             panelPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelPLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(scrollCarrinho, javax.swing.GroupLayout.DEFAULT_SIZE, 450, Short.MAX_VALUE)
+                .addComponent(scrollCarrinho, javax.swing.GroupLayout.DEFAULT_SIZE, 424, Short.MAX_VALUE)
                 .addContainerGap())
         );
         panelPLayout.setVerticalGroup(
             panelPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelPLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(scrollCarrinho, javax.swing.GroupLayout.DEFAULT_SIZE, 311, Short.MAX_VALUE)
+                .addComponent(scrollCarrinho, javax.swing.GroupLayout.DEFAULT_SIZE, 293, Short.MAX_VALUE)
                 .addContainerGap())
         );
+
+        button1.setBackground(new java.awt.Color(223, 204, 251));
+        button1.setForeground(new java.awt.Color(51, 51, 51));
+        button1.setText("Finalizar pedido");
 
         javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
         panel1.setLayout(panel1Layout);
         panel1Layout.setHorizontalGroup(
             panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(118, 118, 118))
             .addGroup(panel1Layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(panelP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(panel1Layout.createSequentialGroup()
-                        .addComponent(carrinhotxt, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 359, Short.MAX_VALUE)
+                        .addComponent(carrinhotxt, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 323, Short.MAX_VALUE)
                         .addComponent(bPopUpExit, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         panel1Layout.setVerticalGroup(
             panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel1Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panel1Layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addComponent(carrinhotxt, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(bPopUpExit, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(panel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(bPopUpExit, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(0, 18, Short.MAX_VALUE)
+                        .addComponent(carrinhotxt, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
                 .addComponent(panelP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(15, 15, 15))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -177,6 +184,7 @@ public class interface_Carrinho extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private jaboc_UI.jabocUI_Utilidades.ButtonCirculo bPopUp;
     private jaboc_UI.jabocUI_Utilidades.ButtonCirculo bPopUpExit;
+    private jaboc_UI.jabocUI_Utilidades.Button button1;
     private javax.swing.JLabel carrinhotxt;
     private jaboc_UI.jabocUI_Utilidades.Panel panel1;
     private javax.swing.JPanel panelCarrinho;

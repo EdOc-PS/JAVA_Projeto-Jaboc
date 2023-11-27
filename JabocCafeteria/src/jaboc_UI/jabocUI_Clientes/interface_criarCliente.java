@@ -132,7 +132,7 @@ public class interface_criarCliente extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(14, 14, 14)
+                .addContainerGap()
                 .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(bVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -151,7 +151,7 @@ public class interface_criarCliente extends javax.swing.JFrame {
                     .addComponent(bVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(SingUp, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24))
+                .addGap(25, 25, 25))
         );
 
         SingUp.getAccessibleContext().setAccessibleName("Criar conta");
@@ -517,7 +517,7 @@ public class interface_criarCliente extends javax.swing.JFrame {
 
     private JTextField Telefone() {
         try {
-            javax.swing.text.MaskFormatter cpf = new javax.swing.text.MaskFormatter(" (##) #####-####");
+            javax.swing.text.MaskFormatter cpf = new javax.swing.text.MaskFormatter("(##) #####-####");
             return new javax.swing.JFormattedTextField(cpf);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Ocorreu um erro");

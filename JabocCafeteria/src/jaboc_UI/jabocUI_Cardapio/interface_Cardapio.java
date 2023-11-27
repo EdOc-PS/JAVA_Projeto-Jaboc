@@ -91,7 +91,7 @@ public class interface_Cardapio extends javax.swing.JFrame {
             }
         });
 
-        bcarrinho.setBackground(new java.awt.Color(252, 252, 252));
+        bcarrinho.setBackground(new java.awt.Color(255, 255, 255));
         bcarrinho.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_carrinho.png"))); // NOI18N
         bcarrinho.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -243,8 +243,7 @@ public class interface_Cardapio extends javax.swing.JFrame {
 
     private void bEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bEditarActionPerformed
         interface_editarCliente i_editarCliente = new interface_editarCliente();
-        i_editarCliente.getJPanel2().setVisible(false);
-        i_editarCliente.getEditarCliente().setVisible(false);
+ 
         i_editarCliente.setVisible(true);
         this.dispose();
 
@@ -298,7 +297,7 @@ public class interface_Cardapio extends javax.swing.JFrame {
     }//GEN-LAST:event_bcarrinhoActionPerformed
 
     private void bcarrinhoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bcarrinhoMouseEntered
-        bcarrinho.setBackground(new Color(210, 224, 251));
+        bcarrinho.setBackground(new Color(223,204,251));
     }//GEN-LAST:event_bcarrinhoMouseEntered
 
     private void bcarrinhoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bcarrinhoMouseExited

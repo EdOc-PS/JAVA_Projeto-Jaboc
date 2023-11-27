@@ -166,7 +166,7 @@
             <Component class="jaboc_UI.jabocUI_Utilidades.ButtonCirculo" name="bcarrinho">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="fc" green="fc" red="fc" type="rgb"/>
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/img/icons/i_carrinho.png"/>

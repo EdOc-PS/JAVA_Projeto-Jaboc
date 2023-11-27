@@ -13,10 +13,11 @@ public class interface_itemCarrinho extends javax.swing.JPanel {
     /**
      * Creates new form interface_itemCarrinho
      */
-    public interface_itemCarrinho(String nome, String descricao) {
+    public interface_itemCarrinho(String nome, String descricao, String preco) {
         initComponents();
         nomeCarrinho.setText(nome);
         descCarrinho.setText(descricao);
+        precoCarrinho.setText(preco);
     }
 
     /**
@@ -31,9 +32,12 @@ public class interface_itemCarrinho extends javax.swing.JPanel {
         panel1 = new jaboc_UI.jabocUI_Utilidades.Panel();
         nomeCarrinho = new javax.swing.JLabel();
         descCarrinho = new javax.swing.JLabel();
-        button1 = new jaboc_UI.jabocUI_Utilidades.Button();
+        buttonCirculo1 = new jaboc_UI.jabocUI_Utilidades.ButtonCirculo();
+        precoCarrinho = new javax.swing.JLabel();
+        jSpinner1 = new javax.swing.JSpinner();
+        jLabel1 = new javax.swing.JLabel();
 
-        panel1.setBackground(new java.awt.Color(204, 204, 204));
+        panel1.setBackground(new java.awt.Color(239, 239, 239));
 
         nomeCarrinho.setFont(new java.awt.Font("Gill Sans MT", 1, 16)); // NOI18N
         nomeCarrinho.setForeground(new java.awt.Color(0, 0, 0));
@@ -43,33 +47,56 @@ public class interface_itemCarrinho extends javax.swing.JPanel {
         descCarrinho.setForeground(new java.awt.Color(51, 51, 51));
         descCarrinho.setText("Descrição");
 
-        button1.setText("Comprar");
+        buttonCirculo1.setBackground(new java.awt.Color(255, 188, 188));
+        buttonCirculo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_lixo.png"))); // NOI18N
+
+        precoCarrinho.setBackground(new java.awt.Color(0, 0, 0));
+        precoCarrinho.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
+        precoCarrinho.setForeground(new java.awt.Color(0, 0, 0));
+        precoCarrinho.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        precoCarrinho.setText("Preço");
+
+        jLabel1.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setText("R$:");
 
         javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
         panel1.setLayout(panel1Layout);
         panel1Layout.setHorizontalGroup(
             panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel1Layout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(nomeCarrinho, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(descCarrinho, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
-                .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(15, 15, 15)
+                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(precoCarrinho, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(descCarrinho, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nomeCarrinho, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
+                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(buttonCirculo1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jSpinner1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
         panel1Layout.setVerticalGroup(
             panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(buttonCirculo1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
             .addGroup(panel1Layout.createSequentialGroup()
-                .addGap(12, 12, 12)
+                .addGap(14, 14, 14)
                 .addComponent(nomeCarrinho)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(descCarrinho)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
-                .addContainerGap(36, Short.MAX_VALUE)
-                .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(3, 3, 3)
+                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(precoCarrinho)
+                    .addComponent(jLabel1))
+                .addGap(0, 8, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -77,14 +104,12 @@ public class interface_itemCarrinho extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(panel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(4, 4, 4))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(panel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
@@ -92,9 +117,12 @@ public class interface_itemCarrinho extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private jaboc_UI.jabocUI_Utilidades.Button button1;
+    private jaboc_UI.jabocUI_Utilidades.ButtonCirculo buttonCirculo1;
     private javax.swing.JLabel descCarrinho;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JSpinner jSpinner1;
     private javax.swing.JLabel nomeCarrinho;
     private jaboc_UI.jabocUI_Utilidades.Panel panel1;
+    private javax.swing.JLabel precoCarrinho;
     // End of variables declaration//GEN-END:variables
 }

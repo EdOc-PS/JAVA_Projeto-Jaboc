@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package jaboc_BancoDeDados;
+package jaboc_BancoDeDados.DAO;
 
 import jaboc_BancoDeDados.Conexao.Conexao;
 import jaboc_Classes.Conta;
