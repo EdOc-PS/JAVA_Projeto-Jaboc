@@ -543,7 +543,7 @@
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Senha:"/>
+                    <Property name="text" type="java.lang.String" value=" Senha:"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="isenha">
@@ -591,7 +591,7 @@
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Repita a senha:"/>
+                    <Property name="text" type="java.lang.String" value=" Repita a senha:"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="isenha2">

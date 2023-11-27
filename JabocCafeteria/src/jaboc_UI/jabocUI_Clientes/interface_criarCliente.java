@@ -4,6 +4,7 @@ package jaboc_UI.jabocUI_Clientes;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
+import jaboc_BancoDeDados.DAO.daoConta;
 import jaboc_BancoDeDados.daoConta;
 import jaboc_Biblioteca.glasspanepopup.GlassPanePopup;
 import jaboc_Classes.Conta_Cliente;
@@ -16,9 +17,6 @@ import jaboc_UI.jabocUI_Utilidades.interface_popUpSenha;
 import java.awt.Color;
 import java.sql.SQLException;
 import java.util.Arrays;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.BorderFactory;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
@@ -335,7 +333,7 @@ public class interface_criarCliente extends javax.swing.JFrame {
         panel8.setBackground(new java.awt.Color(255, 255, 255));
 
         senhaCliente.setBackground(new java.awt.Color(255, 255, 255));
-        senhaCliente.setText("Senha:");
+        senhaCliente.setText(" Senha:");
 
         isenha.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         isenha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconLabel/senha.png"))); // NOI18N
@@ -363,7 +361,7 @@ public class interface_criarCliente extends javax.swing.JFrame {
         panel9.setBackground(new java.awt.Color(255, 255, 255));
 
         verificarSenhaCliente.setBackground(new java.awt.Color(255, 255, 255));
-        verificarSenhaCliente.setText("Repita a senha:");
+        verificarSenhaCliente.setText(" Repita a senha:");
 
         isenha2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         isenha2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconLabel/senha.png"))); // NOI18N
@@ -567,7 +565,7 @@ public class interface_criarCliente extends javax.swing.JFrame {
             }else{
                 senhaCliente.setText(" Senha:");
                 senhaCliente.setEchoChar((char) 0);
-                verificarSenhaCliente.setText(" Repita a senha: ");
+                verificarSenhaCliente.setText(" Repita a senha:");
                 verificarSenhaCliente.setEchoChar((char) 0);
                 //GlassPanePopup.showPopup(new interface_popUpSenha());
             }
@@ -577,7 +575,7 @@ public class interface_criarCliente extends javax.swing.JFrame {
                 senhaC += caracter;
             }
             
-            Pessoa pessoa = new Pessoa(nomeC, cpfC, enderecoC, telefoneC); 
+            Pessoa pessoa = new Pessoa(nomeC, cpfC, enderecoC, telefoneC) {}; 
             Conta_Cliente ContaC = new Conta_Cliente(pessoa, senhaC);
             
             try {
@@ -594,6 +592,8 @@ public class interface_criarCliente extends javax.swing.JFrame {
             }catch (SQLException error) {
                  System.out.println("Erro: "+ error.getMessage());
             }
+        }else{
+            GlassPanePopup.showPopup(new interface_popUpmensagen());
         }
     }//GEN-LAST:event_SingUpActionPerformed
 
