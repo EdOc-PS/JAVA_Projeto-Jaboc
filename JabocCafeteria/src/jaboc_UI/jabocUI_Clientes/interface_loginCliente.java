@@ -141,7 +141,7 @@ public class interface_loginCliente extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(icpf, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(cpfCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(cpfCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 331, Short.MAX_VALUE))
         );
         panel5Layout.setVerticalGroup(
             panel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -166,9 +166,9 @@ public class interface_loginCliente extends javax.swing.JFrame {
             .addGroup(panel11Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(isenha3, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(senhaCliente3, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(senhaCliente3, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(88, 88, 88))
         );
         panel11Layout.setVerticalGroup(
             panel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -185,9 +185,9 @@ public class interface_loginCliente extends javax.swing.JFrame {
             panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
                 .addContainerGap(25, Short.MAX_VALUE)
-                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(panel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(panel11, javax.swing.GroupLayout.PREFERRED_SIZE, 360, Short.MAX_VALUE))
+                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(panel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(panel11, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(25, 25, 25))
         );
         panel1Layout.setVerticalGroup(
@@ -368,9 +368,6 @@ public class interface_loginCliente extends javax.swing.JFrame {
     private jaboc_UI.jabocUI_Utilidades.ButtonCirculo buttonCirculo1;
     private jaboc_UI.jabocUI_Utilidades.TextField cpfCliente;
     private javax.swing.JLabel icpf;
-    private javax.swing.JLabel isenha;
-    private javax.swing.JLabel isenha1;
-    private javax.swing.JLabel isenha2;
     private javax.swing.JLabel isenha3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
@@ -379,15 +376,9 @@ public class interface_loginCliente extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel loginAcess;
     private jaboc_UI.jabocUI_Utilidades.Panel panel1;
-    private jaboc_UI.jabocUI_Utilidades.Panel panel10;
     private jaboc_UI.jabocUI_Utilidades.Panel panel11;
     private jaboc_UI.jabocUI_Utilidades.Panel panel3;
     private jaboc_UI.jabocUI_Utilidades.Panel panel5;
-    private jaboc_UI.jabocUI_Utilidades.Panel panel8;
-    private jaboc_UI.jabocUI_Utilidades.Panel panel9;
-    private jaboc_UI.jabocUI_Utilidades.PasswordField senhaCliente;
-    private jaboc_UI.jabocUI_Utilidades.PasswordField senhaCliente1;
-    private jaboc_UI.jabocUI_Utilidades.PasswordField senhaCliente2;
     private jaboc_UI.jabocUI_Utilidades.PasswordField senhaCliente3;
     // End of variables declaration//GEN-END:variables
 }
