@@ -5,10 +5,6 @@
 package jaboc_UI.jabocUI_Administrador;
 
 import jaboc_Biblioteca.glasspanepopup.GlassPanePopup;
-import jaboc_Classes.Administrador;
-import jaboc_Classes.Conta_Cliente;
-import jaboc_Classes.listaFuncionarios;
-import jaboc_Classes.listaProdutos;
 import jaboc_UI.jabocUI_Utilidades.interface_popUpmensagen;
 import java.awt.Color;
 import static java.awt.image.ImageObserver.WIDTH;
@@ -19,10 +15,6 @@ import javax.swing.JOptionPane;
  * @author eeuar
  */
 public class interface_areaSenhaGerencia extends javax.swing.JFrame {
-    private listaFuncionarios listaFuncionarios;
-    private listaProdutos listaProdutos;
-    private Conta_Cliente Conta_Cliente;
-    Administrador admin = new Administrador("Jaboc","123.123.123-00 ", "Administrador", "123");
     /**
      * Creates new form interface_areaSenha
      */
@@ -204,35 +196,13 @@ public class interface_areaSenhaGerencia extends javax.swing.JFrame {
     }//GEN-LAST:event_bVoltarMouseExited
 
     private void bVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVoltarActionPerformed
-        interface_Menu i_Menu = new  interface_Menu();
-        i_Menu.setVisible(true);
-        i_Menu.recebeConta(Conta_Cliente);
-        this.dispose();
+
     }//GEN-LAST:event_bVoltarActionPerformed
 
     private void enviarSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviarSenhaActionPerformed
-       if(String.valueOf(senhaAdm.getPassword()).equals(admin.getSenha())){
-           interface_areaGerencia i_gerencia = new interface_areaGerencia();
-           i_gerencia.recebeListaFuncionarios(listaFuncionarios);
-           i_gerencia.recebeListaProdutos(listaProdutos);
-           i_gerencia.recebeConta(Conta_Cliente);
-           i_gerencia.setVisible(true);
-           this.dispose();
-       }else{
-            GlassPanePopup.showPopup(new interface_popUpmensagen());
-       }
-        
-    }//GEN-LAST:event_enviarSenhaActionPerformed
   
-    public void recebeListaFuncionarios(listaFuncionarios listaFuncionarios){
-        this.listaFuncionarios = listaFuncionarios;
-    }
-    public void recebeListaProdutos(listaProdutos listaProdutos){
-        this.listaProdutos = listaProdutos;
-    }
-    public void recebeConta(Conta_Cliente Conta_Cliente){
-        this.Conta_Cliente = Conta_Cliente;
-    }
+    }//GEN-LAST:event_enviarSenhaActionPerformed
+
     /**
      * @param args the command line arguments
      */

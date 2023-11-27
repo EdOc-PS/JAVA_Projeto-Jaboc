@@ -5,8 +5,6 @@
 package jaboc_UI.jabocUI_Produtos;
 
 import jaboc_Classes.Conta_Cliente;
-import jaboc_Classes.listaFuncionarios;
-import jaboc_Classes.listaProdutos;
 import java.awt.Color;
 import static java.awt.image.ImageObserver.WIDTH;
 import javax.swing.JOptionPane;
@@ -16,11 +14,6 @@ import javax.swing.JOptionPane;
  * @author eeuar
  */
 public class interface_apagarProduto extends javax.swing.JFrame {
-    private listaFuncionarios listaFuncionarios;
-    private listaProdutos listaProdutos;
-    private Conta_Cliente Conta_Cliente;
-    int indiceProduto;
-
     /**
      * Creates new form interface_apagarProduto
      */
@@ -250,9 +243,6 @@ public class interface_apagarProduto extends javax.swing.JFrame {
 
     private void bVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVoltarActionPerformed
         interface_gerenciarProdutos i_gerenciarCardapio = new interface_gerenciarProdutos();
-        i_gerenciarCardapio.recebeListaProdutos(listaProdutos);
-        i_gerenciarCardapio.recebeListaFuncionarios(listaFuncionarios);
-        i_gerenciarCardapio.recebeConta(Conta_Cliente);
         i_gerenciarCardapio.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_bVoltarActionPerformed
@@ -262,31 +252,11 @@ public class interface_apagarProduto extends javax.swing.JFrame {
     }//GEN-LAST:event_verificarId_ProdutoActionPerformed
 
     private void verificarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verificarProdutoActionPerformed
-        if (!listaProdutos.estaVazia()) {
-            if(!verificarId_Produto.getText().equals("")){
-                indiceProduto = listaProdutos.buscarProduto(Integer.parseInt(verificarId_Produto.getText()), listaProdutos.getNAtualElementos(), -1) + 1;
-                    if(indiceProduto != -1){
-                        textArea_Produto.setText(listaProdutos.getItem(indiceProduto).toString());
-                    }else{
-                        JOptionPane.showMessageDialog(null,"Produto inexistente!","Erro",WIDTH);
-                    }    
-            }else{
-                JOptionPane.showMessageDialog(null, "Campo de ID do produto vazio!","Erro", WIDTH);
-            }    
-        }else{
-            JOptionPane.showMessageDialog(null, "Produtos não cadastrados!","Erro", WIDTH);
-        }
+        
     }//GEN-LAST:event_verificarProdutoActionPerformed
 
     private void apagarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_apagarProdutoActionPerformed
 
-            if (indiceProduto != -1) {
-                JOptionPane.showMessageDialog(null, "O processo foi realizado com total sucesso", "Informação" + listaProdutos.getItem(indiceProduto).getNomeProduto() + " foi apagado!", WIDTH);
-                listaProdutos.removerItem(indiceProduto);
-            } else {
-                JOptionPane.showMessageDialog(null, "Produto não existe!", "Erro", WIDTH);
-                verificarId_Produto.setText("");
-            }
     }//GEN-LAST:event_apagarProdutoActionPerformed
 
     private void bVoltarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bVoltarMouseEntered
@@ -298,16 +268,7 @@ public class interface_apagarProduto extends javax.swing.JFrame {
     }//GEN-LAST:event_bVoltarMouseExited
     public void txtAreaIneditavel() {
         textArea_Produto.setEditable(false);
-    }
-    public void recebeListaProdutos(listaProdutos listaProdutos) {
-        this.listaProdutos = listaProdutos;
-    }
-    public void recebeListaFuncionarios(listaFuncionarios listaFuncionarios){
-        this.listaFuncionarios = listaFuncionarios;
-    }
-    public void recebeConta(Conta_Cliente Conta_Cliente){
-        this.Conta_Cliente = Conta_Cliente;
-    }
+    }   
     /**
      * @param args the command line arguments
      */

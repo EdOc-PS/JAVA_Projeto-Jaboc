@@ -5,9 +5,6 @@
 package jaboc_UI.jabocUI_Produtos;
 
 import jaboc_Biblioteca.glasspanepopup.GlassPanePopup;
-import jaboc_Classes.Conta_Cliente;
-import jaboc_Classes.listaFuncionarios;
-import jaboc_Classes.listaProdutos;
 import jaboc_UI.jabocUI_Utilidades.interface_popUpmensagen;
 import java.awt.Color;
 import javax.swing.JOptionPane;
@@ -17,12 +14,6 @@ import javax.swing.JOptionPane;
  * @author 0057138
  */
 public class interface_editarProduto extends javax.swing.JFrame {
-
-    private listaProdutos listaProdutos;
-    private listaFuncionarios listaFuncionarios;
-    private Conta_Cliente Conta_Cliente;
-    int indiceProduto;
-
     /**
      * Creates new form interface_editarProduto
      */
@@ -343,19 +334,7 @@ public class interface_editarProduto extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void verificarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verificarProdutoActionPerformed
-        if (verificarId_Produto.getText().equals("")) {
-            GlassPanePopup.showPopup(new interface_popUpmensagen());
-        } else if (listaProdutos != null) {
-            indiceProduto = listaProdutos.buscarProduto(Integer.parseInt(verificarId_Produto.getText()), listaProdutos.getNAtualElementos(), -1) + 1;
-            if (indiceProduto != -1) {
-                nomeProduto_Editar.setText(listaProdutos.getItem(indiceProduto).getNomeProduto());
-                qtdeProduto_Editar.setText(String.valueOf(listaProdutos.getItem(indiceProduto).getQtdeProduto()));
-                precoProduto_Editar.setText(String.valueOf(listaProdutos.getItem(indiceProduto).getPrecoProduto()));
-                tipoProduto_Editar.setSelectedItem(listaProdutos.getItem(indiceProduto).getTipoProduto());
-            }
-
-        }
-
+        
     }//GEN-LAST:event_verificarProdutoActionPerformed
 
     private void verificarId_ProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verificarId_ProdutoActionPerformed
@@ -363,24 +342,7 @@ public class interface_editarProduto extends javax.swing.JFrame {
     }//GEN-LAST:event_verificarId_ProdutoActionPerformed
 
     private void editarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarProdutoActionPerformed
-        if (listaProdutos == null) {
-            JOptionPane.showMessageDialog(null, "Não há itens cadastrados!", "Erro", WIDTH);
-        } else if ("".equals(nomeProduto_Editar.getText()) || "".equals(qtdeProduto_Editar.getText()) || "".equals(precoProduto_Editar.getText())) {
-            JOptionPane.showMessageDialog(null, "Campo vazio!", "Erro", WIDTH);
-        } else {
-            listaProdutos.getItem(indiceProduto).setNomeProduto(nomeProduto_Editar.getText());
-            listaProdutos.getItem(indiceProduto).setQtdeProduto(Integer.parseInt(qtdeProduto_Editar.getText()));
-            listaProdutos.getItem(indiceProduto).setPrecoProduto(Float.parseFloat(precoProduto_Editar.getText()));
-            listaProdutos.getItem(indiceProduto).setTipoProduto(String.valueOf(tipoProduto_Editar.getSelectedItem()));
-
-            JOptionPane.showMessageDialog(null, listaProdutos.getItem(indiceProduto).toString(), listaProdutos.getItem(indiceProduto).getNomeProduto() + " foi editado!", WIDTH);
-
-            nomeProduto_Editar.setText("");
-            qtdeProduto_Editar.setText("");
-            precoProduto_Editar.setText("");
-            tipoProduto_Editar.setSelectedItem("Cafe");
-
-        }
+       
     }//GEN-LAST:event_editarProdutoActionPerformed
 
     private void nomeProduto_EditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeProduto_EditarActionPerformed
@@ -392,12 +354,7 @@ public class interface_editarProduto extends javax.swing.JFrame {
     }//GEN-LAST:event_qtdeProduto_EditarActionPerformed
 
     private void bVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVoltarActionPerformed
-        interface_gerenciarProdutos i_gerenciarCardapio = new interface_gerenciarProdutos();
-        i_gerenciarCardapio.recebeListaProdutos(listaProdutos);
-        i_gerenciarCardapio.recebeListaFuncionarios(listaFuncionarios);
-        i_gerenciarCardapio.recebeConta(Conta_Cliente);
-        i_gerenciarCardapio.setVisible(true);
-        this.dispose();
+
     }//GEN-LAST:event_bVoltarActionPerformed
 
     private void bVoltarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bVoltarMouseEntered
@@ -407,18 +364,7 @@ public class interface_editarProduto extends javax.swing.JFrame {
     private void bVoltarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bVoltarMouseExited
         bVoltar.setBackground(new Color(252, 252, 252));
     }//GEN-LAST:event_bVoltarMouseExited
-    public void recebeListaProdutos(listaProdutos lista) {
-        listaProdutos = lista;
-    }
-
-    public void recebeListaFuncionarios(listaFuncionarios listaFuncionarios) {
-        this.listaFuncionarios = listaFuncionarios;
-    }
-
-    public void recebeConta(Conta_Cliente Conta_Cliente) {
-        this.Conta_Cliente = Conta_Cliente;
-    }
-
+    
     /**
      * @param args the command line arguments
      */

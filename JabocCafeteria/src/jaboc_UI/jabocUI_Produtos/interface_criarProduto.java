@@ -7,8 +7,6 @@ package jaboc_UI.jabocUI_Produtos;
 import jaboc_Biblioteca.glasspanepopup.GlassPanePopup;
 import jaboc_Classes.Conta_Cliente;
 import jaboc_Classes.Produto;
-import jaboc_Classes.listaFuncionarios;
-import jaboc_Classes.listaProdutos;
 import jaboc_UI.jabocUI_Cardapio.interface_Cardapio;
 import jaboc_UI.jabocUI_Utilidades.interface_popUpmensagen;
 import java.awt.Color;
@@ -20,13 +18,6 @@ import javax.swing.JTextField;
  * @author eeuar
  */
 public class interface_criarProduto extends javax.swing.JFrame {
-
-    private Produto produto;
-    private listaProdutos listaProdutos = new listaProdutos();
-    private listaFuncionarios listaFuncionarios;
-    private Conta_Cliente Conta_Cliente;
-    int idP = 1;
-
     /**
      * Creates new form interface_Produto
      */
@@ -283,35 +274,11 @@ public class interface_criarProduto extends javax.swing.JFrame {
         }
     }
     private void bVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVoltarActionPerformed
-        interface_gerenciarProdutos i_gerenciarCardapio = new interface_gerenciarProdutos();
-        i_gerenciarCardapio.recebeListaProdutos(listaProdutos);
-        i_gerenciarCardapio.recebeListaFuncionarios(listaFuncionarios);
-        i_gerenciarCardapio.recebeConta(Conta_Cliente);
-        i_gerenciarCardapio.setVisible(true);
-        this.dispose();
+
     }//GEN-LAST:event_bVoltarActionPerformed
 
     private void criaProduto2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_criaProduto2ActionPerformed
-        if (!nomeProduto.getText().equals("") && !qtdeProduto.getText().equals("") && !precoProduto.getText().equals("")) {
-            int qtdeP = Integer.parseInt(qtdeProduto.getText());
-            float precoP = Float.parseFloat(precoProduto.getText());
-            String tipoP = tipoProduto.getSelectedItem().toString();
-
-            produto = new Produto(nomeProduto.getText(), qtdeP, idP++, tipoP, precoP);
-            listaProdutos.inserirItem(produto);
-
-            JOptionPane.showMessageDialog(null, produto.toString(), "O produto cadastrado com sucesso!", WIDTH);
-
-            nomeProduto.setText("");
-            qtdeProduto.setText("");
-            precoProduto.setText("");
-            tipoProduto.setSelectedItem("Cafe");
-
-            interface_Cardapio i_Cardapio = new interface_Cardapio();
-            i_Cardapio.recebeListaProduto(listaProdutos);
-        } else {
-            GlassPanePopup.showPopup(new interface_popUpmensagen());
-        }
+        
     }//GEN-LAST:event_criaProduto2ActionPerformed
 
     private void qtdeProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_qtdeProdutoActionPerformed
@@ -329,22 +296,7 @@ public class interface_criarProduto extends javax.swing.JFrame {
     private void bVoltarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bVoltarMouseExited
         bVoltar.setBackground(new Color(252, 252, 252));
     }//GEN-LAST:event_bVoltarMouseExited
-    public void recebeListaProdutos(listaProdutos listaProdutos) {
-        this.listaProdutos = listaProdutos;
-        if (this.listaProdutos.getNAtualElementos() > 0) {
-            idP = this.listaProdutos.ultimoItem(0).getIdProduto() + 1;
-        }
-    }
-
-    public void recebeListaFuncionarios(listaFuncionarios listaFuncionarios) {
-        this.listaFuncionarios = listaFuncionarios;
-    }
-
-    public void recebeConta(Conta_Cliente Conta_Cliente) {
-        this.Conta_Cliente = Conta_Cliente;
-    }
-
-    /**
+     /**
      * @param args the command line arguments
      */
     public static void criarProduto(String args[]) {

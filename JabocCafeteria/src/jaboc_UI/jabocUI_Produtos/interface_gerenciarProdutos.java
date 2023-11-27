@@ -4,12 +4,7 @@
  */
 package jaboc_UI.jabocUI_Produtos;
 
-import jaboc_UI.jabocUI_Produtos.interface_criarProduto;
-import jaboc_UI.jabocUI_Produtos.interface_editarProduto;
-import jaboc_UI.jabocUI_Produtos.interface_apagarProduto;
 import jaboc_Classes.Conta_Cliente;
-import jaboc_Classes.listaFuncionarios;
-import jaboc_Classes.listaProdutos;
 import jaboc_UI.jabocUI_Administrador.interface_areaGerencia;
 import java.awt.Color;
 import javax.swing.table.DefaultTableModel;
@@ -19,10 +14,6 @@ import javax.swing.table.DefaultTableModel;
  * @author 0057138
  */
 public class interface_gerenciarProdutos extends javax.swing.JFrame {
-
-    private listaProdutos listaProdutos = new listaProdutos();
-    private listaFuncionarios listaFuncionarios;
-    private Conta_Cliente Conta_Cliente;
 
     public interface_gerenciarProdutos() {
         initComponents();
@@ -318,57 +309,23 @@ public class interface_gerenciarProdutos extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bExcluir_ProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bExcluir_ProdutoActionPerformed
-        interface_apagarProduto i_apagarProduto = new interface_apagarProduto();
-        i_apagarProduto.recebeListaProdutos(listaProdutos);
-        i_apagarProduto.recebeListaFuncionarios(listaFuncionarios);
-        i_apagarProduto.recebeConta(Conta_Cliente);
-        i_apagarProduto.setVisible(true);
-        this.dispose();
+
     }//GEN-LAST:event_bExcluir_ProdutoActionPerformed
 
     private void bEdiatr_ProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bEdiatr_ProdutoActionPerformed
 
-        interface_editarProduto i_editarProduto = new interface_editarProduto();
-        i_editarProduto.recebeListaProdutos(listaProdutos);
-        i_editarProduto.recebeListaFuncionarios(listaFuncionarios);
-        i_editarProduto.recebeConta(Conta_Cliente);
-        i_editarProduto.setVisible(true);
-        this.dispose();
     }//GEN-LAST:event_bEdiatr_ProdutoActionPerformed
 
     private void bVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVoltarActionPerformed
-        interface_areaGerencia i_areaGerencia = new interface_areaGerencia();
-        i_areaGerencia.recebeListaProdutos(listaProdutos);
-        i_areaGerencia.recebeListaFuncionarios(listaFuncionarios);
-        i_areaGerencia.recebeConta(Conta_Cliente);
-        i_areaGerencia.setVisible(true);
-        this.dispose();
+
     }//GEN-LAST:event_bVoltarActionPerformed
 
     private void carregarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carregarProdutoActionPerformed
-        DefaultTableModel cardapio = (DefaultTableModel) tabelaCardapio.getModel();
-        if (listaProdutos != null) {
-            for (int i = 0; i < listaProdutos.getTamanho(); i++) {
-                if (listaProdutos.getItem(i) != null) {
-                    String[] dados = {
-                        listaProdutos.getItem(i).getNomeProduto(),
-                        String.valueOf(listaProdutos.getItem(i).getQtdeProduto()),
-                        String.valueOf(listaProdutos.getItem(i).getPrecoProduto()),
-                        listaProdutos.getItem(i).getTipoProduto(),
-                        String.valueOf(listaProdutos.getItem(i).getIdProduto())};
-                    cardapio.addRow(dados);
-                }
-            }
-        }
+        
     }//GEN-LAST:event_carregarProdutoActionPerformed
 
     private void bAdicionar_ProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAdicionar_ProdutoActionPerformed
-        interface_criarProduto i_criarProduto = new interface_criarProduto();
-        i_criarProduto.recebeListaProdutos(listaProdutos);
-        i_criarProduto.recebeListaFuncionarios(listaFuncionarios);
-        i_criarProduto.recebeConta(Conta_Cliente);
-        i_criarProduto.setVisible(true);
-        this.dispose();
+
     }//GEN-LAST:event_bAdicionar_ProdutoActionPerformed
 
     private void bVoltarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bVoltarMouseEntered
@@ -407,18 +364,6 @@ public class interface_gerenciarProdutos extends javax.swing.JFrame {
         carregarProduto.setBackground(new Color(69, 71, 78));
         carregarProduto.setEnabled(false);
     }//GEN-LAST:event_carregarProdutoMouseClicked
-    public void recebeListaProdutos(listaProdutos listaProdutos) {
-        this.listaProdutos = listaProdutos;
-    }
-
-    public void recebeListaFuncionarios(listaFuncionarios listaFuncionarios) {
-        this.listaFuncionarios = listaFuncionarios;
-    }
-
-    public void recebeConta(Conta_Cliente Conta_Cliente) {
-        this.Conta_Cliente = Conta_Cliente;
-    }
-
     /**
      * @param args the command line arguments
      */

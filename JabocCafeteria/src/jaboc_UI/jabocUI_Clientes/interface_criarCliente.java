@@ -4,13 +4,21 @@ package jaboc_UI.jabocUI_Clientes;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
+import jaboc_BancoDeDados.daoConta;
 import jaboc_Biblioteca.glasspanepopup.GlassPanePopup;
+import jaboc_Classes.Conta_Cliente;
+import jaboc_Classes.Pessoa;
 
 import jaboc_UI.jabocUI_Administrador.interface_Menu;
 import jaboc_UI.jabocUI_Cardapio.interface_Cardapio;
 import jaboc_UI.jabocUI_Utilidades.interface_popUpmensagen;
 import jaboc_UI.jabocUI_Utilidades.interface_popUpSenha;
 import java.awt.Color;
+import java.sql.SQLException;
+import java.util.Arrays;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.BorderFactory;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
@@ -39,13 +47,14 @@ public class interface_criarCliente extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel8 = new javax.swing.JLabel();
-        textField1 = new jaboc_UI.jabocUI_Utilidades.TextField();
+        aaa = new jaboc_UI.jabocUI_Utilidades.TextField();
         textField2 = new jaboc_UI.jabocUI_Utilidades.TextField();
         textField3 = new jaboc_UI.jabocUI_Utilidades.TextField();
         textField4 = new jaboc_UI.jabocUI_Utilidades.TextField();
         textField5 = new jaboc_UI.jabocUI_Utilidades.TextField();
         textField6 = new jaboc_UI.jabocUI_Utilidades.TextField();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
@@ -81,6 +90,8 @@ public class interface_criarCliente extends javax.swing.JFrame {
         jLabel8.setText("jLabel8");
 
         jLabel1.setText("jLabel1");
+
+        jLabel2.setText("jLabel2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -168,6 +179,11 @@ public class interface_criarCliente extends javax.swing.JFrame {
 
         nomeCliente.setBackground(new java.awt.Color(255, 255, 255));
         nomeCliente.setText(" Nome:");
+        nomeCliente.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                nomeClienteFocusLost(evt);
+            }
+        });
         nomeCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nomeClienteActionPerformed(evt);
@@ -192,8 +208,8 @@ public class interface_criarCliente extends javax.swing.JFrame {
             .addGroup(panel4Layout.createSequentialGroup()
                 .addGap(0, 0, 0)
                 .addGroup(panel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(nomeCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
-                    .addComponent(iuser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(iuser, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
+                    .addComponent(nomeCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -414,7 +430,6 @@ public class interface_criarCliente extends javax.swing.JFrame {
         panel3.setBackground(new java.awt.Color(252, 252, 252));
 
         jLabel6.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("Já tem uma conta?");
 
@@ -463,12 +478,12 @@ public class interface_criarCliente extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(72, 72, 72)
+                        .addGap(84, 84, 84)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(panel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(panel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(panel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -486,7 +501,7 @@ public class interface_criarCliente extends javax.swing.JFrame {
                 .addComponent(panel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(panel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
@@ -539,22 +554,47 @@ public class interface_criarCliente extends javax.swing.JFrame {
         bVoltar.setBackground(new Color(252, 252, 252));
     }//GEN-LAST:event_bVoltarMouseExited
 
-    private void SingUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SingUpActionPerformed
-        if (!" Nome:".equals(nomeCliente.getText()) && !" CPF:".equals(cpfCliente.getText()) && !" Endereço:".equals(enderecoCliente.getText())
-                && !" Telefone:".equals(telefoneCliente.getText())) {
-            if (String.valueOf(senhaCliente.getPassword()).equals(String.valueOf(verificarSenhaCliente.getPassword())) && !String.valueOf(senhaCliente.getPassword()).equals(" Senha:")) {
-                interface_Cardapio i_Cardapio = new interface_Cardapio();
-                i_Cardapio.setVisible(true);
-                this.dispose();
-
-            } else {
-                GlassPanePopup.showPopup(new interface_popUpSenha());
-                senhaCliente.setText("");
-                verificarSenhaCliente.setText("");
+    private void SingUpActionPerformed(java.awt.event.ActionEvent evt){//GEN-FIRST:event_SingUpActionPerformed
+        if(!(nomeCliente.getText().isEmpty() && cpfCliente.getText().isEmpty() && enderecoCliente.getText().isEmpty() && telefoneCliente.getText().isEmpty())){
+            String nomeC = nomeCliente.getText();
+            String cpfC = cpfCliente.getText();
+            String enderecoC = enderecoCliente.getText();
+            String telefoneC = telefoneCliente.getText();
+            char[] senhaC_char = null;
+            
+            if(Arrays.equals(senhaCliente.getPassword(), verificarSenhaCliente.getPassword())){
+                senhaC_char = senhaCliente.getPassword();
+            }else{
+                senhaCliente.setText(" Senha:");
+                senhaCliente.setEchoChar((char) 0);
+                verificarSenhaCliente.setText(" Repita a senha: ");
+                verificarSenhaCliente.setEchoChar((char) 0);
+                //GlassPanePopup.showPopup(new interface_popUpSenha());
             }
-        } else {
-            GlassPanePopup.showPopup(new interface_popUpmensagen());
-        }        // TODO add your handling code here:
+            
+            String senhaC = null;
+            for(char caracter: senhaC_char){
+                senhaC += caracter;
+            }
+            
+            Pessoa pessoa = new Pessoa(nomeC, cpfC, enderecoC, telefoneC); 
+            Conta_Cliente ContaC = new Conta_Cliente(pessoa, senhaC);
+            
+            try {
+                if(!daoConta.insertConta(ContaC)){
+                    if(daoConta.existeCliente(cpfC)){
+                        interface_loginCliente iLoginCliente = new interface_loginCliente();
+                        this.dispose();
+                        iLoginCliente.setVisible(true);
+                    }else{
+                        //Colocar um Joptin pane
+                        daoConta.insertFuncionario_emContaCliente(ContaC);                     
+                    }
+                }                   
+            }catch (SQLException error) {
+                 System.out.println("Erro: "+ error.getMessage());
+            }
+        }
     }//GEN-LAST:event_SingUpActionPerformed
 
     private void loginAcessMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginAcessMouseClicked
@@ -599,6 +639,15 @@ public class interface_criarCliente extends javax.swing.JFrame {
        }
     }//GEN-LAST:event_buttonCirculo1ActionPerformed
 
+    private void nomeClienteFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_nomeClienteFocusLost
+        if(nomeCliente.getText().equals(" Nome:")){
+            nomeCliente.requestFocus();
+            panel4.setBackground(Color.RED);
+        }else{
+            panel4.setBackground(Color.WHITE);
+        }
+    }//GEN-LAST:event_nomeClienteFocusLost
+
     /**
      * @param args the command line arguments
      */
@@ -629,6 +678,7 @@ public class interface_criarCliente extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new interface_criarCliente().setVisible(true);
             }
@@ -637,6 +687,7 @@ public class interface_criarCliente extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private jaboc_UI.jabocUI_Utilidades.ButtonCirculo SingUp;
+    private jaboc_UI.jabocUI_Utilidades.TextField aaa;
     private jaboc_UI.jabocUI_Utilidades.ButtonCirculo bVoltar;
     private jaboc_UI.jabocUI_Utilidades.ButtonCirculo buttonCirculo1;
     private jaboc_UI.jabocUI_Utilidades.ButtonCirculo buttonCirculo2;
@@ -650,6 +701,7 @@ public class interface_criarCliente extends javax.swing.JFrame {
     private javax.swing.JLabel iuser;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
@@ -668,7 +720,6 @@ public class interface_criarCliente extends javax.swing.JFrame {
     private jaboc_UI.jabocUI_Utilidades.Panel panel9;
     private jaboc_UI.jabocUI_Utilidades.PasswordField senhaCliente;
     private jaboc_UI.jabocUI_Utilidades.TextField telefoneCliente;
-    private jaboc_UI.jabocUI_Utilidades.TextField textField1;
     private jaboc_UI.jabocUI_Utilidades.TextField textField2;
     private jaboc_UI.jabocUI_Utilidades.TextField textField3;
     private jaboc_UI.jabocUI_Utilidades.TextField textField4;

@@ -6,9 +6,6 @@ package jaboc_UI.jabocUI_Administrador;
 
 import jaboc_UI.jabocUI_Produtos.interface_gerenciarProdutos;
 import jaboc_UI.jabocUI_Funcionarios.interface_exibirFuncionarios;
-import jaboc_Classes.Conta_Cliente;
-import jaboc_Classes.listaFuncionarios;
-import jaboc_Classes.listaProdutos;
 import java.awt.Color;
 
 /**
@@ -16,9 +13,6 @@ import java.awt.Color;
  * @author eeuar
  */
 public class interface_areaGerencia extends javax.swing.JFrame {
-    private listaFuncionarios listaFuncionarios;
-    private listaProdutos listaProdutos;
-    private Conta_Cliente Conta_Cliente;
     /**
      * Creates new form interface_Gerencia
      */
@@ -218,21 +212,11 @@ public class interface_areaGerencia extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void editarCardapioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarCardapioActionPerformed
-        interface_gerenciarProdutos i_gerenciarCardapio = new interface_gerenciarProdutos();
-        i_gerenciarCardapio.recebeListaProdutos(listaProdutos);
-        i_gerenciarCardapio.recebeListaFuncionarios(listaFuncionarios);
-        i_gerenciarCardapio.recebeConta(Conta_Cliente);
-        i_gerenciarCardapio.setVisible(true);
-        this.dispose();
+
     }//GEN-LAST:event_editarCardapioActionPerformed
 
     private void editarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarFuncionarioActionPerformed
-        interface_exibirFuncionarios i_gerenciarFuncionarios = new interface_exibirFuncionarios();
-        i_gerenciarFuncionarios.recebeListaFuncionarios(listaFuncionarios);
-        i_gerenciarFuncionarios.recebeListaProdutos(listaProdutos);
-        i_gerenciarFuncionarios.recebeConta(Conta_Cliente);
-        i_gerenciarFuncionarios.setVisible(true);
-        this.dispose();
+
     }//GEN-LAST:event_editarFuncionarioActionPerformed
 
     private void editarCardapioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editarCardapioMouseEntered
@@ -252,12 +236,7 @@ public class interface_areaGerencia extends javax.swing.JFrame {
     }//GEN-LAST:event_editarFuncionarioMouseExited
 
     private void bVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVoltarActionPerformed
-         interface_Menu i_Menu = new interface_Menu();
-        i_Menu.recebeListaFuncionarios(listaFuncionarios);
-        i_Menu.recebeListaProdutos(listaProdutos);
-        i_Menu.recebeConta(Conta_Cliente);
-        i_Menu.setVisible(true);
-        this.dispose();
+       
     }//GEN-LAST:event_bVoltarActionPerformed
 
     private void bVoltarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bVoltarMouseEntered
@@ -267,16 +246,7 @@ public class interface_areaGerencia extends javax.swing.JFrame {
     private void bVoltarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bVoltarMouseExited
         bVoltar.setBackground(new Color(252, 252, 252));
     }//GEN-LAST:event_bVoltarMouseExited
-    public void recebeListaFuncionarios(listaFuncionarios listaFuncionarios){
-        this.listaFuncionarios = listaFuncionarios;
-    }
-    public void recebeListaProdutos(listaProdutos listaProdutos){
-        this.listaProdutos = listaProdutos;
-    }
-    public void recebeConta(Conta_Cliente Conta_Cliente){
-        this.Conta_Cliente = Conta_Cliente;
-    }
-    /**
+     /**
      * @param args the command line arguments
      */
     public static void gerencia(String args[]) {

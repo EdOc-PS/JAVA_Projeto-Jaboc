@@ -216,11 +216,7 @@ public class interface_Menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bGerenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bGerenciaActionPerformed
-        interface_areaSenhaGerencia i_areaSenhaGerencia = new interface_areaSenhaGerencia();
 
-        i_areaSenhaGerencia.recebeConta(Conta_Cliente);
-        i_areaSenhaGerencia.setVisible(true);
-        this.dispose();
     }//GEN-LAST:event_bGerenciaActionPerformed
 
     private void bGerenciaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bGerenciaMouseEntered

@@ -5,12 +5,7 @@
 package jaboc_UI.jabocUI_Funcionarios;
 
 import jaboc_Biblioteca.glasspanepopup.GlassPanePopup;
-import jaboc_UI.jabocUI_Funcionarios.interface_exibirFuncionarios;
 import jaboc_Classes.Conta_Cliente;
-import jaboc_Classes.Funcionario;
-import jaboc_Classes.Conta_Funcionario;
-import jaboc_Classes.listaFuncionarios;
-import jaboc_Classes.listaProdutos;
 import jaboc_UI.jabocUI_Utilidades.interface_popUpmensagen;
 import java.awt.Color;
 import javax.swing.JOptionPane;
@@ -22,13 +17,6 @@ import javax.swing.text.MaskFormatter;
  * @author eeuar
  */
 public class interface_criarFuncionario extends javax.swing.JFrame {
-
-    private Funcionario Funcionario;
-    private int Id_ContaFuncionario = 1;
-    private listaFuncionarios listaFuncionarios;
-    private listaProdutos listaProdutos;
-    private Conta_Cliente Conta_Cliente;
-
     /**
      * Creates new form NewJFrame
      */
@@ -327,21 +315,7 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    public void recebeListaFuncionarios(listaFuncionarios listaFuncionarios) {
-        this.listaFuncionarios = listaFuncionarios;
 
-        if (this.listaFuncionarios.getNAtualElementos() > 0) {
-            Id_ContaFuncionario = this.listaFuncionarios.ultimoItem(0).getIdFuncionario() + 1;
-        }
-    }
-
-    public void recebeListaProdutos(listaProdutos listaProdutos) {
-        this.listaProdutos = listaProdutos;
-    }
-
-    public void recebeConta(Conta_Cliente Conta_Cliente) {
-        this.Conta_Cliente = Conta_Cliente;
-    }
     private void enderecoFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enderecoFuncionarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_enderecoFuncionarioActionPerformed
@@ -359,39 +333,11 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
     }//GEN-LAST:event_cpfFuncionarioActionPerformed
 
     private void criarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_criarFuncionarioActionPerformed
-        if (!"".equals(nomeFuncionario.getText()) && !"   .   .   -  ".equals(cpfFuncionario.getText()) && !"".equals(enderecoFuncionario.getText()) && !"(  )      -    ".equals(telefoneFuncionario.getText())) {
-
-            if (senhaFuncionario.getText().equals(verificarSenhaFuncionario.getText()) && !senhaFuncionario.getText().equals("")) {
-                Funcionario = new Funcionario(nomeFuncionario.getText(), cpfFuncionario.getText(), enderecoFuncionario.getText(), telefoneFuncionario.getText(),
-                        String.valueOf(cargoFuncionario.getSelectedItem()));
-
-                listaFuncionarios.inserirItem(new Conta_Funcionario(Id_ContaFuncionario++, Funcionario, senhaFuncionario.getText()));
-                JOptionPane.showMessageDialog(null, Funcionario.toString(), "Funcionário cadastrado!", WIDTH);
-                nomeFuncionario.setText("");
-                cpfFuncionario.setText("");
-                enderecoFuncionario.setText("");
-                telefoneFuncionario.setText("");
-                senhaFuncionario.setText("");
-                verificarSenhaFuncionario.setText("");
-                cargoFuncionario.setSelectedItem("Cozinheiro(a)");
-            } else {
-                JOptionPane.showMessageDialog(null, "Senhas informadas incorretamente!", "Erro", WIDTH);
-                senhaFuncionario.setText("");
-                verificarSenhaFuncionario.setText("");
-            }
-
-        } else {
-            GlassPanePopup.showPopup(new interface_popUpmensagen());
-        }
+       
     }//GEN-LAST:event_criarFuncionarioActionPerformed
 
     private void sair_criarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sair_criarFuncionarioActionPerformed
-        interface_exibirFuncionarios exibirFuncionarios = new interface_exibirFuncionarios();
-        exibirFuncionarios.setVisible(true);
-        exibirFuncionarios.recebeListaFuncionarios(listaFuncionarios);
-        exibirFuncionarios.recebeListaProdutos(listaProdutos);
-        exibirFuncionarios.recebeConta(Conta_Cliente);
-        this.dispose();
+
     }//GEN-LAST:event_sair_criarFuncionarioActionPerformed
 
     private void sair_criarFuncionario2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sair_criarFuncionario2MouseEntered
