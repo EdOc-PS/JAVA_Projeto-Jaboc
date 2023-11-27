@@ -24,7 +24,7 @@ public class PasswordField extends JPasswordField {
     public PasswordField() {
         setOpaque(false);
         setBorder(new EmptyBorder(1, 3, 1, 3));
-        setFont(new java.awt.Font("Seoge UI", 0, 12));
+        setFont(new java.awt.Font("Gill Sans MT", 0, 14));
         setForeground(new Color(153, 153, 153));
         setEchoChar((char) 0);
 

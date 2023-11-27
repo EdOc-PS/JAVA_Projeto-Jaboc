@@ -41,11 +41,12 @@ public class interface_loginCliente extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         panel1 = new jaboc_UI.jabocUI_Utilidades.Panel();
         panel5 = new jaboc_UI.jabocUI_Utilidades.Panel();
-        cpfCliente = new jaboc_UI.jabocUI_Utilidades.TextField();
+        cpfCliente_login = new jaboc_UI.jabocUI_Utilidades.TextField();
         icpf = new javax.swing.JLabel();
         panel11 = new jaboc_UI.jabocUI_Utilidades.Panel();
-        senhaCliente3 = new jaboc_UI.jabocUI_Utilidades.PasswordField();
+        senhaCliente_login = new jaboc_UI.jabocUI_Utilidades.PasswordField();
         isenha3 = new javax.swing.JLabel();
+        buttonCirculo2 = new jaboc_UI.jabocUI_Utilidades.ButtonCirculo();
         panel3 = new jaboc_UI.jabocUI_Utilidades.Panel();
         jLabel6 = new javax.swing.JLabel();
         loginAcess = new javax.swing.JLabel();
@@ -122,11 +123,11 @@ public class interface_loginCliente extends javax.swing.JFrame {
 
         panel5.setBackground(new java.awt.Color(255, 255, 255));
 
-        cpfCliente.setBackground(new java.awt.Color(255, 255, 255));
-        cpfCliente.setText(" CPF:");
-        cpfCliente.addActionListener(new java.awt.event.ActionListener() {
+        cpfCliente_login.setBackground(new java.awt.Color(255, 255, 255));
+        cpfCliente_login.setText(" CPF:");
+        cpfCliente_login.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cpfClienteActionPerformed(evt);
+                cpfCliente_loginActionPerformed(evt);
             }
         });
 
@@ -141,11 +142,11 @@ public class interface_loginCliente extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(icpf, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(cpfCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 331, Short.MAX_VALUE))
+                .addComponent(cpfCliente_login, javax.swing.GroupLayout.DEFAULT_SIZE, 331, Short.MAX_VALUE))
         );
         panel5Layout.setVerticalGroup(
             panel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(cpfCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(cpfCliente_login, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(panel5Layout.createSequentialGroup()
                 .addComponent(icpf, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
@@ -153,8 +154,8 @@ public class interface_loginCliente extends javax.swing.JFrame {
 
         panel11.setBackground(new java.awt.Color(255, 255, 255));
 
-        senhaCliente3.setBackground(new java.awt.Color(255, 255, 255));
-        senhaCliente3.setText("Senha:");
+        senhaCliente_login.setBackground(new java.awt.Color(255, 255, 255));
+        senhaCliente_login.setText(" Senha:");
 
         isenha3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         isenha3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconLabel/senha.png"))); // NOI18N
@@ -166,18 +167,26 @@ public class interface_loginCliente extends javax.swing.JFrame {
             .addGroup(panel11Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(isenha3, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(senhaCliente3, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(88, 88, 88))
+                .addGap(0, 0, 0)
+                .addComponent(senhaCliente_login, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0))
         );
         panel11Layout.setVerticalGroup(
             panel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel11Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(panel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(senhaCliente3, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
+                    .addComponent(senhaCliente_login, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
                     .addComponent(isenha3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
+
+        buttonCirculo2.setBackground(new java.awt.Color(252, 252, 252));
+        buttonCirculo2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconLabel/olho.png"))); // NOI18N
+        buttonCirculo2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonCirculo2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
         panel1.setLayout(panel1Layout);
@@ -187,8 +196,11 @@ public class interface_loginCliente extends javax.swing.JFrame {
                 .addContainerGap(25, Short.MAX_VALUE)
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(panel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(panel11, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25))
+                    .addGroup(panel1Layout.createSequentialGroup()
+                        .addComponent(panel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(buttonCirculo2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(24, 24, 24))
         );
         panel1Layout.setVerticalGroup(
             panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -196,7 +208,9 @@ public class interface_loginCliente extends javax.swing.JFrame {
                 .addGap(25, 25, 25)
                 .addComponent(panel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(panel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(panel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonCirculo2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(25, Short.MAX_VALUE))
         );
 
@@ -256,9 +270,9 @@ public class interface_loginCliente extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(panel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addContainerGap(137, Short.MAX_VALUE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(panel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(130, 130, 130)))
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -324,9 +338,17 @@ public class interface_loginCliente extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_loginAcessMousePressed
 
-    private void cpfClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cpfClienteActionPerformed
+    private void cpfCliente_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cpfCliente_loginActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cpfClienteActionPerformed
+    }//GEN-LAST:event_cpfCliente_loginActionPerformed
+
+    private void buttonCirculo2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCirculo2ActionPerformed
+        if(senhaCliente_login.equals(" Senha:")){
+
+        }else{
+            senhaCliente_login.setEchoChar((char) 0);
+        }
+    }//GEN-LAST:event_buttonCirculo2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -366,7 +388,8 @@ public class interface_loginCliente extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private jaboc_UI.jabocUI_Utilidades.ButtonCirculo bVoltar;
     private jaboc_UI.jabocUI_Utilidades.ButtonCirculo buttonCirculo1;
-    private jaboc_UI.jabocUI_Utilidades.TextField cpfCliente;
+    private jaboc_UI.jabocUI_Utilidades.ButtonCirculo buttonCirculo2;
+    private jaboc_UI.jabocUI_Utilidades.TextField cpfCliente_login;
     private javax.swing.JLabel icpf;
     private javax.swing.JLabel isenha3;
     private javax.swing.JLabel jLabel1;
@@ -379,6 +402,6 @@ public class interface_loginCliente extends javax.swing.JFrame {
     private jaboc_UI.jabocUI_Utilidades.Panel panel11;
     private jaboc_UI.jabocUI_Utilidades.Panel panel3;
     private jaboc_UI.jabocUI_Utilidades.Panel panel5;
-    private jaboc_UI.jabocUI_Utilidades.PasswordField senhaCliente3;
+    private jaboc_UI.jabocUI_Utilidades.PasswordField senhaCliente_login;
     // End of variables declaration//GEN-END:variables
 }
