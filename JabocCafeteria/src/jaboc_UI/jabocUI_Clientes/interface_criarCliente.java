@@ -5,11 +5,8 @@ package jaboc_UI.jabocUI_Clientes;
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 import jaboc_BancoDeDados.DAO.daoConta;
-import jaboc_BancoDeDados.daoConta;
-import jaboc_Biblioteca.glasspanepopup.GlassPanePopup;
 import jaboc_Classes.Conta_Cliente;
 import jaboc_Classes.Pessoa;
-
 import jaboc_UI.jabocUI_Administrador.interface_Menu;
 import jaboc_UI.jabocUI_Cardapio.interface_Cardapio;
 import jaboc_UI.jabocUI_Utilidades.interface_popUpmensagen;
@@ -19,13 +16,15 @@ import java.sql.SQLException;
 import java.util.Arrays;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import raven.glasspanepopup.GlassPanePopup;
 
 /**
  *
  * @author guilh
  */
 public class interface_criarCliente extends javax.swing.JFrame {
-
+    
+    private boolean activeButton = true, activeButton1 = true;
     /**
      * Creates new form interfaceCliente
      */
@@ -79,8 +78,8 @@ public class interface_criarCliente extends javax.swing.JFrame {
         panel9 = new jaboc_UI.jabocUI_Utilidades.Panel();
         verificarSenhaCliente = new jaboc_UI.jabocUI_Utilidades.PasswordField();
         isenha2 = new javax.swing.JLabel();
-        buttonCirculo1 = new jaboc_UI.jabocUI_Utilidades.ButtonCirculo();
-        buttonCirculo2 = new jaboc_UI.jabocUI_Utilidades.ButtonCirculo();
+        bOlho = new jaboc_UI.jabocUI_Utilidades.ButtonCirculo();
+        bOlho1 = new jaboc_UI.jabocUI_Utilidades.ButtonCirculo();
         panel3 = new jaboc_UI.jabocUI_Utilidades.Panel();
         jLabel6 = new javax.swing.JLabel();
         loginAcess = new javax.swing.JLabel();
@@ -385,16 +384,26 @@ public class interface_criarCliente extends javax.swing.JFrame {
             .addComponent(isenha2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        buttonCirculo1.setBackground(new java.awt.Color(252, 252, 252));
-        buttonCirculo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconLabel/olho.png"))); // NOI18N
-        buttonCirculo1.addActionListener(new java.awt.event.ActionListener() {
+        bOlho.setBackground(new java.awt.Color(252, 252, 252));
+        bOlho.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconLabel/olho.png"))); // NOI18N
+        bOlho.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bOlhoMouseClicked(evt);
+            }
+        });
+        bOlho.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonCirculo1ActionPerformed(evt);
+                bOlhoActionPerformed(evt);
             }
         });
 
-        buttonCirculo2.setBackground(new java.awt.Color(252, 252, 252));
-        buttonCirculo2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconLabel/olho.png"))); // NOI18N
+        bOlho1.setBackground(new java.awt.Color(252, 252, 252));
+        bOlho1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconLabel/olho.png"))); // NOI18N
+        bOlho1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bOlho1MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout panel2Layout = new javax.swing.GroupLayout(panel2);
         panel2.setLayout(panel2Layout);
@@ -407,8 +416,8 @@ public class interface_criarCliente extends javax.swing.JFrame {
                     .addComponent(panel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(buttonCirculo1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonCirculo2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(bOlho, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bOlho1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panel2Layout.setVerticalGroup(
@@ -417,17 +426,19 @@ public class interface_criarCliente extends javax.swing.JFrame {
                 .addGap(25, 25, 25)
                 .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(panel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonCirculo1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(bOlho, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(panel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonCirculo2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(bOlho1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(25, 25, 25))
         );
 
         panel3.setBackground(new java.awt.Color(252, 252, 252));
 
+        jLabel6.setBackground(new java.awt.Color(153, 153, 153));
         jLabel6.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(153, 153, 153));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("Já tem uma conta?");
 
@@ -575,7 +586,7 @@ public class interface_criarCliente extends javax.swing.JFrame {
                 senhaC += caracter;
             }
             
-            Pessoa pessoa = new Pessoa(nomeC, cpfC, enderecoC, telefoneC) {}; 
+            Pessoa pessoa = new Pessoa(nomeC, cpfC, enderecoC, telefoneC); 
             Conta_Cliente ContaC = new Conta_Cliente(pessoa, senhaC);
             
             try {
@@ -631,13 +642,9 @@ public class interface_criarCliente extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_telefoneClienteActionPerformed
 
-    private void buttonCirculo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCirculo1ActionPerformed
-       if(senhaCliente.equals(" Senha:")){
-       
-       }else{
-            senhaCliente.setEchoChar((char) 0);
-       }
-    }//GEN-LAST:event_buttonCirculo1ActionPerformed
+    private void bOlhoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bOlhoActionPerformed
+     
+    }//GEN-LAST:event_bOlhoActionPerformed
 
     private void nomeClienteFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_nomeClienteFocusLost
         if(nomeCliente.getText().equals(" Nome:")){
@@ -647,6 +654,32 @@ public class interface_criarCliente extends javax.swing.JFrame {
             panel4.setBackground(Color.WHITE);
         }
     }//GEN-LAST:event_nomeClienteFocusLost
+
+    private void bOlhoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bOlhoMouseClicked
+         if(activeButton &&  !(senhaCliente.getText().equals(" Senha:"))){
+           bOlho.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconLabel/olho-cruzado.png")));
+           senhaCliente.setEchoChar('*');
+           activeButton = false;
+           
+       }else if(activeButton == false &&  !(senhaCliente.getText().equals(" Senha:"))){
+           bOlho.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconLabel/olho.png")));
+           senhaCliente.setEchoChar((char) 0);
+           activeButton = true; 
+       }
+    }//GEN-LAST:event_bOlhoMouseClicked
+
+    private void bOlho1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bOlho1MouseClicked
+         if(activeButton1 &&  !(verificarSenhaCliente.getText().equals(" Repita a Senha:"))){
+           bOlho1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconLabel/olho-cruzado.png")));
+           verificarSenhaCliente.setEchoChar('*');
+           activeButton1 = false;
+           
+       }else if(activeButton1 == false &&  !(verificarSenhaCliente.getText().equals(" Repita a Senha:"))){
+           bOlho1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconLabel/olho.png")));
+           verificarSenhaCliente.setEchoChar((char) 0);
+           activeButton1 = true; 
+       }
+    }//GEN-LAST:event_bOlho1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -688,9 +721,9 @@ public class interface_criarCliente extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private jaboc_UI.jabocUI_Utilidades.ButtonCirculo SingUp;
     private jaboc_UI.jabocUI_Utilidades.TextField aaa;
+    private jaboc_UI.jabocUI_Utilidades.ButtonCirculo bOlho;
+    private jaboc_UI.jabocUI_Utilidades.ButtonCirculo bOlho1;
     private jaboc_UI.jabocUI_Utilidades.ButtonCirculo bVoltar;
-    private jaboc_UI.jabocUI_Utilidades.ButtonCirculo buttonCirculo1;
-    private jaboc_UI.jabocUI_Utilidades.ButtonCirculo buttonCirculo2;
     private jaboc_UI.jabocUI_Utilidades.TextField cpfCliente;
     private jaboc_UI.jabocUI_Utilidades.TextField enderecoCliente;
     private javax.swing.JLabel icpf;

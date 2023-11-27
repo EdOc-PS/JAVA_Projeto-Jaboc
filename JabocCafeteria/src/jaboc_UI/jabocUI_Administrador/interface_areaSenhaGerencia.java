@@ -4,11 +4,12 @@
  */
 package jaboc_UI.jabocUI_Administrador;
 
-import jaboc_Biblioteca.glasspanepopup.GlassPanePopup;
+
 import jaboc_UI.jabocUI_Utilidades.interface_popUpmensagen;
 import java.awt.Color;
 import static java.awt.image.ImageObserver.WIDTH;
 import javax.swing.JOptionPane;
+import raven.glasspanepopup.GlassPanePopup;
 
 /**
  *
@@ -23,7 +24,6 @@ public class interface_areaSenhaGerencia extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         GlassPanePopup.install(this);
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

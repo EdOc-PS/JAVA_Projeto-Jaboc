@@ -4,10 +4,10 @@
  */
 package jaboc_UI.jabocUI_Clientes;
 
-import jaboc_Biblioteca.glasspanepopup.GlassPanePopup;
 import jaboc_UI.jabocUI_Administrador.interface_Menu;
 import jaboc_UI.jabocUI_Utilidades.interface_popUpmensagen;
 import java.awt.Color;
+import raven.glasspanepopup.GlassPanePopup;
 
 /**
  *
@@ -319,9 +319,8 @@ public class interface_loginCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_bVoltarActionPerformed
 
     private void buttonCirculo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCirculo1ActionPerformed
-            
-            GlassPanePopup.showPopup(new interface_popUpmensagen());
-       
+        
+         GlassPanePopup.showPopup(new interface_popUpmensagen());    
     }//GEN-LAST:event_buttonCirculo1ActionPerformed
 
     private void loginAcessMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginAcessMouseClicked

@@ -4,12 +4,12 @@
  */
 package jaboc_UI.jabocUI_Utilidades;
 
-import jaboc_Biblioteca.glasspanepopup.GlassPanePopup;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.awt.geom.RoundRectangle2D;
+import raven.glasspanepopup.GlassPanePopup;
 
 /**
  *

@@ -4,7 +4,6 @@
  */
 package jaboc_UI.jabocUI_Produtos;
 
-import jaboc_Biblioteca.glasspanepopup.GlassPanePopup;
 import jaboc_Classes.Conta_Cliente;
 import jaboc_Classes.Produto;
 import jaboc_UI.jabocUI_Cardapio.interface_Cardapio;
@@ -12,6 +11,7 @@ import jaboc_UI.jabocUI_Utilidades.interface_popUpmensagen;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import raven.glasspanepopup.GlassPanePopup;
 
 /**
  *

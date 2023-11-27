@@ -4,8 +4,7 @@
  */
 package jaboc_UI.jabocUI_Cardapio;
 
-import jaboc_Biblioteca.glasspanepopup.DefaultOption;
-import jaboc_Biblioteca.glasspanepopup.GlassPanePopup;
+
 import jaboc_Biblioteca.outras.ModernScrollBarUI;
 import jaboc_UI.jabocUI_Clientes.interface_editarCliente;
 import jaboc_Classes.Conta_Cliente;
@@ -14,8 +13,12 @@ import jaboc_UI.jabocUI_Clientes.interface_editarCliente;
 import jaboc_UI.jabocUI_Utilidades.interface_popUpmensagen;
 import java.awt.Color;
 import java.awt.Dimension;
+import javax.swing.BorderFactory;
 import javax.swing.JScrollBar;
+import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
+import raven.glasspanepopup.DefaultOption;
+import raven.glasspanepopup.GlassPanePopup;
 
 /**
  *
@@ -35,8 +38,9 @@ public class interface_Cardapio extends javax.swing.JFrame {
         bar.setForeground(new Color(223,204,251));
         bar.setPreferredSize(new Dimension(8, 5));
         bar.setUI(new ModernScrollBarUI());
-      
+        UIManager.put("tabelaCardapio.borderColor", 2);
         scrollCardapio.setViewportBorder(null);
+    
     }
 
     /**
@@ -159,6 +163,9 @@ public class interface_Cardapio extends javax.swing.JFrame {
 
         panel2.setBackground(new java.awt.Color(255, 255, 255));
 
+        scrollCardapio.setBorder(null);
+        scrollCardapio.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+
         tabelaCardapio.setBackground(new java.awt.Color(255, 255, 255));
         tabelaCardapio.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
         tabelaCardapio.setForeground(new java.awt.Color(79, 84, 101));
@@ -182,6 +189,8 @@ public class interface_Cardapio extends javax.swing.JFrame {
         scrollCardapio.setViewportView(tabelaCardapio);
         tabelaCardapio.setRowHeight(45);
         tabelaCardapio.setShowGrid(false);
+        tabelaCardapio.setShowVerticalLines(false);
+        tabelaCardapio.setShowHorizontalLines(false);
         if (tabelaCardapio.getColumnModel().getColumnCount() > 0) {
             tabelaCardapio.getColumnModel().getColumn(0).setPreferredWidth(180);
             tabelaCardapio.getColumnModel().getColumn(1).setPreferredWidth(50);

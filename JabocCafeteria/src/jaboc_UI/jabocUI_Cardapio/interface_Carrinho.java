@@ -4,7 +4,7 @@
  */
 package jaboc_UI.jabocUI_Cardapio;
 
-import jaboc_Biblioteca.glasspanepopup.GlassPanePopup;
+
 import java.awt.Color;
 import java.awt.Dimension;
 
@@ -15,6 +15,7 @@ import java.awt.geom.RoundRectangle2D;
 import javax.swing.JScrollBar;
 import jaboc_Biblioteca.outras.ModernScrollBarUI;
 import net.miginfocom.swing.MigLayout;
+import raven.glasspanepopup.GlassPanePopup;
 
 /**
  *
@@ -42,6 +43,7 @@ public class interface_Carrinho extends javax.swing.JPanel {
         panelCarrinho.add(new interface_itemCarrinho("Pão", "Descrição", "100"));
         panelCarrinho.add(new interface_itemCarrinho("Pão", "Descrição", "100"));
         panelCarrinho.add(new interface_itemCarrinho("Pão", "Descrição", "100"));
+           panelCarrinho.add(new interface_itemCarrinho("Pão", "Descrição", "100"));
     }
 
     protected void paintComponent(Graphics g) {
@@ -120,7 +122,7 @@ public class interface_Carrinho extends javax.swing.JPanel {
             panelPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(scrollCarrinho, javax.swing.GroupLayout.DEFAULT_SIZE, 293, Short.MAX_VALUE)
+                .addComponent(scrollCarrinho, javax.swing.GroupLayout.DEFAULT_SIZE, 308, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -149,15 +151,15 @@ public class interface_Carrinho extends javax.swing.JPanel {
         panel1Layout.setVerticalGroup(
             panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel1Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panel1Layout.createSequentialGroup()
+                        .addContainerGap()
                         .addComponent(bPopUpExit, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(panel1Layout.createSequentialGroup()
-                        .addGap(0, 18, Short.MAX_VALUE)
-                        .addComponent(carrinhotxt, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
+                        .addContainerGap(17, Short.MAX_VALUE)
+                        .addComponent(carrinhotxt, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(15, 15, 15)))
                 .addComponent(panelP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
