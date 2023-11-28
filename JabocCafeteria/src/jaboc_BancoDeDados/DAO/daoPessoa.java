@@ -4,6 +4,7 @@
  */
 package jaboc_BancoDeDados.DAO;
 
+import jaboc_BancoDeDados.Conexao.Conexao;
 import jaboc_Classes.Conta;
 import java.sql.Connection;
 import java.sql.SQLException;

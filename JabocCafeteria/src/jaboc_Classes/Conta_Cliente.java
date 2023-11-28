@@ -16,6 +16,10 @@ public class Conta_Cliente extends Conta{
        this.gastoTotal = 0.0;
     }
     
+    public Conta_Cliente(Pessoa titularCliente, String senhaCliente, double gastoTotal){
+        super(titularCliente, senhaCliente);
+        this.gastoTotal = gastoTotal;
+    }
     public void setGastoTotal(double gastoTotal){
         this.gastoTotal = gastoTotal;
     }

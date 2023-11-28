@@ -4,6 +4,7 @@
  */
 package jaboc_BancoDeDados.DAO;
 
+import jaboc_BancoDeDados.Conexao.Conexao;
 import java.sql.*;
 import java.sql.SQLException;
 import jaboc_Classes.Conta;
@@ -98,7 +99,7 @@ public class daoConta {
         return selectFuncionario.next();
     }
     
-    public static boolean existeCliente(String cpf) throws SQLException{
+    public static boolean existClient(String cpf) throws SQLException{
         Connection conexao = Conexao.conectar();
         
         String selectC = "SELECT cpfCliente FROM jaboc_servidor.Conta_Cliente WHERE cpfCliente = '"+ cpf +"';";
@@ -108,6 +109,21 @@ public class daoConta {
         
         return selectCliente.next();
     }   
+    
+    public static ResultSet selectCliente(String cpf){
+       ResultSet resultSelection = null;
+        try{
+            Connection conexao = Conexao.conectar();
+
+            String getCliente_info = "SELECT C.cpfCliente, C.senhaCliente, P.nome, P.endereco, P.telefone, C.gastoTotal FROM "
+                    + "jaboc_servidor.Conta_Cliente C, jaboc_servidor.Pessoa P WHERE cpfCliente = '"+ cpf + "' AND cpf = cpfCliente;";
+            
+            resultSelection = conexao.createStatement().executeQuery(getCliente_info);
+        }catch(SQLException error){
+            System.out.println("Erro: "+ error.getMessage());
+    }
+        return resultSelection;
+    }
     
     public static boolean delete_ContaFuncionario(String cpf) throws SQLException{
         

@@ -8,7 +8,7 @@ package jaboc_Classes;
  *
  * @author guilh
  */
-public abstract class Pessoa {
+public class Pessoa {
     private String nome;
     private String cpf;
     private String endereco;
