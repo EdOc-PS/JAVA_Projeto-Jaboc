@@ -569,10 +569,10 @@ public class interface_criarCliente extends javax.swing.JFrame {
             String cpfC = cpfCliente.getText();
             String enderecoC = enderecoCliente.getText();
             String telefoneC = telefoneCliente.getText();
-            char[] senhaC_char = null;
+            String senhaC = null;
             
             if(Arrays.equals(senhaCliente.getPassword(), verificarSenhaCliente.getPassword())){
-                senhaC_char = senhaCliente.getPassword();
+                senhaC = new String(senhaCliente.getPassword());
             }else{
                 senhaCliente.setText(" Senha:");
                 senhaCliente.setEchoChar((char) 0);
@@ -580,24 +580,19 @@ public class interface_criarCliente extends javax.swing.JFrame {
                 verificarSenhaCliente.setEchoChar((char) 0);
                 //GlassPanePopup.showPopup(new interface_popUpSenha());
             }
-            
-            String senhaC = null;
-            for(char caracter: senhaC_char){
-                senhaC += caracter;
-            }
-            
-            Pessoa pessoa = new Pessoa(nomeC, cpfC, enderecoC, telefoneC); 
-            Conta_Cliente ContaC = new Conta_Cliente(pessoa, senhaC);
+           
+            Pessoa cadastrarPessoa = new Pessoa(nomeC, cpfC, enderecoC, telefoneC); 
+            Conta_Cliente cadastrarContaC = new Conta_Cliente(cadastrarPessoa, senhaC);
             
             try {
-                if(!daoConta.insertConta(ContaC)){
+                if(!daoConta.insertConta(cadastrarContaC)){
                     if(daoConta.existeCliente(cpfC)){
                         interface_loginCliente iLoginCliente = new interface_loginCliente();
                         this.dispose();
                         iLoginCliente.setVisible(true);
                     }else{
                         //Colocar um Joptin pane
-                        daoConta.insertFuncionario_emContaCliente(ContaC);                     
+                        daoConta.insertFuncionario_emContaCliente(cadastrarContaC);                     
                     }
                 }                   
             }catch (SQLException error) {
