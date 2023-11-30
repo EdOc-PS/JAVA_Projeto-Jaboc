@@ -20,10 +20,10 @@ import javax.swing.text.MaskFormatter;
  * @author eeuar
  */
 public class FormatedTextField extends JFormattedTextField{
-     String arm;
+    String arm;
     int cont = 1;
     MaskFormatter maskF;
-
+    String form;
     public FormatedTextField() {
 
         setOpaque(false);
@@ -33,7 +33,7 @@ public class FormatedTextField extends JFormattedTextField{
         setBackground(new Color(255,255,255));
 
         try {
-            maskF = new MaskFormatter("###.###.###-##");
+            maskF = new MaskFormatter(form);
             maskF.setPlaceholderCharacter('_');
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -77,5 +77,8 @@ public class FormatedTextField extends JFormattedTextField{
         g2.dispose();
 
         super.paintComponent(g); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+    }
+    public void addFormatacao(String formato){
+        form = formato;
     }
 }

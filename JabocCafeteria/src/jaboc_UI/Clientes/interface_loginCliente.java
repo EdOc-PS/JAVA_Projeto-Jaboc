@@ -363,8 +363,8 @@ public class interface_loginCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_loginClienteActionPerformed
 
     private void loginAcessMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginAcessMouseClicked
-        interface_loginCliente i_lCliente = new interface_loginCliente();
-        i_lCliente.setVisible(true);
+        interface_criarCliente i_cCliente = new interface_criarCliente();
+        i_cCliente.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_loginAcessMouseClicked
 
