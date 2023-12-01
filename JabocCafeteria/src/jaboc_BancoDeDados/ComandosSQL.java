@@ -31,5 +31,6 @@ public interface ComandosSQL {
     public boolean insert(Object o);
     public <T> boolean delete(T param);
     public <T> boolean update(Object o, T param);
+    public String alertaErro(Object o, String frase);
     
 }
