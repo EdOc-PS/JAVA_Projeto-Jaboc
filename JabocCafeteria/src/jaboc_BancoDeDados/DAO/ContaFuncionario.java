@@ -5,6 +5,7 @@
 package jaboc_BancoDeDados.DAO;
 
 import jaboc_BancoDeDados.ComandosSQL;
+import jaboc_BancoDeDados.Identificacao;
 import java.sql.*;
 import jaboc_Classes.Conta_Cliente;
 import jaboc_Classes.Conta_Funcionario;
@@ -13,8 +14,16 @@ import jaboc_Classes.Conta_Funcionario;
  *
  * @author guilh
  */
-public class ContaFuncionario implements ComandosSQL {
+public class ContaFuncionario implements ComandosSQL, Identificacao{
        
+    @Override
+    public String identificar (Object o){
+        Conta_Cliente identificarConta = (Conta_Cliente) o;
+        
+        return identificarConta.getTitular().getCpf();
+    }
+    
+    
     @Override
     public ResultSet selectTodos(){
                
