@@ -43,7 +43,7 @@ public class interface_Carrinho extends javax.swing.JPanel {
         panelCarrinho.add(new interface_itemCarrinho("Pão", "Descrição", "100"));
         panelCarrinho.add(new interface_itemCarrinho("Pão", "Descrição", "100"));
         panelCarrinho.add(new interface_itemCarrinho("Pão", "Descrição", "100"));
-           panelCarrinho.add(new interface_itemCarrinho("Pão", "Descrição", "100"));
+
     }
 
     protected void paintComponent(Graphics g) {
@@ -85,7 +85,7 @@ public class interface_Carrinho extends javax.swing.JPanel {
 
         bPopUpExit.setBackground(new java.awt.Color(250, 112, 112));
         bPopUpExit.setForeground(new java.awt.Color(255, 255, 255));
-        bPopUpExit.setText("X");
+        bPopUpExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/x.png"))); // NOI18N
         bPopUpExit.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         bPopUpExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
