@@ -19,7 +19,6 @@ public class ButtonCirculo extends JButton {
 
     public ButtonCirculo() {
         setContentAreaFilled(false);
-        setBorder(new EmptyBorder(1, 3, 1 ,3));
         setFocusPainted(false);
         setFont(new java.awt.Font("Gill Sans MT", 1, 16));
         setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));

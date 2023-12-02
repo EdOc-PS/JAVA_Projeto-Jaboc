@@ -26,8 +26,7 @@ public class interface_Menu extends javax.swing.JFrame {
     public interface_Menu() {
         initComponents();
         setLocationRelativeTo(null);
-        Utilitarios u = new Utilitarios();
-        u.InserirIcone(this);
+        
     }
 
     /**

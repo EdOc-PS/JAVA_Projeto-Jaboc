@@ -90,7 +90,7 @@
                           <Component id="panel3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="71" max="32767" attributes="0"/>
+                  <EmptySpace pref="65" max="32767" attributes="0"/>
                   <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -277,7 +277,8 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="iuser" min="-2" pref="25" max="-2" attributes="0"/>
                           <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                          <Component id="nomeCliente" pref="338" max="32767" attributes="0"/>
+                          <Component id="nomeCliente" pref="332" max="32767" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -331,7 +332,8 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="icpf" min="-2" pref="23" max="-2" attributes="0"/>
                           <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                          <Component id="cpfCliente" pref="155" max="32767" attributes="0"/>
+                          <Component id="cpfCliente" pref="149" max="32767" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -375,8 +377,8 @@
                           <EmptySpace max="32767" attributes="0"/>
                           <Component id="itel" min="-2" pref="23" max="-2" attributes="0"/>
                           <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                          <Component id="telefoneCliente" min="-2" pref="144" max="-2" attributes="0"/>
-                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                          <Component id="telefoneCliente" min="-2" pref="138" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -422,7 +424,8 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="itel2" min="-2" pref="23" max="-2" attributes="0"/>
                           <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                          <Component id="enderecoCliente" min="-2" pref="340" max="-2" attributes="0"/>
+                          <Component id="enderecoCliente" min="-2" pref="334" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -518,7 +521,7 @@
                           <Component id="isenha" min="-2" pref="23" max="-2" attributes="0"/>
                           <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                           <Component id="senhaCliente" max="32767" attributes="0"/>
-                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -571,7 +574,7 @@
                           <Component id="isenha2" min="-2" pref="23" max="-2" attributes="0"/>
                           <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                           <Component id="verificarSenhaCliente" pref="292" max="32767" attributes="0"/>
-                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>

@@ -324,8 +324,8 @@ public class interface_loginCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_bVoltarMouseExited
 
     private void bVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVoltarActionPerformed
-        interface_Menu i_Menu = new interface_Menu();    
-        i_Menu.setVisible(true);
+        interface_menuCliente i_menuCliente = new interface_menuCliente();
+        i_menuCliente.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_bVoltarActionPerformed
 

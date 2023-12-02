@@ -29,9 +29,9 @@ public class TextField extends JTextField {
     int cont = 1;
 
     public TextField() {
-
+      
         setOpaque(false);
-        setBorder(new EmptyBorder(1, 3, 1, 3));
+        setBorder(new EmptyBorder(5, 7, 5, 7));
         setFont(new java.awt.Font("Gill Sans MT", 0, 14));
         setForeground(new Color(153, 153, 153));
 
