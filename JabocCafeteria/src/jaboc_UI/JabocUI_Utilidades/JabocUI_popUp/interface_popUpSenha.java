@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package jaboc_UI.jabocUI_Utilidades;
+package jaboc_UI.jabocUI_Utilidades.JabocUI_popUp;
 
 import java.awt.Color;
 import java.awt.Graphics;
