@@ -33,7 +33,7 @@ public class FormatedTextField extends JFormattedTextField{
         setBackground(new Color(255,255,255));
 
         try {
-            maskF = new MaskFormatter(form);
+            maskF = new MaskFormatter("###.###.###-##");
             maskF.setPlaceholderCharacter('_');
         } catch (Exception ex) {
             ex.printStackTrace();
