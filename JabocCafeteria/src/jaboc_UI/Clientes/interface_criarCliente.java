@@ -4,20 +4,17 @@ package jaboc_UI.Clientes;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-import jaboc_BancoDeDados.DAO.daoConta;
-import jaboc_Classes.Conta_Cliente;
-import jaboc_Classes.Pessoa;
-import jaboc_UI.Administrador.interface_Menu;
-import jaboc_UI.Cardapio.interface_Cardapio;
-import jaboc_UI.jabocUI_Utilidades.JabocUI_popUp.PopUp_Senha;
-import jaboc_UI.jabocUI_Utilidades.PopUp_mensagen;
+import jaboc_BancoDeDados.AcessandoBD;
 import java.awt.Color;
-import java.sql.SQLException;
-import java.util.Arrays;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
-import raven.glasspanepopup.GlassPanePopup;
-
+import jaboc_Biblioteca.glasspanepopup.GlassPanePopup;
+import jaboc_Classes.Conta_Cliente;
+import jaboc_BancoDeDados.DAO.DAO_ContaCliente;
+import jaboc_BancoDeDados.DAO.DAO_ContaFuncionario;
+import jaboc_BancoDeDados.DAO.DAO_Pessoa;
+import jaboc_Classes.Pessoa;
+import jaboc_UI.jabocUI_Utilidades.JabocUI_popUp.PopUp_FuncionarioParaCliente;
 /**
  *
  * @author guilh
@@ -33,8 +30,8 @@ public class interface_criarCliente extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         GlassPanePopup.install(this);
         
-        cpfCliente.addFormatacao("");
-        telefoneCliente.addFormatacao("(##) #####-####");
+        cpfCliente_cadastrar.addFormatacao("###.###.###-##");
+        telefoneCliente_cadastrar.addFormatacao("(##) #####-####");
     }
 
     /**
@@ -63,23 +60,23 @@ public class interface_criarCliente extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         panel1 = new jaboc_UI.jabocUI_Utilidades.Panel();
         panel4 = new jaboc_UI.jabocUI_Utilidades.Panel();
-        nomeCliente = new jaboc_UI.jabocUI_Utilidades.TextField();
+        nomeCliente_cadastrar = new jaboc_UI.jabocUI_Utilidades.TextField();
         iuser = new javax.swing.JLabel();
         panel5 = new jaboc_UI.jabocUI_Utilidades.Panel();
         icpf = new javax.swing.JLabel();
-        cpfCliente = new jaboc_UI.JabocUI_Utilidades.JabocUI_Classes.FormatedTextField();
+        cpfCliente_cadastrar = new jaboc_UI.JabocUI_Utilidades.JabocUI_Classes.FormatedTextField();
         panel6 = new jaboc_UI.jabocUI_Utilidades.Panel();
         itel = new javax.swing.JLabel();
-        telefoneCliente = new jaboc_UI.JabocUI_Utilidades.JabocUI_Classes.FormatedTextField();
+        telefoneCliente_cadastrar = new jaboc_UI.JabocUI_Utilidades.JabocUI_Classes.FormatedTextField();
         panel7 = new jaboc_UI.jabocUI_Utilidades.Panel();
-        enderecoCliente = new jaboc_UI.jabocUI_Utilidades.TextField();
+        enderecoCliente_cadastrar = new jaboc_UI.jabocUI_Utilidades.TextField();
         itel2 = new javax.swing.JLabel();
         panel2 = new jaboc_UI.jabocUI_Utilidades.Panel();
         panel8 = new jaboc_UI.jabocUI_Utilidades.Panel();
-        senhaCliente = new jaboc_UI.jabocUI_Utilidades.PasswordField();
+        senhaCliente_cadastrar = new jaboc_UI.jabocUI_Utilidades.PasswordField();
         isenha = new javax.swing.JLabel();
         panel9 = new jaboc_UI.jabocUI_Utilidades.Panel();
-        verificarSenhaCliente = new jaboc_UI.jabocUI_Utilidades.PasswordField();
+        verificarSenhaCliente_cadastrar = new jaboc_UI.jabocUI_Utilidades.PasswordField();
         isenha2 = new javax.swing.JLabel();
         bOlho = new jaboc_UI.jabocUI_Utilidades.ButtonCirculo();
         bOlho1 = new jaboc_UI.jabocUI_Utilidades.ButtonCirculo();
@@ -177,16 +174,15 @@ public class interface_criarCliente extends javax.swing.JFrame {
 
         panel4.setBackground(new java.awt.Color(255, 255, 255));
 
-        nomeCliente.setBackground(new java.awt.Color(255, 255, 255));
-        nomeCliente.setText(" Nome:");
-        nomeCliente.addFocusListener(new java.awt.event.FocusAdapter() {
+        nomeCliente_cadastrar.setText(" Nome:");
+        nomeCliente_cadastrar.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                nomeClienteFocusLost(evt);
+                nomeCliente_cadastrarFocusLost(evt);
             }
         });
-        nomeCliente.addActionListener(new java.awt.event.ActionListener() {
+        nomeCliente_cadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nomeClienteActionPerformed(evt);
+                nomeCliente_cadastrarActionPerformed(evt);
             }
         });
 
@@ -201,7 +197,7 @@ public class interface_criarCliente extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(iuser, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(nomeCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 332, Short.MAX_VALUE)
+                .addComponent(nomeCliente_cadastrar, javax.swing.GroupLayout.DEFAULT_SIZE, 332, Short.MAX_VALUE)
                 .addContainerGap())
         );
         panel4Layout.setVerticalGroup(
@@ -210,7 +206,7 @@ public class interface_criarCliente extends javax.swing.JFrame {
                 .addGap(0, 0, 0)
                 .addGroup(panel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(iuser, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
-                    .addComponent(nomeCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(nomeCliente_cadastrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -219,7 +215,7 @@ public class interface_criarCliente extends javax.swing.JFrame {
         icpf.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         icpf.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconLabel/cpf.png"))); // NOI18N
 
-        cpfCliente.setText(" CPF:");
+        cpfCliente_cadastrar.setText(" CPF:");
 
         javax.swing.GroupLayout panel5Layout = new javax.swing.GroupLayout(panel5);
         panel5.setLayout(panel5Layout);
@@ -229,14 +225,14 @@ public class interface_criarCliente extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(icpf, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(cpfCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)
+                .addComponent(cpfCliente_cadastrar, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)
                 .addContainerGap())
         );
         panel5Layout.setVerticalGroup(
             panel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(icpf, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(panel5Layout.createSequentialGroup()
-                .addComponent(cpfCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cpfCliente_cadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -245,10 +241,10 @@ public class interface_criarCliente extends javax.swing.JFrame {
         itel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         itel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconLabel/tel.png"))); // NOI18N
 
-        telefoneCliente.setText(" Telefone:");
-        telefoneCliente.addActionListener(new java.awt.event.ActionListener() {
+        telefoneCliente_cadastrar.setText(" Telefone:");
+        telefoneCliente_cadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                telefoneClienteActionPerformed(evt);
+                telefoneCliente_cadastrarActionPerformed(evt);
             }
         });
 
@@ -260,7 +256,7 @@ public class interface_criarCliente extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(itel, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(telefoneCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(telefoneCliente_cadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         panel6Layout.setVerticalGroup(
@@ -268,14 +264,13 @@ public class interface_criarCliente extends javax.swing.JFrame {
             .addGroup(panel6Layout.createSequentialGroup()
                 .addGroup(panel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(itel, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(telefoneCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(telefoneCliente_cadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
         panel7.setBackground(new java.awt.Color(255, 255, 255));
 
-        enderecoCliente.setBackground(new java.awt.Color(255, 255, 255));
-        enderecoCliente.setText(" Endereço:");
+        enderecoCliente_cadastrar.setText(" Endereço:");
 
         itel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         itel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconLabel/casa.png"))); // NOI18N
@@ -288,7 +283,7 @@ public class interface_criarCliente extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(itel2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(enderecoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(enderecoCliente_cadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         panel7Layout.setVerticalGroup(
@@ -296,7 +291,7 @@ public class interface_criarCliente extends javax.swing.JFrame {
             .addGroup(panel7Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(panel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(enderecoCliente, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(enderecoCliente_cadastrar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(itel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
@@ -337,11 +332,10 @@ public class interface_criarCliente extends javax.swing.JFrame {
 
         panel8.setBackground(new java.awt.Color(255, 255, 255));
 
-        senhaCliente.setBackground(new java.awt.Color(255, 255, 255));
-        senhaCliente.setText(" Senha:");
-        senhaCliente.addActionListener(new java.awt.event.ActionListener() {
+        senhaCliente_cadastrar.setText(" Senha:");
+        senhaCliente_cadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                senhaClienteActionPerformed(evt);
+                senhaCliente_cadastrarActionPerformed(evt);
             }
         });
 
@@ -356,7 +350,7 @@ public class interface_criarCliente extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(isenha, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(senhaCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(senhaCliente_cadastrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         panel8Layout.setVerticalGroup(
@@ -364,14 +358,13 @@ public class interface_criarCliente extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel8Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(panel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(senhaCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
+                    .addComponent(senhaCliente_cadastrar, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
                     .addComponent(isenha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
         panel9.setBackground(new java.awt.Color(255, 255, 255));
 
-        verificarSenhaCliente.setBackground(new java.awt.Color(255, 255, 255));
-        verificarSenhaCliente.setText(" Repita a senha:");
+        verificarSenhaCliente_cadastrar.setText(" Repita a senha:");
 
         isenha2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         isenha2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconLabel/senha.png"))); // NOI18N
@@ -384,14 +377,14 @@ public class interface_criarCliente extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(isenha2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(verificarSenhaCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 292, Short.MAX_VALUE)
+                .addComponent(verificarSenhaCliente_cadastrar, javax.swing.GroupLayout.DEFAULT_SIZE, 292, Short.MAX_VALUE)
                 .addContainerGap())
         );
         panel9Layout.setVerticalGroup(
             panel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel9Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(verificarSenhaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(verificarSenhaCliente_cadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addComponent(isenha2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
@@ -551,8 +544,8 @@ public class interface_criarCliente extends javax.swing.JFrame {
 
     private JTextField Telefone() {
         try {
-            javax.swing.text.MaskFormatter cpf = new javax.swing.text.MaskFormatter("(##) #####-####");
-            return new javax.swing.JFormattedTextField(cpf);
+            javax.swing.text.MaskFormatter telefone = new javax.swing.text.MaskFormatter("(##) #####-####");
+            return new javax.swing.JFormattedTextField(telefone);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Ocorreu um erro");
             return new JTextField();
@@ -574,43 +567,50 @@ public class interface_criarCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_bVoltarMouseExited
 
     private void SingUpActionPerformed(java.awt.event.ActionEvent evt){//GEN-FIRST:event_SingUpActionPerformed
-        if(!(nomeCliente.getText().isEmpty() && cpfCliente.getText().isEmpty() && enderecoCliente.getText().isEmpty() && telefoneCliente.getText().isEmpty())){
-            String nomeC = nomeCliente.getText();
-            String cpfC = cpfCliente.getText();
-            String enderecoC = enderecoCliente.getText();
-            String telefoneC = telefoneCliente.getText();
-            String senhaC = null;
+        String senha_criarCliente = String.valueOf(senhaCliente_cadastrar.getPassword());
+        String verificarSenha_criarCliente = String.valueOf(verificarSenhaCliente_cadastrar.getPassword());
+        
+        if(senha_criarCliente.equals(verificarSenha_criarCliente)){
+            String cpf_cadastrarCliente = cpfCliente_cadastrar.getText();
+            String nome_cadastrarCliente = nomeCliente_cadastrar.getText();
+            String endereco_cadastrarCliente = enderecoCliente_cadastrar.getText();
+            String telefone_cadastrarCliente = telefoneCliente_cadastrar.getText();
             
-            if(Arrays.equals(senhaCliente.getPassword(), verificarSenhaCliente.getPassword())){
-                senhaC = new String(senhaCliente.getPassword());
+            Pessoa objetoPessoa = new Pessoa(nome_cadastrarCliente, cpf_cadastrarCliente,
+            endereco_cadastrarCliente, telefone_cadastrarCliente); 
+            
+            Conta_Cliente cadastrarCliente = new Conta_Cliente(objetoPessoa, senha_criarCliente);
+            
+            interface_loginCliente iLogin_Cliente = new interface_loginCliente();
+            
+            DAO_Pessoa cadastrarPessoa= new DAO_Pessoa();
+            DAO_ContaFuncionario dao_contaFuncionario = new DAO_ContaFuncionario();
+            DAO_ContaCliente dao_contaCliente = new DAO_ContaCliente();
+            
+            if(dao_contaCliente.existeRegistro(objetoPessoa.getCpf())){
+                               
+                iLogin_Cliente.getCpfCliente_login().setText(objetoPessoa.getCpf());                
+                iLogin_Cliente.setVisible(true);
+                this.dispose();
+                
+            }else if(dao_contaFuncionario.existeRegistro(objetoPessoa.getCpf())){
+                
+                PopUp_FuncionarioParaCliente iFuncionarioParaCliente = new PopUp_FuncionarioParaCliente(objetoPessoa.getNome() +" possui conta de funcionário!");
+                GlassPanePopup.showPopup(iFuncionarioParaCliente);
+
+                if(iFuncionarioParaCliente.criarConta()){
+                    
+                    AcessandoBD.inserir(dao_contaCliente, cadastrarCliente);
+                    iLogin_Cliente.setVisible(true);
+                    this.dispose();
+                }
             }else{
-                senhaCliente.setText(" Senha:");
-                senhaCliente.setEchoChar((char) 0);
-                verificarSenhaCliente.setText(" Repita a senha:");
-                verificarSenhaCliente.setEchoChar((char) 0);
-                GlassPanePopup.showPopup(new PopUp_Senha());
-            }
-           
-            Pessoa cadastrarPessoa = new Pessoa(nomeC, cpfC, enderecoC, telefoneC); 
-            Conta_Cliente cadastrarContaC = new Conta_Cliente(cadastrarPessoa, senhaC);
-            
-            try {
-                if(!daoConta.insertConta(cadastrarContaC)){
-                    if(daoConta.existClient(cpfC)){
-                        interface_loginCliente iLoginCliente = new interface_loginCliente();
-                        this.dispose();
-                        iLoginCliente.setVisible(true);
-                    }else{
-                        //Colocar um Joptin pane
-                        daoConta.insertFuncionario_emContaCliente(cadastrarContaC);                     
-                    }
-                }                   
-            }catch (SQLException error) {
-                 System.out.println("Erro: "+ error.getMessage());
-            }
-        }else{
-            GlassPanePopup.showPopup(new PopUp_mensagen());
-        }
+                cadastrarPessoa.insert(objetoPessoa);
+                AcessandoBD.inserir(dao_contaCliente, cadastrarCliente);
+                iLogin_Cliente.setVisible(true);
+                this.dispose();
+            }   
+        }    
     }//GEN-LAST:event_SingUpActionPerformed
 
     private void loginAcessMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginAcessMouseClicked
@@ -635,56 +635,56 @@ public class interface_criarCliente extends javax.swing.JFrame {
         SingUp.setBackground(new Color(79,84,101));
     }//GEN-LAST:event_SingUpMouseExited
 
-    private void nomeClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeClienteActionPerformed
+    private void nomeCliente_cadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeCliente_cadastrarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_nomeClienteActionPerformed
+    }//GEN-LAST:event_nomeCliente_cadastrarActionPerformed
 
     private void bOlhoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bOlhoActionPerformed
      
     }//GEN-LAST:event_bOlhoActionPerformed
 
-    private void nomeClienteFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_nomeClienteFocusLost
-        if(nomeCliente.getText().equals(" Nome:")){
-            nomeCliente.requestFocus();
+    private void nomeCliente_cadastrarFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_nomeCliente_cadastrarFocusLost
+        if(nomeCliente_cadastrar.getText().equals(" Nome:")){
+            nomeCliente_cadastrar.requestFocus();
             panel4.setBackground(Color.RED);
         }else{
             panel4.setBackground(Color.WHITE);
         }
-    }//GEN-LAST:event_nomeClienteFocusLost
+    }//GEN-LAST:event_nomeCliente_cadastrarFocusLost
 
     private void bOlhoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bOlhoMouseClicked
-         if(activeButton &&  !(senhaCliente.getText().equals(" Senha:"))){
+         if(activeButton &&  !(senhaCliente_cadastrar.getText().equals(" Senha:"))){
            bOlho.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconLabel/olho-cruzado.png")));
-           senhaCliente.setEchoChar('*');
+           senhaCliente_cadastrar.setEchoChar('*');
            activeButton = false;
            
-       }else if(activeButton == false &&  !(senhaCliente.getText().equals(" Senha:"))){
+       }else if(activeButton == false &&  !(senhaCliente_cadastrar.getText().equals(" Senha:"))){
            bOlho.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconLabel/olho.png")));
-           senhaCliente.setEchoChar((char) 0);
+           senhaCliente_cadastrar.setEchoChar((char) 0);
            activeButton = true; 
        }
     }//GEN-LAST:event_bOlhoMouseClicked
 
     private void bOlho1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bOlho1MouseClicked
-         if(activeButton1 &&  !(verificarSenhaCliente.getText().equals(" Repita a Senha:"))){
+         if(activeButton1 &&  !(verificarSenhaCliente_cadastrar.getText().equals(" Repita a Senha:"))){
            bOlho1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconLabel/olho-cruzado.png")));
-           verificarSenhaCliente.setEchoChar('*');
+           verificarSenhaCliente_cadastrar.setEchoChar('*');
            activeButton1 = false;
            
-       }else if(activeButton1 == false &&  !(verificarSenhaCliente.getText().equals(" Repita a Senha:"))){
+       }else if(activeButton1 == false &&  !(verificarSenhaCliente_cadastrar.getText().equals(" Repita a Senha:"))){
            bOlho1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconLabel/olho.png")));
-           verificarSenhaCliente.setEchoChar((char) 0);
+           verificarSenhaCliente_cadastrar.setEchoChar((char) 0);
            activeButton1 = true; 
        }
     }//GEN-LAST:event_bOlho1MouseClicked
 
-    private void senhaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_senhaClienteActionPerformed
+    private void senhaCliente_cadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_senhaCliente_cadastrarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_senhaClienteActionPerformed
+    }//GEN-LAST:event_senhaCliente_cadastrarActionPerformed
 
-    private void telefoneClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_telefoneClienteActionPerformed
+    private void telefoneCliente_cadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_telefoneCliente_cadastrarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_telefoneClienteActionPerformed
+    }//GEN-LAST:event_telefoneCliente_cadastrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -729,8 +729,8 @@ public class interface_criarCliente extends javax.swing.JFrame {
     private jaboc_UI.jabocUI_Utilidades.ButtonCirculo bOlho;
     private jaboc_UI.jabocUI_Utilidades.ButtonCirculo bOlho1;
     private jaboc_UI.jabocUI_Utilidades.ButtonCirculo bVoltar;
-    private jaboc_UI.JabocUI_Utilidades.JabocUI_Classes.FormatedTextField cpfCliente;
-    private jaboc_UI.jabocUI_Utilidades.TextField enderecoCliente;
+    private jaboc_UI.JabocUI_Utilidades.JabocUI_Classes.FormatedTextField cpfCliente_cadastrar;
+    private jaboc_UI.jabocUI_Utilidades.TextField enderecoCliente_cadastrar;
     private javax.swing.JLabel icpf;
     private javax.swing.JLabel isenha;
     private javax.swing.JLabel isenha2;
@@ -746,7 +746,7 @@ public class interface_criarCliente extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel loginAcess;
-    private jaboc_UI.jabocUI_Utilidades.TextField nomeCliente;
+    private jaboc_UI.jabocUI_Utilidades.TextField nomeCliente_cadastrar;
     private jaboc_UI.jabocUI_Utilidades.Panel panel1;
     private jaboc_UI.jabocUI_Utilidades.Panel panel2;
     private jaboc_UI.jabocUI_Utilidades.Panel panel3;
@@ -756,13 +756,13 @@ public class interface_criarCliente extends javax.swing.JFrame {
     private jaboc_UI.jabocUI_Utilidades.Panel panel7;
     private jaboc_UI.jabocUI_Utilidades.Panel panel8;
     private jaboc_UI.jabocUI_Utilidades.Panel panel9;
-    private jaboc_UI.jabocUI_Utilidades.PasswordField senhaCliente;
-    private jaboc_UI.JabocUI_Utilidades.JabocUI_Classes.FormatedTextField telefoneCliente;
+    private jaboc_UI.jabocUI_Utilidades.PasswordField senhaCliente_cadastrar;
+    private jaboc_UI.JabocUI_Utilidades.JabocUI_Classes.FormatedTextField telefoneCliente_cadastrar;
     private jaboc_UI.jabocUI_Utilidades.TextField textField2;
     private jaboc_UI.jabocUI_Utilidades.TextField textField3;
     private jaboc_UI.jabocUI_Utilidades.TextField textField4;
     private jaboc_UI.jabocUI_Utilidades.TextField textField5;
     private jaboc_UI.jabocUI_Utilidades.TextField textField6;
-    private jaboc_UI.jabocUI_Utilidades.PasswordField verificarSenhaCliente;
+    private jaboc_UI.jabocUI_Utilidades.PasswordField verificarSenhaCliente_cadastrar;
     // End of variables declaration//GEN-END:variables
 }
