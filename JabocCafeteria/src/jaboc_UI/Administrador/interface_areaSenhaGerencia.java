@@ -5,7 +5,7 @@
 package jaboc_UI.Administrador;
 
 
-import jaboc_UI.jabocUI_Utilidades.interface_popUpmensagen;
+import jaboc_UI.jabocUI_Utilidades.PopUp_mensagen;
 import java.awt.Color;
 import static java.awt.image.ImageObserver.WIDTH;
 import javax.swing.JOptionPane;

@@ -6,7 +6,7 @@ package jaboc_UI.Clientes;
 
 import jaboc_Classes.Conta_Cliente;
 import jaboc_UI.Cardapio.interface_Cardapio;
-import jaboc_UI.jabocUI_Utilidades.interface_popUpmensagen;
+import jaboc_UI.jabocUI_Utilidades.PopUp_mensagen;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -364,7 +364,7 @@ public class interface_editarCliente extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Nenhum Cliente cadastrado!", "Erro", WIDTH);
         } else if ("".equals(nomeCliente_Editar.getText()) || "    .   .   -  ".equals(cpfCliente_Editar.getText()) || "".equals(enderecoCliente_Editar.getText()) 
                 || " (  )      -    ".equals(telefoneCliente_Editar.getText())) {
-            GlassPanePopup.showPopup(new interface_popUpmensagen());
+            GlassPanePopup.showPopup(new PopUp_mensagen());
         } else {
           
 

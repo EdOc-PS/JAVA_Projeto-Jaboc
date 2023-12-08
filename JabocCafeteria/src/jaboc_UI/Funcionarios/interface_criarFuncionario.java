@@ -6,7 +6,7 @@ package jaboc_UI.Funcionarios;
 
 
 import jaboc_Classes.Conta_Cliente;
-import jaboc_UI.jabocUI_Utilidades.interface_popUpmensagen;
+import jaboc_UI.jabocUI_Utilidades.PopUp_mensagen;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 import javax.swing.text.DefaultFormatterFactory;

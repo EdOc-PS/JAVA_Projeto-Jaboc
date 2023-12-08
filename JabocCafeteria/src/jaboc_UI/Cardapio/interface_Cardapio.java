@@ -4,14 +4,13 @@
  */
 package jaboc_UI.Cardapio;
 
-
 import jaboc_Biblioteca.outras.ModernScrollBarUI;
 import jaboc_UI.Clientes.interface_editarCliente;
 import jaboc_Classes.Conta_Cliente;
 import jaboc_UI.Administrador.interface_Menu;
 import jaboc_UI.Clientes.interface_editarCliente;
 import jaboc_UI.Clientes.interface_menuCliente;
-import jaboc_UI.jabocUI_Utilidades.interface_popUpmensagen;
+import jaboc_UI.jabocUI_Utilidades.PopUp_mensagen;
 import java.awt.Color;
 import java.awt.Dimension;
 import javax.swing.BorderFactory;
@@ -33,15 +32,15 @@ public class interface_Cardapio extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         GlassPanePopup.install(this);
-        
+
         JScrollBar bar = scrollCardapio.getVerticalScrollBar();
         bar.setOpaque(false);
-        bar.setForeground(new Color(223,204,251));
+        bar.setForeground(new Color(223, 204, 251));
         bar.setPreferredSize(new Dimension(8, 5));
         bar.setUI(new ModernScrollBarUI());
-        
+
         scrollCardapio.setViewportBorder(null);
-    
+
     }
 
     /**
@@ -153,7 +152,7 @@ public class interface_Cardapio extends javax.swing.JFrame {
                 .addComponent(bcarrinho, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(bEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 216, Short.MAX_VALUE)
                 .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -224,12 +223,13 @@ public class interface_Cardapio extends javax.swing.JFrame {
             .addGroup(panel1Layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addComponent(panel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addGap(20, 20, 20))
         );
 
         buttonCirculo1.setBackground(new java.awt.Color(79, 84, 101));
         buttonCirculo1.setForeground(new java.awt.Color(252, 252, 252));
-        buttonCirculo1.setText("Carregar cardápio");
+        buttonCirculo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_recarregar.png"))); // NOI18N
+        buttonCirculo1.setText(" Carregar cardápio");
         buttonCirculo1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonCirculo1ActionPerformed(evt);
@@ -240,32 +240,29 @@ public class interface_Cardapio extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 785, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(buttonCirculo1, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(254, 254, 254))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)))))
+                        .addContainerGap(20, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 785, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(277, 277, 277)
+                        .addComponent(buttonCirculo1, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(19, 19, 19)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(buttonCirculo1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(21, 21, 21))
         );
@@ -288,7 +285,7 @@ public class interface_Cardapio extends javax.swing.JFrame {
 
     private void bEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bEditarActionPerformed
         interface_editarCliente i_editarCliente = new interface_editarCliente();
- 
+
         i_editarCliente.setVisible(true);
         this.dispose();
 
@@ -311,7 +308,7 @@ public class interface_Cardapio extends javax.swing.JFrame {
     }//GEN-LAST:event_bVoltarMouseExited
 
     private void bVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVoltarActionPerformed
-        interface_menuCliente i_menuCliente = new  interface_menuCliente();
+        interface_menuCliente i_menuCliente = new interface_menuCliente();
         i_menuCliente.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_bVoltarActionPerformed
@@ -337,7 +334,7 @@ public class interface_Cardapio extends javax.swing.JFrame {
     }//GEN-LAST:event_bcarrinhoActionPerformed
 
     private void bcarrinhoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bcarrinhoMouseEntered
-        bcarrinho.setBackground(new Color(223,204,251));
+        bcarrinho.setBackground(new Color(223, 204, 251));
     }//GEN-LAST:event_bcarrinhoMouseEntered
 
     private void bcarrinhoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bcarrinhoMouseExited
@@ -345,7 +342,8 @@ public class interface_Cardapio extends javax.swing.JFrame {
     }//GEN-LAST:event_bcarrinhoMouseExited
 
     private void tabelaCardapioMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaCardapioMousePressed
- GlassPanePopup.showPopup(new interface_popUpmensagen());    }//GEN-LAST:event_tabelaCardapioMousePressed
+        GlassPanePopup.showPopup(new PopUp_mensagen());
+ }//GEN-LAST:event_tabelaCardapioMousePressed
 
     /**
      * @param args the command line arguments

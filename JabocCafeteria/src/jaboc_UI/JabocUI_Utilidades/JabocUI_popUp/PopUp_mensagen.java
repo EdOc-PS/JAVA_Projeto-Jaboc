@@ -15,12 +15,12 @@ import raven.glasspanepopup.GlassPanePopup;
  *
  * @author eeuar
  */
-public class interface_popUpmensagen extends javax.swing.JPanel {
+public class PopUp_mensagen extends javax.swing.JPanel {
 
     /**
      * Creates new form interface_mensagen
      */
-    public interface_popUpmensagen() {
+    public PopUp_mensagen() {
         initComponents();
         setOpaque(false);
     }

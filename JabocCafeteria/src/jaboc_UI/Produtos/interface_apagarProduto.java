@@ -36,6 +36,10 @@ public class interface_apagarProduto extends javax.swing.JFrame {
         bVoltar = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
         apagarProduto = new javax.swing.JButton();
+        jPanel10 = new javax.swing.JPanel();
+        bExcluir_Produto = new javax.swing.JButton();
+        bEdiatr_Produto = new javax.swing.JButton();
+        bAdicionar_Produto = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         verificarId_Produto = new javax.swing.JTextField();
@@ -89,6 +93,98 @@ public class interface_apagarProduto extends javax.swing.JFrame {
             }
         });
 
+        jPanel10.setBackground(new java.awt.Color(200, 182, 166));
+
+        bExcluir_Produto.setBackground(new java.awt.Color(252, 252, 252));
+        bExcluir_Produto.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        bExcluir_Produto.setForeground(new java.awt.Color(79, 84, 101));
+        bExcluir_Produto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_lixo.png"))); // NOI18N
+        bExcluir_Produto.setText("Excluir");
+        bExcluir_Produto.setBorderPainted(false);
+        bExcluir_Produto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bExcluir_Produto.setFocusPainted(false);
+        bExcluir_Produto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                bExcluir_ProdutoMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                bExcluir_ProdutoMouseExited(evt);
+            }
+        });
+        bExcluir_Produto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bExcluir_ProdutoActionPerformed(evt);
+            }
+        });
+
+        bEdiatr_Produto.setBackground(new java.awt.Color(252, 252, 252));
+        bEdiatr_Produto.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        bEdiatr_Produto.setForeground(new java.awt.Color(79, 84, 101));
+        bEdiatr_Produto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_editar.png"))); // NOI18N
+        bEdiatr_Produto.setText("Editar");
+        bEdiatr_Produto.setBorderPainted(false);
+        bEdiatr_Produto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bEdiatr_Produto.setFocusPainted(false);
+        bEdiatr_Produto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                bEdiatr_ProdutoMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                bEdiatr_ProdutoMouseExited(evt);
+            }
+        });
+        bEdiatr_Produto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bEdiatr_ProdutoActionPerformed(evt);
+            }
+        });
+
+        bAdicionar_Produto.setBackground(new java.awt.Color(252, 252, 252));
+        bAdicionar_Produto.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        bAdicionar_Produto.setForeground(new java.awt.Color(79, 84, 101));
+        bAdicionar_Produto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_adicionar.png"))); // NOI18N
+        bAdicionar_Produto.setText("Adicionar");
+        bAdicionar_Produto.setBorderPainted(false);
+        bAdicionar_Produto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bAdicionar_Produto.setFocusPainted(false);
+        bAdicionar_Produto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                bAdicionar_ProdutoMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                bAdicionar_ProdutoMouseExited(evt);
+            }
+        });
+        bAdicionar_Produto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bAdicionar_ProdutoActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
+        jPanel10.setLayout(jPanel10Layout);
+        jPanel10Layout.setHorizontalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel10Layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(bEdiatr_Produto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(bAdicionar_Produto, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                    .addComponent(bExcluir_Produto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel10Layout.setVerticalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
+                .addContainerGap(15, Short.MAX_VALUE)
+                .addComponent(bAdicionar_Produto, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(bEdiatr_Produto, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(bExcluir_Produto, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(15, 15, 15))
+        );
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -102,6 +198,10 @@ public class interface_apagarProduto extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(bVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -111,6 +211,8 @@ public class interface_apagarProduto extends javax.swing.JFrame {
                     .addComponent(bVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(87, 87, 87)
                 .addComponent(apagarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
         );
@@ -153,7 +255,7 @@ public class interface_apagarProduto extends javax.swing.JFrame {
                         .addComponent(jLabel1)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(verificarId_Produto, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
+                        .addComponent(verificarId_Produto, javax.swing.GroupLayout.DEFAULT_SIZE, 265, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(verificarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(25, 25, 25))))
@@ -208,7 +310,7 @@ public class interface_apagarProduto extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(91, 91, 91)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 426, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 476, Short.MAX_VALUE)
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(90, 90, 90)
@@ -218,7 +320,7 @@ public class interface_apagarProduto extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(90, Short.MAX_VALUE)
+                .addContainerGap(130, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addGap(52, 52, 52)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -266,6 +368,42 @@ public class interface_apagarProduto extends javax.swing.JFrame {
     private void bVoltarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bVoltarMouseExited
         bVoltar.setBackground(new Color(252, 252, 252));
     }//GEN-LAST:event_bVoltarMouseExited
+
+    private void bExcluir_ProdutoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bExcluir_ProdutoMouseEntered
+        bExcluir_Produto.setBackground(new Color(255, 188, 188));
+    }//GEN-LAST:event_bExcluir_ProdutoMouseEntered
+
+    private void bExcluir_ProdutoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bExcluir_ProdutoMouseExited
+        bExcluir_Produto.setBackground(new Color(252, 252, 252));
+    }//GEN-LAST:event_bExcluir_ProdutoMouseExited
+
+    private void bExcluir_ProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bExcluir_ProdutoActionPerformed
+
+    }//GEN-LAST:event_bExcluir_ProdutoActionPerformed
+
+    private void bEdiatr_ProdutoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bEdiatr_ProdutoMouseEntered
+        bEdiatr_Produto.setBackground(new Color(210, 224, 251));
+    }//GEN-LAST:event_bEdiatr_ProdutoMouseEntered
+
+    private void bEdiatr_ProdutoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bEdiatr_ProdutoMouseExited
+        bEdiatr_Produto.setBackground(new Color(252, 252, 252));
+    }//GEN-LAST:event_bEdiatr_ProdutoMouseExited
+
+    private void bEdiatr_ProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bEdiatr_ProdutoActionPerformed
+
+    }//GEN-LAST:event_bEdiatr_ProdutoActionPerformed
+
+    private void bAdicionar_ProdutoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bAdicionar_ProdutoMouseEntered
+        bAdicionar_Produto.setBackground(new Color(215, 229, 202));
+    }//GEN-LAST:event_bAdicionar_ProdutoMouseEntered
+
+    private void bAdicionar_ProdutoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bAdicionar_ProdutoMouseExited
+        bAdicionar_Produto.setBackground(new Color(252, 252, 252));
+    }//GEN-LAST:event_bAdicionar_ProdutoMouseExited
+
+    private void bAdicionar_ProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAdicionar_ProdutoActionPerformed
+
+    }//GEN-LAST:event_bAdicionar_ProdutoActionPerformed
     public void txtAreaIneditavel() {
         textArea_Produto.setEditable(false);
     }   
@@ -306,11 +444,15 @@ public class interface_apagarProduto extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton apagarProduto;
+    private javax.swing.JButton bAdicionar_Produto;
+    private javax.swing.JButton bEdiatr_Produto;
+    private javax.swing.JButton bExcluir_Produto;
     private javax.swing.JButton bVoltar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;

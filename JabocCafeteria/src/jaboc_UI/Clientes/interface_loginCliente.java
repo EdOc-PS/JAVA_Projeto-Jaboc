@@ -10,7 +10,7 @@ import jaboc_Classes.DadosEmMemoria;
 import jaboc_Classes.Pessoa;
 import jaboc_UI.Administrador.interface_Menu;
 import jaboc_UI.Cardapio.interface_Cardapio;
-import jaboc_UI.jabocUI_Utilidades.interface_popUpmensagen;
+import jaboc_UI.jabocUI_Utilidades.PopUp_mensagen;
 import java.awt.Color;
 import raven.glasspanepopup.GlassPanePopup;
 import java.sql.*;

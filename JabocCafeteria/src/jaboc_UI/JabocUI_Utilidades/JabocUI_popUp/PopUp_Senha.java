@@ -15,12 +15,12 @@ import raven.glasspanepopup.GlassPanePopup;
  *
  * @author eeuar
  */
-public class interface_popUpSenha extends javax.swing.JPanel {
+public class PopUp_Senha extends javax.swing.JPanel {
 
     /**
      * Creates new form interface_mensagen
      */
-    public interface_popUpSenha() {
+    public PopUp_Senha() {
         initComponents();
         setOpaque(false);
     }
@@ -96,6 +96,7 @@ public class interface_popUpSenha extends javax.swing.JPanel {
         bPopUp.setForeground(new java.awt.Color(255, 255, 255));
         bPopUp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/x.png"))); // NOI18N
         bPopUp.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        bPopUp.setPreferredSize(new java.awt.Dimension(27, 27));
         bPopUp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bPopUpActionPerformed(evt);

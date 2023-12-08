@@ -9,8 +9,8 @@ import jaboc_Classes.Conta_Cliente;
 import jaboc_Classes.Pessoa;
 import jaboc_UI.Administrador.interface_Menu;
 import jaboc_UI.Cardapio.interface_Cardapio;
-import jaboc_UI.jabocUI_Utilidades.interface_popUpmensagen;
-import jaboc_UI.jabocUI_Utilidades.interface_popUpSenha;
+import jaboc_UI.jabocUI_Utilidades.JabocUI_popUp.PopUp_Senha;
+import jaboc_UI.jabocUI_Utilidades.PopUp_mensagen;
 import java.awt.Color;
 import java.sql.SQLException;
 import java.util.Arrays;
@@ -588,7 +588,7 @@ public class interface_criarCliente extends javax.swing.JFrame {
                 senhaCliente.setEchoChar((char) 0);
                 verificarSenhaCliente.setText(" Repita a senha:");
                 verificarSenhaCliente.setEchoChar((char) 0);
-                //GlassPanePopup.showPopup(new interface_popUpSenha());
+                GlassPanePopup.showPopup(new PopUp_Senha());
             }
            
             Pessoa cadastrarPessoa = new Pessoa(nomeC, cpfC, enderecoC, telefoneC); 
@@ -609,7 +609,7 @@ public class interface_criarCliente extends javax.swing.JFrame {
                  System.out.println("Erro: "+ error.getMessage());
             }
         }else{
-            GlassPanePopup.showPopup(new interface_popUpmensagen());
+            GlassPanePopup.showPopup(new PopUp_mensagen());
         }
     }//GEN-LAST:event_SingUpActionPerformed
 
