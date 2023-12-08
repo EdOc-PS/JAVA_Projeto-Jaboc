@@ -4,10 +4,12 @@
  */
 package jaboc_BancoDeDados.interfaces;
 
+import jaboc_Classes.Login;
+
 /**
  *
  * @author guilh
  */
 public interface Logavel {
-    public boolean login(String cpf, String senha);
+    public boolean login(Login logavel);
 }

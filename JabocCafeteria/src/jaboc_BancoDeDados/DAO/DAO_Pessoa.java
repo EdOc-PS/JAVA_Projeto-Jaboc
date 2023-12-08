@@ -4,14 +4,14 @@
  */
 package jaboc_BancoDeDados.DAO;
 
-import jaboc_BancoDeDados.interfaces.ComandosSQL;
 import jaboc_Classes.Pessoa;
 import java.sql.*;
+import jaboc_BancoDeDados.interfaces.ManipulandoDados;
 /**
  *
  * @author guilh
  */
-public class DAO_Pessoa implements ComandosSQL{
+public class DAO_Pessoa implements ManipulandoDados{
     
     @Override
     public ResultSet selectTodos(){
@@ -20,9 +20,8 @@ public class DAO_Pessoa implements ComandosSQL{
         
         ResultSet resultadosSelect = null;
         
-        try{
-            
-            Connection conexao = this.conectar();
+        try(Connection conexao = this.conectar()){
+                        
             resultadosSelect = conexao.createStatement().executeQuery(comandoSelect);
             
         }catch(SQLException error){
@@ -38,9 +37,8 @@ public class DAO_Pessoa implements ComandosSQL{
     
         ResultSet resultadoSelect = null;
         
-        try{
+        try(Connection conexao = this.conectar()){
         
-            Connection conexao = this.conectar();
             resultadoSelect = conexao.createStatement().executeQuery(comandoSelect);
             
         }catch(SQLException error){
@@ -59,9 +57,8 @@ public class DAO_Pessoa implements ComandosSQL{
                     + "VALUES ('"+ inserirPessoa.getCpf() + "','"+ inserirPessoa.getNome() + "', '"
                     + inserirPessoa.getEndereco() + "', '"+ inserirPessoa.getTelefone() + "');";
             
-            try{
+            try(Connection conexao = this.conectar()){
             
-                Connection conexao = this.conectar();
                 return conexao.createStatement().executeUpdate(comandoInsert) > 0;
                 
             }catch(SQLException error){
@@ -78,9 +75,8 @@ public class DAO_Pessoa implements ComandosSQL{
     
         ResultSet resultadoSelect = null;
         
-        try{
-        
-            Connection conexao = this.conectar();
+        try(Connection conexao = this.conectar()){
+            
             resultadoSelect = conexao.createStatement().executeQuery(comandoSelect);
             return resultadoSelect.next();
             
@@ -96,9 +92,8 @@ public class DAO_Pessoa implements ComandosSQL{
         
         String comandoDelete = "DELETE FROM jaboc_servidor.Pessoa WHERE cpf = '"+ cpf +"';";
         
-        try{
+        try(Connection conexao = this.conectar()){
             
-            Connection conexao = this.conectar();
             return conexao.createStatement().executeUpdate(comandoDelete) > 0;
             
         }catch(SQLException error){
@@ -120,10 +115,10 @@ public class DAO_Pessoa implements ComandosSQL{
                     + "endereco = '" + updatePessoa.getEndereco() + "', "
                     + "telefone = '" + updatePessoa.getTelefone() + "';";
             
-            try{
+            try(Connection conexao = this.conectar()){
                 
-                Connection conexao = this.conectar();
                 return conexao.createStatement().executeUpdate(comandoUpdate) > 0;
+                
             }catch(SQLException error){
                 System.out.println("Erro no update(Object o, String cpf) da Pessoa: "+ error.getMessage());
             }
@@ -132,7 +127,7 @@ public class DAO_Pessoa implements ComandosSQL{
     }
     
     @Override
-    public String alertaErro(Object o, String frase){
+    public String alerta(Object o, String frase){
         if(o instanceof Pessoa){
             Pessoa especificarErro = (Pessoa) o;
 

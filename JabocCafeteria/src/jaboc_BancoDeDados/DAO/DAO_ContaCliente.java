@@ -5,27 +5,28 @@
 package jaboc_BancoDeDados.DAO;
 
 import jaboc_BancoDeDados.interfaces.Logavel;
-import jaboc_BancoDeDados.interfaces.ComandosSQL;
 import java.sql.*;
 import jaboc_Classes.Conta_Cliente;
+import jaboc_BancoDeDados.interfaces.ManipulandoDados;
+import jaboc_Classes.Login;
 /**
  *
  * @author guilh
  */
-public class DAO_ContaCliente implements ComandosSQL, Logavel{
+public class DAO_ContaCliente implements ManipulandoDados, Logavel{
     private Conta_Cliente objetoCliente;
     
     @Override
     public ResultSet selectTodos(){
+        
         
         String comandoSelect = "SELECT C.cpfCliente, C.senhaClente, C.gastoTotal, P.nome, P.endereco, P.telefone FROM "
                     + "jaboc_servidor.Conta_Funcionario C, jaboc_servidor.Pessoa P WHERE  P.cpf = C.cpfCliente;";
         
          ResultSet resultadosSelect = null;
         
-        try{
-            
-            Connection conexao = this.conectar();
+        try(Connection conexao = this.conectar()){
+                        
             resultadosSelect = conexao.createStatement().executeQuery(comandoSelect);
             
         }catch(SQLException error){
@@ -43,9 +44,8 @@ public class DAO_ContaCliente implements ComandosSQL, Logavel{
         
          ResultSet resultadoSelect = null;
         
-        try{
-            
-            Connection conexao = this.conectar();
+        try(Connection conexao = this.conectar()){
+                        
             resultadoSelect = conexao.createStatement().executeQuery(comandoSelect);
             
         }catch(SQLException error){
@@ -64,9 +64,8 @@ public class DAO_ContaCliente implements ComandosSQL, Logavel{
             String comandoInsert = "INSERT INTO jaboc_servidor.Conta_Cliente (cpfCliente, senhaCliente) VALUES ('"+ inserirCliente.getTitular().getCpf() + "',"
                     + " '"+ inserirCliente.getSenha() + "');";
             
-            try{
+            try(Connection conexao = this.conectar()){
             
-                Connection conexao = this.conectar();
                 return conexao.createStatement().executeUpdate(comandoInsert) > 0;
                 
             }catch(SQLException error){
@@ -84,9 +83,8 @@ public class DAO_ContaCliente implements ComandosSQL, Logavel{
                     + "jaboc_servidor.Conta_Funcionario C, jaboc_servidor.Pessoa P WHERE cpfCliente = '"+ cpfCliente+ "' AND P.cpf = C.cpfCliente;";
         
         
-        try{
+        try(Connection conexao = this.conectar()){
             
-            Connection conexao = this.conectar();
             ResultSet resultadoSelect = conexao.createStatement().executeQuery(comandoSelect);
             return resultadoSelect.next();
             
@@ -102,9 +100,8 @@ public class DAO_ContaCliente implements ComandosSQL, Logavel{
         
         String comandoDelete = "DELETE FROM jaboc_servidor.Conta_Cliente WHERE cpfCliente = '"+ cpfCliente +"';";
     
-        try{
+        try(Connection conexao = this.conectar()){
          
-            Connection conexao = this.conectar();
             return conexao.createStatement().executeUpdate(comandoDelete) > 0;
             
         }catch(SQLException error){
@@ -124,9 +121,8 @@ public class DAO_ContaCliente implements ComandosSQL, Logavel{
             String comandoUpdate = "UPDATE jaboc_servidor.Conta_Cliente SET "
                     + "senhaCliente = '" + updateCliente.getSenha() + "';";
         
-            try{
+            try(Connection conexao = this.conectar()){
             
-                Connection conexao = this.conectar();
                 return conexao.createStatement().executeUpdate(comandoUpdate) > 0;
                     
             }catch(SQLException error){
@@ -138,7 +134,7 @@ public class DAO_ContaCliente implements ComandosSQL, Logavel{
     }
     
     @Override
-    public String alertaErro(Object o, String frase){
+    public String alerta(Object o, String frase){
         if(o instanceof Conta_Cliente){
             Conta_Cliente especificarErro = (Conta_Cliente) o;
 
@@ -149,23 +145,22 @@ public class DAO_ContaCliente implements ComandosSQL, Logavel{
     }
     
     @Override
-    public boolean login(String cpfLogin_Cliente, String senhaLogin_Cliente){
+    public boolean login(Login clienteLogando){
         String comandoSelect = "SELECT senhaCliente FROM jaboc_servidor.Conta_Cliente "
-                + "WHERE cpfCliente = '"+ cpfLogin_Cliente + "';";
+                + "WHERE cpfCliente = '"+ clienteLogando.getCPF() + "';";
         
-        try{
+        try(Connection conexao = this.conectar()){
             
-            Connection conexao = this.conectar();
             ResultSet resultadoSelect = conexao.createStatement().executeQuery(comandoSelect);
             
             if(resultadoSelect.next()){
                 String senhaCliente_FromSelect = resultadoSelect.getString("senhaCliente");
 
-                return  senhaCliente_FromSelect.equals(senhaLogin_Cliente);
+                return  senhaCliente_FromSelect.equals(clienteLogando.getSENHA());
             }            
             
         }catch(SQLException error){
-            System.out.println("Erro no login(String cpfCliente, String senhaCliente) da ContaCliente: "+ error.getMessage());
+            System.out.println("Erro no login(Login clienteLogando) da ContaCliente: "+ error.getMessage());
         }
         
         return false;

@@ -4,16 +4,17 @@
  */
 package jaboc_BancoDeDados.DAO;
 
-import jaboc_BancoDeDados.interfaces.ComandosSQL;
 import jaboc_BancoDeDados.interfaces.Logavel;
 import java.sql.*;
 import jaboc_Classes.Conta_Funcionario;
+import jaboc_BancoDeDados.interfaces.ManipulandoDados;
+import jaboc_Classes.Login;
 
 /**
  *
  * @author guilh
  */
-public class DAO_ContaFuncionario implements ComandosSQL, Logavel{           
+public class DAO_ContaFuncionario implements ManipulandoDados, Logavel{           
     
     @Override
     public ResultSet selectTodos(){
@@ -23,9 +24,8 @@ public class DAO_ContaFuncionario implements ComandosSQL, Logavel{
         
         ResultSet resultadosSelect = null;
          
-        try{
+        try(Connection conexao = this.conectar()){
             
-            Connection conexao = this.conectar();
             resultadosSelect = conexao.createStatement().executeQuery(comandoSelect);
             
         }catch(SQLException error){
@@ -42,9 +42,8 @@ public class DAO_ContaFuncionario implements ComandosSQL, Logavel{
 
         ResultSet resultadoSelect = null;
         
-        try{
+        try(Connection conexao = this.conectar()){
             
-            Connection conexao = this.conectar();
             resultadoSelect = conexao.createStatement().executeQuery(comandoSelect);
             
         }catch(SQLException error){
@@ -64,10 +63,9 @@ public class DAO_ContaFuncionario implements ComandosSQL, Logavel{
                     + " VALUES ('"+inserirFuncionario.getTitular().getCpf()+ "', '"+inserirFuncionario.getCargoFuncionario() + "',"
                     + " '"+ inserirFuncionario.getSenha() + "', '"+ inserirFuncionario.getSalario() + "');";
                   
-            try{
-            
-                    Connection conexao = this.conectar();
-                    return conexao.createStatement().executeUpdate(comandoInsert) > 0;
+            try(Connection conexao = this.conectar()){
+
+                return conexao.createStatement().executeUpdate(comandoInsert) > 0;
                      
             }catch(SQLException error){
                 System.out.println("Erro no insert(Object o) da Conta funcionário: "+ error.getMessage());
@@ -81,9 +79,8 @@ public class DAO_ContaFuncionario implements ComandosSQL, Logavel{
         String comandoSelect = "SELECT C.cpfFuncionario, C.senhaFuncionario, C.salario, C.cargo,P.nome, P.endereco, P.telefone FROM "
                 + "jaboc_servidor.Conta_Funcionario C, jaboc_servidor.Pessoa P WHERE cpfFuncionario = '"+ cpfFuncionario +"' AND P.cpf = C.cpfFuncionario;";
         
-        try{
+        try(Connection conexao = this.conectar()){
             
-            Connection conexao = this.conectar();
             ResultSet resultadoSelect = conexao.createStatement().executeQuery(comandoSelect);
             return resultadoSelect.next();
             
@@ -98,9 +95,8 @@ public class DAO_ContaFuncionario implements ComandosSQL, Logavel{
     public <T> boolean delete(T cpfFuncionario){       
         
         String comandoDelete = "DELETE FROM jaboc_servidor.Conta_Funcionario WHERE cpfFuncionario = '"+cpfFuncionario+"'";
-        try{
-            
-            Connection conexao= this.conectar();            
+        try(Connection conexao = this.conectar()){
+                      
             return conexao.createStatement().executeUpdate(comandoDelete) > 0;
             
         }catch(SQLException error){
@@ -124,9 +120,8 @@ public class DAO_ContaFuncionario implements ComandosSQL, Logavel{
                     + "salario = '"+ updateFuncionario.getSalario() +"'"
                     + "WHERE cpfFuncionario = '"+ cpfFuncionario +"';";
             
-            try{
+            try(Connection conexao = this.conectar()){
                 
-                Connection conexao = this.conectar();
                 return conexao.createStatement().executeUpdate(comandoUpdate) > 0;
                 
             }catch(SQLException error){
@@ -137,7 +132,7 @@ public class DAO_ContaFuncionario implements ComandosSQL, Logavel{
     }
     
     @Override
-    public String alertaErro(Object o, String frase){
+    public String alerta(Object o, String frase){
         if(o instanceof Conta_Funcionario){
             Conta_Funcionario especificarErro = (Conta_Funcionario) o;
 
@@ -147,20 +142,19 @@ public class DAO_ContaFuncionario implements ComandosSQL, Logavel{
     }    
     
     @Override
-    public boolean login(String cpfLogin_Funcionario, String senhaLogin_Funcionario){
+    public boolean login(Login funcionarioLogando){
         
         String comandoSelect = "SELECT senhaFuncionario FROM jaboc_servidor.Conta_Funcionario "
-                + "WHERE cpfFuncionario = '"+cpfLogin_Funcionario + "';";
+                + "WHERE cpfFuncionario = '"+ funcionarioLogando.getCPF() + "';";
         
-        try{
+        try(Connection conexao = this.conectar()){
          
-            Connection conexao = this.conectar();
             ResultSet resultadoSelect = conexao.createStatement().executeQuery(comandoSelect);
             
             if(resultadoSelect.next()){
                 String senhaFuncionario_FromSelect = resultadoSelect.getString("senhaFuncionario");
                 
-                return senhaFuncionario_FromSelect.equals(senhaLogin_Funcionario);
+                return senhaFuncionario_FromSelect.equals(funcionarioLogando.getSENHA());
             }
         }catch(SQLException error){
             System.out.println("Errono login(String cpfLogin_Funcionario, String senhaLogin_Cliente) da ContaFuncionario: "+ error.getMessage());
