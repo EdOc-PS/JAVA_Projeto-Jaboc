@@ -11,6 +11,7 @@ import java.awt.RenderingHints;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import java.awt.geom.RoundRectangle2D;
+import java.text.ParseException;
 import javax.swing.JFormattedTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.text.MaskFormatter;
@@ -24,6 +25,7 @@ public class FormatedTextField extends JFormattedTextField{
     int cont = 1;
     MaskFormatter maskF;
     String form;
+    
     public FormatedTextField() {
 
         setOpaque(false);
@@ -31,13 +33,7 @@ public class FormatedTextField extends JFormattedTextField{
         setFont(new java.awt.Font("Gill Sans MT", 0, 14));
         setForeground(new Color(153, 153, 153));
         setBackground(new Color(255,255,255));
-
-        try {
-            maskF = new MaskFormatter("###.###.###-##");
-            maskF.setPlaceholderCharacter('_');
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
+      
         this.addFocusListener(new FocusListener() {
 
             @Override
@@ -78,7 +74,17 @@ public class FormatedTextField extends JFormattedTextField{
 
         super.paintComponent(g); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
     }
+    
     public void addFormatacao(String formato){
-        form = formato;
+        try{
+            
+            maskF = new MaskFormatter(); 
+            maskF.setMask(formato);    
+            maskF.setPlaceholderCharacter('_');
+            form = formato;
+            
+        }catch(ParseException error){
+            System.out.println("Erro ao definir a máscara:"+ "("+ formato +")" + error.getMessage());
+        }
     }
 }
