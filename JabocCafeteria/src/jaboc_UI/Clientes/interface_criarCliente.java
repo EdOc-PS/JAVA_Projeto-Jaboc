@@ -14,6 +14,7 @@ import jaboc_BancoDeDados.DAO.DAO_ContaFuncionario;
 import jaboc_BancoDeDados.DAO.DAO_Pessoa;
 import jaboc_Classes.Pessoa;
 import jaboc_UI.JabocUI_Utilidades.JabocUI_popUp.PopUp_FuncionarioParaCliente;
+import jaboc_UI.jabocUI_Utilidades.PopUp_mensagen;
 import jaboc_UI.jabocUI_Utilidades.interface_popUpmensagen;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -603,7 +604,7 @@ public class interface_criarCliente extends javax.swing.JFrame {
                 }   
             }   
         }else{
-          GlassPanePopup.showPopup(new interface_popUpmensagen());
+          GlassPanePopup.showPopup(new PopUp_mensagen());
         }    
     }//GEN-LAST:event_SingUpActionPerformed
 
