@@ -25,7 +25,6 @@ public class FormatedTextField extends JFormattedTextField{
     int cont = 1;
     MaskFormatter maskF;
     String form;
-    
     public FormatedTextField() {
 
         setOpaque(false);
@@ -54,7 +53,10 @@ public class FormatedTextField extends JFormattedTextField{
 
             @Override
             public void focusLost(FocusEvent e) {
-                if (getText().equals(form)) {
+                String dadoEscrito = getText();
+                int contMaskAtual = FormatedTextField.this.setContPlaceHolder(dadoEscrito);
+                                
+                if (contMaskAtual > 0) {                   
                     maskF.uninstall();
                     setText(arm);
                 }
@@ -73,6 +75,18 @@ public class FormatedTextField extends JFormattedTextField{
         g2.dispose();
 
         super.paintComponent(g); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+    }
+    
+    public int setContPlaceHolder(String maskFormat){
+        int contPlaceHolder = 0;
+        char[] mascara = maskFormat.toCharArray();
+        
+        for(char formatacao: mascara){
+            if(formatacao == '_'){
+                contPlaceHolder++;
+            }
+        }
+        return contPlaceHolder;
     }
     
     public void addFormatacao(String formato){
