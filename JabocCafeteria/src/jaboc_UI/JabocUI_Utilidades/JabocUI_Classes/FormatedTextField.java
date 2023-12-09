@@ -54,7 +54,7 @@ public class FormatedTextField extends JFormattedTextField{
 
             @Override
             public void focusLost(FocusEvent e) {
-                if (getText().equals("___.___.___-__")) {
+                if (getText().equals(form)) {
                     maskF.uninstall();
                     setText(arm);
                 }

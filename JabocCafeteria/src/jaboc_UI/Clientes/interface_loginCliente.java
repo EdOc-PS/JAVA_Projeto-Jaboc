@@ -28,6 +28,8 @@ public class interface_loginCliente extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         GlassPanePopup.install(this);
+
+        cpfCliente_login.addFormatacao("___.___.___-__");
     }
 
     /**
@@ -332,32 +334,31 @@ public class interface_loginCliente extends javax.swing.JFrame {
         String cpfLogin = cpfCliente_login.getText();
         String senhaCliente = new String(senhaCliente_login.getPassword());
 
-        try{
-            if(daoConta.login_ContaCliente(cpfLogin, senhaCliente)){
+        try {
+            if (daoConta.login_ContaCliente(cpfLogin, senhaCliente)) {
                 ResultSet infoCliente_logado = daoConta.selectCliente(cpfLogin);
 
-
-                if(infoCliente_logado.next()){
+                if (infoCliente_logado.next()) {
                     String cpfC = infoCliente_logado.getString("cpfCliente");
                     String senhaC = infoCliente_logado.getString("senhaCliente");
                     String nomeC = infoCliente_logado.getString("nome");
                     String enderecoC = infoCliente_logado.getString("endereco");
                     String telefoneC = infoCliente_logado.getString("telefone");
                     double gastoTotalC = infoCliente_logado.getDouble("gastoTotal");
-                    
+
                     //Criando um objeto do cliente para ser armazenado em memória - Facilitando o uso da aplicação
-                    Pessoa pessoa = new Pessoa (cpfC, nomeC, enderecoC, telefoneC);
-                    Conta_Cliente contaEmMEmoria = new Conta_Cliente(pessoa, senhaC,gastoTotalC);
+                    Pessoa pessoa = new Pessoa(cpfC, nomeC, enderecoC, telefoneC);
+                    Conta_Cliente contaEmMEmoria = new Conta_Cliente(pessoa, senhaC, gastoTotalC);
                     DadosEmMemoria.setCONTA_CLIENTE(contaEmMEmoria);
                 }
                 interface_Cardapio iCardapio = new interface_Cardapio();
                 this.dispose();
                 iCardapio.setVisible(true);
-            }else{
+            } else {
                 System.out.println("algo está errado");
             }
-        }catch(SQLException error){
-            System.out.println("Erro: "+ error.getMessage());
+        } catch (SQLException error) {
+            System.out.println("Erro: " + error.getMessage());
         }
     }//GEN-LAST:event_loginClienteActionPerformed
 
@@ -376,9 +377,9 @@ public class interface_loginCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_loginAcessMousePressed
 
     private void buttonCirculo2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCirculo2ActionPerformed
-        if(senhaCliente_login.equals(" Senha:")){
+        if (senhaCliente_login.equals(" Senha:")) {
 
-        }else{
+        } else {
             senhaCliente_login.setEchoChar((char) 0);
         }
     }//GEN-LAST:event_buttonCirculo2ActionPerformed

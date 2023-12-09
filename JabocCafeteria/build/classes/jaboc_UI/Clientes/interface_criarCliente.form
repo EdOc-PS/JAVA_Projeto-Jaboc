@@ -278,7 +278,7 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="iuser" min="-2" pref="25" max="-2" attributes="0"/>
                           <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                          <Component id="nomeCliente" pref="332" max="32767" attributes="0"/>
+                          <Component id="nomeCliente_cadastrar" pref="332" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -289,7 +289,7 @@
                           <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="iuser" pref="35" max="32767" attributes="0"/>
-                              <Component id="nomeCliente" max="32767" attributes="0"/>
+                              <Component id="nomeCliente_cadastrar" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
@@ -297,7 +297,7 @@
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="jaboc_UI.jabocUI_Utilidades.TextField" name="nomeCliente">
+                <Component class="jaboc_UI.jabocUI_Utilidades.TextField" name="nomeCliente_cadastrar">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -305,8 +305,8 @@
                     <Property name="text" type="java.lang.String" value=" Nome:"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="nomeClienteFocusLost"/>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nomeClienteActionPerformed"/>
+                    <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="nomeCliente_cadastrarFocusLost"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nomeCliente_cadastrarActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="iuser">
@@ -333,7 +333,7 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="icpf" min="-2" pref="23" max="-2" attributes="0"/>
                           <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                          <Component id="cpfCliente" pref="149" max="32767" attributes="0"/>
+                          <Component id="cpfCliente_cadastrar" pref="149" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -342,7 +342,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="icpf" max="32767" attributes="0"/>
                       <Group type="102" attributes="0">
-                          <Component id="cpfCliente" min="-2" pref="35" max="-2" attributes="0"/>
+                          <Component id="cpfCliente_cadastrar" min="-2" pref="35" max="-2" attributes="0"/>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -357,7 +357,7 @@
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="jaboc_UI.JabocUI_Utilidades.JabocUI_Classes.FormatedTextField" name="cpfCliente">
+                <Component class="jaboc_UI.JabocUI_Utilidades.JabocUI_Classes.FormatedTextField" name="cpfCliente_cadastrar">
                   <Properties>
                     <Property name="text" type="java.lang.String" value=" CPF:"/>
                   </Properties>
@@ -378,7 +378,7 @@
                           <EmptySpace max="32767" attributes="0"/>
                           <Component id="itel" min="-2" pref="23" max="-2" attributes="0"/>
                           <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                          <Component id="telefoneCliente" min="-2" pref="138" max="-2" attributes="0"/>
+                          <Component id="telefoneCliente_cadastrar" min="-2" pref="138" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -388,7 +388,7 @@
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="itel" min="-2" pref="35" max="-2" attributes="0"/>
-                              <Component id="telefoneCliente" min="-2" pref="35" max="-2" attributes="0"/>
+                              <Component id="telefoneCliente_cadastrar" min="-2" pref="35" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
@@ -404,12 +404,12 @@
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="jaboc_UI.JabocUI_Utilidades.JabocUI_Classes.FormatedTextField" name="telefoneCliente">
+                <Component class="jaboc_UI.JabocUI_Utilidades.JabocUI_Classes.FormatedTextField" name="telefoneCliente_cadastrar">
                   <Properties>
                     <Property name="text" type="java.lang.String" value=" Telefone:"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="telefoneClienteActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="telefoneCliente_cadastrarActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>
@@ -428,7 +428,7 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="itel2" min="-2" pref="23" max="-2" attributes="0"/>
                           <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                          <Component id="enderecoCliente" min="-2" pref="334" max="-2" attributes="0"/>
+                          <Component id="enderecoCliente_cadastrar" min="-2" pref="334" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -438,7 +438,7 @@
                       <Group type="102" attributes="0">
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="enderecoCliente" alignment="1" min="-2" pref="35" max="-2" attributes="0"/>
+                              <Component id="enderecoCliente_cadastrar" alignment="1" min="-2" pref="35" max="-2" attributes="0"/>
                               <Component id="itel2" alignment="1" min="-2" pref="35" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -446,7 +446,7 @@
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="jaboc_UI.jabocUI_Utilidades.TextField" name="enderecoCliente">
+                <Component class="jaboc_UI.jabocUI_Utilidades.TextField" name="enderecoCliente_cadastrar">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -524,7 +524,7 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="isenha" min="-2" pref="23" max="-2" attributes="0"/>
                           <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                          <Component id="senhaCliente" max="32767" attributes="0"/>
+                          <Component id="senhaCliente_cadastrar" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -534,7 +534,7 @@
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="senhaCliente" pref="35" max="32767" attributes="0"/>
+                              <Component id="senhaCliente_cadastrar" pref="35" max="32767" attributes="0"/>
                               <Component id="isenha" max="32767" attributes="0"/>
                           </Group>
                       </Group>
@@ -542,7 +542,7 @@
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="jaboc_UI.jabocUI_Utilidades.PasswordField" name="senhaCliente">
+                <Component class="jaboc_UI.jabocUI_Utilidades.PasswordField" name="senhaCliente_cadastrar">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -550,7 +550,7 @@
                     <Property name="text" type="java.lang.String" value=" Senha:"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="senhaClienteActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="senhaCliente_cadastrarActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="isenha">
@@ -577,7 +577,7 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="isenha2" min="-2" pref="23" max="-2" attributes="0"/>
                           <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                          <Component id="verificarSenhaCliente" pref="292" max="32767" attributes="0"/>
+                          <Component id="verificarSenhaCliente_cadastrar" pref="292" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -586,14 +586,14 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                          <Component id="verificarSenhaCliente" min="-2" pref="35" max="-2" attributes="0"/>
+                          <Component id="verificarSenhaCliente_cadastrar" min="-2" pref="35" max="-2" attributes="0"/>
                       </Group>
                       <Component id="isenha2" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="jaboc_UI.jabocUI_Utilidades.PasswordField" name="verificarSenhaCliente">
+                <Component class="jaboc_UI.jabocUI_Utilidades.PasswordField" name="verificarSenhaCliente_cadastrar">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>

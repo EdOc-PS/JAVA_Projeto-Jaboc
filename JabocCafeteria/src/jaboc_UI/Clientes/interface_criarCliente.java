@@ -30,8 +30,8 @@ public class interface_criarCliente extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         GlassPanePopup.install(this);
         
-        cpfCliente_cadastrar.addFormatacao("###.###.###-##");
-        telefoneCliente_cadastrar.addFormatacao("(##) #####-####");
+        cpfCliente_cadastrar.addFormatacao("___.___.___-__");
+        telefoneCliente_cadastrar.addFormatacao("(__) ____-____");
     }
 
     /**
@@ -174,6 +174,7 @@ public class interface_criarCliente extends javax.swing.JFrame {
 
         panel4.setBackground(new java.awt.Color(255, 255, 255));
 
+        nomeCliente_cadastrar.setBackground(new java.awt.Color(255, 255, 255));
         nomeCliente_cadastrar.setText(" Nome:");
         nomeCliente_cadastrar.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
@@ -270,6 +271,7 @@ public class interface_criarCliente extends javax.swing.JFrame {
 
         panel7.setBackground(new java.awt.Color(255, 255, 255));
 
+        enderecoCliente_cadastrar.setBackground(new java.awt.Color(255, 255, 255));
         enderecoCliente_cadastrar.setText(" Endereço:");
 
         itel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -332,6 +334,7 @@ public class interface_criarCliente extends javax.swing.JFrame {
 
         panel8.setBackground(new java.awt.Color(255, 255, 255));
 
+        senhaCliente_cadastrar.setBackground(new java.awt.Color(255, 255, 255));
         senhaCliente_cadastrar.setText(" Senha:");
         senhaCliente_cadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -364,6 +367,7 @@ public class interface_criarCliente extends javax.swing.JFrame {
 
         panel9.setBackground(new java.awt.Color(255, 255, 255));
 
+        verificarSenhaCliente_cadastrar.setBackground(new java.awt.Color(255, 255, 255));
         verificarSenhaCliente_cadastrar.setText(" Repita a senha:");
 
         isenha2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -531,26 +535,6 @@ public class interface_criarCliente extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private JTextField CPF() {
-        try {
-            javax.swing.text.MaskFormatter cpf = new javax.swing.text.MaskFormatter("###.###.###-##");
-            return new javax.swing.JFormattedTextField(cpf);
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Ocorreu um erro");
-
-            return new JTextField();
-        }
-    }
-
-    private JTextField Telefone() {
-        try {
-            javax.swing.text.MaskFormatter telefone = new javax.swing.text.MaskFormatter("(##) #####-####");
-            return new javax.swing.JFormattedTextField(telefone);
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Ocorreu um erro");
-            return new JTextField();
-        }
-    }
 
     private void bVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVoltarActionPerformed
         interface_menuCliente i_menuCliente = new interface_menuCliente();
