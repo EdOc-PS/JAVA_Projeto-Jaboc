@@ -4,21 +4,15 @@
  */
 package jaboc_UI.jabocUI_Utilidades;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
-
 import java.awt.geom.RoundRectangle2D;
-import java.text.ParseException;
-import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
-import javax.swing.text.DefaultFormatterFactory;
-import javax.swing.text.MaskFormatter;
 
 /**
  *
@@ -30,11 +24,12 @@ public class TextField extends JTextField {
     int cont = 1;
 
     public TextField() {
-      
+
         setOpaque(false);
         setBorder(new EmptyBorder(5, 7, 5, 7));
         setFont(new java.awt.Font("Gill Sans MT", 0, 14));
         setForeground(new Color(153, 153, 153));
+        setBackground(new Color(255, 255, 255));
 
         this.addFocusListener(new FocusListener() {
 
@@ -56,7 +51,7 @@ public class TextField extends JTextField {
                 }
             }
         });
-    
+
     }
 
     @Override

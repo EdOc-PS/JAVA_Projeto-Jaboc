@@ -6,7 +6,6 @@ package jaboc_UI.Clientes;
  */
 import jaboc_BancoDeDados.AcessandoBD;
 import java.awt.Color;
-import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import jaboc_Biblioteca.glasspanepopup.GlassPanePopup;
 import jaboc_Classes.Conta_Cliente;
@@ -14,13 +13,18 @@ import jaboc_BancoDeDados.DAO.DAO_ContaCliente;
 import jaboc_BancoDeDados.DAO.DAO_ContaFuncionario;
 import jaboc_BancoDeDados.DAO.DAO_Pessoa;
 import jaboc_Classes.Pessoa;
-import jaboc_UI.jabocUI_Utilidades.JabocUI_popUp.PopUp_FuncionarioParaCliente;
+import jaboc_UI.JabocUI_Utilidades.JabocUI_popUp.PopUp_FuncionarioParaCliente;
+import jaboc_UI.jabocUI_Utilidades.interface_popUpmensagen;
+import java.util.ArrayList;
+import java.util.Iterator;
 /**
  *
  * @author guilh
  */
 public class interface_criarCliente extends javax.swing.JFrame {
     
+    private ArrayList<JTextField> camposTexto =  new ArrayList<>();
+    private ArrayList<String> dados_camposTexto =  new ArrayList<>();
     private boolean activeButton = true, activeButton1 = true;
     /**
      * Creates new form interfaceCliente
@@ -30,10 +34,13 @@ public class interface_criarCliente extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         GlassPanePopup.install(this);
         
-        cpfCliente_cadastrar.addFormatacao("___.___.___-__");
-        telefoneCliente_cadastrar.addFormatacao("(__) ____-____");
+        cpfCliente_cadastrar.addFormatacao("###.###.###-##");
+        telefoneCliente_cadastrar.addFormatacao("(##) #####-####");
+        
+        this.armazenaCamposTextos();
+        this.armazenaDadosCamposTextos();
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -174,8 +181,7 @@ public class interface_criarCliente extends javax.swing.JFrame {
 
         panel4.setBackground(new java.awt.Color(255, 255, 255));
 
-        nomeCliente_cadastrar.setBackground(new java.awt.Color(255, 255, 255));
-        nomeCliente_cadastrar.setText("Nome:");
+        nomeCliente_cadastrar.setText(" Nome:");
         nomeCliente_cadastrar.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 nomeCliente_cadastrarFocusLost(evt);
@@ -271,8 +277,7 @@ public class interface_criarCliente extends javax.swing.JFrame {
 
         panel7.setBackground(new java.awt.Color(255, 255, 255));
 
-        enderecoCliente_cadastrar.setBackground(new java.awt.Color(255, 255, 255));
-        enderecoCliente_cadastrar.setText("Endereço:");
+        enderecoCliente_cadastrar.setText(" Endereço:");
 
         itel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         itel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconLabel/casa.png"))); // NOI18N
@@ -334,7 +339,6 @@ public class interface_criarCliente extends javax.swing.JFrame {
 
         panel8.setBackground(new java.awt.Color(255, 255, 255));
 
-        senhaCliente_cadastrar.setBackground(new java.awt.Color(255, 255, 255));
         senhaCliente_cadastrar.setText(" Senha:");
         senhaCliente_cadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -367,7 +371,6 @@ public class interface_criarCliente extends javax.swing.JFrame {
 
         panel9.setBackground(new java.awt.Color(255, 255, 255));
 
-        verificarSenhaCliente_cadastrar.setBackground(new java.awt.Color(255, 255, 255));
         verificarSenhaCliente_cadastrar.setText(" Repita a senha:");
 
         isenha2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -535,7 +538,6 @@ public class interface_criarCliente extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-
     private void bVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVoltarActionPerformed
         interface_menuCliente i_menuCliente = new interface_menuCliente();
         i_menuCliente.setVisible(true);
@@ -551,49 +553,57 @@ public class interface_criarCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_bVoltarMouseExited
 
     private void SingUpActionPerformed(java.awt.event.ActionEvent evt){//GEN-FIRST:event_SingUpActionPerformed
-        String senha_criarCliente = String.valueOf(senhaCliente_cadastrar.getPassword());
-        String verificarSenha_criarCliente = String.valueOf(verificarSenhaCliente_cadastrar.getPassword());
+        if(this.existeCamposVazios()){
         
-        if(senha_criarCliente.equals(verificarSenha_criarCliente)){
-            String cpf_cadastrarCliente = cpfCliente_cadastrar.getText();
-            String nome_cadastrarCliente = nomeCliente_cadastrar.getText();
-            String endereco_cadastrarCliente = enderecoCliente_cadastrar.getText();
-            String telefone_cadastrarCliente = telefoneCliente_cadastrar.getText();
-            
-            Pessoa objetoPessoa = new Pessoa(nome_cadastrarCliente, cpf_cadastrarCliente,
-            endereco_cadastrarCliente, telefone_cadastrarCliente); 
-            
-            Conta_Cliente cadastrarCliente = new Conta_Cliente(objetoPessoa, senha_criarCliente);
-            
-            interface_loginCliente iLogin_Cliente = new interface_loginCliente();
-            
-            DAO_Pessoa cadastrarPessoa= new DAO_Pessoa();
-            DAO_ContaFuncionario dao_contaFuncionario = new DAO_ContaFuncionario();
-            DAO_ContaCliente dao_contaCliente = new DAO_ContaCliente();
-            
-            if(dao_contaCliente.existeRegistro(objetoPessoa.getCpf())){
-                               
-                iLogin_Cliente.getCpfCliente_login().setText(objetoPessoa.getCpf());                
-                iLogin_Cliente.setVisible(true);
-                this.dispose();
-                
-            }else if(dao_contaFuncionario.existeRegistro(objetoPessoa.getCpf())){
-                
-                PopUp_FuncionarioParaCliente iFuncionarioParaCliente = new PopUp_FuncionarioParaCliente(objetoPessoa.getNome() +" possui conta de funcionário!");
-                GlassPanePopup.showPopup(iFuncionarioParaCliente);
+            String senha_criarCliente = String.valueOf(senhaCliente_cadastrar.getPassword());
+            String verificarSenha_criarCliente = String.valueOf(verificarSenhaCliente_cadastrar.getPassword());
 
-                if(iFuncionarioParaCliente.criarConta()){
+            if(senha_criarCliente.equals(verificarSenha_criarCliente)){
+                String cpf_cadastrarCliente = cpfCliente_cadastrar.getText();
+                String nome_cadastrarCliente = nomeCliente_cadastrar.getText();
+                String endereco_cadastrarCliente = enderecoCliente_cadastrar.getText();
+                String telefone_cadastrarCliente = telefoneCliente_cadastrar.getText();
+
+                Pessoa objetoPessoa = new Pessoa(nome_cadastrarCliente, cpf_cadastrarCliente,
+                endereco_cadastrarCliente, telefone_cadastrarCliente); 
+
+                Conta_Cliente cadastrarCliente = new Conta_Cliente(objetoPessoa, senha_criarCliente);
+
+                interface_loginCliente iLogin_Cliente = new interface_loginCliente();
+
+                DAO_Pessoa cadastrarPessoa = new DAO_Pessoa();
+                DAO_ContaFuncionario dao_contaFuncionario = new DAO_ContaFuncionario();
+                DAO_ContaCliente dao_contaCliente = new DAO_ContaCliente();
+
+                if(dao_contaCliente.existeRegistro(objetoPessoa.getCpf())){
+
+                    iLogin_Cliente.getCpfCliente_login().setText(objetoPessoa.getCpf());                
+                    iLogin_Cliente.setVisible(true);
+                    this.dispose();
+
+                }else if(dao_contaFuncionario.existeRegistro(objetoPessoa.getCpf())){
+
+                    PopUp_FuncionarioParaCliente dialogoFunc = new PopUp_FuncionarioParaCliente(this);
+                    dialogoFunc.setModal(true);
+                    dialogoFunc.setVisible(true);
                     
+                    if(dialogoFunc.getCriarConta()){
+
+                        AcessandoBD.inserir(dao_contaCliente, cadastrarCliente);
+                        iLogin_Cliente.setVisible(true);
+                        this.dispose();
+                    }else{
+                        this.setarCamposVazios();
+                    }
+                }else{
+                    cadastrarPessoa.insert(objetoPessoa);
                     AcessandoBD.inserir(dao_contaCliente, cadastrarCliente);
                     iLogin_Cliente.setVisible(true);
                     this.dispose();
-                }
-            }else{
-                cadastrarPessoa.insert(objetoPessoa);
-                AcessandoBD.inserir(dao_contaCliente, cadastrarCliente);
-                iLogin_Cliente.setVisible(true);
-                this.dispose();
+                }   
             }   
+        }else{
+          GlassPanePopup.showPopup(new interface_popUpmensagen());
         }    
     }//GEN-LAST:event_SingUpActionPerformed
 
@@ -670,6 +680,49 @@ public class interface_criarCliente extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_telefoneCliente_cadastrarActionPerformed
 
+     private void armazenaCamposTextos(){
+        this.camposTexto.add(nomeCliente_cadastrar);
+        this.camposTexto.add(telefoneCliente_cadastrar);
+        this.camposTexto.add(cpfCliente_cadastrar);
+        this.camposTexto.add(enderecoCliente_cadastrar);
+        this.camposTexto.add(senhaCliente_cadastrar);
+        this.camposTexto.add(verificarSenhaCliente_cadastrar);
+    }
+    
+     private void armazenaDadosCamposTextos(){
+        this.dados_camposTexto.add(nomeCliente_cadastrar.getText());
+        this.dados_camposTexto.add(telefoneCliente_cadastrar.getText());
+        this.dados_camposTexto.add(cpfCliente_cadastrar.getText());
+        this.dados_camposTexto.add(enderecoCliente_cadastrar.getText());
+        this.dados_camposTexto.add(String.valueOf(senhaCliente_cadastrar.getPassword()));
+        this.dados_camposTexto.add(String.valueOf(verificarSenhaCliente_cadastrar.getPassword()));
+    }
+     
+    private boolean existeCamposVazios(){
+        Iterator<JTextField> percorrerCamposTextos =  this.camposTexto.iterator();
+        Iterator<String> percorrerDadosCamposTextos =  this.dados_camposTexto.iterator();
+        
+        while(percorrerCamposTextos.hasNext()){
+            JTextField campoAtual = percorrerCamposTextos.next();
+            String dadoCampoAtual = percorrerDadosCamposTextos.next();
+            if(campoAtual.getText().equals(dadoCampoAtual)){
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    private void setarCamposVazios(){
+        Iterator<JTextField> percorrerArray =  this.camposTexto.iterator();
+        Iterator<String> percorrerDadosCamposTextos =  this.dados_camposTexto.iterator();
+        
+        while(percorrerArray.hasNext()){
+            JTextField campoAtual = percorrerArray.next();
+            String novoDadoCampoAtual = percorrerDadosCamposTextos.next();
+            campoAtual.setText(novoDadoCampoAtual);
+        }
+    }
+    
     /**
      * @param args the command line arguments
      */

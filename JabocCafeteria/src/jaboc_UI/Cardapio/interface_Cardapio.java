@@ -5,17 +5,13 @@
 package jaboc_UI.Cardapio;
 
 import jaboc_Biblioteca.outras.ModernScrollBarUI;
-import jaboc_UI.Clientes.interface_editarCliente;
 import jaboc_Classes.Conta_Cliente;
-import jaboc_UI.Administrador.interface_Menu;
 import jaboc_UI.Clientes.interface_editarCliente;
 import jaboc_UI.Clientes.interface_menuCliente;
 import jaboc_UI.jabocUI_Utilidades.PopUp_mensagen;
 import java.awt.Color;
 import java.awt.Dimension;
-import javax.swing.BorderFactory;
 import javax.swing.JScrollBar;
-import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
 import raven.glasspanepopup.DefaultOption;
 import raven.glasspanepopup.GlassPanePopup;
@@ -25,8 +21,6 @@ import raven.glasspanepopup.GlassPanePopup;
  * @author 0057138
  */
 public class interface_Cardapio extends javax.swing.JFrame {
-
-    private Conta_Cliente Conta_Cliente;
 
     public interface_Cardapio() {
         initComponents();

@@ -151,6 +151,11 @@ public class interface_gerenciarProdutos extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tabelaCardapio.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabelaCardapioMouseClicked(evt);
+            }
+        });
         scrollGerenciaProduto.setViewportView(tabelaCardapio);
 
         javax.swing.GroupLayout panel2Layout = new javax.swing.GroupLayout(panel2);
@@ -252,7 +257,15 @@ public class interface_gerenciarProdutos extends javax.swing.JFrame {
     }//GEN-LAST:event_bVoltarActionPerformed
 
     private void buttonCirculo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCirculo1ActionPerformed
-        GlassPanePopup.showPopup(new PopUp_GerenciaProdutos());
+        DefaultTableModel cardapio = (DefaultTableModel) tabelaCardapio.getModel();
+        String[] dados = {
+            " 1 ",
+            " Teste ",
+            " Teste ",
+            " Teste ",
+            " Teste "};
+        cardapio.addRow(dados);
+
     }//GEN-LAST:event_buttonCirculo1ActionPerformed
 
     private void adicionar_ProdutoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_adicionar_ProdutoMouseEntered
@@ -268,6 +281,11 @@ public class interface_gerenciarProdutos extends javax.swing.JFrame {
         i_criarProduto.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_adicionar_ProdutoActionPerformed
+
+    private void tabelaCardapioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaCardapioMouseClicked
+         GlassPanePopup.showPopup(new PopUp_GerenciaProdutos());
+        
+    }//GEN-LAST:event_tabelaCardapioMouseClicked
     /**
      * @param args the command line arguments
      */

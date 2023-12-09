@@ -136,7 +136,6 @@ public class interface_editarProduto extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Gill Sans MT", 1, 30)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_editar3.png"))); // NOI18N
         jLabel7.setText(" EDITAR PRODUTO");
 
         panel1.setBackground(new java.awt.Color(200, 182, 166));
