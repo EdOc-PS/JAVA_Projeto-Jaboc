@@ -175,7 +175,7 @@ public class interface_criarCliente extends javax.swing.JFrame {
         panel4.setBackground(new java.awt.Color(255, 255, 255));
 
         nomeCliente_cadastrar.setBackground(new java.awt.Color(255, 255, 255));
-        nomeCliente_cadastrar.setText(" Nome:");
+        nomeCliente_cadastrar.setText("Nome:");
         nomeCliente_cadastrar.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 nomeCliente_cadastrarFocusLost(evt);
@@ -272,7 +272,7 @@ public class interface_criarCliente extends javax.swing.JFrame {
         panel7.setBackground(new java.awt.Color(255, 255, 255));
 
         enderecoCliente_cadastrar.setBackground(new java.awt.Color(255, 255, 255));
-        enderecoCliente_cadastrar.setText(" Endereço:");
+        enderecoCliente_cadastrar.setText("Endereço:");
 
         itel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         itel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconLabel/casa.png"))); // NOI18N

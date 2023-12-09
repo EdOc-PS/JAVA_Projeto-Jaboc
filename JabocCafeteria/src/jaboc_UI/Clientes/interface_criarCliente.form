@@ -302,7 +302,7 @@
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value=" Nome:"/>
+                    <Property name="text" type="java.lang.String" value="Nome:"/>
                   </Properties>
                   <Events>
                     <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="nomeCliente_cadastrarFocusLost"/>
@@ -451,7 +451,7 @@
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value=" Endere&#xe7;o:"/>
+                    <Property name="text" type="java.lang.String" value="Endere&#xe7;o:"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="itel2">

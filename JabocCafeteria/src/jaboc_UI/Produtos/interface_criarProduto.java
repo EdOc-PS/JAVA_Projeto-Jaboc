@@ -378,7 +378,9 @@ public class interface_criarProduto extends javax.swing.JFrame {
     }//GEN-LAST:event_bVoltarMouseExited
 
     private void bVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVoltarActionPerformed
-      
+       interface_gerenciarProdutos i_gerenciarProdutos = new interface_gerenciarProdutos();
+       i_gerenciarProdutos.setVisible(true);
+       this.dispose();
     }//GEN-LAST:event_bVoltarActionPerformed
 
     private void criaProdutoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_criaProdutoMouseEntered
