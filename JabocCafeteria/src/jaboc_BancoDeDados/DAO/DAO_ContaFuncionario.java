@@ -9,12 +9,14 @@ import java.sql.*;
 import jaboc_Classes.Conta_Funcionario;
 import jaboc_BancoDeDados.interfaces.ManipulandoDados;
 import jaboc_Classes.Login;
+import jaboc_Classes.Pessoa;
 
 /**
  *
  * @author guilh
  */
 public class DAO_ContaFuncionario implements ManipulandoDados, Logavel{           
+    private static Conta_Funcionario dadosFuncionario_emMemoria;
     
     @Override
     public ResultSet selectTodos(){
@@ -107,8 +109,8 @@ public class DAO_ContaFuncionario implements ManipulandoDados, Logavel{
     }
     
     @Override
-    public <T> boolean update(Object o,T cpfFuncionario){
-    
+    public <T> boolean update(Object o,T cpfFuncionario){ 
+        
         if(o instanceof Conta_Funcionario){
         
             Conta_Funcionario updateFuncionario = (Conta_Funcionario) o;
@@ -154,12 +156,59 @@ public class DAO_ContaFuncionario implements ManipulandoDados, Logavel{
             if(resultadoSelect.next()){
                 String senhaFuncionario_FromSelect = resultadoSelect.getString("senhaFuncionario");
                 
-                return senhaFuncionario_FromSelect.equals(funcionarioLogando.getSENHA());
+                if(senhaFuncionario_FromSelect.equals(funcionarioLogando.getSENHA())){
+                    this.armazenarEmMemoria_dadosContaLogada(funcionarioLogando);
+                    return true;
+                }else{
+                    return false;
+                }
             }
         }catch(SQLException error){
-            System.out.println("Errono login(String cpfLogin_Funcionario, String senhaLogin_Cliente) da ContaFuncionario: "+ error.getMessage());
+            System.out.println("Erro no login(Login funcionarioLogando) da ContaFuncionario: "+ error.getMessage());
         }
         
         return false;
+    }
+    
+    @Override
+    public boolean existeCpf(String cpfFuncionario){
+        String comandoSelect = "SELECT cpfFuncionario FROM jaboc_servidor.Conta_Funcionario "
+                + "WHERE cpfFuncionario = '"+ cpfFuncionario + "';";
+        
+        try(Connection conexao = this.conectar()){
+            ResultSet funcionarioExiste = conexao.createStatement().executeQuery(comandoSelect);
+            return funcionarioExiste.next();
+            
+        }catch(SQLException | NullPointerException error){
+            System.out.println("Erro no existeCpf(Login funcionarioLogando) da ContaFuncionario: ");
+            error.printStackTrace();
+        }
+        
+        return false;
+    }
+    
+    @Override
+    public void armazenarEmMemoria_dadosContaLogada(Login funcionarioLogando){
+        DAO_Pessoa dadosPessoa = new DAO_Pessoa();
+        ResultSet selectPessoa = dadosPessoa.selectEspecifico(funcionarioLogando.getCPF());
+        ResultSet selectContaFuncionario = this.selectEspecifico(funcionarioLogando.getCPF());
+        
+        try{
+            String nomePessoa = selectPessoa.getString("nome");
+            String cpfPessoa = selectPessoa.getString("cpf");
+            String enderecoPessoa = selectPessoa.getString("endereco");
+            String telefonePessoa = selectPessoa.getString("telefone");
+            
+            Pessoa dados_tabelaPessoaBD = new Pessoa(nomePessoa,cpfPessoa, enderecoPessoa, telefonePessoa);
+            
+            String cargoContaFuncionario = selectContaFuncionario.getString("cargoContaFuncionario");
+            String senhaFuncionario = selectContaFuncionario.getString("senhaFuncionario");
+            double salario = selectContaFuncionario.getDouble("salario");
+            
+            dadosFuncionario_emMemoria = new Conta_Funcionario(dados_tabelaPessoaBD, senhaFuncionario,  cargoContaFuncionario, salario);
+        }catch(SQLException | NullPointerException error){
+            System.out.println("Erro no armazenarDadosLogin(login funcionarioLogando) da ContaFuncionario: ");
+            error.printStackTrace();
+        }
     }
 }

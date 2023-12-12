@@ -15,7 +15,6 @@ import jaboc_BancoDeDados.DAO.DAO_Pessoa;
 import jaboc_Classes.Pessoa;
 import jaboc_UI.JabocUI_Utilidades.JabocUI_popUp.PopUp_FuncionarioParaCliente;
 import jaboc_UI.jabocUI_Utilidades.PopUp_mensagen;
-import jaboc_UI.jabocUI_Utilidades.interface_popUpmensagen;
 import java.util.ArrayList;
 import java.util.Iterator;
 /**
@@ -554,7 +553,7 @@ public class interface_criarCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_bVoltarMouseExited
 
     private void SingUpActionPerformed(java.awt.event.ActionEvent evt){//GEN-FIRST:event_SingUpActionPerformed
-        if(this.existeCamposVazios()){
+        if(this.camposPreenchidos()){
         
             String senha_criarCliente = String.valueOf(senhaCliente_cadastrar.getPassword());
             String verificarSenha_criarCliente = String.valueOf(verificarSenhaCliente_cadastrar.getPassword());
@@ -598,7 +597,7 @@ public class interface_criarCliente extends javax.swing.JFrame {
                     }
                 }else{
                     cadastrarPessoa.insert(objetoPessoa);
-                    AcessandoBD.inserir(dao_contaCliente, cadastrarCliente);
+                    AcessandoBD.inserir( dao_contaCliente, cadastrarCliente);
                     iLogin_Cliente.setVisible(true);
                     this.dispose();
                 }   
@@ -639,12 +638,7 @@ public class interface_criarCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_bOlhoActionPerformed
 
     private void nomeCliente_cadastrarFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_nomeCliente_cadastrarFocusLost
-        if(nomeCliente_cadastrar.getText().equals(" Nome:")){
-            nomeCliente_cadastrar.requestFocus();
-            panel4.setBackground(Color.RED);
-        }else{
-            panel4.setBackground(Color.WHITE);
-        }
+ 
     }//GEN-LAST:event_nomeCliente_cadastrarFocusLost
 
     private void bOlhoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bOlhoMouseClicked
@@ -699,7 +693,7 @@ public class interface_criarCliente extends javax.swing.JFrame {
         this.dados_camposTexto.add(String.valueOf(verificarSenhaCliente_cadastrar.getPassword()));
     }
      
-    private boolean existeCamposVazios(){
+    private boolean camposPreenchidos(){
         Iterator<JTextField> percorrerCamposTextos =  this.camposTexto.iterator();
         Iterator<String> percorrerDadosCamposTextos =  this.dados_camposTexto.iterator();
         
@@ -720,6 +714,7 @@ public class interface_criarCliente extends javax.swing.JFrame {
         while(percorrerArray.hasNext()){
             JTextField campoAtual = percorrerArray.next();
             String novoDadoCampoAtual = percorrerDadosCamposTextos.next();
+            
             campoAtual.setText(novoDadoCampoAtual);
         }
     }

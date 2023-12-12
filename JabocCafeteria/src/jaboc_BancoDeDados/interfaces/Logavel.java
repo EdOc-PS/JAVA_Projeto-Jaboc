@@ -5,11 +5,13 @@
 package jaboc_BancoDeDados.interfaces;
 
 import jaboc_Classes.Login;
-
 /**
  *
  * @author guilh
  */
-public interface Logavel {
+public interface Logavel{
     public boolean login(Login logavel);
+    public boolean existeCpf(String cpf);
+    public void armazenarEmMemoria_dadosContaLogada(Login logavel);
+        
 }

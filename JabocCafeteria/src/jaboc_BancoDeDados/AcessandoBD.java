@@ -5,24 +5,28 @@
 package jaboc_BancoDeDados;
 
 import jaboc_BancoDeDados.interfaces.Logavel;
-import jaboc_UI.jabocUI_Utilidades.JabocUI_popUp.PopUp_inseriu;
-import java.sql.*;
 import jaboc_BancoDeDados.interfaces.ManipulandoDados;
-import jaboc_Biblioteca.glasspanepopup.GlassPanePopup;
 import jaboc_Classes.Login;
+import jaboc_UI.JabocUI_Utilidades.JabocUI_popUp.PopUp_inseriuItem;
+import jaboc_UI.JabocUI_Utilidades.JabocUI_popUp.PopUp_login;
+import java.awt.Frame;
+import raven.glasspanepopup.GlassPanePopup;
 /**
  *
  * @author guilh
  */
 public class AcessandoBD {
     
-    public static void inserir(ManipulandoDados inserir, Object o){
-
+    public static void inserir( ManipulandoDados inserir, Object o){
+        String mensagem;
         if(inserir.insert(o)){
-            GlassPanePopup.showPopup(new PopUp_inseriu(inserir.alerta(o, " cadastrado com sucesso!")));
+            mensagem = "Cadastro efetuado com sucesso!";
         }else{
-            GlassPanePopup.showPopup(new PopUp_inseriu(inserir.alerta(o, " não foi cadastrado!")));
+            mensagem = "Houve um erro no cadastro!";
         }
+        
+        PopUp_inseriuItem inseriu = new PopUp_inseriuItem(null, mensagem);
+        inseriu.setVisible(true);
     }
     
     public static <T>boolean existeRegistro(ManipulandoDados existe, T param){
@@ -53,13 +57,20 @@ public class AcessandoBD {
         }
     }
     
-    public static boolean login(Logavel logavel, Login alguemLogando){
-        if(logavel.login(alguemLogando)){
-         
-            return true;
+    public static boolean login(Frame pai, Logavel logavel, Login alguemLogando){
+        String mensagemLogin;
+        boolean logou = false;
+        if(!logavel.existeCpf(alguemLogando.getCPF())){
+            mensagemLogin = "CPF não encontrado!";
+        }else if(logavel.login(alguemLogando)){
+            mensagemLogin = "Login efetuado com sucesso!";
+            logou = true;
         }else{
-            
-            return false;
+            mensagemLogin = "Senha incorreta!";
         }
+        
+        PopUp_login logouPopUp = new PopUp_login(null, mensagemLogin);
+        logouPopUp.setVisible(true);
+        return logou;
     }
 }

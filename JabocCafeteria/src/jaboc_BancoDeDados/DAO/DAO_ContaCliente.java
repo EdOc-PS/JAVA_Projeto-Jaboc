@@ -9,12 +9,13 @@ import java.sql.*;
 import jaboc_Classes.Conta_Cliente;
 import jaboc_BancoDeDados.interfaces.ManipulandoDados;
 import jaboc_Classes.Login;
+import jaboc_Classes.Pessoa;
 /**
  *
  * @author guilh
  */
 public class DAO_ContaCliente implements ManipulandoDados, Logavel{
-    private static Conta_Cliente objetoCliente;
+    private static Conta_Cliente dadosCliente_emMemoria;
     
     @Override
     public ResultSet selectTodos(){
@@ -162,7 +163,12 @@ public class DAO_ContaCliente implements ManipulandoDados, Logavel{
             if(resultadoSelect.next()){
                 String senhaCliente_FromSelect = resultadoSelect.getString("senhaCliente");
 
-                return  senhaCliente_FromSelect.equals(clienteLogando.getSENHA());
+                if(senhaCliente_FromSelect.equals(clienteLogando.getSENHA())){
+                    this.armazenarEmMemoria_dadosContaLogada(clienteLogando);
+                    return true;
+                }else{
+                    return false;
+                }
             }            
             
         }catch(SQLException | NullPointerException error){
@@ -171,5 +177,46 @@ public class DAO_ContaCliente implements ManipulandoDados, Logavel{
         }
         
         return false;
+    }
+    
+    @Override
+    public boolean existeCpf(String cpfCliente){
+        String comandoSelect = "SELECT cpfCliente FROM jaboc_servidor.Conta_Cliente "
+                + "WHERE cpfCliente = '"+ cpfCliente + "';";
+        
+        try(Connection conexao = this.conectar()){
+            ResultSet clienteExiste = conexao.createStatement().executeQuery(comandoSelect);
+            return clienteExiste.next();
+            
+        }catch(SQLException |NullPointerException error){
+            System.out.println("Erro no existeCpf(Login clienteLogando) da ContaCliente: ");
+            error.printStackTrace();
+        }
+        
+        return false;
+    }
+    
+    @Override
+    public void armazenarEmMemoria_dadosContaLogada(Login clienteLogando){
+        DAO_Pessoa dadosPessoa = new DAO_Pessoa();
+        ResultSet selectPessoa = dadosPessoa.selectEspecifico(clienteLogando.getCPF());       
+        ResultSet selectContaCliente = this.selectEspecifico(clienteLogando.getCPF());
+        
+        try{  
+            String nomePessoa = selectPessoa.getString("nome");
+            String cpfPessoa = selectPessoa.getString("cpf");
+            String enderecoPessoa = selectPessoa.getString("endereco");
+            String telefonePessoa = selectPessoa.getString("telefone");
+            
+            Pessoa dados_tabelaPessoaBD = new Pessoa(nomePessoa, cpfPessoa, enderecoPessoa, telefonePessoa);
+            
+            String senhaContaCliente = selectContaCliente.getString("senhaCliente");
+            double gastoTotal = selectContaCliente.getDouble("gastoTotal");
+            
+            dadosCliente_emMemoria = new Conta_Cliente(dados_tabelaPessoaBD, senhaContaCliente, gastoTotal);
+        }catch(SQLException | NullPointerException error){
+            System.out.println("Erro no armazenarDadosLogin(Login clienteLogando) da ContaCliente: ");
+            error.printStackTrace();
+        }
     }
 }
