@@ -20,6 +20,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import jaboc_UI.jabocUI_Utilidades.ButtonCirculo;
 import java.awt.Color;
+
 import javax.swing.JDialog;
 
 /**
@@ -139,4 +140,5 @@ public final class PopUp_inseriuItem extends JDialog{
         this.sairBotao.setBounds(largura - 50, altura - 190, 40, 25);
     }
        
+    
 }

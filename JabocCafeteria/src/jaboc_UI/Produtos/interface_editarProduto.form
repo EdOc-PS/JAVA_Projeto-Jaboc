@@ -277,9 +277,6 @@
               <SubComponents>
                 <Component class="jaboc_UI.jabocUI_Utilidades.TextField" name="nomeProduto">
                   <Properties>
-                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                    </Property>
                     <Property name="text" type="java.lang.String" value=" Nome:"/>
                   </Properties>
                   <Events>
@@ -332,9 +329,6 @@
               <SubComponents>
                 <Component class="jaboc_UI.jabocUI_Utilidades.TextField" name="qtdeProduto">
                   <Properties>
-                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                    </Property>
                     <Property name="text" type="java.lang.String" value=" Quantidade:"/>
                   </Properties>
                   <Events>
@@ -387,9 +381,6 @@
               <SubComponents>
                 <Component class="jaboc_UI.jabocUI_Utilidades.TextField" name="precoProduto">
                   <Properties>
-                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                    </Property>
                     <Property name="text" type="java.lang.String" value=" Pre&#xe7;o:"/>
                   </Properties>
                   <Events>

@@ -27,6 +27,7 @@ public class interface_Cardapio extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         GlassPanePopup.install(this);
 
+           
         JScrollBar bar = scrollCardapio.getVerticalScrollBar();
         bar.setOpaque(false);
         bar.setForeground(new Color(223, 204, 251));
@@ -34,7 +35,8 @@ public class interface_Cardapio extends javax.swing.JFrame {
         bar.setUI(new ModernScrollBarUI());
 
         scrollCardapio.setViewportBorder(null);
-
+        scrollCardapio.setBorder(null);
+        
     }
 
     /**
@@ -162,6 +164,9 @@ public class interface_Cardapio extends javax.swing.JFrame {
 
         panel2.setBackground(new java.awt.Color(255, 255, 255));
 
+        scrollCardapio.setBackground(new java.awt.Color(255, 255, 255));
+        scrollCardapio.setBorder(null);
+
         tabelaCardapio.setBackground(new java.awt.Color(255, 255, 255));
         tabelaCardapio.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -172,6 +177,8 @@ public class interface_Cardapio extends javax.swing.JFrame {
             }
         ));
         tabelaCardapio.setFocusable(false);
+        tabelaCardapio.setGridColor(new java.awt.Color(255, 255, 255));
+        tabelaCardapio.setSelectionForeground(new java.awt.Color(255, 255, 255));
         tabelaCardapio.setShowGrid(false);
         tabelaCardapio.getTableHeader().setReorderingAllowed(false);
         tabelaCardapio.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -191,16 +198,11 @@ public class interface_Cardapio extends javax.swing.JFrame {
         panel2.setLayout(panel2Layout);
         panel2Layout.setHorizontalGroup(
             panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(scrollCardapio, javax.swing.GroupLayout.DEFAULT_SIZE, 742, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(scrollCardapio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 754, Short.MAX_VALUE)
         );
         panel2Layout.setVerticalGroup(
             panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel2Layout.createSequentialGroup()
-                .addComponent(scrollCardapio, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 6, Short.MAX_VALUE))
+            .addComponent(scrollCardapio, javax.swing.GroupLayout.DEFAULT_SIZE, 317, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);

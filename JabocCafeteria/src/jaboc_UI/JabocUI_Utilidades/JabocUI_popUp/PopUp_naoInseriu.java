@@ -35,6 +35,7 @@ public class PopUp_naoInseriu extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         sair_PopUpInseriu = new javax.swing.JButton();
         label_inseriu = new javax.swing.JLabel();
+        jScrollBar1 = new javax.swing.JScrollBar();
         jPanel1 = new javax.swing.JPanel();
         label_naoInseriu = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -113,7 +114,7 @@ public class PopUp_naoInseriu extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(20, Short.MAX_VALUE)
+                .addContainerGap(38, Short.MAX_VALUE)
                 .addComponent(label_naoInseriu, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -133,7 +134,7 @@ public class PopUp_naoInseriu extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(sair_naoInseriu, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
                 .addComponent(label_naoInseriu, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40))
         );
@@ -170,6 +171,7 @@ public class PopUp_naoInseriu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollBar jScrollBar1;
     private javax.swing.JLabel label_inseriu;
     private javax.swing.JLabel label_naoInseriu;
     private javax.swing.JButton sair_PopUpInseriu;

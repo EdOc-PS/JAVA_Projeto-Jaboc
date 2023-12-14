@@ -9,7 +9,7 @@ import jaboc_BancoDeDados.DAO.DAO_ContaCliente;
 import jaboc_BancoDeDados.interfaces.Logavel;
 import jaboc_Classes.Login;
 import jaboc_UI.Cardapio.interface_Cardapio;
-import jaboc_UI.jabocUI_Utilidades.interface_popUpmensagen;
+import jaboc_UI.jabocUI_Utilidades.PopUp_mensagen;
 import java.awt.Color;
 import raven.glasspanepopup.GlassPanePopup;
 import java.util.ArrayList;
@@ -352,7 +352,7 @@ public class interface_loginCliente extends javax.swing.JFrame {
                 this.setarCamposVazios();
             }    
         }else{
-            jaboc_Biblioteca.glasspanepopup.GlassPanePopup.showPopup(new interface_popUpmensagen());
+            GlassPanePopup.showPopup(new PopUp_mensagen());
         }
     }//GEN-LAST:event_loginClienteActionPerformed
 

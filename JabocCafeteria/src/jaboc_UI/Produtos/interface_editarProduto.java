@@ -142,7 +142,6 @@ public class interface_editarProduto extends javax.swing.JFrame {
 
         panel4.setBackground(new java.awt.Color(255, 255, 255));
 
-        nomeProduto.setBackground(new java.awt.Color(255, 255, 255));
         nomeProduto.setText(" Nome:");
         nomeProduto.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
@@ -181,7 +180,6 @@ public class interface_editarProduto extends javax.swing.JFrame {
 
         panel8.setBackground(new java.awt.Color(255, 255, 255));
 
-        qtdeProduto.setBackground(new java.awt.Color(255, 255, 255));
         qtdeProduto.setText(" Quantidade:");
         qtdeProduto.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
@@ -220,7 +218,6 @@ public class interface_editarProduto extends javax.swing.JFrame {
 
         panel9.setBackground(new java.awt.Color(255, 255, 255));
 
-        precoProduto.setBackground(new java.awt.Color(255, 255, 255));
         precoProduto.setText(" Preço:");
         precoProduto.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
