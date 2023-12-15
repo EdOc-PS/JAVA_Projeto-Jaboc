@@ -4,17 +4,17 @@ package jaboc_UI.Clientes;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-import jaboc_BancoDeDados.AcessandoBD;
 import java.awt.Color;
 import javax.swing.JTextField;
 import jaboc_Biblioteca.glasspanepopup.GlassPanePopup;
 import jaboc_Classes.Conta_Cliente;
-import jaboc_BancoDeDados.DAO.DAO_ContaCliente;
-import jaboc_BancoDeDados.DAO.DAO_ContaFuncionario;
-import jaboc_BancoDeDados.DAO.DAO_Pessoa;
+import jaboc_BancoDeDados.Modelo.DAO_ContaCliente;
+import jaboc_BancoDeDados.Modelo.DAO_ContaFuncionario;
+import jaboc_BancoDeDados.Modelo.DAO_Pessoa;
 import jaboc_Classes.Pessoa;
+import jaboc_UI.Cardapio.interface_Cardapio;
 import jaboc_UI.JabocUI_Utilidades.JabocUI_popUp.PopUp_FuncionarioParaCliente;
-import jaboc_UI.jabocUI_Utilidades.PopUp_mensagen;
+import jaboc_UI.jabocUI_Utilidades.PopUp_CampoVazio;
 import java.util.ArrayList;
 import java.util.Iterator;
 /**
@@ -71,10 +71,10 @@ public class interface_criarCliente extends javax.swing.JFrame {
         iuser = new javax.swing.JLabel();
         panel5 = new jaboc_UI.jabocUI_Utilidades.Panel();
         icpf = new javax.swing.JLabel();
-        cpfCliente_cadastrar = new jaboc_UI.JabocUI_Utilidades.JabocUI_Classes.FormatedTextField();
+        cpfCliente_cadastrar = new jaboc_UI.JabocUI_Utilidades.JabocUI_Classes.FormattedTextField();
         panel6 = new jaboc_UI.jabocUI_Utilidades.Panel();
         itel = new javax.swing.JLabel();
-        telefoneCliente_cadastrar = new jaboc_UI.JabocUI_Utilidades.JabocUI_Classes.FormatedTextField();
+        telefoneCliente_cadastrar = new jaboc_UI.JabocUI_Utilidades.JabocUI_Classes.FormattedTextField();
         panel7 = new jaboc_UI.jabocUI_Utilidades.Panel();
         enderecoCliente_cadastrar = new jaboc_UI.jabocUI_Utilidades.TextField();
         itel2 = new javax.swing.JLabel();
@@ -569,41 +569,41 @@ public class interface_criarCliente extends javax.swing.JFrame {
 
                 Conta_Cliente cadastrarCliente = new Conta_Cliente(objetoPessoa, senha_criarCliente);
 
-                interface_loginCliente iLogin_Cliente = new interface_loginCliente();
+                DAO_Pessoa daoPessoa = new DAO_Pessoa();
+                DAO_ContaFuncionario daoFuncionario = new DAO_ContaFuncionario();
+                DAO_ContaCliente daoCliente = new DAO_ContaCliente();
 
-                DAO_Pessoa cadastrarPessoa = new DAO_Pessoa();
-                DAO_ContaFuncionario dao_contaFuncionario = new DAO_ContaFuncionario();
-                DAO_ContaCliente dao_contaCliente = new DAO_ContaCliente();
-
-                if(dao_contaCliente.existeRegistro(objetoPessoa.getCpf())){
-
+                if(daoCliente.existeRegistro(objetoPessoa.getCpf())){
+                    
+                    interface_loginCliente iLogin_Cliente = new interface_loginCliente();
                     iLogin_Cliente.getCpfCliente_login().setText(objetoPessoa.getCpf());                
                     iLogin_Cliente.setVisible(true);
                     this.dispose();
-
-                }else if(dao_contaFuncionario.existeRegistro(objetoPessoa.getCpf())){
+                    
+                }else if(daoFuncionario.existeRegistro(objetoPessoa.getCpf())){
 
                     PopUp_FuncionarioParaCliente dialogoFunc = new PopUp_FuncionarioParaCliente(this);
-                    dialogoFunc.setModal(true);
-                    dialogoFunc.setVisible(true);
+                    boolean criarContaCliente = dialogoFunc.getRespostaDialogo();
                     
-                    if(dialogoFunc.getCriarConta()){
+                    if(criarContaCliente){
 
-                        AcessandoBD.inserir(dao_contaCliente, cadastrarCliente);
-                        iLogin_Cliente.setVisible(true);
-                        this.dispose();
+                        daoCliente.insert(cadastrarCliente);
+                        this.abrirTelaCardapio();
+                        
                     }else{
                         this.setarCamposVazios();
                     }
+                    
                 }else{
-                    cadastrarPessoa.insert(objetoPessoa);
-                    AcessandoBD.inserir( dao_contaCliente, cadastrarCliente);
-                    iLogin_Cliente.setVisible(true);
-                    this.dispose();
+                    
+                    daoPessoa.insert(objetoPessoa);
+                    daoCliente.insert(cadastrarCliente);
+                    this.abrirTelaCardapio();
+                    
                 }   
             }   
         }else{
-          GlassPanePopup.showPopup(new PopUp_mensagen());
+          GlassPanePopup.showPopup(new PopUp_CampoVazio());
         }    
     }//GEN-LAST:event_SingUpActionPerformed
 
@@ -691,8 +691,8 @@ public class interface_criarCliente extends javax.swing.JFrame {
         this.dados_camposTexto.add(enderecoCliente_cadastrar.getText());
         this.dados_camposTexto.add(String.valueOf(senhaCliente_cadastrar.getPassword()));
         this.dados_camposTexto.add(String.valueOf(verificarSenhaCliente_cadastrar.getPassword()));
-    }
-     
+    }    
+    
     private boolean camposPreenchidos(){
         Iterator<JTextField> percorrerCamposTextos =  this.camposTexto.iterator();
         Iterator<String> percorrerDadosCamposTextos =  this.dados_camposTexto.iterator();
@@ -717,6 +717,12 @@ public class interface_criarCliente extends javax.swing.JFrame {
             
             campoAtual.setText(novoDadoCampoAtual);
         }
+    }
+    
+    private void abrirTelaCardapio(){
+        interface_Cardapio iCardapio = new interface_Cardapio();
+        iCardapio.setVisible(true);
+        this.dispose();
     }
     
     /**
@@ -762,7 +768,7 @@ public class interface_criarCliente extends javax.swing.JFrame {
     private jaboc_UI.jabocUI_Utilidades.ButtonCirculo bOlho;
     private jaboc_UI.jabocUI_Utilidades.ButtonCirculo bOlho1;
     private jaboc_UI.jabocUI_Utilidades.ButtonCirculo bVoltar;
-    private jaboc_UI.JabocUI_Utilidades.JabocUI_Classes.FormatedTextField cpfCliente_cadastrar;
+    private jaboc_UI.JabocUI_Utilidades.JabocUI_Classes.FormattedTextField cpfCliente_cadastrar;
     private jaboc_UI.jabocUI_Utilidades.TextField enderecoCliente_cadastrar;
     private javax.swing.JLabel icpf;
     private javax.swing.JLabel isenha;
@@ -790,7 +796,7 @@ public class interface_criarCliente extends javax.swing.JFrame {
     private jaboc_UI.jabocUI_Utilidades.Panel panel8;
     private jaboc_UI.jabocUI_Utilidades.Panel panel9;
     private jaboc_UI.jabocUI_Utilidades.PasswordField senhaCliente_cadastrar;
-    private jaboc_UI.JabocUI_Utilidades.JabocUI_Classes.FormatedTextField telefoneCliente_cadastrar;
+    private jaboc_UI.JabocUI_Utilidades.JabocUI_Classes.FormattedTextField telefoneCliente_cadastrar;
     private jaboc_UI.jabocUI_Utilidades.TextField textField2;
     private jaboc_UI.jabocUI_Utilidades.TextField textField3;
     private jaboc_UI.jabocUI_Utilidades.TextField textField4;
