@@ -4,10 +4,16 @@
  */
 package jaboc_UI.Clientes;
 
+import jaboc_BancoDeDados.Modelo.DAO_ContaCliente;
+import jaboc_BancoDeDados.Modelo.DAO_Pessoa;
 import jaboc_Classes.Conta_Cliente;
+import jaboc_Classes.Pessoa;
 import jaboc_UI.Cardapio.interface_Cardapio;
-import jaboc_UI.jabocUI_Utilidades.PopUp_mensagen;
+import jaboc_UI.jabocUI_Utilidades.PopUp_CampoVazio;
 import java.awt.Color;
+import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.Iterator;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import raven.glasspanepopup.GlassPanePopup;
@@ -17,8 +23,6 @@ import raven.glasspanepopup.GlassPanePopup;
  * @author guilh
  */
 public class interface_editarCliente extends javax.swing.JFrame {
-
-    private Conta_Cliente Conta_Cliente;
     /**
      * Creates new form interface_editarCliente
      */
@@ -26,6 +30,13 @@ public class interface_editarCliente extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         GlassPanePopup.install(this);
+        
+        this.preencherDadosClientes();
+        
+        //this.cpfCliente_Editar.setEnabled(false);
+        this.telefoneCliente_Editar.addFormatacao("(##) #####-####");
+        this.cpfCliente_Editar.addFormatacao("###.###.###-##");
+               
     }
 
     /**
@@ -48,10 +59,10 @@ public class interface_editarCliente extends javax.swing.JFrame {
         nomeCliente_Editar = new jaboc_UI.jabocUI_Utilidades.TextField();
         iuser = new javax.swing.JLabel();
         panel5 = new jaboc_UI.jabocUI_Utilidades.Panel();
-        cpfCliente_Editar = new jaboc_UI.jabocUI_Utilidades.TextField();
+        cpfCliente_Editar = new jaboc_UI.JabocUI_Utilidades.JabocUI_Classes.FormattedTextField();
         icpf = new javax.swing.JLabel();
         panel6 = new jaboc_UI.jabocUI_Utilidades.Panel();
-        telefoneCliente_Editar = new jaboc_UI.jabocUI_Utilidades.TextField();
+        telefoneCliente_Editar = new jaboc_UI.JabocUI_Utilidades.JabocUI_Classes.FormattedTextField();
         itel = new javax.swing.JLabel();
         panel7 = new jaboc_UI.jabocUI_Utilidades.Panel();
         enderecoCliente_Editar = new jaboc_UI.jabocUI_Utilidades.TextField();
@@ -121,7 +132,7 @@ public class interface_editarCliente extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 303, Short.MAX_VALUE)
                 .addComponent(editarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26))
         );
@@ -130,7 +141,6 @@ public class interface_editarCliente extends javax.swing.JFrame {
 
         panel4.setBackground(new java.awt.Color(255, 255, 255));
 
-        nomeCliente_Editar.setBackground(new java.awt.Color(255, 255, 255));
         nomeCliente_Editar.setText(" Nome:");
         nomeCliente_Editar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -163,7 +173,6 @@ public class interface_editarCliente extends javax.swing.JFrame {
 
         panel5.setBackground(new java.awt.Color(255, 255, 255));
 
-        cpfCliente_Editar.setBackground(new java.awt.Color(255, 255, 255));
         cpfCliente_Editar.setText(" CPF:");
         cpfCliente_Editar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -192,7 +201,6 @@ public class interface_editarCliente extends javax.swing.JFrame {
 
         panel6.setBackground(new java.awt.Color(255, 255, 255));
 
-        telefoneCliente_Editar.setBackground(new java.awt.Color(255, 255, 255));
         telefoneCliente_Editar.setText(" Telefone:");
         telefoneCliente_Editar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -223,7 +231,6 @@ public class interface_editarCliente extends javax.swing.JFrame {
 
         panel7.setBackground(new java.awt.Color(255, 255, 255));
 
-        enderecoCliente_Editar.setBackground(new java.awt.Color(255, 255, 255));
         enderecoCliente_Editar.setText(" Endereço:");
 
         itel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -283,21 +290,25 @@ public class interface_editarCliente extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(75, 75, 75)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 439, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(75, 75, 75)
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 439, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(67, 67, 67)))
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(111, 111, 111)
+                .addGap(50, 50, 50)
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(49, 49, 49)
+                .addGap(18, 18, 18)
                 .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(133, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
@@ -318,7 +329,7 @@ public class interface_editarCliente extends javax.swing.JFrame {
         try {
             javax.swing.text.MaskFormatter cpf = new javax.swing.text.MaskFormatter(" ###.###.###-##");
             return new javax.swing.JFormattedTextField(cpf);
-        } catch (Exception e) {
+        } catch (ParseException e) {
             JOptionPane.showMessageDialog(null, "Ocorreu um erro");
             return new JTextField();
         }
@@ -328,7 +339,7 @@ public class interface_editarCliente extends javax.swing.JFrame {
         try {
             javax.swing.text.MaskFormatter cpf = new javax.swing.text.MaskFormatter(" (##) #####-####");
             return new javax.swing.JFormattedTextField(cpf);
-        } catch (Exception e) {
+        } catch (ParseException e) {
             JOptionPane.showMessageDialog(null, "Ocorreu um erro");
             return new JTextField();
         }
@@ -360,25 +371,36 @@ public class interface_editarCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_bVoltarActionPerformed
 
     private void editarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarClienteActionPerformed
-         if (Conta_Cliente == null) {
-            JOptionPane.showMessageDialog(null, "Nenhum Cliente cadastrado!", "Erro", WIDTH);
-        } else if ("".equals(nomeCliente_Editar.getText()) || "    .   .   -  ".equals(cpfCliente_Editar.getText()) || "".equals(enderecoCliente_Editar.getText()) 
-                || " (  )      -    ".equals(telefoneCliente_Editar.getText())) {
-            GlassPanePopup.showPopup(new PopUp_mensagen());
-        } else {
-          
-
-            nomeCliente_Editar.setText("");
-            cpfCliente_Editar.setText("");
-            enderecoCliente_Editar.setText("");
-            telefoneCliente_Editar.setText("");
-            
-            JOptionPane.showMessageDialog(null, Conta_Cliente.getTitular().toString(),"Cliente editado!",WIDTH);
-
-            editarCliente.setVisible(false);
-        }
+        String cpfAtual_cliente = DAO_ContaCliente.dadosCliente_emMemoria.getTitular().getCpf();
+        
+        String nomeEditado = nomeCliente_Editar.getText();
+        String telefoneEditado= telefoneCliente_Editar.getText();
+        String cpfEditado = cpfCliente_Editar.getText();
+        String enderecoEditado = enderecoCliente_Editar.getText();
+        
+        Pessoa pessoaEditada = new Pessoa(nomeEditado, cpfEditado, enderecoEditado, telefoneEditado);
+        DAO_ContaCliente.dadosCliente_emMemoria.setTitular(pessoaEditada);
+        
+        DAO_Pessoa daoPessoa = new DAO_Pessoa();
+        daoPessoa.update(pessoaEditada, cpfAtual_cliente);
     }//GEN-LAST:event_editarClienteActionPerformed
-     public static void main(String args[]) {
+     
+    
+    
+    private void preencherDadosClientes(){
+        Conta_Cliente clienteMemoria = DAO_ContaCliente.dadosCliente_emMemoria;
+        String nomeCliente = clienteMemoria.getTitular().getNome();
+        String telefoneCliente = clienteMemoria.getTitular().getTelefone();
+        String cpfCliente = clienteMemoria.getTitular().getCpf();
+        String enderecoCliente = clienteMemoria.getTitular().getEndereco();
+        
+        this.nomeCliente_Editar.setText(nomeCliente);
+        this.telefoneCliente_Editar.setText(telefoneCliente);
+        this.cpfCliente_Editar.setText(cpfCliente);
+        this.enderecoCliente_Editar.setText(enderecoCliente);
+    }
+       
+    public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -405,6 +427,7 @@ public class interface_editarCliente extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new interface_editarCliente().setVisible(true);
             }
@@ -417,7 +440,7 @@ public class interface_editarCliente extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private jaboc_UI.jabocUI_Utilidades.ButtonCirculo bVoltar;
-    private jaboc_UI.jabocUI_Utilidades.TextField cpfCliente_Editar;
+    private jaboc_UI.JabocUI_Utilidades.JabocUI_Classes.FormattedTextField cpfCliente_Editar;
     private jaboc_UI.jabocUI_Utilidades.ButtonCirculo editarCliente;
     private jaboc_UI.jabocUI_Utilidades.TextField enderecoCliente_Editar;
     private javax.swing.JLabel icpf;
@@ -434,6 +457,6 @@ public class interface_editarCliente extends javax.swing.JFrame {
     private jaboc_UI.jabocUI_Utilidades.Panel panel5;
     private jaboc_UI.jabocUI_Utilidades.Panel panel6;
     private jaboc_UI.jabocUI_Utilidades.Panel panel7;
-    private jaboc_UI.jabocUI_Utilidades.TextField telefoneCliente_Editar;
+    private jaboc_UI.JabocUI_Utilidades.JabocUI_Classes.FormattedTextField telefoneCliente_Editar;
     // End of variables declaration//GEN-END:variables
 }
