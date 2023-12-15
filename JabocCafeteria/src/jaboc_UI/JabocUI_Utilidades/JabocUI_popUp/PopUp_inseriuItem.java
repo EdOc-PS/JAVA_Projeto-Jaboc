@@ -41,7 +41,7 @@ public final class PopUp_inseriuItem extends JDialog{
         
         this.confereMensagem(mensagemErro);
         
-        //Retira a borda dejanela da aplicação
+        //Retira a borda da janela
         this.setUndecorated(true);
         this.setAlwaysOnTop(true);
         
@@ -72,9 +72,9 @@ public final class PopUp_inseriuItem extends JDialog{
         //Parando a execução enquanto o JDialog não for fechado
         this.setModal(true);
     }
-    
+ 
     public void estilizarPainelTotal(){
-        this.painelTotal.setPreferredSize(new Dimension(400, 200));
+        this.painelTotal.setPreferredSize(new Dimension(360, 175));
         this.painelTotal.setBackground(new Color(252, 252, 252));
         this.painelTotal.setLayout(null);
     }
@@ -100,9 +100,9 @@ public final class PopUp_inseriuItem extends JDialog{
         this.mensagem.setText(this.mensagemErro);
         
         if(this.mensagemErro.equals("Cadastro efetuado com sucesso!")){
-            this.mensagem.setBounds(this.largura - 320, this.altura - 170, 320, 20);
+            this.mensagem.setBounds(this.largura - 300, this.altura - 50, 320, 20);
         }else{
-            this.mensagem.setBounds(this.largura - 300, this.altura - 170, 300, 20);
+            this.mensagem.setBounds(this.largura - 285, this.altura - 50, 300, 20);
         }
         this.mensagem.setFont(new Font("Gill Sans MT", Font.BOLD, 16));
         this.mensagem.setForeground(new Color(79, 84, 101));      
@@ -123,7 +123,7 @@ public final class PopUp_inseriuItem extends JDialog{
             }
             Icon iconeMais = new ImageIcon(imagemLida);
             this.icone.setIcon(iconeMais);
-            this.icone.setBounds(this.largura - 240, this. altura - 130, 240,60);
+            this.icone.setBounds(this.largura - 210, this. altura - 130, 240,65);
             
         }catch(IOException error){
             System.out.println("Imagem não encontrado: ");
@@ -132,12 +132,9 @@ public final class PopUp_inseriuItem extends JDialog{
     }
     
     public void estilizarSairBotao(){
-        this.sairBotao.setText("X");
-        this.sairBotao.setBorder(null);
-        this.sairBotao.setFont(new Font("Gill Sans MT", Font.BOLD, 12));
-        this.sairBotao.setForeground(Color.white);
+        this.sairBotao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/x.png")));
         this.sairBotao.setBackground(new Color(255, 128, 128));
-        this.sairBotao.setBounds(largura - 50, altura - 190, 40, 25);
+        this.sairBotao.setBounds(largura - 35, altura - 165, 27, 27);
     }
        
     

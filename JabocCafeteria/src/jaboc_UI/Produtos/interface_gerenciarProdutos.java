@@ -8,6 +8,7 @@ import jaboc_Biblioteca.outras.ModernScrollBarUI;
 import jaboc_Classes.Conta_Cliente;
 import jaboc_UI.Administrador.interface_areaGerencia;
 import jaboc_UI.JabocUI_Utilidades.JabocUI_popUp.PopUp_GerenciaProdutos;
+import jaboc_UI.JabocUI_Utilidades.JabocUI_popUp.PopUp_inseriuItem;
 import jaboc_UI.jabocUI_Utilidades.PopUp_mensagen;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -29,10 +30,11 @@ public class interface_gerenciarProdutos extends javax.swing.JFrame {
         JScrollBar bar = scrollGerenciaProduto.getVerticalScrollBar();
         bar.setOpaque(false);
         bar.setForeground(new Color(223,204,251));
-        bar.setPreferredSize(new Dimension(8, 5));
+        bar.setPreferredSize(new Dimension(10, 5));
         bar.setUI(new ModernScrollBarUI());
         
         scrollGerenciaProduto.setViewportBorder(null);
+        scrollGerenciaProduto.setBorder(null);
     }
 
     /**
@@ -140,7 +142,7 @@ public class interface_gerenciarProdutos extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "Nome", "Quantidade", "Tipo", "Preço"
+                "ID", "Nome", "Tipo", "Quantidade", "Preço"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -151,21 +153,27 @@ public class interface_gerenciarProdutos extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tabelaCardapio.setSelectionBackground(new java.awt.Color(204, 204, 255));
+        tabelaCardapio.setSelectionForeground(new java.awt.Color(255, 255, 255));
+        tabelaCardapio.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         tabelaCardapio.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tabelaCardapioMouseClicked(evt);
             }
         });
         scrollGerenciaProduto.setViewportView(tabelaCardapio);
+        if (tabelaCardapio.getColumnModel().getColumnCount() > 0) {
+            tabelaCardapio.getColumnModel().getColumn(0).setPreferredWidth(15);
+            tabelaCardapio.getColumnModel().getColumn(1).setPreferredWidth(200);
+            tabelaCardapio.getColumnModel().getColumn(3).setPreferredWidth(50);
+            tabelaCardapio.getColumnModel().getColumn(4).setPreferredWidth(50);
+        }
 
         javax.swing.GroupLayout panel2Layout = new javax.swing.GroupLayout(panel2);
         panel2.setLayout(panel2Layout);
         panel2Layout.setHorizontalGroup(
             panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(scrollGerenciaProduto, javax.swing.GroupLayout.DEFAULT_SIZE, 740, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(scrollGerenciaProduto, javax.swing.GroupLayout.DEFAULT_SIZE, 752, Short.MAX_VALUE)
         );
         panel2Layout.setVerticalGroup(
             panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -262,8 +270,8 @@ public class interface_gerenciarProdutos extends javax.swing.JFrame {
             " 1 ",
             " Teste ",
             " Teste ",
-            " Teste ",
-            " Teste "};
+            " 100 ",
+            " 100 "};
         cardapio.addRow(dados);
 
     }//GEN-LAST:event_buttonCirculo1ActionPerformed
@@ -283,7 +291,9 @@ public class interface_gerenciarProdutos extends javax.swing.JFrame {
     }//GEN-LAST:event_adicionar_ProdutoActionPerformed
 
     private void tabelaCardapioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaCardapioMouseClicked
-         GlassPanePopup.showPopup(new PopUp_GerenciaProdutos());
+         PopUp_inseriuItem f = new PopUp_inseriuItem(null,"Houve um erro no cadastro!");
+         f.setVisible(true);
+         
         
     }//GEN-LAST:event_tabelaCardapioMouseClicked
     /**

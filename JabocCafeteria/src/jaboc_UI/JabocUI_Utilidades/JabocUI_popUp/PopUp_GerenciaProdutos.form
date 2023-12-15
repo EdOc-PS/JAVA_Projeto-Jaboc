@@ -81,7 +81,7 @@
               <Color blue="65" green="54" red="4f" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Oque deseja fazer?"/>
+            <Property name="text" type="java.lang.String" value="O que deseja fazer?"/>
           </Properties>
         </Component>
         <Component class="jaboc_UI.jabocUI_Utilidades.ButtonCirculo" name="bPopUpExit">
@@ -143,7 +143,7 @@
                   <Border info="null"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/img/icons/i_editar3.png"/>
+                  <Image iconType="3" name="/img/icons/i_editar4.png"/>
                 </Property>
               </Properties>
               <Events>
@@ -160,7 +160,7 @@
                   <Border info="null"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/img/icons/i_lixo.png"/>
+                  <Image iconType="3" name="/img/icons/i_lixo4.png"/>
                 </Property>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
                 <Property name="iconTextGap" type="int" value="0"/>

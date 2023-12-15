@@ -57,7 +57,7 @@ public class PopUp_GerenciaProdutos extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Gill Sans MT", 1, 17)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(79, 84, 101));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Oque deseja fazer?");
+        jLabel1.setText("O que deseja fazer?");
 
         bPopUpExit.setBackground(new java.awt.Color(250, 112, 112));
         bPopUpExit.setForeground(new java.awt.Color(255, 255, 255));
@@ -73,7 +73,7 @@ public class PopUp_GerenciaProdutos extends javax.swing.JPanel {
 
         bEdiatr_Produto.setBackground(new java.awt.Color(255, 255, 255));
         bEdiatr_Produto.setBorder(null);
-        bEdiatr_Produto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_editar3.png"))); // NOI18N
+        bEdiatr_Produto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_editar4.png"))); // NOI18N
         bEdiatr_Produto.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 bEdiatr_ProdutoMouseEntered(evt);
@@ -85,7 +85,7 @@ public class PopUp_GerenciaProdutos extends javax.swing.JPanel {
 
         bExcluir_Produto.setBackground(new java.awt.Color(255, 255, 255));
         bExcluir_Produto.setBorder(null);
-        bExcluir_Produto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_lixo.png"))); // NOI18N
+        bExcluir_Produto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_lixo4.png"))); // NOI18N
         bExcluir_Produto.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         bExcluir_Produto.setIconTextGap(0);
         bExcluir_Produto.setInheritsPopupMenu(true);

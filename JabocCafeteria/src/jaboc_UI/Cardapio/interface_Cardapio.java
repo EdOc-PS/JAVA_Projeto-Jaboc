@@ -31,7 +31,7 @@ public class interface_Cardapio extends javax.swing.JFrame {
         JScrollBar bar = scrollCardapio.getVerticalScrollBar();
         bar.setOpaque(false);
         bar.setForeground(new Color(223, 204, 251));
-        bar.setPreferredSize(new Dimension(8, 5));
+        bar.setPreferredSize(new Dimension(10, 5));
         bar.setUI(new ModernScrollBarUI());
 
         scrollCardapio.setViewportBorder(null);

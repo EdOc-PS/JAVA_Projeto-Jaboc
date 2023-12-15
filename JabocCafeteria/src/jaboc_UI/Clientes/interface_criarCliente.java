@@ -14,7 +14,6 @@ import jaboc_BancoDeDados.Modelo.DAO_Pessoa;
 import jaboc_Classes.Pessoa;
 import jaboc_UI.Cardapio.interface_Cardapio;
 import jaboc_UI.JabocUI_Utilidades.JabocUI_popUp.PopUp_FuncionarioParaCliente;
-import jaboc_UI.jabocUI_Utilidades.PopUp_CampoVazio;
 import java.util.ArrayList;
 import java.util.Iterator;
 /**
@@ -71,10 +70,10 @@ public class interface_criarCliente extends javax.swing.JFrame {
         iuser = new javax.swing.JLabel();
         panel5 = new jaboc_UI.jabocUI_Utilidades.Panel();
         icpf = new javax.swing.JLabel();
-        cpfCliente_cadastrar = new jaboc_UI.JabocUI_Utilidades.JabocUI_Classes.FormattedTextField();
+        cpfCliente_cadastrar = new jaboc_UI.JabocUI_Utilidades.JabocUI_Classes.FormatedTextField();
         panel6 = new jaboc_UI.jabocUI_Utilidades.Panel();
         itel = new javax.swing.JLabel();
-        telefoneCliente_cadastrar = new jaboc_UI.JabocUI_Utilidades.JabocUI_Classes.FormattedTextField();
+        telefoneCliente_cadastrar = new jaboc_UI.JabocUI_Utilidades.JabocUI_Classes.FormatedTextField();
         panel7 = new jaboc_UI.jabocUI_Utilidades.Panel();
         enderecoCliente_cadastrar = new jaboc_UI.jabocUI_Utilidades.TextField();
         itel2 = new javax.swing.JLabel();
@@ -768,7 +767,7 @@ public class interface_criarCliente extends javax.swing.JFrame {
     private jaboc_UI.jabocUI_Utilidades.ButtonCirculo bOlho;
     private jaboc_UI.jabocUI_Utilidades.ButtonCirculo bOlho1;
     private jaboc_UI.jabocUI_Utilidades.ButtonCirculo bVoltar;
-    private jaboc_UI.JabocUI_Utilidades.JabocUI_Classes.FormattedTextField cpfCliente_cadastrar;
+    private jaboc_UI.JabocUI_Utilidades.JabocUI_Classes.FormatedTextField cpfCliente_cadastrar;
     private jaboc_UI.jabocUI_Utilidades.TextField enderecoCliente_cadastrar;
     private javax.swing.JLabel icpf;
     private javax.swing.JLabel isenha;
@@ -796,7 +795,7 @@ public class interface_criarCliente extends javax.swing.JFrame {
     private jaboc_UI.jabocUI_Utilidades.Panel panel8;
     private jaboc_UI.jabocUI_Utilidades.Panel panel9;
     private jaboc_UI.jabocUI_Utilidades.PasswordField senhaCliente_cadastrar;
-    private jaboc_UI.JabocUI_Utilidades.JabocUI_Classes.FormattedTextField telefoneCliente_cadastrar;
+    private jaboc_UI.JabocUI_Utilidades.JabocUI_Classes.FormatedTextField telefoneCliente_cadastrar;
     private jaboc_UI.jabocUI_Utilidades.TextField textField2;
     private jaboc_UI.jabocUI_Utilidades.TextField textField3;
     private jaboc_UI.jabocUI_Utilidades.TextField textField4;

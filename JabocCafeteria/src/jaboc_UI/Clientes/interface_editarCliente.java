@@ -9,7 +9,6 @@ import jaboc_BancoDeDados.Modelo.DAO_Pessoa;
 import jaboc_Classes.Conta_Cliente;
 import jaboc_Classes.Pessoa;
 import jaboc_UI.Cardapio.interface_Cardapio;
-import jaboc_UI.jabocUI_Utilidades.PopUp_CampoVazio;
 import java.awt.Color;
 import java.text.ParseException;
 import java.util.ArrayList;
@@ -59,10 +58,10 @@ public class interface_editarCliente extends javax.swing.JFrame {
         nomeCliente_Editar = new jaboc_UI.jabocUI_Utilidades.TextField();
         iuser = new javax.swing.JLabel();
         panel5 = new jaboc_UI.jabocUI_Utilidades.Panel();
-        cpfCliente_Editar = new jaboc_UI.JabocUI_Utilidades.JabocUI_Classes.FormattedTextField();
+        cpfCliente_Editar = new jaboc_UI.JabocUI_Utilidades.JabocUI_Classes.FormatedTextField();
         icpf = new javax.swing.JLabel();
         panel6 = new jaboc_UI.jabocUI_Utilidades.Panel();
-        telefoneCliente_Editar = new jaboc_UI.JabocUI_Utilidades.JabocUI_Classes.FormattedTextField();
+        telefoneCliente_Editar = new jaboc_UI.JabocUI_Utilidades.JabocUI_Classes.FormatedTextField();
         itel = new javax.swing.JLabel();
         panel7 = new jaboc_UI.jabocUI_Utilidades.Panel();
         enderecoCliente_Editar = new jaboc_UI.jabocUI_Utilidades.TextField();
@@ -440,7 +439,7 @@ public class interface_editarCliente extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private jaboc_UI.jabocUI_Utilidades.ButtonCirculo bVoltar;
-    private jaboc_UI.JabocUI_Utilidades.JabocUI_Classes.FormattedTextField cpfCliente_Editar;
+    private jaboc_UI.JabocUI_Utilidades.JabocUI_Classes.FormatedTextField cpfCliente_Editar;
     private jaboc_UI.jabocUI_Utilidades.ButtonCirculo editarCliente;
     private jaboc_UI.jabocUI_Utilidades.TextField enderecoCliente_Editar;
     private javax.swing.JLabel icpf;
@@ -457,6 +456,6 @@ public class interface_editarCliente extends javax.swing.JFrame {
     private jaboc_UI.jabocUI_Utilidades.Panel panel5;
     private jaboc_UI.jabocUI_Utilidades.Panel panel6;
     private jaboc_UI.jabocUI_Utilidades.Panel panel7;
-    private jaboc_UI.JabocUI_Utilidades.JabocUI_Classes.FormattedTextField telefoneCliente_Editar;
+    private jaboc_UI.JabocUI_Utilidades.JabocUI_Classes.FormatedTextField telefoneCliente_Editar;
     // End of variables declaration//GEN-END:variables
 }
