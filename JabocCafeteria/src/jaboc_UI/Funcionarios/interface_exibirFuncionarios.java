@@ -4,12 +4,8 @@
  */
 package jaboc_UI.Funcionarios;
 
-import jaboc_Classes.Conta_Cliente;
-import jaboc_UI.Administrador.interface_areaGerencia;
+
 import java.awt.Color;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.text.DefaultFormatterFactory;
-import javax.swing.text.MaskFormatter;
 
 /**
  *
@@ -35,95 +31,26 @@ public class interface_exibirFuncionarios extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        tabelaFuncionario = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
-        carregarTabela_Funcionario = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         bVoltar = new jaboc_UI.jabocUI_Utilidades.ButtonCirculo();
         adicionar_Produto = new jaboc_UI.jabocUI_Utilidades.ButtonCirculo();
+        panel1 = new jaboc_UI.jabocUI_Utilidades.Panel();
+        panel2 = new jaboc_UI.jabocUI_Utilidades.Panel();
+        scrollGerenciaFuncionarios = new javax.swing.JScrollPane();
+        tabelaFuncionario = new jaboc_UI.JabocUI_Utilidades.JabocUI_Classes.Table();
+        carregarTabela_Funcionario = new jaboc_UI.jabocUI_Utilidades.ButtonCirculo();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(164, 144, 124));
-
-        jPanel2.setBackground(new java.awt.Color(141, 123, 104));
-
-        tabelaFuncionario.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
-        tabelaFuncionario.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Nome", "CPF", "Endereço", "Telefone", "Cargo"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        tabelaFuncionario.setGridColor(new java.awt.Color(204, 204, 204));
-        tabelaFuncionario.setRowHeight(30);
-        tabelaFuncionario.setRowSelectionAllowed(false);
-        tabelaFuncionario.setSelectionBackground(new java.awt.Color(255, 255, 255));
-        tabelaFuncionario.setRowHeight(25);
-        tabelaFuncionario.setEnabled(false);
-        jScrollPane2.setViewportView(tabelaFuncionario);
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 529, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(15, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 288, Short.MAX_VALUE)
-                .addGap(20, 20, 20))
-        );
 
         jLabel1.setFont(new java.awt.Font("Gill Sans MT", 1, 30)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_lista.png"))); // NOI18N
         jLabel1.setText(" GERENCIAR FUNCIONÁRIOS");
-
-        carregarTabela_Funcionario.setBackground(new java.awt.Color(79, 84, 101));
-        carregarTabela_Funcionario.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
-        carregarTabela_Funcionario.setForeground(new java.awt.Color(255, 255, 255));
-        carregarTabela_Funcionario.setText("Carregar tabela");
-        carregarTabela_Funcionario.setBorderPainted(false);
-        carregarTabela_Funcionario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        carregarTabela_Funcionario.setFocusPainted(false);
-        carregarTabela_Funcionario.setFocusable(false);
-        carregarTabela_Funcionario.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                carregarTabela_FuncionarioMouseClicked(evt);
-            }
-        });
-        carregarTabela_Funcionario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                carregarTabela_FuncionarioActionPerformed(evt);
-            }
-        });
 
         jPanel3.setBackground(new java.awt.Color(252, 252, 252));
 
@@ -183,38 +110,99 @@ public class interface_exibirFuncionarios extends javax.swing.JFrame {
                 .addComponent(bVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(adicionar_Produto, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 299, Short.MAX_VALUE)
                 .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
+
+        panel1.setBackground(new java.awt.Color(141, 123, 104));
+
+        panel2.setBackground(new java.awt.Color(255, 255, 255));
+
+        tabelaFuncionario.setBackground(new java.awt.Color(255, 255, 255));
+        tabelaFuncionario.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID", "Nome", "Tipo", "Quantidade", "Preço"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tabelaFuncionario.setSelectionBackground(new java.awt.Color(204, 204, 255));
+        tabelaFuncionario.setSelectionForeground(new java.awt.Color(255, 255, 255));
+        tabelaFuncionario.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        tabelaFuncionario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabelaFuncionarioMouseClicked(evt);
+            }
+        });
+        scrollGerenciaFuncionarios.setViewportView(tabelaFuncionario);
+
+        javax.swing.GroupLayout panel2Layout = new javax.swing.GroupLayout(panel2);
+        panel2.setLayout(panel2Layout);
+        panel2Layout.setHorizontalGroup(
+            panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(scrollGerenciaFuncionarios, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 742, Short.MAX_VALUE)
+        );
+        panel2Layout.setVerticalGroup(
+            panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(scrollGerenciaFuncionarios, javax.swing.GroupLayout.DEFAULT_SIZE, 305, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
+        panel1.setLayout(panel1Layout);
+        panel1Layout.setHorizontalGroup(
+            panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
+                .addContainerGap(20, Short.MAX_VALUE)
+                .addComponent(panel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20))
+        );
+        panel1Layout.setVerticalGroup(
+            panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel1Layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(panel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(25, Short.MAX_VALUE))
+        );
+
+        carregarTabela_Funcionario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_recarregar.png"))); // NOI18N
+        carregarTabela_Funcionario.setText(" Carregar");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(61, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 558, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(204, 204, 204))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(carregarTabela_Funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(309, 309, 309)))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 818, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(264, 264, 264)
+                        .addComponent(carregarTabela_Funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(54, 54, 54)
-                .addComponent(jLabel1)
-                .addGap(44, 44, 44)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
-                .addComponent(carregarTabela_Funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(19, 19, 19)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(carregarTabela_Funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
@@ -231,15 +219,6 @@ public class interface_exibirFuncionarios extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void carregarTabela_FuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carregarTabela_FuncionarioActionPerformed
-
-    }//GEN-LAST:event_carregarTabela_FuncionarioActionPerformed
-
-    private void carregarTabela_FuncionarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carregarTabela_FuncionarioMouseClicked
-        carregarTabela_Funcionario.setEnabled(false);
-        carregarTabela_Funcionario.setBackground(new Color(69, 71, 78));
-    }//GEN-LAST:event_carregarTabela_FuncionarioMouseClicked
 
     private void bVoltarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bVoltarMouseEntered
         bVoltar.setBackground(new Color(237, 237, 237));
@@ -263,10 +242,16 @@ public class interface_exibirFuncionarios extends javax.swing.JFrame {
     }//GEN-LAST:event_adicionar_ProdutoMouseExited
 
     private void adicionar_ProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adicionar_ProdutoActionPerformed
-        interface_criarFuncionario i_criarProduto = new interface_criarFuncionario();
-        i_criarProduto.setVisible(true);
+        interface_criarFuncionario i_criarFuncionario = new interface_criarFuncionario();
+        i_criarFuncionario.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_adicionar_ProdutoActionPerformed
+
+    private void tabelaFuncionarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaFuncionarioMouseClicked
+        PopUp_inseriuItem f = new PopUp_inseriuItem(null,"Houve um erro no cadastro!");
+        f.setVisible(true);
+
+    }//GEN-LAST:event_tabelaFuncionarioMouseClicked
   
     /**
      * @param args the command line arguments
@@ -275,13 +260,14 @@ public class interface_exibirFuncionarios extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private jaboc_UI.jabocUI_Utilidades.ButtonCirculo adicionar_Produto;
     private jaboc_UI.jabocUI_Utilidades.ButtonCirculo bVoltar;
-    private javax.swing.JButton carregarTabela_Funcionario;
+    private jaboc_UI.jabocUI_Utilidades.ButtonCirculo carregarTabela_Funcionario;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable tabelaFuncionario;
+    private jaboc_UI.jabocUI_Utilidades.Panel panel1;
+    private jaboc_UI.jabocUI_Utilidades.Panel panel2;
+    private javax.swing.JScrollPane scrollGerenciaFuncionarios;
+    private jaboc_UI.JabocUI_Utilidades.JabocUI_Classes.Table tabelaFuncionario;
     // End of variables declaration//GEN-END:variables
 }

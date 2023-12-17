@@ -243,9 +243,6 @@
               <SubComponents>
                 <Component class="jaboc_UI.jabocUI_Utilidades.TextField" name="nomeCliente_Editar">
                   <Properties>
-                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                    </Property>
                     <Property name="text" type="java.lang.String" value=" Nome:"/>
                   </Properties>
                   <Events>
@@ -290,9 +287,6 @@
               <SubComponents>
                 <Component class="jaboc_UI.jabocUI_Utilidades.TextField" name="cpfCliente_Editar">
                   <Properties>
-                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                    </Property>
                     <Property name="text" type="java.lang.String" value=" CPF:"/>
                   </Properties>
                   <Events>
@@ -340,9 +334,6 @@
               <SubComponents>
                 <Component class="jaboc_UI.jabocUI_Utilidades.TextField" name="telefoneCliente_Editar">
                   <Properties>
-                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                    </Property>
                     <Property name="text" type="java.lang.String" value=" Telefone:"/>
                   </Properties>
                   <Events>
@@ -392,9 +383,6 @@
               <SubComponents>
                 <Component class="jaboc_UI.jabocUI_Utilidades.TextField" name="enderecoCliente_Editar">
                   <Properties>
-                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                    </Property>
                     <Property name="text" type="java.lang.String" value=" Endere&#xe7;o:"/>
                   </Properties>
                 </Component>
