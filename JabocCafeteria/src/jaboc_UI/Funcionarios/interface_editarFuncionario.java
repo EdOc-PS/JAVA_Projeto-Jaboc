@@ -5,11 +5,14 @@
 package jaboc_UI.Funcionarios;
 
 
-import jaboc_UI.Funcionarios.interface_exibirFuncionarios;
-import jaboc_Classes.Conta_Cliente;
-import jaboc_UI.jabocUI_Utilidades.PopUp_mensagen;
+import jaboc_BancoDeDados.Controle.SenhaEditavel;
+import jaboc_BancoDeDados.Modelo.DAO_ContaFuncionario;
+import jaboc_BancoDeDados.Modelo.DAO_Pessoa;
+import jaboc_Classes.Conta_Funcionario;
+import jaboc_Classes.Pessoa;
+import jaboc_UI.JabocUI_Utilidades.JabocUI_popUp.PopUp_SenhaNaoVerificada;
+import jaboc_UI.jabocUI_Utilidades.JabocUI_popUp.PopUp_Senha;
 import java.awt.Color;
-import javax.swing.JOptionPane;
 import raven.glasspanepopup.GlassPanePopup;
 
 /**
@@ -17,13 +20,24 @@ import raven.glasspanepopup.GlassPanePopup;
  * @author guilh
  */
 public class interface_editarFuncionario extends javax.swing.JFrame {
-    /**
+    private Conta_Funcionario editar_contaFuncionario = DAO_ContaFuncionario.getDadosCadastro();
+    private boolean activeButton_verificarSenha = true;
+    private boolean activeButton_novaSenha = true;
+    private boolean activeButton_verificarNovaSenha = true;
+    private boolean alterarSenha = false, senhaVerificada = false;
+     /**
      * Creates new form interface_editarFuncionario
      */
     public interface_editarFuncionario() {
         initComponents();
         setLocationRelativeTo(null);
-        GlassPanePopup.install(this);
+        GlassPanePopup.install(this);       
+        this.dimensionarFrame();
+        this.inicializarCamposSenha();
+        
+        //this.preencherDadosFuncionarios();
+        this.cpfFuncionario_Editar.addFormatacao("###.###.###-##");
+        this.telefoneFuncionario_Editar.addFormatacao("(##) #####-####");
     }
 
     /**
@@ -58,6 +72,24 @@ public class interface_editarFuncionario extends javax.swing.JFrame {
         panel22 = new jaboc_UI.jabocUI_Utilidades.Panel();
         enderecoFuncionario_Editar = new jaboc_UI.jabocUI_Utilidades.TextField();
         iuser1 = new javax.swing.JLabel();
+        panel7 = new jaboc_UI.jabocUI_Utilidades.Panel();
+        iuser4 = new javax.swing.JLabel();
+        jCheckBox1 = new javax.swing.JCheckBox();
+        jPanel_verificarSenhaAtual = new javax.swing.JPanel();
+        panel25 = new jaboc_UI.jabocUI_Utilidades.Panel();
+        iuser6 = new javax.swing.JLabel();
+        verificarSenhaAtual_Funcionario = new javax.swing.JPasswordField();
+        bOlho1 = new jaboc_UI.jabocUI_Utilidades.ButtonCirculo();
+        btn_verificarSenhaAtual = new jaboc_UI.jabocUI_Utilidades.ButtonCirculo();
+        jPanel_atualizarSenha = new javax.swing.JPanel();
+        panel26 = new jaboc_UI.jabocUI_Utilidades.Panel();
+        iuser7 = new javax.swing.JLabel();
+        verificarNovaSenha_funcionario = new javax.swing.JPasswordField();
+        bOlho_verificarNovaSenha = new jaboc_UI.jabocUI_Utilidades.ButtonCirculo();
+        panel27 = new jaboc_UI.jabocUI_Utilidades.Panel();
+        iuser8 = new javax.swing.JLabel();
+        novaSenha_funcionario = new javax.swing.JPasswordField();
+        bOlho_novaSenha = new jaboc_UI.jabocUI_Utilidades.ButtonCirculo();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -129,7 +161,7 @@ public class interface_editarFuncionario extends javax.swing.JFrame {
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(bVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 563, Short.MAX_VALUE)
                 .addComponent(editarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25))
         );
@@ -145,16 +177,6 @@ public class interface_editarFuncionario extends javax.swing.JFrame {
         panel4.setBackground(new java.awt.Color(255, 255, 255));
 
         nomeFuncionario_Editar.setText("Nome:");
-        nomeFuncionario_Editar.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                nomeFuncionario_EditarFocusLost(evt);
-            }
-        });
-        nomeFuncionario_Editar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nomeFuncionario_EditarActionPerformed(evt);
-            }
-        });
 
         iuser.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         iuser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconLabel/user.png"))); // NOI18N
@@ -212,11 +234,6 @@ public class interface_editarFuncionario extends javax.swing.JFrame {
         itel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconLabel/tel.png"))); // NOI18N
 
         telefoneFuncionario_Editar.setText(" Telefone:");
-        telefoneFuncionario_Editar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                telefoneFuncionario_EditarActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout panel6Layout = new javax.swing.GroupLayout(panel6);
         panel6.setLayout(panel6Layout);
@@ -244,7 +261,6 @@ public class interface_editarFuncionario extends javax.swing.JFrame {
 
         panel3.setBackground(new java.awt.Color(255, 255, 255));
 
-        cargoFuncionario_Editar.setBackground(new java.awt.Color(255, 255, 255));
         cargoFuncionario_Editar.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
         cargoFuncionario_Editar.setForeground(new java.awt.Color(79, 84, 101));
         cargoFuncionario_Editar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cozinheiro(a)", "Auxiliar de Cozinha", "Garçom", "Balconista", "Faxineiro(a)", "Administrador" }));
@@ -280,16 +296,6 @@ public class interface_editarFuncionario extends javax.swing.JFrame {
         panel22.setBackground(new java.awt.Color(255, 255, 255));
 
         enderecoFuncionario_Editar.setText(" Endereço:");
-        enderecoFuncionario_Editar.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                enderecoFuncionario_EditarFocusLost(evt);
-            }
-        });
-        enderecoFuncionario_Editar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                enderecoFuncionario_EditarActionPerformed(evt);
-            }
-        });
 
         iuser1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         iuser1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconLabel/casa.png"))); // NOI18N
@@ -315,6 +321,40 @@ public class interface_editarFuncionario extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        panel7.setBackground(new java.awt.Color(255, 255, 255));
+
+        iuser4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        iuser4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconLabel/alterarSenha.png"))); // NOI18N
+
+        jCheckBox1.setFont(new java.awt.Font("Gill Sans MT", 0, 15)); // NOI18N
+        jCheckBox1.setForeground(new java.awt.Color(79, 84, 101));
+        jCheckBox1.setText("Atualizar senha");
+        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panel7Layout = new javax.swing.GroupLayout(panel7);
+        panel7.setLayout(panel7Layout);
+        panel7Layout.setHorizontalGroup(
+            panel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel7Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(iuser4, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(jCheckBox1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        panel7Layout.setVerticalGroup(
+            panel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel7Layout.createSequentialGroup()
+                .addGroup(panel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jCheckBox1, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
+                    .addComponent(iuser4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
         panel1.setLayout(panel1Layout);
         panel1Layout.setHorizontalGroup(
@@ -322,14 +362,16 @@ public class interface_editarFuncionario extends javax.swing.JFrame {
             .addGroup(panel1Layout.createSequentialGroup()
                 .addGap(35, 35, 35)
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(panel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(panel22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(panel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(panel1Layout.createSequentialGroup()
-                        .addComponent(panel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(panel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(panel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(panel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(panel22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(panel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(panel1Layout.createSequentialGroup()
+                            .addComponent(panel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(panel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(40, Short.MAX_VALUE))
         );
         panel1Layout.setVerticalGroup(
@@ -347,7 +389,212 @@ public class interface_editarFuncionario extends javax.swing.JFrame {
                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(panel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(panel7, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(20, Short.MAX_VALUE))
+        );
+
+        jPanel_verificarSenhaAtual.setBackground(new java.awt.Color(141, 123, 104));
+
+        panel25.setBackground(new java.awt.Color(255, 255, 255));
+
+        iuser6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        iuser6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconLabel/alterarSenha.png"))); // NOI18N
+
+        verificarSenhaAtual_Funcionario.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
+        verificarSenhaAtual_Funcionario.setForeground(new java.awt.Color(153, 153, 153));
+        verificarSenhaAtual_Funcionario.setText(" Verificar senha atual:");
+        verificarSenhaAtual_Funcionario.setBorder(null);
+        verificarSenhaAtual_Funcionario.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                verificarSenhaAtual_FuncionarioFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                verificarSenhaAtual_FuncionarioFocusLost(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panel25Layout = new javax.swing.GroupLayout(panel25);
+        panel25.setLayout(panel25Layout);
+        panel25Layout.setHorizontalGroup(
+            panel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel25Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(iuser6, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(verificarSenhaAtual_Funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(136, 136, 136))
+        );
+        panel25Layout.setVerticalGroup(
+            panel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel25Layout.createSequentialGroup()
+                .addGroup(panel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(verificarSenhaAtual_Funcionario, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
+                    .addComponent(iuser6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        bOlho1.setBackground(new java.awt.Color(252, 252, 252));
+        bOlho1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconLabel/olho.png"))); // NOI18N
+        bOlho1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bOlho1MouseClicked(evt);
+            }
+        });
+
+        btn_verificarSenhaAtual.setBackground(new java.awt.Color(79, 84, 101));
+        btn_verificarSenhaAtual.setForeground(new java.awt.Color(252, 252, 252));
+        btn_verificarSenhaAtual.setText("Verificar");
+
+        btn_verificarSenhaAtual.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_verificarSenhaAtualActionPerformed1(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel_verificarSenhaAtualLayout = new javax.swing.GroupLayout(jPanel_verificarSenhaAtual);
+        jPanel_verificarSenhaAtual.setLayout(jPanel_verificarSenhaAtualLayout);
+        jPanel_verificarSenhaAtualLayout.setHorizontalGroup(
+            jPanel_verificarSenhaAtualLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel_verificarSenhaAtualLayout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addComponent(panel25, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(bOlho1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35))
+            .addGroup(jPanel_verificarSenhaAtualLayout.createSequentialGroup()
+                .addGap(165, 165, 165)
+                .addComponent(btn_verificarSenhaAtual, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel_verificarSenhaAtualLayout.setVerticalGroup(
+            jPanel_verificarSenhaAtualLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel_verificarSenhaAtualLayout.createSequentialGroup()
+                .addGroup(jPanel_verificarSenhaAtualLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel_verificarSenhaAtualLayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(bOlho1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_verificarSenhaAtualLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(panel25, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btn_verificarSenhaAtual, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(20, Short.MAX_VALUE))
+        );
+
+        jPanel_atualizarSenha.setBackground(new java.awt.Color(141, 123, 104));
+
+        panel26.setBackground(new java.awt.Color(255, 255, 255));
+
+        iuser7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        iuser7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconLabel/alterarSenha.png"))); // NOI18N
+
+        verificarNovaSenha_funcionario.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
+        verificarNovaSenha_funcionario.setForeground(new java.awt.Color(153, 153, 153));
+        verificarNovaSenha_funcionario.setText(" Repita a nova senha:");
+        verificarNovaSenha_funcionario.setBorder(null);
+
+        javax.swing.GroupLayout panel26Layout = new javax.swing.GroupLayout(panel26);
+        panel26.setLayout(panel26Layout);
+        panel26Layout.setHorizontalGroup(
+            panel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel26Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(iuser7, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(verificarNovaSenha_funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(14, Short.MAX_VALUE))
+        );
+        panel26Layout.setVerticalGroup(
+            panel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel26Layout.createSequentialGroup()
+                .addGroup(panel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panel26Layout.createSequentialGroup()
+                        .addComponent(iuser7, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(verificarNovaSenha_funcionario))
+                .addContainerGap())
+        );
+
+        bOlho_verificarNovaSenha.setBackground(new java.awt.Color(252, 252, 252));
+        bOlho_verificarNovaSenha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconLabel/olho.png"))); // NOI18N
+        bOlho_verificarNovaSenha.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bOlho_verificarNovaSenhaMouseClicked(evt);
+            }
+        });
+
+        panel27.setBackground(new java.awt.Color(255, 255, 255));
+
+        iuser8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        iuser8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconLabel/alterarSenha.png"))); // NOI18N
+
+        novaSenha_funcionario.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
+        novaSenha_funcionario.setForeground(new java.awt.Color(153, 153, 153));
+        novaSenha_funcionario.setText(" Nova senha:");
+        novaSenha_funcionario.setBorder(null);
+
+        novaSenha_funcionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                novaSenha_funcionarioActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panel27Layout = new javax.swing.GroupLayout(panel27);
+        panel27.setLayout(panel27Layout);
+        panel27Layout.setHorizontalGroup(
+            panel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel27Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(iuser8, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(novaSenha_funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(90, 90, 90))
+        );
+        panel27Layout.setVerticalGroup(
+            panel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel27Layout.createSequentialGroup()
+                .addGroup(panel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(novaSenha_funcionario, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
+                    .addComponent(iuser8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        bOlho_novaSenha.setBackground(new java.awt.Color(252, 252, 252));
+        bOlho_novaSenha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconLabel/olho.png"))); // NOI18N
+        bOlho_novaSenha.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bOlho_novaSenhaMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel_atualizarSenhaLayout = new javax.swing.GroupLayout(jPanel_atualizarSenha);
+        jPanel_atualizarSenha.setLayout(jPanel_atualizarSenhaLayout);
+        jPanel_atualizarSenhaLayout.setHorizontalGroup(
+            jPanel_atualizarSenhaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel_atualizarSenhaLayout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addGroup(jPanel_atualizarSenhaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(panel26, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panel27, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addGap(40, 40, 40)
+                .addGroup(jPanel_atualizarSenhaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(bOlho_novaSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bOlho_verificarNovaSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel_atualizarSenhaLayout.setVerticalGroup(
+            jPanel_atualizarSenhaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_atualizarSenhaLayout.createSequentialGroup()
+                .addContainerGap(35, Short.MAX_VALUE)
+                .addGroup(jPanel_atualizarSenhaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(bOlho_novaSenha, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(panel27, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel_atualizarSenhaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(panel26, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bOlho_verificarNovaSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20))
         );
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -355,15 +602,18 @@ public class interface_editarFuncionario extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addContainerGap()
                         .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addContainerGap(76, Short.MAX_VALUE)
-                        .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(73, 73, 73)))
+                        .addGap(0, 89, Short.MAX_VALUE)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jPanel_atualizarSenha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanel_verificarSenhaAtual, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(90, 90, 90)))
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -371,10 +621,14 @@ public class interface_editarFuncionario extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(34, 34, 34)
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36)
+                .addGap(40, 40, 40)
                 .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(140, Short.MAX_VALUE))
-            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 550, Short.MAX_VALUE)
+                .addGap(40, 40, 40)
+                .addComponent(jPanel_verificarSenhaAtual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel_atualizarSenha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(25, 25, 25))
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 803, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -391,26 +645,6 @@ public class interface_editarFuncionario extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void nomeFuncionario_EditarFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_nomeFuncionario_EditarFocusLost
-
-    }//GEN-LAST:event_nomeFuncionario_EditarFocusLost
-
-    private void nomeFuncionario_EditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeFuncionario_EditarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_nomeFuncionario_EditarActionPerformed
-
-    private void telefoneFuncionario_EditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_telefoneFuncionario_EditarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_telefoneFuncionario_EditarActionPerformed
-
-    private void enderecoFuncionario_EditarFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_enderecoFuncionario_EditarFocusLost
-        // TODO add your handling code here:
-    }//GEN-LAST:event_enderecoFuncionario_EditarFocusLost
-
-    private void enderecoFuncionario_EditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enderecoFuncionario_EditarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_enderecoFuncionario_EditarActionPerformed
-
     private void editarFuncionarioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editarFuncionarioMouseEntered
         editarFuncionario.setBackground(new Color(63,66,73));
     }//GEN-LAST:event_editarFuncionarioMouseEntered
@@ -420,7 +654,24 @@ public class interface_editarFuncionario extends javax.swing.JFrame {
     }//GEN-LAST:event_editarFuncionarioMouseExited
 
     private void editarFuncionarioActionPerformed1(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarFuncionarioActionPerformed1
+        String senhaAtualizada = this.atualizarSenha();
+        
+        if(senhaAtualizada != null ||this.alterarSenha == false){
+        
+            String novo_nomeFuncionario = this.nomeFuncionario_Editar.getText();
+            String novo_cpfFuncionario = this.cpfFuncionario_Editar.getText();
+            String novo_enderecoFuncionario = this.enderecoFuncionario_Editar.getText();
+            String novo_telefoneFuncionario = this.telefoneFuncionario_Editar.getText();       
 
+            if(senhaAtualizada != null){
+                SenhaEditavel daoFuncionario = new DAO_ContaFuncionario();
+                daoFuncionario.atualizarSenha(senhaAtualizada, editar_contaFuncionario.getTitular().getCpf());
+            }
+            
+            Pessoa editarPessoa = new Pessoa(novo_nomeFuncionario, novo_cpfFuncionario, novo_enderecoFuncionario, novo_telefoneFuncionario);
+            DAO_Pessoa daoPessoa = new DAO_Pessoa();
+            daoPessoa.update(editarPessoa, editar_contaFuncionario.getTitular().getCpf());
+        }    
     }//GEN-LAST:event_editarFuncionarioActionPerformed1
 
     private void bVoltarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bVoltarMouseEntered
@@ -435,52 +686,233 @@ public class interface_editarFuncionario extends javax.swing.JFrame {
 
     }//GEN-LAST:event_bVoltarActionPerformed
 
-    public javax.swing.JPanel getJPanel2() {
-        return this.jPanel2;
-    }
+    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+        if(this.alterarSenha == false){
+            this.dimensionarPaineis_senha(this.jPanel_verificarSenhaAtual);
+            this.alterarSenha = true;
+        }else{
+            this.dimensionarFrame();
+            this.jPanel_verificarSenhaAtual.setVisible(false);
+            this.jPanel_atualizarSenha.setVisible(false);
+            this.senhaVerificada = false;
+            this.alterarSenha = false;
+        }
+        
+    }//GEN-LAST:event_jCheckBox1ActionPerformed
 
-    public javax.swing.JButton getBTNEditarFuncionario() {
-        return this.editarFuncionario;
-    }
+    private void bOlho1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bOlho1MouseClicked
+        String verificarSenha = String.valueOf(verificarSenhaAtual_Funcionario.getPassword());
+        if(activeButton_verificarSenha &&  !(verificarSenha.equals(" Verificar senha atual:"))){
+            bOlho1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconLabel/olho-cruzado.png")));
+            verificarSenhaAtual_Funcionario.setEchoChar('*');
+            activeButton_verificarSenha = false;
 
-    public javax.swing.JFormattedTextField getVerificarCPF_Funcionario() {
-        return this.verificarCPF_Funcionario;
-    }
+        }else if(activeButton_verificarSenha == false &&  !(verificarSenha.equals(" Verificar senha atual:"))){
+            bOlho1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconLabel/olho.png")));
+            verificarSenhaAtual_Funcionario.setEchoChar((char) 0);
+            activeButton_verificarSenha = true;
+        }
+    }//GEN-LAST:event_bOlho1MouseClicked
 
-    public javax.swing.JFormattedTextField getCpfFuncionario_Editar() {
-        return this.cpfFuncionario_Editar;
-    }
+    private void verificarSenhaAtual_FuncionarioFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_verificarSenhaAtual_FuncionarioFocusGained
+        this.verificarSenhaAtual_Funcionario.setEchoChar('*');
+        this.activeButton_verificarSenha = false;
+        this.verificarSenhaAtual_Funcionario.setText("");
+    }//GEN-LAST:event_verificarSenhaAtual_FuncionarioFocusGained
 
-    public javax.swing.JFormattedTextField getTelefoneFuncionario_Editar() {
-        return this.telefoneFuncionario_Editar;
+    private void btn_verificarSenhaAtualActionPerformed1(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_verificarSenhaAtualActionPerformed1
+        DAO_ContaFuncionario daoFuncionario = new DAO_ContaFuncionario();
+        String verificarSenha = String.valueOf(verificarSenhaAtual_Funcionario.getPassword());
+        if(!verificarSenha.equals(" Verificar senha atual:")){
+            if(true){
+                this.jPanel_verificarSenhaAtual.setVisible(false);
+                this.senhaVerificada = true;
+                this.verificarSenhaAtual_Funcionario.setText(" Verificar senha atual:");
+                this.dimensionarPaineis_senha(this.jPanel_atualizarSenha);
+            }else{
+                
+            }
+        }
+    }//GEN-LAST:event_btn_verificarSenhaAtualActionPerformed1
+
+    private void verificarSenhaAtual_FuncionarioFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_verificarSenhaAtual_FuncionarioFocusLost
+        String verificarSenha = String.valueOf(verificarSenhaAtual_Funcionario.getPassword());
+        if(verificarSenha.equals("")){
+            this.verificarSenhaAtual_Funcionario.setText(" Verificar senha atual:");
+            this.verificarSenhaAtual_Funcionario.setEchoChar((char)0);
+        }
+    }//GEN-LAST:event_verificarSenhaAtual_FuncionarioFocusLost
+
+    private void bOlho_verificarNovaSenhaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bOlho_verificarNovaSenhaMouseClicked
+        String verificarSenha = String.valueOf(verificarNovaSenha_funcionario.getPassword());
+        if(activeButton_verificarNovaSenha &&  !(verificarSenha.equals(" Repita a nova senha:"))){
+            bOlho1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconLabel/olho-cruzado.png")));
+            verificarSenhaAtual_Funcionario.setEchoChar('*');
+            activeButton_verificarNovaSenha = false;
+
+        }else if(activeButton_verificarNovaSenha == false &&  !(verificarSenha.equals(" Repita a nova senha:"))){
+            bOlho1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconLabel/olho.png")));
+            verificarSenhaAtual_Funcionario.setEchoChar((char) 0);
+            activeButton_verificarNovaSenha = true;
+        }
+    }//GEN-LAST:event_bOlho_verificarNovaSenhaMouseClicked
+
+    private void bOlho_novaSenhaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bOlho_novaSenhaMouseClicked
+        String verificarSenha = String.valueOf(novaSenha_funcionario.getPassword());
+        if(activeButton_novaSenha &&  !(verificarSenha.equals(" Nova senha:"))){
+            bOlho1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconLabel/olho-cruzado.png")));
+            verificarSenhaAtual_Funcionario.setEchoChar('*');
+            activeButton_novaSenha = false;
+
+        }else if(activeButton_novaSenha == false &&  !(verificarSenha.equals(" Nova senha:"))){
+            bOlho1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconLabel/olho.png")));
+            verificarSenhaAtual_Funcionario.setEchoChar((char) 0);
+            activeButton_novaSenha = true;
+        }
+    }//GEN-LAST:event_bOlho_novaSenhaMouseClicked
+
+    private void novaSenha_funcionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_novaSenha_funcionarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_novaSenha_funcionarioActionPerformed
+
+    private void preencherDadosFuncionarios(){        
+        this.nomeFuncionario_Editar.setText(editar_contaFuncionario.getTitular().getNome());
+        this.telefoneFuncionario_Editar.setText(editar_contaFuncionario.getTitular().getTelefone());
+        this.cpfFuncionario_Editar.setText(editar_contaFuncionario.getTitular().getCpf());
+        this.enderecoFuncionario_Editar.setText(editar_contaFuncionario.getTitular().getEndereco());
+        this.cargoFuncionario_Editar.setSelectedItem(editar_contaFuncionario.getCargoFuncionario());
+    }
+    
+    private void dimensionarFrame(){
+        this.jPanel3.setBounds(0, 0, 950, 560);
+        this.setBounds(0, 0, 950, 560);
+        this.editarFuncionario.setBounds(0, 0, 10, 60);    
+    }
+    
+    private void dimensionarPaineis_senha(javax.swing.JPanel exibirPainel){
+        exibirPainel.setBounds(0, 0, 950, 540);
+        exibirPainel.setVisible(true);
+        this.setBounds(0, 0, 950, 710);
+    }
+    
+    private void inicializarCamposSenha(){
+        this.verificarSenhaAtual_Funcionario.setEchoChar((char) 0);
+        this.novaSenha_funcionario.setEchoChar((char) 0);
+        this.verificarNovaSenha_funcionario.setEchoChar((char) 0);
+        this.jPanel_verificarSenhaAtual.setVisible(false);
+        this.jPanel_atualizarSenha.setVisible(false);
+    }
+    
+    private boolean camposSenhasIguais(){
+        String conferir_novaSenha = String.valueOf(this.novaSenha_funcionario.getPassword());
+        String conferir_verificarNovaSenha = String.valueOf(this.verificarNovaSenha_funcionario.getPassword());
+        
+        boolean senhasIguais = conferir_novaSenha.equals(conferir_verificarNovaSenha);
+        
+        return senhasIguais;
+    }
+    
+    private String atualizarSenha(){
+        String novaSenha = null;
+        
+        if(this.alterarSenha){
+            
+            if(this.senhaVerificada){
+                if(this.camposSenhasIguais()){
+                    novaSenha = String.valueOf(this.novaSenha_funcionario.getPassword());
+                }else{
+                    GlassPanePopup.showPopup(new PopUp_Senha());
+                }
+            }else{
+                GlassPanePopup.showPopup(new PopUp_SenhaNaoVerificada());
+            }
+        }
+     
+        return novaSenha;
     }
     /**
      * @param args the command line arguments
      */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(interface_editarFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(interface_editarFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(interface_editarFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(interface_editarFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new interface_editarFuncionario().setVisible(true);
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private jaboc_UI.jabocUI_Utilidades.ButtonCirculo bOlho;
+    private jaboc_UI.jabocUI_Utilidades.ButtonCirculo bOlho1;
+    private jaboc_UI.jabocUI_Utilidades.ButtonCirculo bOlho_novaSenha;
+    private jaboc_UI.jabocUI_Utilidades.ButtonCirculo bOlho_verificarNovaSenha;
     private jaboc_UI.jabocUI_Utilidades.ButtonCirculo bVoltar;
+    private jaboc_UI.jabocUI_Utilidades.ButtonCirculo btn_verificarSenhaAtual;
     private javax.swing.JComboBox<String> cargoFuncionario_Editar;
     private jaboc_UI.JabocUI_Utilidades.JabocUI_Classes.FormattedTextField cpfFuncionario_Editar;
     private jaboc_UI.jabocUI_Utilidades.ButtonCirculo editarFuncionario;
     private jaboc_UI.jabocUI_Utilidades.TextField enderecoFuncionario_Editar;
+    private jaboc_UI.jabocUI_Utilidades.TextField enderecoFuncionario_Editar1;
     private javax.swing.JLabel icpf;
     private javax.swing.JLabel itel;
     private javax.swing.JLabel iuser;
     private javax.swing.JLabel iuser1;
     private javax.swing.JLabel iuser2;
+    private javax.swing.JLabel iuser3;
+    private javax.swing.JLabel iuser4;
+    private javax.swing.JLabel iuser6;
+    private javax.swing.JLabel iuser7;
+    private javax.swing.JLabel iuser8;
+    private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel_atualizarSenha;
+    private javax.swing.JPanel jPanel_verificarSenhaAtual;
     private jaboc_UI.jabocUI_Utilidades.TextField nomeFuncionario_Editar;
+    private javax.swing.JPasswordField novaSenha_funcionario;
     private jaboc_UI.jabocUI_Utilidades.Panel panel1;
     private jaboc_UI.jabocUI_Utilidades.Panel panel22;
+    private jaboc_UI.jabocUI_Utilidades.Panel panel23;
+    private jaboc_UI.jabocUI_Utilidades.Panel panel25;
+    private jaboc_UI.jabocUI_Utilidades.Panel panel26;
+    private jaboc_UI.jabocUI_Utilidades.Panel panel27;
     private jaboc_UI.jabocUI_Utilidades.Panel panel3;
     private jaboc_UI.jabocUI_Utilidades.Panel panel4;
     private jaboc_UI.jabocUI_Utilidades.Panel panel5;
     private jaboc_UI.jabocUI_Utilidades.Panel panel6;
+    private jaboc_UI.jabocUI_Utilidades.Panel panel7;
     private jaboc_UI.JabocUI_Utilidades.JabocUI_Classes.FormattedTextField telefoneFuncionario_Editar;
+    private javax.swing.JPasswordField verificarNovaSenha_funcionario;
+    private javax.swing.JPasswordField verificarSenhaAtual_Funcionario;
     // End of variables declaration//GEN-END:variables
 }
