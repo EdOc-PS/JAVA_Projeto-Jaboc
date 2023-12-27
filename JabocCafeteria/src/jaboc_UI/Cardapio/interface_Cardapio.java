@@ -4,7 +4,9 @@
  */
 package jaboc_UI.Cardapio;
 
+import jaboc_BancoDeDados.Modelo.DAO_Produto;
 import jaboc_Biblioteca.outras.ModernScrollBarUI;
+import jaboc_Classes.Produto;
 import jaboc_UI.Clientes.interface_editarCliente;
 import jaboc_UI.Clientes.interface_menuCliente;
 import jaboc_UI.JabocUI_Utilidades.JabocUI_popUp.PopUp_mensagem;
@@ -310,14 +312,17 @@ public class interface_Cardapio extends javax.swing.JFrame {
     }//GEN-LAST:event_bVoltarActionPerformed
 
     private void buttonCirculo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCirculo1ActionPerformed
+         DAO_Produto daoProduto = new DAO_Produto();
         DefaultTableModel cardapio = (DefaultTableModel) tabelaCardapio.getModel();
-        String[] dados = {
-            " Teste ",
-            " Teste ",
-            " Teste ",
-            " Teste "};
-        cardapio.addRow(dados);
 
+        for (Produto p : daoProduto.Listagem()) {
+            cardapio.addRow(new Object[]{
+                p.getNomeProduto(),
+                p.getTipoProduto(),
+                p.getQtdeProduto(),
+                p.getPrecoProduto()
+            });
+        }
     }//GEN-LAST:event_buttonCirculo1ActionPerformed
 
     private void bcarrinhoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bcarrinhoActionPerformed
