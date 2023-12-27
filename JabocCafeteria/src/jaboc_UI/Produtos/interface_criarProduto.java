@@ -4,12 +4,12 @@
  */
 package jaboc_UI.Produtos;
 
-import jaboc_Classes.Conta_Cliente;
+import jaboc_BancoDeDados.Modelo.DAO_Produto;
 import jaboc_Classes.Produto;
-import jaboc_UI.Cardapio.interface_Cardapio;
-import jaboc_UI.jabocUI_Utilidades.PopUp_mensagen;
+import jaboc_UI.JabocUI_Utilidades.JabocUI_popUp.PopUp_mensagem;
 import java.awt.Color;
-import javax.swing.JOptionPane;
+import java.util.ArrayList;
+import java.util.Iterator;
 import javax.swing.JTextField;
 import raven.glasspanepopup.GlassPanePopup;
 
@@ -18,9 +18,13 @@ import raven.glasspanepopup.GlassPanePopup;
  * @author eeuar
  */
 public class interface_criarProduto extends javax.swing.JFrame {
+
     /**
      * Creates new form interface_Produto
      */
+    private ArrayList<JTextField> camposTexto = new ArrayList<>();
+    private ArrayList<String> dados_camposTexto = new ArrayList<>();
+
     public interface_criarProduto() {
         initComponents();
         setLocationRelativeTo(null);
@@ -141,18 +145,7 @@ public class interface_criarProduto extends javax.swing.JFrame {
 
         panel4.setBackground(new java.awt.Color(255, 255, 255));
 
-        nomeProduto.setBackground(new java.awt.Color(255, 255, 255));
         nomeProduto.setText(" Nome:");
-        nomeProduto.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                nomeProdutoFocusLost(evt);
-            }
-        });
-        nomeProduto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nomeProdutoActionPerformed(evt);
-            }
-        });
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconLabel/cafe.png"))); // NOI18N
@@ -180,19 +173,7 @@ public class interface_criarProduto extends javax.swing.JFrame {
 
         panel8.setBackground(new java.awt.Color(255, 255, 255));
 
-        qtdeProduto.setBackground(new java.awt.Color(255, 255, 255));
         qtdeProduto.setText(" Quantidade:");
-        qtdeProduto.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                qtdeProdutoFocusLost(evt);
-            }
-        });
-        qtdeProduto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                qtdeProdutoActionPerformed(evt);
-            }
-        });
-
         itel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         itel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconLabel/qtde.png"))); // NOI18N
 
@@ -219,20 +200,7 @@ public class interface_criarProduto extends javax.swing.JFrame {
 
         panel9.setBackground(new java.awt.Color(255, 255, 255));
 
-        precoProduto.setBackground(new java.awt.Color(255, 255, 255));
-        precoProduto.setText(" Preço:");
-        precoProduto.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                precoProdutoFocusLost(evt);
-            }
-        });
-        precoProduto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                precoProdutoActionPerformed(evt);
-            }
-        });
-
-        itel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        precoProduto.setText(" Preço:");        itel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         itel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconLabel/dinheiro.png"))); // NOI18N
 
         javax.swing.GroupLayout panel9Layout = new javax.swing.GroupLayout(panel9);
@@ -320,7 +288,7 @@ public class interface_criarProduto extends javax.swing.JFrame {
             .addGroup(panel1Layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addComponent(panel4, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(panel8, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(panel9, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -336,22 +304,26 @@ public class interface_criarProduto extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(70, 70, 70)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(panel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(70, 70, 70)
+                        .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, 550, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(101, Short.MAX_VALUE)
+                .addContainerGap(70, Short.MAX_VALUE)
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
+                .addGap(52, 52, 52)
                 .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(105, 105, 105))
+                .addGap(116, 116, 116))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -368,7 +340,7 @@ public class interface_criarProduto extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    
+
     private void bVoltarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bVoltarMouseEntered
         bVoltar.setBackground(new Color(237, 237, 237));
     }//GEN-LAST:event_bVoltarMouseEntered
@@ -378,50 +350,69 @@ public class interface_criarProduto extends javax.swing.JFrame {
     }//GEN-LAST:event_bVoltarMouseExited
 
     private void bVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVoltarActionPerformed
-       interface_gerenciarProdutos i_gerenciarProdutos = new interface_gerenciarProdutos();
-       i_gerenciarProdutos.setVisible(true);
-       this.dispose();
+        interface_gerenciarProdutos i_gerenciarProdutos = new interface_gerenciarProdutos();
+        i_gerenciarProdutos.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_bVoltarActionPerformed
 
     private void criaProdutoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_criaProdutoMouseEntered
-        criaProduto.setBackground(new Color(63,66,73));
+        criaProduto.setBackground(new Color(63, 66, 73));
     }//GEN-LAST:event_criaProdutoMouseEntered
 
     private void criaProdutoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_criaProdutoMouseExited
-        criaProduto.setBackground(new Color(79,84,101));
+        criaProduto.setBackground(new Color(79, 84, 101));
     }//GEN-LAST:event_criaProdutoMouseExited
 
     private void criaProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_criaProdutoActionPerformed
-     
+        if (camposPreenchidos()) {
+
+            String nome_Produto = nomeProduto.getText();
+            String tipo_Produto = (String) tipoProduto.getSelectedItem();
+            int qtde_Produto = Integer.parseInt(qtdeProduto.getText());
+            double preco_Produto = Double.parseDouble(precoProduto.getText());
+
+            Produto obj_produto = new Produto(nome_Produto, qtde_Produto, 0, tipo_Produto, preco_Produto);
+
+            DAO_Produto daoProduto = new DAO_Produto();
+            daoProduto.insert(obj_produto);
+            GlassPanePopup.showPopup(new PopUp_mensagem());
+            this.setarCamposVazios();
+
+        } else {
+            GlassPanePopup.showPopup(new PopUp_mensagem());
+        }
     }//GEN-LAST:event_criaProdutoActionPerformed
 
-    private void nomeProdutoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_nomeProdutoFocusLost
+    private boolean camposPreenchidos() {
+        Iterator<JTextField> percorrerCamposTextos = this.camposTexto.iterator();
+        Iterator<String> percorrerDadosCamposTextos = this.dados_camposTexto.iterator();
 
-    }//GEN-LAST:event_nomeProdutoFocusLost
+        while (percorrerCamposTextos.hasNext()) {
+            JTextField campoAtual = percorrerCamposTextos.next();
+            String dadoCampoAtual = percorrerDadosCamposTextos.next();
+            if (campoAtual.getText().equals(dadoCampoAtual)) {
+                return false;
+            }
+        }
+        return true;
+    }
 
-    private void nomeProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeProdutoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_nomeProdutoActionPerformed
+    private void setarCamposVazios() {
+        Iterator<JTextField> percorrerArray = this.camposTexto.iterator();
+        Iterator<String> percorrerDadosCamposTextos = this.dados_camposTexto.iterator();
 
-    private void qtdeProdutoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_qtdeProdutoFocusLost
-        // TODO add your handling code here:
-    }//GEN-LAST:event_qtdeProdutoFocusLost
+        while (percorrerArray.hasNext()) {
+            JTextField campoAtual = percorrerArray.next();
+            String novoDadoCampoAtual = percorrerDadosCamposTextos.next();
 
-    private void qtdeProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_qtdeProdutoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_qtdeProdutoActionPerformed
+            campoAtual.setText(novoDadoCampoAtual);
+        }
+    }
 
-    private void precoProdutoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_precoProdutoFocusLost
-        // TODO add your handling code here:
-    }//GEN-LAST:event_precoProdutoFocusLost
-
-    private void precoProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_precoProdutoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_precoProdutoActionPerformed
-     /**
+    /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void criarProduto(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.

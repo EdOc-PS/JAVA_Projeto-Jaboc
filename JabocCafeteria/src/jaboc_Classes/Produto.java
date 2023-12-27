@@ -16,9 +16,9 @@ public class Produto {
     private int qtdeProduto;
     private int idProduto;
     private String tipoProduto;
-    private float precoProduto;
+    private double precoProduto;
 
-    public Produto(String nomeProduto, int qtdeProduto, int idProduto, String tipoProduto, float precoProduto) {
+    public Produto(String nomeProduto, int qtdeProduto, int idProduto, String tipoProduto, double precoProduto) {
         this.nomeProduto = nomeProduto;
         this.qtdeProduto = qtdeProduto;
         this.idProduto = idProduto;
@@ -58,11 +58,11 @@ public class Produto {
         this.tipoProduto = tipoProduto;
     }
 
-    public float getPrecoProduto() {
+    public double getPrecoProduto() {
         return precoProduto;
     }
 
-    public void setPrecoProduto(float precoProduto) {
+    public void setPrecoProduto(double precoProduto) {
         this.precoProduto = precoProduto;
     }
 

@@ -5,10 +5,10 @@
 package jaboc_UI.Cardapio;
 
 import jaboc_Biblioteca.outras.ModernScrollBarUI;
-import jaboc_Classes.Conta_Cliente;
 import jaboc_UI.Clientes.interface_editarCliente;
 import jaboc_UI.Clientes.interface_menuCliente;
-import jaboc_UI.jabocUI_Utilidades.PopUp_mensagen;
+import jaboc_UI.JabocUI_Utilidades.JabocUI_popUp.PopUp_mensagem;
+
 import java.awt.Color;
 import java.awt.Dimension;
 import javax.swing.JScrollBar;
@@ -338,7 +338,7 @@ public class interface_Cardapio extends javax.swing.JFrame {
     }//GEN-LAST:event_bcarrinhoMouseExited
 
     private void tabelaCardapioMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaCardapioMousePressed
-        GlassPanePopup.showPopup(new PopUp_mensagen());
+        GlassPanePopup.showPopup(new PopUp_mensagem());
  }//GEN-LAST:event_tabelaCardapioMousePressed
 
     /**

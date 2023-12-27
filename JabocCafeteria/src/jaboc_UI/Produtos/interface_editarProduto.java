@@ -4,9 +4,7 @@
  */
 package jaboc_UI.Produtos;
 
-import jaboc_UI.jabocUI_Utilidades.PopUp_mensagen;
 import java.awt.Color;
-import javax.swing.JOptionPane;
 import raven.glasspanepopup.GlassPanePopup;
 
 /**

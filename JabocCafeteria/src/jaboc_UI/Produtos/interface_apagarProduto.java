@@ -4,10 +4,7 @@
  */
 package jaboc_UI.Produtos;
 
-import jaboc_Classes.Conta_Cliente;
 import java.awt.Color;
-import static java.awt.image.ImageObserver.WIDTH;
-import javax.swing.JOptionPane;
 
 /**
  *

@@ -126,7 +126,7 @@ public class PopUp_mensagem extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bPopUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bPopUpActionPerformed
-        GlassPanePopup.closePopupLast();
+  
     }//GEN-LAST:event_bPopUpActionPerformed
 
 

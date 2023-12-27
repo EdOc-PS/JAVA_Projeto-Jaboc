@@ -4,12 +4,13 @@
  */
 package jaboc_UI.Produtos;
 
+import jaboc_BancoDeDados.Modelo.DAO_Produto;
 import jaboc_Biblioteca.outras.ModernScrollBarUI;
 import jaboc_Classes.Conta_Cliente;
+import jaboc_Classes.Produto;
 import jaboc_UI.Administrador.interface_areaGerencia;
 import jaboc_UI.JabocUI_Utilidades.JabocUI_popUp.PopUp_GerenciaProdutos;
 import jaboc_UI.JabocUI_Utilidades.JabocUI_popUp.PopUp_inseriuItem;
-import jaboc_UI.jabocUI_Utilidades.PopUp_mensagen;
 import java.awt.Color;
 import java.awt.Dimension;
 import javax.swing.JScrollBar;
@@ -26,13 +27,13 @@ public class interface_gerenciarProdutos extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         GlassPanePopup.install(this);
-        
+
         JScrollBar bar = scrollGerenciaProduto.getVerticalScrollBar();
         bar.setOpaque(false);
-        bar.setForeground(new Color(223,204,251));
+        bar.setForeground(new Color(223, 204, 251));
         bar.setPreferredSize(new Dimension(10, 5));
         bar.setUI(new ModernScrollBarUI());
-        
+
         scrollGerenciaProduto.setViewportBorder(null);
         scrollGerenciaProduto.setBorder(null);
     }
@@ -261,28 +262,31 @@ public class interface_gerenciarProdutos extends javax.swing.JFrame {
     }//GEN-LAST:event_bVoltarMouseExited
 
     private void bVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVoltarActionPerformed
-     
+
         this.dispose();
     }//GEN-LAST:event_bVoltarActionPerformed
 
     private void buttonCirculo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCirculo1ActionPerformed
+        DAO_Produto daoProduto = new DAO_Produto();
         DefaultTableModel cardapio = (DefaultTableModel) tabelaCardapio.getModel();
-        String[] dados = {
-            " 1 ",
-            " Teste ",
-            " Teste ",
-            " 100 ",
-            " 100 "};
-        cardapio.addRow(dados);
 
+        for (Produto p : daoProduto.Listagem()) {
+            cardapio.addRow(new Object[]{
+                p.getIdProduto(),
+                p.getNomeProduto(),
+                p.getTipoProduto(),
+                p.getQtdeProduto(),
+                p.getPrecoProduto()
+            });
+        }
     }//GEN-LAST:event_buttonCirculo1ActionPerformed
 
     private void adicionar_ProdutoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_adicionar_ProdutoMouseEntered
-       adicionar_Produto.setBackground(new Color(215, 229, 202));
+        adicionar_Produto.setBackground(new Color(215, 229, 202));
     }//GEN-LAST:event_adicionar_ProdutoMouseEntered
 
     private void adicionar_ProdutoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_adicionar_ProdutoMouseExited
-       adicionar_Produto.setBackground(new Color(252, 252, 252));
+        adicionar_Produto.setBackground(new Color(252, 252, 252));
     }//GEN-LAST:event_adicionar_ProdutoMouseExited
 
     private void adicionar_ProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adicionar_ProdutoActionPerformed
@@ -292,10 +296,8 @@ public class interface_gerenciarProdutos extends javax.swing.JFrame {
     }//GEN-LAST:event_adicionar_ProdutoActionPerformed
 
     private void tabelaCardapioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaCardapioMouseClicked
-         PopUp_inseriuItem f = new PopUp_inseriuItem(null,"Houve um erro no cadastro!");
-         f.setVisible(true);
-         
-        
+        PopUp_inseriuItem f = new PopUp_inseriuItem(null, "Houve um erro no cadastro!");
+        f.setVisible(true);
     }//GEN-LAST:event_tabelaCardapioMouseClicked
     /**
      * @param args the command line arguments
