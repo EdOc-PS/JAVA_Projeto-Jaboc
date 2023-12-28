@@ -8,7 +8,7 @@ import jaboc_BancoDeDados.Controle.Logavel;
 import jaboc_BancoDeDados.Modelo.DAO_ContaCliente;
 import jaboc_Classes.Login;
 import jaboc_UI.Cardapio.interface_Cardapio;
-import jaboc_UI.JabocUI_Utilidades.JabocUI_popUp.PopUp_mensagem;
+import jaboc_UI.JabocUI_Utilidades.JabocUI_popUp.PopUp_vazio;
 import java.awt.Color;
 import raven.glasspanepopup.GlassPanePopup;
 import java.util.ArrayList;
@@ -50,7 +50,7 @@ public class interface_loginCliente extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         bVoltar = new jaboc_UI.jabocUI_Utilidades.ButtonCirculo();
-        loginCliente = new jaboc_UI.jabocUI_Utilidades.ButtonCirculo();
+        buttonCirculo1 = new jaboc_UI.jabocUI_Utilidades.ButtonCirculo();
         jLabel1 = new javax.swing.JLabel();
         panel1 = new jaboc_UI.jabocUI_Utilidades.Panel();
         panel5 = new jaboc_UI.jabocUI_Utilidades.Panel();
@@ -73,7 +73,7 @@ public class interface_loginCliente extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(252, 252, 252));
 
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logo4.png"))); // NOI18N
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/principal/logo4.png"))); // NOI18N
         jLabel11.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
 
         bVoltar.setBackground(new java.awt.Color(252, 252, 252));
@@ -93,12 +93,12 @@ public class interface_loginCliente extends javax.swing.JFrame {
             }
         });
 
-        loginCliente.setBackground(new java.awt.Color(79, 84, 101));
-        loginCliente.setForeground(new java.awt.Color(252, 252, 252));
-        loginCliente.setText("Entrar");
-        loginCliente.addActionListener(new java.awt.event.ActionListener() {
+        buttonCirculo1.setBackground(new java.awt.Color(79, 84, 101));
+        buttonCirculo1.setForeground(new java.awt.Color(252, 252, 252));
+        buttonCirculo1.setText("Entrar");
+        buttonCirculo1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                loginClienteActionPerformed(evt);
+                buttonCirculo1ActionPerformed(evt);
             }
         });
 
@@ -107,14 +107,14 @@ public class interface_loginCliente extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(14, 14, 14)
+                .addContainerGap()
                 .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(bVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap(31, Short.MAX_VALUE)
-                .addComponent(loginCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(buttonCirculo1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29))
         );
         jPanel3Layout.setVerticalGroup(
@@ -125,7 +125,7 @@ public class interface_loginCliente extends javax.swing.JFrame {
                     .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(loginCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(buttonCirculo1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25))
         );
 
@@ -142,11 +142,6 @@ public class interface_loginCliente extends javax.swing.JFrame {
         icpf.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconLabel/cpf.png"))); // NOI18N
 
         cpfCliente_login.setText(" CPF:");
-        cpfCliente_login.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cpfCliente_loginActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout panel5Layout = new javax.swing.GroupLayout(panel5);
         panel5.setLayout(panel5Layout);
@@ -362,7 +357,7 @@ public class interface_loginCliente extends javax.swing.JFrame {
                 this.setarCamposVazios();
             }    
         }else{
-            GlassPanePopup.showPopup(new PopUp_mensagem());
+            GlassPanePopup.showPopup(new PopUp_vazio());
         }
     }//GEN-LAST:event_loginClienteActionPerformed
 
@@ -477,6 +472,7 @@ public class interface_loginCliente extends javax.swing.JFrame {
    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private jaboc_UI.jabocUI_Utilidades.ButtonCirculo bVoltar;
+    private jaboc_UI.jabocUI_Utilidades.ButtonCirculo buttonCirculo1;
     private jaboc_UI.jabocUI_Utilidades.ButtonCirculo buttonCirculo2;
     private jaboc_UI.JabocUI_Utilidades.JabocUI_Classes.FormattedTextField cpfCliente_login;
     private javax.swing.JLabel icpf;
@@ -488,7 +484,6 @@ public class interface_loginCliente extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel loginAcess;
-    private jaboc_UI.jabocUI_Utilidades.ButtonCirculo loginCliente;
     private jaboc_UI.jabocUI_Utilidades.Panel panel1;
     private jaboc_UI.jabocUI_Utilidades.Panel panel11;
     private jaboc_UI.jabocUI_Utilidades.Panel panel3;

@@ -17,7 +17,7 @@ import jaboc_Classes.Pessoa;
  * @author guilh
  */
 public class DAO_ContaCliente implements DAO, Logavel{
-    private static Conta_Cliente dadosCliente_emMemoria;
+    public static Conta_Cliente dadosCliente_emMemoria;
     
     @Override
     public ResultSet selectTodos(){

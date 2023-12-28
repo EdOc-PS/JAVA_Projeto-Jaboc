@@ -74,12 +74,12 @@ public class interface_editarFuncionario extends javax.swing.JFrame {
         iuser1 = new javax.swing.JLabel();
         panel7 = new jaboc_UI.jabocUI_Utilidades.Panel();
         iuser4 = new javax.swing.JLabel();
-        jCheckBox1 = new javax.swing.JCheckBox();
+        jCb_atualizarSenha = new javax.swing.JCheckBox();
         jPanel_verificarSenhaAtual = new javax.swing.JPanel();
         panel25 = new jaboc_UI.jabocUI_Utilidades.Panel();
         iuser6 = new javax.swing.JLabel();
         verificarSenhaAtual_Funcionario = new javax.swing.JPasswordField();
-        bOlho1 = new jaboc_UI.jabocUI_Utilidades.ButtonCirculo();
+        bOlho_verificarSenhaAtual = new jaboc_UI.jabocUI_Utilidades.ButtonCirculo();
         btn_verificarSenhaAtual = new jaboc_UI.jabocUI_Utilidades.ButtonCirculo();
         jPanel_atualizarSenha = new javax.swing.JPanel();
         panel26 = new jaboc_UI.jabocUI_Utilidades.Panel();
@@ -116,7 +116,7 @@ public class interface_editarFuncionario extends javax.swing.JFrame {
         });
 
         jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logo4.png"))); // NOI18N
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/principal/logo4.png"))); // NOI18N
         jLabel14.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
 
         bVoltar.setBackground(new java.awt.Color(252, 252, 252));
@@ -177,6 +177,16 @@ public class interface_editarFuncionario extends javax.swing.JFrame {
         panel4.setBackground(new java.awt.Color(255, 255, 255));
 
         nomeFuncionario_Editar.setText("Nome:");
+        nomeFuncionario_Editar.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                nomeFuncionario_EditarFocusLost(evt);
+            }
+        });
+        nomeFuncionario_Editar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nomeFuncionario_EditarActionPerformed(evt);
+            }
+        });
 
         iuser.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         iuser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconLabel/user.png"))); // NOI18N
@@ -234,6 +244,11 @@ public class interface_editarFuncionario extends javax.swing.JFrame {
         itel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconLabel/tel.png"))); // NOI18N
 
         telefoneFuncionario_Editar.setText(" Telefone:");
+        telefoneFuncionario_Editar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                telefoneFuncionario_EditarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panel6Layout = new javax.swing.GroupLayout(panel6);
         panel6.setLayout(panel6Layout);
@@ -296,6 +311,16 @@ public class interface_editarFuncionario extends javax.swing.JFrame {
         panel22.setBackground(new java.awt.Color(255, 255, 255));
 
         enderecoFuncionario_Editar.setText(" Endereço:");
+        enderecoFuncionario_Editar.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                enderecoFuncionario_EditarFocusLost(evt);
+            }
+        });
+        enderecoFuncionario_Editar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                enderecoFuncionario_EditarActionPerformed(evt);
+            }
+        });
 
         iuser1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         iuser1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconLabel/casa.png"))); // NOI18N
@@ -326,12 +351,12 @@ public class interface_editarFuncionario extends javax.swing.JFrame {
         iuser4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         iuser4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconLabel/alterarSenha.png"))); // NOI18N
 
-        jCheckBox1.setFont(new java.awt.Font("Gill Sans MT", 0, 15)); // NOI18N
-        jCheckBox1.setForeground(new java.awt.Color(79, 84, 101));
-        jCheckBox1.setText("Atualizar senha");
-        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+        jCb_atualizarSenha.setFont(new java.awt.Font("Gill Sans MT", 0, 15)); // NOI18N
+        jCb_atualizarSenha.setForeground(new java.awt.Color(79, 84, 101));
+        jCb_atualizarSenha.setText("Atualizar senha");
+        jCb_atualizarSenha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox1ActionPerformed(evt);
+                jCb_atualizarSenhaActionPerformed(evt);
             }
         });
 
@@ -343,14 +368,14 @@ public class interface_editarFuncionario extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(iuser4, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(jCheckBox1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jCb_atualizarSenha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         panel7Layout.setVerticalGroup(
             panel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel7Layout.createSequentialGroup()
                 .addGroup(panel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jCheckBox1, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
+                    .addComponent(jCb_atualizarSenha, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
                     .addComponent(iuser4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -363,15 +388,14 @@ public class interface_editarFuncionario extends javax.swing.JFrame {
                 .addGap(35, 35, 35)
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(panel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(panel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(panel22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(panel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(panel1Layout.createSequentialGroup()
-                            .addComponent(panel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(panel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addComponent(panel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panel22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panel1Layout.createSequentialGroup()
+                        .addComponent(panel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(panel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap(40, Short.MAX_VALUE))
         );
         panel1Layout.setVerticalGroup(
@@ -434,18 +458,30 @@ public class interface_editarFuncionario extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        bOlho1.setBackground(new java.awt.Color(252, 252, 252));
-        bOlho1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconLabel/olho.png"))); // NOI18N
-        bOlho1.addMouseListener(new java.awt.event.MouseAdapter() {
+        bOlho_verificarSenhaAtual.setBackground(new java.awt.Color(252, 252, 252));
+        bOlho_verificarSenhaAtual.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconLabel/olho.png"))); // NOI18N
+        bOlho_verificarSenhaAtual.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                bOlho1MouseClicked(evt);
+                bOlho_verificarSenhaAtualMouseClicked(evt);
+            }
+        });
+        bOlho_verificarSenhaAtual.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bOlho_verificarSenhaAtualActionPerformed(evt);
             }
         });
 
         btn_verificarSenhaAtual.setBackground(new java.awt.Color(79, 84, 101));
         btn_verificarSenhaAtual.setForeground(new java.awt.Color(252, 252, 252));
         btn_verificarSenhaAtual.setText("Verificar");
-
+        btn_verificarSenhaAtual.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btn_verificarSenhaAtualMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btn_verificarSenhaAtualMouseExited(evt);
+            }
+        });
         btn_verificarSenhaAtual.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_verificarSenhaAtualActionPerformed1(evt);
@@ -460,7 +496,7 @@ public class interface_editarFuncionario extends javax.swing.JFrame {
                 .addGap(35, 35, 35)
                 .addComponent(panel25, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(bOlho1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(bOlho_verificarSenhaAtual, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35))
             .addGroup(jPanel_verificarSenhaAtualLayout.createSequentialGroup()
                 .addGap(165, 165, 165)
@@ -473,7 +509,7 @@ public class interface_editarFuncionario extends javax.swing.JFrame {
                 .addGroup(jPanel_verificarSenhaAtualLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel_verificarSenhaAtualLayout.createSequentialGroup()
                         .addGap(20, 20, 20)
-                        .addComponent(bOlho1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(bOlho_verificarSenhaAtual, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_verificarSenhaAtualLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(panel25, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -493,6 +529,14 @@ public class interface_editarFuncionario extends javax.swing.JFrame {
         verificarNovaSenha_funcionario.setForeground(new java.awt.Color(153, 153, 153));
         verificarNovaSenha_funcionario.setText(" Repita a nova senha:");
         verificarNovaSenha_funcionario.setBorder(null);
+        verificarNovaSenha_funcionario.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                verificarNovaSenha_funcionarioFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                verificarNovaSenha_funcionarioFocusLost(evt);
+            }
+        });
 
         javax.swing.GroupLayout panel26Layout = new javax.swing.GroupLayout(panel26);
         panel26.setLayout(panel26Layout);
@@ -523,6 +567,11 @@ public class interface_editarFuncionario extends javax.swing.JFrame {
                 bOlho_verificarNovaSenhaMouseClicked(evt);
             }
         });
+        bOlho_verificarNovaSenha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bOlho_verificarNovaSenhaActionPerformed(evt);
+            }
+        });
 
         panel27.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -533,7 +582,14 @@ public class interface_editarFuncionario extends javax.swing.JFrame {
         novaSenha_funcionario.setForeground(new java.awt.Color(153, 153, 153));
         novaSenha_funcionario.setText(" Nova senha:");
         novaSenha_funcionario.setBorder(null);
-
+        novaSenha_funcionario.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                novaSenha_funcionarioFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                novaSenha_funcionarioFocusLost(evt);
+            }
+        });
         novaSenha_funcionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 novaSenha_funcionarioActionPerformed(evt);
@@ -567,6 +623,11 @@ public class interface_editarFuncionario extends javax.swing.JFrame {
                 bOlho_novaSenhaMouseClicked(evt);
             }
         });
+        bOlho_novaSenha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bOlho_novaSenhaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel_atualizarSenhaLayout = new javax.swing.GroupLayout(jPanel_atualizarSenha);
         jPanel_atualizarSenha.setLayout(jPanel_atualizarSenhaLayout);
@@ -576,7 +637,7 @@ public class interface_editarFuncionario extends javax.swing.JFrame {
                 .addGap(35, 35, 35)
                 .addGroup(jPanel_atualizarSenhaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(panel26, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(panel27, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(panel27, javax.swing.GroupLayout.PREFERRED_SIZE, 316, Short.MAX_VALUE))
                 .addGap(40, 40, 40)
                 .addGroup(jPanel_atualizarSenhaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(bOlho_novaSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -869,28 +930,25 @@ public class interface_editarFuncionario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private jaboc_UI.jabocUI_Utilidades.ButtonCirculo bOlho;
-    private jaboc_UI.jabocUI_Utilidades.ButtonCirculo bOlho1;
     private jaboc_UI.jabocUI_Utilidades.ButtonCirculo bOlho_novaSenha;
     private jaboc_UI.jabocUI_Utilidades.ButtonCirculo bOlho_verificarNovaSenha;
+    private jaboc_UI.jabocUI_Utilidades.ButtonCirculo bOlho_verificarSenhaAtual;
     private jaboc_UI.jabocUI_Utilidades.ButtonCirculo bVoltar;
     private jaboc_UI.jabocUI_Utilidades.ButtonCirculo btn_verificarSenhaAtual;
     private javax.swing.JComboBox<String> cargoFuncionario_Editar;
     private jaboc_UI.JabocUI_Utilidades.JabocUI_Classes.FormattedTextField cpfFuncionario_Editar;
     private jaboc_UI.jabocUI_Utilidades.ButtonCirculo editarFuncionario;
     private jaboc_UI.jabocUI_Utilidades.TextField enderecoFuncionario_Editar;
-    private jaboc_UI.jabocUI_Utilidades.TextField enderecoFuncionario_Editar1;
     private javax.swing.JLabel icpf;
     private javax.swing.JLabel itel;
     private javax.swing.JLabel iuser;
     private javax.swing.JLabel iuser1;
     private javax.swing.JLabel iuser2;
-    private javax.swing.JLabel iuser3;
     private javax.swing.JLabel iuser4;
     private javax.swing.JLabel iuser6;
     private javax.swing.JLabel iuser7;
     private javax.swing.JLabel iuser8;
-    private javax.swing.JCheckBox jCheckBox1;
+    private javax.swing.JCheckBox jCb_atualizarSenha;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -902,7 +960,6 @@ public class interface_editarFuncionario extends javax.swing.JFrame {
     private javax.swing.JPasswordField novaSenha_funcionario;
     private jaboc_UI.jabocUI_Utilidades.Panel panel1;
     private jaboc_UI.jabocUI_Utilidades.Panel panel22;
-    private jaboc_UI.jabocUI_Utilidades.Panel panel23;
     private jaboc_UI.jabocUI_Utilidades.Panel panel25;
     private jaboc_UI.jabocUI_Utilidades.Panel panel26;
     private jaboc_UI.jabocUI_Utilidades.Panel panel27;

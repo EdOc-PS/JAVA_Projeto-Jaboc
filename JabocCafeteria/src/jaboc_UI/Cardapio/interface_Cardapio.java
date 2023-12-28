@@ -9,7 +9,7 @@ import jaboc_Biblioteca.outras.ModernScrollBarUI;
 import jaboc_Classes.Produto;
 import jaboc_UI.Clientes.interface_editarCliente;
 import jaboc_UI.Clientes.interface_menuCliente;
-import jaboc_UI.JabocUI_Utilidades.JabocUI_popUp.PopUp_mensagem;
+import jaboc_UI.JabocUI_Utilidades.JabocUI_popUp.PopUp_vazio;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -343,7 +343,7 @@ public class interface_Cardapio extends javax.swing.JFrame {
     }//GEN-LAST:event_bcarrinhoMouseExited
 
     private void tabelaCardapioMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaCardapioMousePressed
-        GlassPanePopup.showPopup(new PopUp_mensagem());
+        GlassPanePopup.showPopup(new PopUp_vazio());
  }//GEN-LAST:event_tabelaCardapioMousePressed
 
     /**

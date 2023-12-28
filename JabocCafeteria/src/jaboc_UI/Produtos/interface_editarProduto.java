@@ -4,6 +4,11 @@
  */
 package jaboc_UI.Produtos;
 
+import jaboc_BancoDeDados.Modelo.DAO_Produto;
+import jaboc_Biblioteca.glasspanepopup.Popup;
+import jaboc_Classes.Produto;
+import jaboc_UI.JabocUI_Utilidades.JabocUI_popUp.PopUp_adicionar;
+import jaboc_UI.JabocUI_Utilidades.JabocUI_popUp.PopUp_atualizar;
 import java.awt.Color;
 import raven.glasspanepopup.GlassPanePopup;
 
@@ -12,9 +17,13 @@ import raven.glasspanepopup.GlassPanePopup;
  * @author 0057138
  */
 public class interface_editarProduto extends javax.swing.JFrame {
+
     /**
      * Creates new form interface_editarProduto
      */
+    private int receberId;
+    DAO_Produto daoProduto = new DAO_Produto();
+
     public interface_editarProduto() {
         initComponents();
         setLocationRelativeTo(null);
@@ -30,9 +39,6 @@ public class interface_editarProduto extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jSlider1 = new javax.swing.JSlider();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
@@ -54,19 +60,6 @@ public class interface_editarProduto extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane1.setViewportView(jTable1);
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel2.setBackground(new java.awt.Color(164, 144, 124));
@@ -74,7 +67,7 @@ public class interface_editarProduto extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(252, 252, 252));
 
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logo4.png"))); // NOI18N
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/principal/logo4.png"))); // NOI18N
         jLabel11.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
 
         bVoltar.setBackground(new java.awt.Color(252, 252, 252));
@@ -256,7 +249,7 @@ public class interface_editarProduto extends javax.swing.JFrame {
 
         tipoProduto.setBackground(new java.awt.Color(255, 255, 255));
         tipoProduto.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
-        tipoProduto.setForeground(new java.awt.Color(79, 84, 101));
+        tipoProduto.setForeground(new java.awt.Color(153, 153, 153));
         tipoProduto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cafe", "Salgado", "Doce", "Outras bebidas" }));
         tipoProduto.setBorder(null);
         tipoProduto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -316,7 +309,7 @@ public class interface_editarProduto extends javax.swing.JFrame {
             .addGroup(panel1Layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addComponent(panel4, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(panel8, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(panel9, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -342,11 +335,11 @@ public class interface_editarProduto extends javax.swing.JFrame {
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(101, Short.MAX_VALUE)
+                .addContainerGap(107, Short.MAX_VALUE)
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
+                .addGap(18, 18, 18)
                 .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(104, 104, 104))
+                .addGap(118, 118, 118))
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
@@ -397,14 +390,36 @@ public class interface_editarProduto extends javax.swing.JFrame {
     }//GEN-LAST:event_bVoltarMouseExited
 
     private void bVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVoltarActionPerformed
-
+        interface_gerenciarProdutos i_geraProdutos = new interface_gerenciarProdutos();
+        i_geraProdutos.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_bVoltarActionPerformed
 
     private void editarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarProdutoActionPerformed
-   
+        DAO_Produto daoProduto = new DAO_Produto();
+        String nome_Produto = nomeProduto.getText();
+        String tipo_Produto = (String) tipoProduto.getSelectedItem();
+        int qtde_Produto = Integer.parseInt(qtdeProduto.getText());
+        double preco_Produto = Double.parseDouble(precoProduto.getText());
+
+        Produto obj_produto = new Produto(nome_Produto, qtde_Produto, 0, tipo_Produto, preco_Produto);
+        daoProduto.update(obj_produto, receberId);
+        GlassPanePopup.showPopup(new PopUp_atualizar());
+
     }//GEN-LAST:event_editarProdutoActionPerformed
-    
+    public void receberSelecao(int id) {
+        this.receberId = id;
+    }
+
+    public void preencherCampos() {
+        Produto produto = daoProduto.consultaP(receberId);
+
+        nomeProduto.setText(produto.getNomeProduto());
+        qtdeProduto.setText(String.valueOf(produto.getQtdeProduto()));
+        precoProduto.setText(String.valueOf(produto.getPrecoProduto()));
+        tipoProduto.setSelectedItem(produto.getTipoProduto());
+    }
+
     /**
      * @param args the command line arguments
      */
@@ -454,9 +469,6 @@ public class interface_editarProduto extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSlider jSlider1;
-    private javax.swing.JTable jTable1;
     private jaboc_UI.jabocUI_Utilidades.TextField nomeProduto;
     private jaboc_UI.jabocUI_Utilidades.Panel panel1;
     private jaboc_UI.jabocUI_Utilidades.Panel panel2;

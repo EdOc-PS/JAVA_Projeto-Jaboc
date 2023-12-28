@@ -4,6 +4,8 @@
  */
 package jaboc_UI.JabocUI_Utilidades.JabocUI_popUp;
 
+import jaboc_UI.Produtos.interface_apagarProduto;
+import jaboc_UI.Produtos.interface_editarProduto;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -16,7 +18,7 @@ import raven.glasspanepopup.GlassPanePopup;
  * @author eeuar
  */
 public class PopUp_GerenciaProdutos extends javax.swing.JPanel {
-
+    private int receberId;
     /**
      * Creates new form PopUp_GerenciaProdutos
      */
@@ -71,9 +73,9 @@ public class PopUp_GerenciaProdutos extends javax.swing.JPanel {
 
         panel2.setBackground(new java.awt.Color(255, 255, 255));
 
-        bEdiatr_Produto.setBackground(new java.awt.Color(255, 255, 255));
+        bEdiatr_Produto.setBackground(new java.awt.Color(79, 84, 101));
         bEdiatr_Produto.setBorder(null);
-        bEdiatr_Produto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_editar4.png"))); // NOI18N
+        bEdiatr_Produto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_editar3.png"))); // NOI18N
         bEdiatr_Produto.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 bEdiatr_ProdutoMouseEntered(evt);
@@ -82,10 +84,15 @@ public class PopUp_GerenciaProdutos extends javax.swing.JPanel {
                 bEdiatr_ProdutoMouseExited(evt);
             }
         });
+        bEdiatr_Produto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bEdiatr_ProdutoActionPerformed(evt);
+            }
+        });
 
-        bExcluir_Produto.setBackground(new java.awt.Color(255, 255, 255));
+        bExcluir_Produto.setBackground(new java.awt.Color(79, 84, 101));
         bExcluir_Produto.setBorder(null);
-        bExcluir_Produto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_lixo4.png"))); // NOI18N
+        bExcluir_Produto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_lixo2.png"))); // NOI18N
         bExcluir_Produto.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         bExcluir_Produto.setIconTextGap(0);
         bExcluir_Produto.setInheritsPopupMenu(true);
@@ -95,6 +102,11 @@ public class PopUp_GerenciaProdutos extends javax.swing.JPanel {
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 bExcluir_ProdutoMouseExited(evt);
+            }
+        });
+        bExcluir_Produto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bExcluir_ProdutoActionPerformed(evt);
             }
         });
 
@@ -169,7 +181,7 @@ public class PopUp_GerenciaProdutos extends javax.swing.JPanel {
     }//GEN-LAST:event_bEdiatr_ProdutoMouseEntered
 
     private void bEdiatr_ProdutoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bEdiatr_ProdutoMouseExited
-        bEdiatr_Produto.setBackground(new Color(255, 255, 255));
+        bEdiatr_Produto.setBackground(new Color(79,84,101));
     }//GEN-LAST:event_bEdiatr_ProdutoMouseExited
 
     private void bExcluir_ProdutoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bExcluir_ProdutoMouseEntered
@@ -177,9 +189,26 @@ public class PopUp_GerenciaProdutos extends javax.swing.JPanel {
     }//GEN-LAST:event_bExcluir_ProdutoMouseEntered
 
     private void bExcluir_ProdutoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bExcluir_ProdutoMouseExited
-        bExcluir_Produto.setBackground(new Color(255, 255, 255));
+        bExcluir_Produto.setBackground(new Color(79,84,101));
     }//GEN-LAST:event_bExcluir_ProdutoMouseExited
 
+    private void bExcluir_ProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bExcluir_ProdutoActionPerformed
+       interface_apagarProduto i_apagarProduto = new interface_apagarProduto();
+       i_apagarProduto.receberSelecao(receberId);
+       i_apagarProduto.preencherCampos();
+       i_apagarProduto.setVisible(true);
+       
+    }//GEN-LAST:event_bExcluir_ProdutoActionPerformed
+
+    private void bEdiatr_ProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bEdiatr_ProdutoActionPerformed
+       interface_editarProduto i_editarProduto = new interface_editarProduto();
+       i_editarProduto.receberSelecao(receberId);
+       i_editarProduto.preencherCampos();
+       i_editarProduto.setVisible(true);
+    }//GEN-LAST:event_bEdiatr_ProdutoActionPerformed
+    public void receberSelecao(int id){
+        this.receberId = id;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private jaboc_UI.jabocUI_Utilidades.ButtonCirculo bEdiatr_Produto;

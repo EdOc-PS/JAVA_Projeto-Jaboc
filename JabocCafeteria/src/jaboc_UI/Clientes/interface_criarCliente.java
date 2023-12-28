@@ -14,7 +14,7 @@ import jaboc_BancoDeDados.Modelo.DAO_Pessoa;
 import jaboc_Classes.Pessoa;
 import jaboc_UI.Cardapio.interface_Cardapio;
 import jaboc_UI.JabocUI_Utilidades.JabocUI_popUp.PopUp_FuncionarioParaCliente;
-import jaboc_UI.JabocUI_Utilidades.JabocUI_popUp.PopUp_mensagem;
+import jaboc_UI.JabocUI_Utilidades.JabocUI_popUp.PopUp_vazio;
 import jaboc_UI.jabocUI_Utilidades.JabocUI_popUp.PopUp_Senha;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -106,7 +106,7 @@ public class interface_criarCliente extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(252, 252, 252));
 
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logo4.png"))); // NOI18N
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/principal/logo4.png"))); // NOI18N
         jLabel11.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
 
         bVoltar.setBackground(new java.awt.Color(252, 252, 252));
@@ -606,7 +606,7 @@ public class interface_criarCliente extends javax.swing.JFrame {
                 GlassPanePopup.showPopup(new PopUp_Senha());
             }   
         }else{
-          GlassPanePopup.showPopup(new PopUp_mensagem());
+          GlassPanePopup.showPopup(new PopUp_vazio());
         }    
     }//GEN-LAST:event_SingUpActionPerformed
 

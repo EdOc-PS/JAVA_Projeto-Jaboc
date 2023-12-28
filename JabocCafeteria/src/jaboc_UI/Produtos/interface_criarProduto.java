@@ -6,7 +6,8 @@ package jaboc_UI.Produtos;
 
 import jaboc_BancoDeDados.Modelo.DAO_Produto;
 import jaboc_Classes.Produto;
-import jaboc_UI.JabocUI_Utilidades.JabocUI_popUp.PopUp_mensagem;
+import jaboc_UI.JabocUI_Utilidades.JabocUI_popUp.PopUp_adicionar;
+import jaboc_UI.JabocUI_Utilidades.JabocUI_popUp.PopUp_vazio;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -69,7 +70,7 @@ public class interface_criarProduto extends javax.swing.JFrame {
         jPanel5.setPreferredSize(new java.awt.Dimension(244, 233));
 
         jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logo4.png"))); // NOI18N
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/principal/logo4.png"))); // NOI18N
         jLabel13.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
 
         bVoltar.setBackground(new java.awt.Color(252, 252, 252));
@@ -146,6 +147,16 @@ public class interface_criarProduto extends javax.swing.JFrame {
         panel4.setBackground(new java.awt.Color(255, 255, 255));
 
         nomeProduto.setText(" Nome:");
+        nomeProduto.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                nomeProdutoFocusLost(evt);
+            }
+        });
+        nomeProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nomeProdutoActionPerformed(evt);
+            }
+        });
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconLabel/cafe.png"))); // NOI18N
@@ -174,6 +185,17 @@ public class interface_criarProduto extends javax.swing.JFrame {
         panel8.setBackground(new java.awt.Color(255, 255, 255));
 
         qtdeProduto.setText(" Quantidade:");
+        qtdeProduto.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                qtdeProdutoFocusLost(evt);
+            }
+        });
+        qtdeProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                qtdeProdutoActionPerformed(evt);
+            }
+        });
+
         itel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         itel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconLabel/qtde.png"))); // NOI18N
 
@@ -200,7 +222,19 @@ public class interface_criarProduto extends javax.swing.JFrame {
 
         panel9.setBackground(new java.awt.Color(255, 255, 255));
 
-        precoProduto.setText(" Preço:");        itel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        precoProduto.setText(" Preço:");
+        precoProduto.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                precoProdutoFocusLost(evt);
+            }
+        });
+        precoProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                precoProdutoActionPerformed(evt);
+            }
+        });
+
+        itel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         itel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconLabel/dinheiro.png"))); // NOI18N
 
         javax.swing.GroupLayout panel9Layout = new javax.swing.GroupLayout(panel9);
@@ -228,7 +262,7 @@ public class interface_criarProduto extends javax.swing.JFrame {
 
         tipoProduto.setBackground(new java.awt.Color(255, 255, 255));
         tipoProduto.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
-        tipoProduto.setForeground(new java.awt.Color(79, 84, 101));
+        tipoProduto.setForeground(new java.awt.Color(153, 153, 153));
         tipoProduto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cafe", "Salgado", "Doce", "Outras bebidas" }));
         tipoProduto.setBorder(null);
         tipoProduto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -375,11 +409,11 @@ public class interface_criarProduto extends javax.swing.JFrame {
 
             DAO_Produto daoProduto = new DAO_Produto();
             daoProduto.insert(obj_produto);
-            GlassPanePopup.showPopup(new PopUp_mensagem());
+            GlassPanePopup.showPopup(new PopUp_adicionar());
             this.setarCamposVazios();
 
         } else {
-            GlassPanePopup.showPopup(new PopUp_mensagem());
+            GlassPanePopup.showPopup(new PopUp_vazio());
         }
     }//GEN-LAST:event_criaProdutoActionPerformed
 

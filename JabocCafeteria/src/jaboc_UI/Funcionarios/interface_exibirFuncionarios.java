@@ -174,6 +174,7 @@ public class interface_exibirFuncionarios extends javax.swing.JFrame {
                 .addContainerGap(25, Short.MAX_VALUE))
         );
 
+        carregarTabela_Funcionario.setBackground(new java.awt.Color(79, 84, 101));
         carregarTabela_Funcionario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_recarregar.png"))); // NOI18N
         carregarTabela_Funcionario.setText(" Carregar");
 

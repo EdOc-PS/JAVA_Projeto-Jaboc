@@ -15,12 +15,12 @@ import raven.glasspanepopup.GlassPanePopup;
  *
  * @author eeuar
  */
-public class PopUp_mensagem extends javax.swing.JPanel {
+public class PopUp_deletar extends javax.swing.JPanel {
 
     /**
      * Creates new form interface_mensagen
      */
-    public PopUp_mensagem() {
+    public PopUp_deletar() {
         initComponents();
         setOpaque(false);
     }
@@ -85,12 +85,12 @@ public class PopUp_mensagem extends javax.swing.JPanel {
         setBackground(new java.awt.Color(252, 252, 252));
 
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_atention.png"))); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_apagou.png"))); // NOI18N
 
         jLabel6.setFont(new java.awt.Font("Gill Sans MT", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(79, 84, 101));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("Existem campos vazíos!");
+        jLabel6.setText("Deletado com sucesso!");
 
         bPopUp.setBackground(new java.awt.Color(250, 112, 112));
         bPopUp.setForeground(new java.awt.Color(255, 255, 255));
@@ -126,7 +126,7 @@ public class PopUp_mensagem extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bPopUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bPopUpActionPerformed
-  
+        GlassPanePopup.closePopupLast();
     }//GEN-LAST:event_bPopUpActionPerformed
 
 

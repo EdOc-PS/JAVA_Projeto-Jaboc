@@ -17,7 +17,14 @@ public class Produto {
     private int idProduto;
     private String tipoProduto;
     private double precoProduto;
-
+    
+    public Produto() {
+        this.nomeProduto = "";
+        this.qtdeProduto = 0;
+        this.idProduto = 0;
+        this.tipoProduto = "";
+        this.precoProduto = 0;
+    }
     public Produto(String nomeProduto, int qtdeProduto, int idProduto, String tipoProduto, double precoProduto) {
         this.nomeProduto = nomeProduto;
         this.qtdeProduto = qtdeProduto;

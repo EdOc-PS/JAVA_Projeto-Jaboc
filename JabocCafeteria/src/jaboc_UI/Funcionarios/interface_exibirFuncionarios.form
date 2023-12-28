@@ -261,6 +261,9 @@
         </Container>
         <Component class="jaboc_UI.jabocUI_Utilidades.ButtonCirculo" name="carregarTabela_Funcionario">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="65" green="54" red="4f" type="rgb"/>
+            </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/img/icons/i_recarregar.png"/>
             </Property>

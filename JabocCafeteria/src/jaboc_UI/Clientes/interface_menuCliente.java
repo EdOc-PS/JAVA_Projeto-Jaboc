@@ -42,7 +42,7 @@ public class interface_menuCliente extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(164, 144, 124));
 
         jLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logo2.png"))); // NOI18N
+        jLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/principal/logo2.png"))); // NOI18N
         jLogo.setToolTipText("");
 
         panel1.setBackground(new java.awt.Color(255, 255, 255));

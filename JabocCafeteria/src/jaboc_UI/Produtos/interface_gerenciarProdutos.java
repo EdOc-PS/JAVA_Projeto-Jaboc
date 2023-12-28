@@ -6,11 +6,10 @@ package jaboc_UI.Produtos;
 
 import jaboc_BancoDeDados.Modelo.DAO_Produto;
 import jaboc_Biblioteca.outras.ModernScrollBarUI;
-import jaboc_Classes.Conta_Cliente;
 import jaboc_Classes.Produto;
-import jaboc_UI.Administrador.interface_areaGerencia;
 import jaboc_UI.JabocUI_Utilidades.JabocUI_popUp.PopUp_GerenciaProdutos;
-import jaboc_UI.JabocUI_Utilidades.JabocUI_popUp.PopUp_inseriuItem;
+import jaboc_UI.JabocUI_Utilidades.JabocUI_popUp.PopUp_adicionar;
+import jaboc_UI.JabocUI_Utilidades.JabocUI_popUp.PopUp_vazio;
 import java.awt.Color;
 import java.awt.Dimension;
 import javax.swing.JScrollBar;
@@ -22,7 +21,7 @@ import raven.glasspanepopup.GlassPanePopup;
  * @author 0057138
  */
 public class interface_gerenciarProdutos extends javax.swing.JFrame {
-
+    private int produto_Selecionado;
     public interface_gerenciarProdutos() {
         initComponents();
         setLocationRelativeTo(null);
@@ -57,7 +56,7 @@ public class interface_gerenciarProdutos extends javax.swing.JFrame {
         panel2 = new jaboc_UI.jabocUI_Utilidades.Panel();
         scrollGerenciaProduto = new javax.swing.JScrollPane();
         tabelaCardapio = new jaboc_UI.JabocUI_Utilidades.JabocUI_Classes.Table();
-        buttonCirculo1 = new jaboc_UI.jabocUI_Utilidades.ButtonCirculo();
+        carregarTabela = new jaboc_UI.jabocUI_Utilidades.ButtonCirculo();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -73,7 +72,7 @@ public class interface_gerenciarProdutos extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(252, 252, 252));
 
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logo4.png"))); // NOI18N
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/principal/logo4.png"))); // NOI18N
 
         bVoltar.setBackground(new java.awt.Color(252, 252, 252));
         bVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_back.png"))); // NOI18N
@@ -116,10 +115,10 @@ public class interface_gerenciarProdutos extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(bVoltar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 65, Short.MAX_VALUE)
-                    .addComponent(adicionar_Produto, javax.swing.GroupLayout.DEFAULT_SIZE, 65, Short.MAX_VALUE))
-                .addContainerGap())
+                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(adicionar_Produto, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -198,13 +197,13 @@ public class interface_gerenciarProdutos extends javax.swing.JFrame {
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
-        buttonCirculo1.setBackground(new java.awt.Color(79, 84, 101));
-        buttonCirculo1.setForeground(new java.awt.Color(252, 252, 252));
-        buttonCirculo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_recarregar.png"))); // NOI18N
-        buttonCirculo1.setText(" Carregar cardápio");
-        buttonCirculo1.addActionListener(new java.awt.event.ActionListener() {
+        carregarTabela.setBackground(new java.awt.Color(79, 84, 101));
+        carregarTabela.setForeground(new java.awt.Color(252, 252, 252));
+        carregarTabela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_recarregar.png"))); // NOI18N
+        carregarTabela.setText(" Carregar cardápio");
+        carregarTabela.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonCirculo1ActionPerformed(evt);
+                carregarTabelaActionPerformed(evt);
             }
         });
 
@@ -213,17 +212,19 @@ public class interface_gerenciarProdutos extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(25, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 780, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(carregarTabela, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(248, 248, 248)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(buttonCirculo1, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(263, 263, 263))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addContainerGap(25, Short.MAX_VALUE)
                         .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 780, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                        .addGap(18, 18, 18)))
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -233,9 +234,9 @@ public class interface_gerenciarProdutos extends javax.swing.JFrame {
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(22, 22, 22)
-                .addComponent(buttonCirculo1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(carregarTabela, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(31, Short.MAX_VALUE))
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
@@ -262,11 +263,11 @@ public class interface_gerenciarProdutos extends javax.swing.JFrame {
     }//GEN-LAST:event_bVoltarMouseExited
 
     private void bVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVoltarActionPerformed
+        GlassPanePopup.showPopup(new PopUp_adicionar());
 
-        this.dispose();
     }//GEN-LAST:event_bVoltarActionPerformed
 
-    private void buttonCirculo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCirculo1ActionPerformed
+    private void carregarTabelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carregarTabelaActionPerformed
         DAO_Produto daoProduto = new DAO_Produto();
         DefaultTableModel cardapio = (DefaultTableModel) tabelaCardapio.getModel();
 
@@ -279,7 +280,7 @@ public class interface_gerenciarProdutos extends javax.swing.JFrame {
                 p.getPrecoProduto()
             });
         }
-    }//GEN-LAST:event_buttonCirculo1ActionPerformed
+    }//GEN-LAST:event_carregarTabelaActionPerformed
 
     private void adicionar_ProdutoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_adicionar_ProdutoMouseEntered
         adicionar_Produto.setBackground(new Color(215, 229, 202));
@@ -296,8 +297,12 @@ public class interface_gerenciarProdutos extends javax.swing.JFrame {
     }//GEN-LAST:event_adicionar_ProdutoActionPerformed
 
     private void tabelaCardapioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaCardapioMouseClicked
-        PopUp_inseriuItem f = new PopUp_inseriuItem(null, "Houve um erro no cadastro!");
-        f.setVisible(true);
+        PopUp_GerenciaProdutos popUp_GP = new PopUp_GerenciaProdutos();
+    
+        GlassPanePopup.showPopup(popUp_GP);
+        produto_Selecionado = tabelaCardapio.getSelectedRow();
+        int idSelecionado  = Integer.parseInt(tabelaCardapio.getValueAt(produto_Selecionado, 0).toString());
+        popUp_GP.receberSelecao(idSelecionado);
     }//GEN-LAST:event_tabelaCardapioMouseClicked
     /**
      * @param args the command line arguments
@@ -345,7 +350,7 @@ public class interface_gerenciarProdutos extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private jaboc_UI.jabocUI_Utilidades.ButtonCirculo adicionar_Produto;
     private jaboc_UI.jabocUI_Utilidades.ButtonCirculo bVoltar;
-    private jaboc_UI.jabocUI_Utilidades.ButtonCirculo buttonCirculo1;
+    private jaboc_UI.jabocUI_Utilidades.ButtonCirculo carregarTabela;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
