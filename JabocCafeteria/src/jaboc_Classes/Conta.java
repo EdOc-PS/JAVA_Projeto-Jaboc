@@ -9,13 +9,17 @@ package jaboc_Classes;
  * @author guilh
  */
 public abstract class Conta {
-    private final Pessoa titular;
+    private Pessoa titular;
     private String senha;
     
     public Conta(Pessoa titular, String senha){
         this.titular = titular;
         this.senha = senha;
     }   
+    
+    public void setTitular(Pessoa titular){
+        this.titular = titular;
+    }
     
     public Pessoa getTitular(){
         return this.titular;
