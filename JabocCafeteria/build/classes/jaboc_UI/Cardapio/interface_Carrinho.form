@@ -51,7 +51,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="32767" attributes="0"/>
-                  <Component id="button1" min="-2" pref="270" max="-2" attributes="0"/>
+                  <Component id="finalizarPedido" min="-2" pref="270" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="118" max="-2" attributes="0"/>
               </Group>
               <Group type="102" alignment="0" attributes="0">
@@ -85,7 +85,7 @@
                   </Group>
                   <Component id="panelP" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="button1" min="-2" pref="36" max="-2" attributes="0"/>
+                  <Component id="finalizarPedido" min="-2" pref="36" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -175,7 +175,7 @@
             </Container>
           </SubComponents>
         </Container>
-        <Component class="jaboc_UI.jabocUI_Utilidades.Button" name="button1">
+        <Component class="jaboc_UI.jabocUI_Utilidades.Button" name="finalizarPedido">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="fb" green="cc" red="df" type="rgb"/>
@@ -185,6 +185,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Finalizar pedido"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="finalizarPedidoActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

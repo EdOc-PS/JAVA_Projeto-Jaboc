@@ -19,6 +19,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import jaboc_UI.jabocUI_Utilidades.ButtonCirculo;
+import static java.awt.Dialog.ModalityType.DOCUMENT_MODAL;
 /**
  *
  * @author guilh
@@ -28,7 +29,7 @@ import jaboc_UI.jabocUI_Utilidades.ButtonCirculo;
 public final class PopUp_ClienteParaFuncionario extends javax.swing.JDialog{
     private boolean criarConta = false;
     private final JLabel titulo = new JLabel("Pessoa já possui conta de Cliente!");
-    private final JLabel mensagem = new JLabel("Deseja usar os dados da Conta Cliente?");
+    private final JLabel mensagem = new JLabel("Criar conta mesmo assim?");
     private final JPanel separador = new JPanel();
     private final ButtonCirculo simBotao = new ButtonCirculo();
     private final ButtonCirculo naoBotao = new ButtonCirculo();
@@ -47,7 +48,7 @@ public final class PopUp_ClienteParaFuncionario extends javax.swing.JDialog{
         this.pack();
         //Seta meu JDialog no centro do JFrame pai
         this.setLocationRelativeTo(pai);
-
+        
         this.largura = painelTotal.getWidth();
         this.altura = painelTotal.getHeight();
         
@@ -72,7 +73,7 @@ public final class PopUp_ClienteParaFuncionario extends javax.swing.JDialog{
         this.simBotao.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e){
-                criarConta = true;
+                PopUp_ClienteParaFuncionario.this.criarConta = true;
                 //Pegando a classe pai do botão SIM
                 PopUp_ClienteParaFuncionario.this.setVisible(false);
             }
@@ -85,6 +86,9 @@ public final class PopUp_ClienteParaFuncionario extends javax.swing.JDialog{
                  PopUp_ClienteParaFuncionario.this.setVisible(false);
             }
         });
+        
+        this.setModalityType(DOCUMENT_MODAL);
+        this.setVisible(true);
     } 
     
     public boolean getRespostaDialogo(){
@@ -119,7 +123,7 @@ public final class PopUp_ClienteParaFuncionario extends javax.swing.JDialog{
     public void estilizarMensagem(){
         mensagem.setForeground(new Color(79, 84, 101));
         mensagem.setFont(new Font("Gill Sans MT", Font.BOLD, 14));
-        mensagem.setBounds(largura - 280, altura - 100,280,20);
+        mensagem.setBounds(largura - 240, altura - 100,240,20);
     }
     
     public void estilizarSimBotao(){

@@ -17,8 +17,6 @@ import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Iterator;
 import javax.swing.JTextField;
-import javax.swing.text.DefaultFormatterFactory;
-import javax.swing.text.NumberFormatter;
 import raven.glasspanepopup.GlassPanePopup;
 
 /**
@@ -82,10 +80,10 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
         iuser6 = new javax.swing.JLabel();
         panel2 = new jaboc_UI.jabocUI_Utilidades.Panel();
         panel8 = new jaboc_UI.jabocUI_Utilidades.Panel();
-        senhaFuncionario = new jaboc_UI.jabocUI_Utilidades.PasswordField();
+        senhaFuncionario_cadastrar = new jaboc_UI.jabocUI_Utilidades.PasswordField();
         isenha = new javax.swing.JLabel();
         panel9 = new jaboc_UI.jabocUI_Utilidades.Panel();
-        verificarSenhaFuncionario = new jaboc_UI.jabocUI_Utilidades.PasswordField();
+        verificarSenhaFuncionario_cadastrar = new jaboc_UI.jabocUI_Utilidades.PasswordField();
         isenha2 = new javax.swing.JLabel();
         bOlho = new jaboc_UI.jabocUI_Utilidades.ButtonCirculo();
         bOlho1 = new jaboc_UI.jabocUI_Utilidades.ButtonCirculo();
@@ -162,7 +160,7 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 304, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 302, Short.MAX_VALUE)
                 .addComponent(criarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25))
         );
@@ -284,7 +282,7 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(iuser2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(salarioFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
+                .addComponent(salarioFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         panel3Layout.setVerticalGroup(
@@ -340,9 +338,8 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
 
         panel7.setBackground(new java.awt.Color(255, 255, 255));
 
-        cargoFuncionario.setBackground(new java.awt.Color(255, 255, 255));
         cargoFuncionario.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
-        cargoFuncionario.setForeground(new java.awt.Color(153, 153, 153));
+        cargoFuncionario.setForeground(new java.awt.Color(79, 84, 101));
         cargoFuncionario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cozinheiro(a)", "Auxiliar de Cozinha", "Garçom", "Balconista", "Faxineiro(a)", "Administrador" }));
         cargoFuncionario.setBorder(null);
         cargoFuncionario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -360,9 +357,9 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel7Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(iuser6, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(cargoFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(160, 160, 160))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(cargoFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(202, 202, 202))
         );
         panel7Layout.setVerticalGroup(
             panel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -387,16 +384,15 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(panel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(panel1Layout.createSequentialGroup()
-                        .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(panel1Layout.createSequentialGroup()
-                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(170, 170, 170))
-                            .addGroup(panel1Layout.createSequentialGroup()
-                                .addComponent(panel7, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(15, 15, 15)))
                         .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(panel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(panel7, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panel1Layout.createSequentialGroup()
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(panel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(40, Short.MAX_VALUE))
         );
         panel1Layout.setVerticalGroup(
@@ -404,17 +400,17 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
             .addGroup(panel1Layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addComponent(panel4, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(panel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(panel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(panel22, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(panel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(panel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -425,10 +421,10 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
 
         panel8.setBackground(new java.awt.Color(255, 255, 255));
 
-        senhaFuncionario.setText(" Senha:");
-        senhaFuncionario.addActionListener(new java.awt.event.ActionListener() {
+        senhaFuncionario_cadastrar.setText(" Senha:");
+        senhaFuncionario_cadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                senhaFuncionarioActionPerformed(evt);
+                senhaFuncionario_cadastrarActionPerformed(evt);
             }
         });
 
@@ -443,7 +439,7 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(isenha, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(senhaFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(senhaFuncionario_cadastrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         panel8Layout.setVerticalGroup(
@@ -451,13 +447,13 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel8Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(panel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(senhaFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
+                    .addComponent(senhaFuncionario_cadastrar, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
                     .addComponent(isenha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
         panel9.setBackground(new java.awt.Color(255, 255, 255));
 
-        verificarSenhaFuncionario.setText(" Repita a senha:");
+        verificarSenhaFuncionario_cadastrar.setText(" Repita a senha:");
 
         isenha2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         isenha2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconLabel/senha.png"))); // NOI18N
@@ -470,14 +466,14 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(isenha2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(verificarSenhaFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, 292, Short.MAX_VALUE)
+                .addComponent(verificarSenhaFuncionario_cadastrar, javax.swing.GroupLayout.DEFAULT_SIZE, 292, Short.MAX_VALUE)
                 .addContainerGap())
         );
         panel9Layout.setVerticalGroup(
             panel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel9Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(verificarSenhaFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(verificarSenhaFuncionario_cadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addComponent(isenha2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
@@ -524,7 +520,7 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
                 .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(panel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bOlho, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(panel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bOlho1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -558,7 +554,7 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
                 .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(panel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
             .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
@@ -600,8 +596,8 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
 
     private void criarFuncionarioActionPerformed1(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_criarFuncionarioActionPerformed1
         if(this.camposPreenchidos()){
-            String senha_criarFuncionario = String.valueOf(senhaFuncionario.getPassword());
-            String verificarSenha_criarFuncionario = String.valueOf(verificarSenhaFuncionario.getPassword());
+            String senha_criarFuncionario = String.valueOf(senhaFuncionario_cadastrar.getPassword());
+            String verificarSenha_criarFuncionario = String.valueOf(verificarSenhaFuncionario_cadastrar.getPassword());
             
             if(senha_criarFuncionario.equals(verificarSenha_criarFuncionario)){
                 String nome_cadastrarFuncionario = nomeFuncionario.getText();
@@ -614,38 +610,40 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
                 Pessoa objetoPessoa = new Pessoa(nome_cadastrarFuncionario, cpf_cadastrarFuncionario,
                 endereco_cadastrarFuncionario, telefone_cadastrarFuncionario);
                    
+                Conta_Funcionario cadastrarFuncionario = new Conta_Funcionario(objetoPessoa, senha_criarFuncionario,
+                    cargo_cadastrarFuncionario, salario_cadastrarFuncionario); 
                 
                 DAO_ContaCliente daoCliente = new DAO_ContaCliente();
                 DAO_ContaFuncionario daoFuncionario = new DAO_ContaFuncionario();
                 DAO_Pessoa daoPessoa = new DAO_Pessoa();
                 
                 if(daoFuncionario.existeRegistro(objetoPessoa.getCpf())){
-
+                    
+                    interface_loginFuncionario i_loginFuncionario = new interface_loginFuncionario(objetoPessoa.getCpf());
+                    i_loginFuncionario.setVisible(true);                   
+                    this.dispose();
+                    
                 }else if(daoCliente.existeRegistro(objetoPessoa.getCpf())){
                     
-                    PopUp_ClienteParaFuncionario dialogoFunc = new PopUp_ClienteParaFuncionario(null);
-                    dialogoFunc.setVisible(true);
+                    PopUp_ClienteParaFuncionario dialogoFunc = new PopUp_ClienteParaFuncionario(this);
                     boolean respostaDialogo = dialogoFunc.getRespostaDialogo();
                     
-                    if(respostaDialogo == true){
+                    if(respostaDialogo == true){                       
                         
-                        Conta_Funcionario novoClienteFuncionario = daoFuncionario.contasFuncionarioCliente_iguais(objetoPessoa.getCpf());
-                        novoClienteFuncionario.setCargoFuncionario(cargo_cadastrarFuncionario);
-                        novoClienteFuncionario.setSalario(salario_cadastrarFuncionario);
+                        daoFuncionario.insert(cadastrarFuncionario);
                         
-                        daoFuncionario.insert(novoClienteFuncionario);
-                        
+                    }else{
+                        this.setarCamposVazios();
                     }
-                }else{
-                    Conta_Funcionario cadastrarFuncionario = new Conta_Funcionario(objetoPessoa, senha_criarFuncionario,
-                    cargo_cadastrarFuncionario, salario_cadastrarFuncionario);   
+                }else{                     
                  
+                    daoPessoa.insert(objetoPessoa);
                     daoFuncionario.insert(cadastrarFuncionario);
                 }
                 
             }else{
                 GlassPanePopup.showPopup(new PopUp_Senha());
-                this.redefinirCamposSenha();
+                this.resetarCamposSenha();
             }
         }else{
             GlassPanePopup.showPopup(new PopUp_vazio());
@@ -664,19 +662,19 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_telefoneFuncionarioActionPerformed
 
-    private void senhaFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_senhaFuncionarioActionPerformed
+    private void senhaFuncionario_cadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_senhaFuncionario_cadastrarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_senhaFuncionarioActionPerformed
+    }//GEN-LAST:event_senhaFuncionario_cadastrarActionPerformed
 
     private void bOlhoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bOlhoMouseClicked
-        if(activeButton &&  !(senhaFuncionario.getText().equals(" Senha:"))){
+        if(activeButton &&  !(senhaFuncionario_cadastrar.getText().equals(" Senha:"))){
             bOlho.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconLabel/olho-cruzado.png")));
-            senhaFuncionario.setEchoChar('*');
+            senhaFuncionario_cadastrar.setEchoChar('*');
             activeButton = false;
 
-        }else if(activeButton == false &&  !(senhaFuncionario.getText().equals(" Senha:"))){
+        }else if(activeButton == false &&  !(senhaFuncionario_cadastrar.getText().equals(" Senha:"))){
             bOlho.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconLabel/olho.png")));
-            senhaFuncionario.setEchoChar((char) 0);
+            senhaFuncionario_cadastrar.setEchoChar((char) 0);
             activeButton = true;
         }
     }//GEN-LAST:event_bOlhoMouseClicked
@@ -686,14 +684,14 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
     }//GEN-LAST:event_bOlhoActionPerformed
 
     private void bOlho1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bOlho1MouseClicked
-        if(activeButton1 &&  !(verificarSenhaFuncionario.getText().equals(" Repita a senha:"))){
+        if(activeButton1 &&  !(verificarSenhaFuncionario_cadastrar.getText().equals(" Repita a senha:"))){
             bOlho1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconLabel/olho-cruzado.png")));
-            verificarSenhaFuncionario.setEchoChar('*');
+            verificarSenhaFuncionario_cadastrar.setEchoChar('*');
             activeButton1 = false;
 
-        }else if(activeButton1 == false &&  !(verificarSenhaFuncionario.getText().equals(" Repita a senha:"))){
+        }else if(activeButton1 == false &&  !(verificarSenhaFuncionario_cadastrar.getText().equals(" Repita a senha:"))){
             bOlho1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconLabel/olho.png")));
-            verificarSenhaFuncionario.setEchoChar((char) 0);
+            verificarSenhaFuncionario_cadastrar.setEchoChar((char) 0);
             activeButton1 = true;
         }
     }//GEN-LAST:event_bOlho1MouseClicked
@@ -719,8 +717,8 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
         this.CAMPOS_TEXTO.add(cpfFuncionario);
         this.CAMPOS_TEXTO.add(enderecoFuncionario);
         this.CAMPOS_TEXTO.add(salarioFuncionario);
-        this.CAMPOS_TEXTO.add(senhaFuncionario);
-        this.CAMPOS_TEXTO.add(verificarSenhaFuncionario);
+        this.CAMPOS_TEXTO.add(senhaFuncionario_cadastrar);
+        this.CAMPOS_TEXTO.add(verificarSenhaFuncionario_cadastrar);
     }
     
     private void armazenarDADOS_CAMPOS_TEXTO(){
@@ -729,8 +727,8 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
         this.DADOS_CAMPOS_TEXTO.add(cpfFuncionario.getText());
         this.DADOS_CAMPOS_TEXTO.add(enderecoFuncionario.getText());
         this.DADOS_CAMPOS_TEXTO.add(salarioFuncionario.getText());
-        this.DADOS_CAMPOS_TEXTO.add(String.valueOf(senhaFuncionario.getPassword()));
-        this.DADOS_CAMPOS_TEXTO.add(String.valueOf(verificarSenhaFuncionario.getPassword()));
+        this.DADOS_CAMPOS_TEXTO.add(String.valueOf(senhaFuncionario_cadastrar.getPassword()));
+        this.DADOS_CAMPOS_TEXTO.add(String.valueOf(verificarSenhaFuncionario_cadastrar.getPassword()));
     }
     
     private boolean camposPreenchidos(){
@@ -750,6 +748,9 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
     }
     
     private void setarCamposVazios(){
+        this.resetarCamposSenha();
+        this.removerMascaras();
+        
         Iterator<JTextField> percorrerCamposTexto = this.CAMPOS_TEXTO.iterator();
         Iterator<String> percorrerDadosCamposTexto = this.DADOS_CAMPOS_TEXTO.iterator();
         
@@ -761,12 +762,20 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
         }    
     }
     
-    private void redefinirCamposSenha(){
-        this.senhaFuncionario.setText(" Senha:");
-        this.senhaFuncionario.setEchoChar((char) 0);
+    private void resetarCamposSenha(){
+        this.senhaFuncionario_cadastrar.setText(" Senha:");
+        this.verificarSenhaFuncionario_cadastrar.setText(" Repita a senha:");
         
-        this.verificarSenhaFuncionario.setText(" Repita a senha:");
-        this.verificarSenhaFuncionario.setEchoChar((char) 0);
+        this.senhaFuncionario_cadastrar.setEchoChar((char)0);
+        this.verificarSenhaFuncionario_cadastrar.setEchoChar((char) 0);
+        
+        bOlho.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconLabel/olho.png")));
+        bOlho1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconLabel/olho.png")));
+    }
+    
+    private void removerMascaras(){
+        this.cpfFuncionario.removerFormatacao();
+        this.telefoneFuncionario.removerFormatacao();
     }
     /**
      * @param args the command line arguments
@@ -838,8 +847,8 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
     private jaboc_UI.jabocUI_Utilidades.Panel panel8;
     private jaboc_UI.jabocUI_Utilidades.Panel panel9;
     private jaboc_UI.JabocUI_Utilidades.JabocUI_Classes.FormattedNumberField salarioFuncionario;
-    private jaboc_UI.jabocUI_Utilidades.PasswordField senhaFuncionario;
+    private jaboc_UI.jabocUI_Utilidades.PasswordField senhaFuncionario_cadastrar;
     private jaboc_UI.JabocUI_Utilidades.JabocUI_Classes.FormattedTextField telefoneFuncionario;
-    private jaboc_UI.jabocUI_Utilidades.PasswordField verificarSenhaFuncionario;
+    private jaboc_UI.jabocUI_Utilidades.PasswordField verificarSenhaFuncionario_cadastrar;
     // End of variables declaration//GEN-END:variables
 }

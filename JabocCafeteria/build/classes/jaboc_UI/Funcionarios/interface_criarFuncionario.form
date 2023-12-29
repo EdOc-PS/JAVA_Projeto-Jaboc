@@ -78,7 +78,7 @@
                   <Component id="panel1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="panel2" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="51" max="32767" attributes="0"/>
+                  <EmptySpace pref="25" max="32767" attributes="0"/>
               </Group>
               <Component id="jPanel5" alignment="0" max="32767" attributes="0"/>
           </Group>
@@ -129,7 +129,7 @@
                           <Component id="jLabel14" alignment="0" min="-2" pref="155" max="-2" attributes="0"/>
                           <Component id="bVoltar" alignment="0" min="-2" pref="60" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="304" max="32767" attributes="0"/>
+                      <EmptySpace pref="302" max="32767" attributes="0"/>
                       <Component id="criarFuncionario" min="-2" pref="60" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                   </Group>
@@ -201,19 +201,17 @@
                               <Component id="panel5" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Component id="jLabel5" min="-2" pref="75" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="170" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Component id="panel7" min="-2" pref="230" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel1" min="-2" pref="70" max="-2" attributes="0"/>
-                                  <Component id="panel3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="panel7" alignment="0" min="-2" pref="193" max="-2" attributes="0"/>
+                                  <Component id="jLabel5" alignment="0" min="-2" pref="75" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Component id="jLabel1" min="-2" pref="70" max="-2" attributes="0"/>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Component id="panel3" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -226,19 +224,19 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                       <Component id="panel4" min="-2" pref="35" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="panel6" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="panel5" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                       <Component id="panel22" min="-2" pref="35" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel5" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
                           <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="panel7" max="32767" attributes="0"/>
                           <Component id="panel3" max="32767" attributes="0"/>
@@ -421,7 +419,7 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="iuser2" min="-2" pref="22" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="salarioFuncionario" pref="90" max="32767" attributes="0"/>
+                          <Component id="salarioFuncionario" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -532,9 +530,9 @@
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="iuser6" min="-2" pref="22" max="-2" attributes="0"/>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                          <Component id="cargoFuncionario" min="-2" pref="192" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="160" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="cargoFuncionario" min="-2" pref="150" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="202" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -553,14 +551,11 @@
               <SubComponents>
                 <Component class="javax.swing.JComboBox" name="cargoFuncionario">
                   <Properties>
-                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                    </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Gill Sans MT" size="14" style="0"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="99" green="99" red="99" type="rgb"/>
+                      <Color blue="65" green="54" red="4f" type="rgb"/>
                     </Property>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="6">
@@ -633,7 +628,7 @@
                           <Component id="panel8" alignment="1" min="-2" max="-2" attributes="0"/>
                           <Component id="bOlho" alignment="1" min="-2" pref="35" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Component id="panel9" alignment="1" min="-2" max="-2" attributes="0"/>
                           <Component id="bOlho1" alignment="1" min="-2" pref="35" max="-2" attributes="0"/>
@@ -658,7 +653,7 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="isenha" min="-2" pref="23" max="-2" attributes="0"/>
                           <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                          <Component id="senhaFuncionario" max="32767" attributes="0"/>
+                          <Component id="senhaFuncionario_cadastrar" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -668,7 +663,7 @@
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="senhaFuncionario" alignment="0" pref="35" max="32767" attributes="0"/>
+                              <Component id="senhaFuncionario_cadastrar" alignment="0" pref="35" max="32767" attributes="0"/>
                               <Component id="isenha" alignment="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
@@ -676,12 +671,12 @@
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="jaboc_UI.jabocUI_Utilidades.PasswordField" name="senhaFuncionario">
+                <Component class="jaboc_UI.jabocUI_Utilidades.PasswordField" name="senhaFuncionario_cadastrar">
                   <Properties>
                     <Property name="text" type="java.lang.String" value=" Senha:"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="senhaFuncionarioActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="senhaFuncionario_cadastrarActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="isenha">
@@ -708,7 +703,7 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="isenha2" min="-2" pref="23" max="-2" attributes="0"/>
                           <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                          <Component id="verificarSenhaFuncionario" pref="292" max="32767" attributes="0"/>
+                          <Component id="verificarSenhaFuncionario_cadastrar" pref="292" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -717,14 +712,14 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                          <Component id="verificarSenhaFuncionario" min="-2" pref="35" max="-2" attributes="0"/>
+                          <Component id="verificarSenhaFuncionario_cadastrar" min="-2" pref="35" max="-2" attributes="0"/>
                       </Group>
                       <Component id="isenha2" alignment="0" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="jaboc_UI.jabocUI_Utilidades.PasswordField" name="verificarSenhaFuncionario">
+                <Component class="jaboc_UI.jabocUI_Utilidades.PasswordField" name="verificarSenhaFuncionario_cadastrar">
                   <Properties>
                     <Property name="text" type="java.lang.String" value=" Repita a senha:"/>
                   </Properties>

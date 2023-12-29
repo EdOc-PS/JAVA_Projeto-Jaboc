@@ -20,8 +20,9 @@ import javax.swing.JTextField;
  * @author eeuar
  */
 public class interface_loginCliente extends javax.swing.JFrame {
-    private ArrayList<JTextField> camposTexto = new ArrayList<>();
-    private ArrayList<String> dados_CamposTextos = new ArrayList<>();
+    private final ArrayList<JTextField> CAMPOS_TEXTO = new ArrayList<>();
+    private final ArrayList<String> DADOS_CAMPOS_TEXTO = new ArrayList<>();
+    private boolean activeBOlho_senha = false;
     /**
      * Creates new form interface_loginCliente
      */
@@ -34,6 +35,19 @@ public class interface_loginCliente extends javax.swing.JFrame {
         
         this.armazenaCamposTextos();
         this.armazenaDadosCamposTextos();
+    }
+    
+    public interface_loginCliente(String cpfCliente) {
+        initComponents();
+        setLocationRelativeTo(null);
+        GlassPanePopup.install(this);
+        
+        this.cpfCliente_login.addFormatacao("###.###.###-##");       
+        
+        this.armazenaCamposTextos();
+        this.armazenaDadosCamposTextos();
+        
+        this.cpfCliente_login.setText(cpfCliente);
     }
 
     /**
@@ -50,7 +64,7 @@ public class interface_loginCliente extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         bVoltar = new jaboc_UI.jabocUI_Utilidades.ButtonCirculo();
-        buttonCirculo1 = new jaboc_UI.jabocUI_Utilidades.ButtonCirculo();
+        loginCliente = new jaboc_UI.jabocUI_Utilidades.ButtonCirculo();
         jLabel1 = new javax.swing.JLabel();
         panel1 = new jaboc_UI.jabocUI_Utilidades.Panel();
         panel5 = new jaboc_UI.jabocUI_Utilidades.Panel();
@@ -59,7 +73,7 @@ public class interface_loginCliente extends javax.swing.JFrame {
         panel11 = new jaboc_UI.jabocUI_Utilidades.Panel();
         senhaCliente_login = new jaboc_UI.jabocUI_Utilidades.PasswordField();
         isenha3 = new javax.swing.JLabel();
-        buttonCirculo2 = new jaboc_UI.jabocUI_Utilidades.ButtonCirculo();
+        bOlho_senha = new jaboc_UI.jabocUI_Utilidades.ButtonCirculo();
         panel3 = new jaboc_UI.jabocUI_Utilidades.Panel();
         jLabel6 = new javax.swing.JLabel();
         loginAcess = new javax.swing.JLabel();
@@ -93,12 +107,12 @@ public class interface_loginCliente extends javax.swing.JFrame {
             }
         });
 
-        buttonCirculo1.setBackground(new java.awt.Color(79, 84, 101));
-        buttonCirculo1.setForeground(new java.awt.Color(252, 252, 252));
-        buttonCirculo1.setText("Entrar");
-        buttonCirculo1.addActionListener(new java.awt.event.ActionListener() {
+        loginCliente.setBackground(new java.awt.Color(79, 84, 101));
+        loginCliente.setForeground(new java.awt.Color(255, 255, 255));
+        loginCliente.setText("Entrar");
+        loginCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonCirculo1ActionPerformed(evt);
+                loginClienteActionPerformed(evt);
             }
         });
 
@@ -107,15 +121,15 @@ public class interface_loginCliente extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(14, 14, 14)
                 .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 170, Short.MAX_VALUE)
                 .addComponent(bVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(31, Short.MAX_VALUE)
-                .addComponent(buttonCirculo1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(56, 56, 56)
+                .addComponent(loginCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -125,7 +139,7 @@ public class interface_loginCliente extends javax.swing.JFrame {
                     .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(buttonCirculo1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(loginCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25))
         );
 
@@ -195,11 +209,11 @@ public class interface_loginCliente extends javax.swing.JFrame {
                     .addComponent(isenha3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
-        buttonCirculo2.setBackground(new java.awt.Color(252, 252, 252));
-        buttonCirculo2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconLabel/olho.png"))); // NOI18N
-        buttonCirculo2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonCirculo2ActionPerformed(evt);
+        bOlho_senha.setBackground(new java.awt.Color(252, 252, 252));
+        bOlho_senha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconLabel/olho.png"))); // NOI18N
+        bOlho_senha.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bOlho_senhaMouseClicked(evt);
             }
         });
 
@@ -214,7 +228,7 @@ public class interface_loginCliente extends javax.swing.JFrame {
                     .addGroup(panel1Layout.createSequentialGroup()
                         .addComponent(panel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(buttonCirculo2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(bOlho_senha, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(24, 24, 24))
         );
         panel1Layout.setVerticalGroup(
@@ -225,7 +239,7 @@ public class interface_loginCliente extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(panel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonCirculo2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(bOlho_senha, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(25, Short.MAX_VALUE))
         );
 
@@ -333,34 +347,6 @@ public class interface_loginCliente extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_bVoltarActionPerformed
 
-    private void loginClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginClienteActionPerformed
-        if(this.camposPreenchidos()){
-            String cpfLogin = cpfCliente_login.getText();          
-            String senhaLogin = String.valueOf(senhaCliente_login.getPassword());
-            Logavel buscandoLoginBD = new DAO_ContaCliente(); 
-
-            Login clienteLogando = new Login(cpfLogin, senhaLogin);
-            if(buscandoLoginBD.existeCpf(clienteLogando.getCPF())){
-            
-                if(buscandoLoginBD.login(clienteLogando)){
-                    interface_Cardapio iCardapio = new interface_Cardapio();
-                    iCardapio.setVisible(true);
-                    this.dispose();                       
-                }else{
-                    System.out.println("senha errada");
-                    senhaCliente_login.setText(" Senha:");
-                    senhaCliente_login.setEchoChar((char) 0);
-                } 
-                
-            }else{
-                System.out.println("cpf não existe");
-                this.setarCamposVazios();
-            }    
-        }else{
-            GlassPanePopup.showPopup(new PopUp_vazio());
-        }
-    }//GEN-LAST:event_loginClienteActionPerformed
-
     private void loginAcessMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginAcessMouseClicked
         interface_criarCliente i_cCliente = new interface_criarCliente();
         i_cCliente.setVisible(true);
@@ -375,14 +361,6 @@ public class interface_loginCliente extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_loginAcessMousePressed
 
-    private void buttonCirculo2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCirculo2ActionPerformed
-        if(senhaCliente_login.equals(" Senha:")){
-
-        }else{
-            senhaCliente_login.setEchoChar((char) 0);
-        }
-    }//GEN-LAST:event_buttonCirculo2ActionPerformed
-
     private void senhaCliente_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_senhaCliente_loginActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_senhaCliente_loginActionPerformed
@@ -391,9 +369,45 @@ public class interface_loginCliente extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cpfCliente_loginActionPerformed
 
-    public jaboc_UI.JabocUI_Utilidades.JabocUI_Classes.FormattedTextField getCpfCliente_login(){
-        return this.cpfCliente_login;
-    }
+    private void loginClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginClienteActionPerformed
+         if(this.camposPreenchidos()){
+            String cpfLogin = cpfCliente_login.getText();          
+            String senhaLogin = String.valueOf(senhaCliente_login.getPassword());
+            Logavel buscandoLoginBD = new DAO_ContaCliente(); 
+
+            Login clienteLogando = new Login(cpfLogin, senhaLogin);
+            if(buscandoLoginBD.existeCpf(clienteLogando.getCPF())){
+            
+                if(buscandoLoginBD.login(clienteLogando)){
+                    interface_Cardapio iCardapio = new interface_Cardapio();
+                    iCardapio.setVisible(true);
+                    this.dispose();                       
+                }else{
+                    senhaCliente_login.setText(" Senha:");
+                    senhaCliente_login.setEchoChar((char) 0);
+                } 
+                
+            }else{
+                this.setarCamposVazios();
+            }    
+        }else{
+            GlassPanePopup.showPopup(new PopUp_vazio());
+        }
+    }//GEN-LAST:event_loginClienteActionPerformed
+
+    private void bOlho_senhaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bOlho_senhaMouseClicked
+        String senha = String.valueOf(this.senhaCliente_login.getPassword());
+        if(this.activeBOlho_senha && !senha.equals(" Senha")){
+            this.senhaCliente_login.setEchoChar('*');
+            this.bOlho_senha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconLabel/olho-cruzado.png")));
+            this.activeBOlho_senha = false;
+        }else if(this.activeBOlho_senha == false && !senha.equals(" Senha")){
+            this.senhaCliente_login.setEchoChar((char) 0);
+            this.bOlho_senha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconLabel/olho.png")));
+            this.activeBOlho_senha = true;
+        }
+    }//GEN-LAST:event_bOlho_senhaMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -431,18 +445,18 @@ public class interface_loginCliente extends javax.swing.JFrame {
     }
 
     private void armazenaCamposTextos(){
-        this.camposTexto.add(cpfCliente_login);
-        this.camposTexto.add(senhaCliente_login);
+        this.CAMPOS_TEXTO.add(cpfCliente_login);
+        this.CAMPOS_TEXTO.add(senhaCliente_login);
     }
     
     private void armazenaDadosCamposTextos(){
-        this.dados_CamposTextos.add(cpfCliente_login.getText());
-        this.dados_CamposTextos.add(String.valueOf(senhaCliente_login.getPassword()));
+        this.DADOS_CAMPOS_TEXTO.add(cpfCliente_login.getText());
+        this.DADOS_CAMPOS_TEXTO.add(String.valueOf(senhaCliente_login.getPassword()));
     }   
     
    private boolean camposPreenchidos(){
-       Iterator<JTextField> percorrerCamposTextos = this.camposTexto.iterator();
-       Iterator<String> percorrerDados_CamposTextos = this.dados_CamposTextos.iterator();
+       Iterator<JTextField> percorrerCamposTextos = this.CAMPOS_TEXTO.iterator();
+       Iterator<String> percorrerDados_CamposTextos = this.DADOS_CAMPOS_TEXTO.iterator();
        
        while(percorrerCamposTextos.hasNext()){
            JTextField campoAtual = percorrerCamposTextos.next();
@@ -457,9 +471,9 @@ public class interface_loginCliente extends javax.swing.JFrame {
    }
    
    private void setarCamposVazios(){
-       System.out.println(this.dados_CamposTextos);
-        Iterator<JTextField> percorrerCamposTextos = this.camposTexto.iterator();
-        Iterator<String> percorrerDados_CamposTextos = this.dados_CamposTextos.iterator();
+       System.out.println(this.DADOS_CAMPOS_TEXTO);
+        Iterator<JTextField> percorrerCamposTextos = this.CAMPOS_TEXTO.iterator();
+        Iterator<String> percorrerDados_CamposTextos = this.DADOS_CAMPOS_TEXTO.iterator();
        
         while(percorrerCamposTextos.hasNext()){
            JTextField campoAtual = percorrerCamposTextos.next();
@@ -471,9 +485,8 @@ public class interface_loginCliente extends javax.swing.JFrame {
         senhaCliente_login.setEchoChar((char)0);
    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private jaboc_UI.jabocUI_Utilidades.ButtonCirculo bOlho_senha;
     private jaboc_UI.jabocUI_Utilidades.ButtonCirculo bVoltar;
-    private jaboc_UI.jabocUI_Utilidades.ButtonCirculo buttonCirculo1;
-    private jaboc_UI.jabocUI_Utilidades.ButtonCirculo buttonCirculo2;
     private jaboc_UI.JabocUI_Utilidades.JabocUI_Classes.FormattedTextField cpfCliente_login;
     private javax.swing.JLabel icpf;
     private javax.swing.JLabel isenha3;
@@ -484,6 +497,7 @@ public class interface_loginCliente extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel loginAcess;
+    private jaboc_UI.jabocUI_Utilidades.ButtonCirculo loginCliente;
     private jaboc_UI.jabocUI_Utilidades.Panel panel1;
     private jaboc_UI.jabocUI_Utilidades.Panel panel11;
     private jaboc_UI.jabocUI_Utilidades.Panel panel3;

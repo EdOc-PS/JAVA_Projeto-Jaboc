@@ -16,17 +16,18 @@ import javax.swing.JTable;
  * @author eeuar
  */
 public class Table extends JTable {
-    
+
     public Table() {
         setRowHeight(45);
         setShowGrid(false);
-      
+        setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         setFont(new java.awt.Font("Gill Sans MT", 0, 14));
         setForeground(new Color(79, 84, 101));
         getTableHeader().setOpaque(false);
         getTableHeader().setBackground(new Color(79, 84, 101));
-        getTableHeader().setForeground(new Color(255,255,255));
+        getTableHeader().setForeground(new Color(255, 255, 255));
         getTableHeader().setFont(new java.awt.Font("Gill Sans MT", 1, 14));
+
     }
 
     @Override
@@ -35,9 +36,9 @@ public class Table extends JTable {
         g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         g2.setColor(getBackground());
         g2.fill(new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), 20, 20));
-        
+
         g2.dispose();
-        
+
         super.paintComponent(g); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
     }
 }

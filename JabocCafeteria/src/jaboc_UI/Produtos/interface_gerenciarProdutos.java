@@ -280,6 +280,7 @@ public class interface_gerenciarProdutos extends javax.swing.JFrame {
                 p.getPrecoProduto()
             });
         }
+        carregarTabela.setEnabled(false);
     }//GEN-LAST:event_carregarTabelaActionPerformed
 
     private void adicionar_ProdutoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_adicionar_ProdutoMouseEntered

@@ -357,14 +357,6 @@ public class interface_editarProduto extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void nomeProdutoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_nomeProdutoFocusLost
-
-    }//GEN-LAST:event_nomeProdutoFocusLost
-
-    private void nomeProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeProdutoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_nomeProdutoActionPerformed
-
     private void qtdeProdutoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_qtdeProdutoFocusLost
         // TODO add your handling code here:
     }//GEN-LAST:event_qtdeProdutoFocusLost
@@ -407,6 +399,14 @@ public class interface_editarProduto extends javax.swing.JFrame {
         GlassPanePopup.showPopup(new PopUp_atualizar());
 
     }//GEN-LAST:event_editarProdutoActionPerformed
+
+    private void nomeProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeProdutoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nomeProdutoActionPerformed
+
+    private void nomeProdutoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_nomeProdutoFocusLost
+
+    }//GEN-LAST:event_nomeProdutoFocusLost
     public void receberSelecao(int id) {
         this.receberId = id;
     }
@@ -423,7 +423,7 @@ public class interface_editarProduto extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void editar_produto(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.

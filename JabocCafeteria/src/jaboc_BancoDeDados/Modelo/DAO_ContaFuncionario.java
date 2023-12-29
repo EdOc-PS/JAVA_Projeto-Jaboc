@@ -221,32 +221,7 @@ public class DAO_ContaFuncionario implements DAO, Logavel, SenhaEditavel{
         }
         
         return false;
-    }
-    
-    public Conta_Funcionario contasFuncionarioCliente_iguais(String cpfCliente){
-        ResultSet dadosPessoa = this.selectEspecifico(cpfCliente);
-        ResultSet dadosCliente = this.selectEspecifico(cpfCliente);
-        
-        try{
-            dadosPessoa.next();
-            String nomePessoa = dadosPessoa.getString("nome");
-            String cpfPessoa = dadosPessoa.getString("cpf");
-            String enderecoPessoa = dadosPessoa.getString("endereco");
-            String telefonePessoa = dadosPessoa.getString("telefone");
-            
-            Pessoa objetoPessoa= new Pessoa(nomePessoa,cpfPessoa, enderecoPessoa, telefonePessoa);
-            
-            dadosCliente.next();
-            String senha = dadosPessoa.getString("senhaCliente");
-            
-            return new Conta_Funcionario(objetoPessoa, senha, null,0.0);
-        }catch(SQLException error){
-            System.out.println("Erro no contasFuncionarioCliente_iguais(String cpfCliente) do Funcionario: ");
-            error.printStackTrace();
-        }
-        
-        return null;
-    }
+    }   
     
     private void armazenarDados_Login(Login funcionarioLogando){
         DAO_Pessoa dadosPessoa = new DAO_Pessoa();

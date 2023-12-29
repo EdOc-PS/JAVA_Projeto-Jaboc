@@ -48,7 +48,7 @@ public class interface_itemCarrinho extends javax.swing.JPanel {
         descCarrinho.setText("Descrição");
 
         buttonCirculo1.setBackground(new java.awt.Color(255, 188, 188));
-        buttonCirculo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_lixo3.png"))); // NOI18N
+        buttonCirculo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_lixo.png"))); // NOI18N
 
         precoCarrinho.setBackground(new java.awt.Color(0, 0, 0));
         precoCarrinho.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N

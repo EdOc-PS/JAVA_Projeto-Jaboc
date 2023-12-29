@@ -101,4 +101,8 @@ public class FormattedTextField extends JFormattedTextField{
             System.out.println("Erro ao definir a máscara:"+ "("+ formato +")" + error.getMessage());
         }
     }
+    
+    public void removerFormatacao(){
+        this.maskF.uninstall();
+    }
 }

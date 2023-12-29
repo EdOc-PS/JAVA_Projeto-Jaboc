@@ -8,6 +8,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.ResultSet;
 import jaboc_BancoDeDados.Controle.Logavel;
+import jaboc_BancoDeDados.Controle.SenhaEditavel;
 import jaboc_Classes.Conta;
 import jaboc_Classes.Conta_Cliente;
 import jaboc_Classes.Login;
@@ -16,8 +17,8 @@ import jaboc_Classes.Pessoa;
  *
  * @author guilh
  */
-public class DAO_ContaCliente implements DAO, Logavel{
-    public static Conta_Cliente dadosCliente_emMemoria;
+public class DAO_ContaCliente implements DAO, Logavel, SenhaEditavel{
+    private static Conta_Cliente dadosCliente_emMemoria;
     
     @Override
     public ResultSet selectTodos(){
@@ -43,8 +44,8 @@ public class DAO_ContaCliente implements DAO, Logavel{
     @Override
     public <T> ResultSet selectEspecifico(T cpfCliente){
          
-        String comandoSelect = "SELECT C.cpfCliente, C.senhaClente, C.gastoTotal, P.nome, P.endereco, P.telefone FROM "
-                    + "jaboc_servidor.Conta_Funcionario C, jaboc_servidor.Pessoa P WHERE cpfCliente = '"+ cpfCliente+ "' AND P.cpf = C.cpfCliente;";
+        String comandoSelect = "SELECT C.cpfCliente, C.senhaCliente, C.gastoTotal, P.nome, P.endereco, P.telefone FROM "
+                    + "jaboc_servidor.Conta_Cliente C, jaboc_servidor.Pessoa P WHERE cpfCliente = '"+ cpfCliente+ "' AND P.cpf = C.cpfCliente;";
         
          ResultSet resultadoSelect = null;
         
@@ -133,7 +134,9 @@ public class DAO_ContaCliente implements DAO, Logavel{
             Conta_Cliente updateCliente = (Conta_Cliente) o;
             
             String comandoUpdate = "UPDATE jaboc_servidor.Conta_Cliente SET "
-                    + "senhaCliente = '" + updateCliente.getSenha() + "';";
+                    + "senhaCliente = '" + updateCliente.getSenha()+ "'"
+                    + "gastoTotal = " + updateCliente.getGastoTotal() + ""
+                    + "WHERE cpfCliente = '"+ cpfCliente+ "';";
         
             try(Connection conexao = this.conectar()){
             
@@ -146,6 +149,44 @@ public class DAO_ContaCliente implements DAO, Logavel{
         }
         
         return false;    
+    }
+    
+    @Override
+    public boolean verificarSenha(String senhaInformada){
+        
+        String comandoSelect = "SELECT senhaCliente FROM jaboc_servidor.Conta_Cliente "
+                + "WHERE cpfCliente = '"+ dadosCliente_emMemoria.getTitular().getCpf() + "';";
+        
+        try(Connection conexao = this.conectar()){
+         
+            ResultSet resultadoSelect = conexao.createStatement().executeQuery(comandoSelect);
+            
+            if(resultadoSelect.next()){
+                String senhaFuncionario_FromSelect = resultadoSelect.getString("senhaCliente");
+                
+                return senhaFuncionario_FromSelect.equals(senhaInformada);
+            }
+        }catch(SQLException error){
+            System.out.println("Erro no verificarSenha(String senhaInformada) da ContaCliente: "+ error.getMessage());
+        }
+        
+        return false;
+    }
+    
+    @Override
+    public boolean atualizarSenha(String novaSenha, String cpfCliente){
+        String comandoUpdate = "UPDATE jaboc_servidor.Conta_Cliente SET "
+                + "senhaCliente = '" + novaSenha+ "' WHERE cpfCliente = '"+ cpfCliente+ "';";
+        
+        try(Connection conexao = this.conectar()){
+            
+            return conexao.createStatement().executeUpdate(comandoUpdate) > 0;
+            
+        }catch(SQLException | NullPointerException error){
+             System.out.println("Erro no atualizarSenha(String novaSenha, String cpfCliente) da ContaCliente: ");
+        }
+        
+        return false;
     }
   
     @Override
@@ -199,6 +240,9 @@ public class DAO_ContaCliente implements DAO, Logavel{
         ResultSet selectContaCliente = this.selectEspecifico(clienteLogando.getCPF());
         
         try{  
+            selectPessoa.next();
+            selectContaCliente.next();
+            
             String nomePessoa = selectPessoa.getString("nome");
             String cpfPessoa = selectPessoa.getString("cpf");
             String enderecoPessoa = selectPessoa.getString("endereco");
@@ -218,6 +262,10 @@ public class DAO_ContaCliente implements DAO, Logavel{
     
     private void armazenarDados_Cadastro(Conta clienteCadastrado){
         dadosCliente_emMemoria = (Conta_Cliente) clienteCadastrado; 
+    }
+    
+    public static Conta_Cliente getClienteLogado(){
+        return dadosCliente_emMemoria; 
     }
     
     public static void limparDados_Memoria(){
