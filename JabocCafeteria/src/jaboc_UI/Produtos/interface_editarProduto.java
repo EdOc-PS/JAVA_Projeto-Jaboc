@@ -412,7 +412,7 @@ public class interface_editarProduto extends javax.swing.JFrame {
     }
 
     public void preencherCampos() {
-        Produto produto = daoProduto.consultaP(receberId);
+        Produto produto = daoProduto.ListagemEspecifica(receberId);
 
         nomeProduto.setText(produto.getNomeProduto());
         qtdeProduto.setText(String.valueOf(produto.getQtdeProduto()));

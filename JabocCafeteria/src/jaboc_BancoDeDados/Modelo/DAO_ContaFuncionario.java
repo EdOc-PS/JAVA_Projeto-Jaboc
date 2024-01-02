@@ -13,6 +13,8 @@ import jaboc_Classes.Conta;
 import jaboc_Classes.Conta_Funcionario;
 import jaboc_Classes.Login;
 import jaboc_Classes.Pessoa;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -25,7 +27,7 @@ public class DAO_ContaFuncionario implements DAO, Logavel, SenhaEditavel{
     public ResultSet selectTodos(){
                
         String comandoSelect = "SELECT C.cpfFuncionario, C.senhaFuncionario, C.salario, C.cargo,P.nome, P.endereco, P.telefone FROM "
-                    + "jaboc_servidor.Conta_Funcionario C, jaboc_servidor.Pessoa P WHERE  P.cpf = C.cpfFuncionario;";
+                    + "jaboc_servidor.Conta_Funcionario C, jaboc_servidor.Pessoa P WHERE  P.cpf = C.cpfFuncionario ORDER BY C.cargo;";
         
         ResultSet resultadosSelect = null;
          
@@ -38,6 +40,38 @@ public class DAO_ContaFuncionario implements DAO, Logavel, SenhaEditavel{
         }
         return resultadosSelect;
     }
+    
+    public List<Conta_Funcionario> listagem(){
+        ResultSet todosFuncionarios = this.selectTodos();
+        List<Conta_Funcionario> listaFuncionarios = new ArrayList<>();
+        DAO_Pessoa daoPessoa = new DAO_Pessoa();
+        
+        try{
+            while(todosFuncionarios.next()){
+                String cpfPessoa = todosFuncionarios.getString("cpfFuncionario");
+                String cargoFuncionario = todosFuncionarios.getString("cargo");
+                double salario = todosFuncionarios.getDouble("salario");
+                                
+                ResultSet pessoaAtual = daoPessoa.selectEspecifico(cpfPessoa);
+                pessoaAtual.next();
+                
+                String nomePessoa = pessoaAtual.getString("nome");
+                String enderecoPessoa = pessoaAtual.getString("endereco");
+                String telefonePessoa = pessoaAtual.getString("telefone");
+                
+                Pessoa objetoPessoa = new Pessoa(nomePessoa, cpfPessoa, enderecoPessoa, telefonePessoa);
+                listaFuncionarios.add(new Conta_Funcionario(objetoPessoa,null,cargoFuncionario,salario));
+                
+               
+            }    
+            
+        }catch(SQLException | NullPointerException error){
+            System.out.println("Erro na listagem() da Conta Funcionario: "+ error.getMessage());
+        }
+        
+        return listaFuncionarios;
+    }
+    
     
     @Override
     public <T> ResultSet selectEspecifico(T cpfFuncionario){   
@@ -139,6 +173,24 @@ public class DAO_ContaFuncionario implements DAO, Logavel, SenhaEditavel{
                 System.out.println("Erro no update(Object o, String cpfFuncionario) da Conta funcionário: "+ error.getMessage());
             }
         }            
+        return false;
+    }
+    
+    public boolean update_Administrador(Conta_Funcionario funcionarioEditado){
+        
+        String comandoUpdate = "UPDATE  jaboc_servidor.Conta_Funcionario SET "
+                + "cargo = '"+funcionarioEditado.getCargoFuncionario()+ "' "
+                + "salario = "+ funcionarioEditado.getSalario()+ "' "
+                + "WHERE cpfFuncionario = '"+ funcionarioEditado.getTitular().getCpf();
+        
+        try(Connection conexao = this.conectar()){
+        
+            return conexao.createStatement().executeUpdate(comandoUpdate) > 0;
+            
+        }catch(SQLException | NullPointerException error){
+            System.out.println("Erro no update_Administradir(Conta_Funcionario funcionarioEditado) da Conta funcionário: "+ error.getMessage());
+        }
+        
         return false;
     }
     

@@ -29,7 +29,8 @@ public class interface_Carrinho extends javax.swing.JPanel {
     DAO_Pedido daoPedido = new DAO_Pedido();
     List<Produto> carrinho;
     LocalDate dataAtual = LocalDate.now(); // pega a data atual
-    
+    interface_Cardapio i_Cardapio;
+
     /**
      * Creates new form interface_carrinho
      */
@@ -57,10 +58,6 @@ public class interface_Carrinho extends javax.swing.JPanel {
         g2.fill(new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), 20, 20));
         g2.dispose();
         super.paintComponent(g); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
-    }
-
-    public void recebeCarrinho(List<Produto> itensCarrinho) {
-        this.carrinho = itensCarrinho;
     }
 
     /**
@@ -197,17 +194,29 @@ public class interface_Carrinho extends javax.swing.JPanel {
     }//GEN-LAST:event_bPopUpExitActionPerformed
 
     private void finalizarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finalizarPedidoActionPerformed
+
         for (Produto produto : carrinho) {
-            int idProduto = produto.getIdProduto();
             String tipo = produto.getTipoProduto();
             String nome = produto.getNomeProduto();
-            double preco =produto.getPrecoProduto();
-            
-            Pedido itemPedido = new Pedido(0, "Enviado", dataAtual.toString(), idProduto, tipo, nome, preco);
+            double preco = produto.getPrecoProduto();
+
+            Pedido itemPedido = new Pedido(0, "Enviado", dataAtual.toString(), tipo, nome, preco);
             daoPedido.insert(itemPedido);
         }
-    }//GEN-LAST:event_finalizarPedidoActionPerformed
+        GlassPanePopup.closePopupLast();
+        i_Cardapio.dispose();
+        interface_finalizadoCardapio i_finalizado = new interface_finalizadoCardapio();
+        i_finalizado.setVisible(true);
 
+
+    }//GEN-LAST:event_finalizarPedidoActionPerformed
+    public void receber(interface_Cardapio i_Cardapio) {
+        this.i_Cardapio = i_Cardapio;
+    }
+
+    public void recebeCarrinho(List<Produto> itensCarrinho) {
+        this.carrinho = itensCarrinho;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private jaboc_UI.jabocUI_Utilidades.ButtonCirculo bPopUp;

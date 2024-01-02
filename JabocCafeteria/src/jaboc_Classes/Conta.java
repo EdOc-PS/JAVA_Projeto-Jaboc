@@ -17,6 +17,11 @@ public abstract class Conta {
         this.senha = senha;
     }   
     
+    public Conta(Pessoa titular){
+        this.titular = titular;
+        this.senha = null;
+    }
+    
     public void setTitular(Pessoa titular){
         this.titular = titular;
     }

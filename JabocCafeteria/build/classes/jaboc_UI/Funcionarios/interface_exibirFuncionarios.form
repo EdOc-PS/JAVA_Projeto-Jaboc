@@ -226,17 +226,43 @@
                   <SubComponents>
                     <Component class="jaboc_UI.JabocUI_Utilidades.JabocUI_Classes.Table" name="tabelaFuncionario">
                       <Properties>
-                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                        </Property>
                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                           <Table columnCount="5" rowCount="0">
-                            <Column editable="false" title="ID" type="java.lang.Object"/>
                             <Column editable="false" title="Nome" type="java.lang.Object"/>
-                            <Column editable="false" title="Tipo" type="java.lang.Object"/>
-                            <Column editable="false" title="Quantidade" type="java.lang.Object"/>
-                            <Column editable="false" title="Pre&#xe7;o" type="java.lang.Object"/>
+                            <Column editable="false" title="CPF" type="java.lang.Object"/>
+                            <Column editable="false" title="Dados Pessoais" type="java.lang.Object"/>
+                            <Column editable="false" title="Cargo" type="java.lang.Object"/>
+                            <Column editable="true" title="Salario" type="java.lang.Object"/>
                           </Table>
+                        </Property>
+                        <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+                          <TableColumnModel selectionModel="0">
+                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                              <Title/>
+                              <Editor/>
+                              <Renderer/>
+                            </Column>
+                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                              <Title/>
+                              <Editor/>
+                              <Renderer/>
+                            </Column>
+                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                              <Title/>
+                              <Editor/>
+                              <Renderer/>
+                            </Column>
+                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                              <Title/>
+                              <Editor/>
+                              <Renderer/>
+                            </Column>
+                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                              <Title/>
+                              <Editor/>
+                              <Renderer/>
+                            </Column>
+                          </TableColumnModel>
                         </Property>
                         <Property name="selectionBackground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="ff" green="cc" red="cc" type="rgb"/>
@@ -269,6 +295,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value=" Carregar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="carregarTabela_FuncionarioActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

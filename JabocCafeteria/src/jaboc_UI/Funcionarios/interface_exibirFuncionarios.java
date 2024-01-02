@@ -5,7 +5,15 @@
 package jaboc_UI.Funcionarios;
 
 
+import jaboc_BancoDeDados.Modelo.DAO_ContaFuncionario;
+import jaboc_Biblioteca.glasspanepopup.GlassPanePopup;
+import jaboc_Classes.Conta_Funcionario;
+import jaboc_Classes.Pessoa;
+import jaboc_UI.JabocUI_Utilidades.JabocUI_popUp.PopUp_GerenciarFuncionarios;
 import java.awt.Color;
+import java.util.List;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -18,6 +26,7 @@ public class interface_exibirFuncionarios extends javax.swing.JFrame {
      */
     public interface_exibirFuncionarios() {
         initComponents();
+        GlassPanePopup.install(this);
         setLocationRelativeTo(null);
     }
 
@@ -98,7 +107,7 @@ public class interface_exibirFuncionarios extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addComponent(bVoltar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 65, Short.MAX_VALUE)
                     .addComponent(adicionar_Produto, javax.swing.GroupLayout.DEFAULT_SIZE, 65, Short.MAX_VALUE))
                 .addContainerGap())
@@ -119,17 +128,16 @@ public class interface_exibirFuncionarios extends javax.swing.JFrame {
 
         panel2.setBackground(new java.awt.Color(255, 255, 255));
 
-        tabelaFuncionario.setBackground(new java.awt.Color(255, 255, 255));
         tabelaFuncionario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "ID", "Nome", "Tipo", "Quantidade", "Preço"
+                "Nome", "CPF", "Dados Pessoais", "Cargo", "Salario"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -177,6 +185,11 @@ public class interface_exibirFuncionarios extends javax.swing.JFrame {
         carregarTabela_Funcionario.setBackground(new java.awt.Color(79, 84, 101));
         carregarTabela_Funcionario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_recarregar.png"))); // NOI18N
         carregarTabela_Funcionario.setText(" Carregar");
+        carregarTabela_Funcionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                carregarTabela_FuncionarioActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -249,10 +262,54 @@ public class interface_exibirFuncionarios extends javax.swing.JFrame {
     }//GEN-LAST:event_adicionar_ProdutoActionPerformed
 
     private void tabelaFuncionarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaFuncionarioMouseClicked
-
+        Conta_Funcionario funcionarioGerenciavel = this.coletarDados_tabela();
+        PopUp_GerenciarFuncionarios gerenciarFunc = new PopUp_GerenciarFuncionarios(funcionarioGerenciavel);
+        GlassPanePopup.showPopup(gerenciarFunc);
 
     }//GEN-LAST:event_tabelaFuncionarioMouseClicked
+
+    private void carregarTabela_FuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carregarTabela_FuncionarioActionPerformed
+        this.carregarTabela();
+    }//GEN-LAST:event_carregarTabela_FuncionarioActionPerformed
   
+    private void carregarTabela(){
+        DAO_ContaFuncionario daoFuncionario = new DAO_ContaFuncionario();
+        List<Conta_Funcionario> listaFuncionarios = daoFuncionario.listagem();
+        DefaultTableModel modeloTabela_funcionarios = (DefaultTableModel) tabelaFuncionario.getModel();
+        
+        for(Conta_Funcionario funcionarioAtual : listaFuncionarios){
+            
+            String nomeFunc = funcionarioAtual.getTitular().getNome();
+            String cpfFunc = funcionarioAtual.getTitular().getCpf();
+            String dadosPessoais = "<html>" +funcionarioAtual.getTitular().getEndereco() + "<br>"
+                    + funcionarioAtual.getTitular().getTelefone()+ "</html>";
+            String cargoFunc = funcionarioAtual.getCargoFuncionario();
+            double salario = funcionarioAtual.getSalario();
+            
+            modeloTabela_funcionarios.addRow(new Object[]{nomeFunc, cpfFunc, dadosPessoais, cargoFunc, salario});
+        }        
+        
+        this.tabelaFuncionario.setModel(modeloTabela_funcionarios);
+    }
+    
+     private Conta_Funcionario coletarDados_tabela(){
+        int linhaSelecionada = this.tabelaFuncionario.getSelectedRow();
+        
+        String nomeFuncionario = (String) this.tabelaFuncionario.getValueAt(linhaSelecionada, 0);
+        String cpfFuncionario = (String) this.tabelaFuncionario.getValueAt(linhaSelecionada, 1);
+        String cargoFuncionario = (String) this.tabelaFuncionario.getValueAt(linhaSelecionada, 3);
+        double salario = (double) this.tabelaFuncionario.getValueAt(linhaSelecionada, 4);
+        System.out.println(salario);
+        Pessoa objetoPessoa = new Pessoa(nomeFuncionario, cpfFuncionario);
+        
+        return new Conta_Funcionario(objetoPessoa, cargoFuncionario, salario);
+        
+    }
+    
+    public static void main(String args[]) {
+         new interface_exibirFuncionarios().setVisible(true);
+    }
+
     /**
      * @param args the command line arguments
      */

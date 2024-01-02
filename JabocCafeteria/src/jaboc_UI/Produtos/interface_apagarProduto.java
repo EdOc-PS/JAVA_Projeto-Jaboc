@@ -390,7 +390,7 @@ public class interface_apagarProduto extends javax.swing.JFrame {
         this.receberId = id;
     }
     public void preencherCampos(){
-        Produto produto = daoProduto.consultaP(receberId);
+        Produto produto = daoProduto.ListagemEspecifica(receberId);
     
         nomeProduto.setText(produto.getNomeProduto());
         qtdeProduto.setText(String.valueOf(produto.getQtdeProduto()));

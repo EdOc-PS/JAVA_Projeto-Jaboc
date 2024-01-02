@@ -9,7 +9,6 @@ import jaboc_Biblioteca.outras.ModernScrollBarUI;
 import jaboc_Classes.Produto;
 import jaboc_UI.JabocUI_Utilidades.JabocUI_popUp.PopUp_GerenciaProdutos;
 import jaboc_UI.JabocUI_Utilidades.JabocUI_popUp.PopUp_adicionar;
-import jaboc_UI.JabocUI_Utilidades.JabocUI_popUp.PopUp_vazio;
 import java.awt.Color;
 import java.awt.Dimension;
 import javax.swing.JScrollBar;
@@ -298,13 +297,15 @@ public class interface_gerenciarProdutos extends javax.swing.JFrame {
     }//GEN-LAST:event_adicionar_ProdutoActionPerformed
 
     private void tabelaCardapioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaCardapioMouseClicked
+       
         PopUp_GerenciaProdutos popUp_GP = new PopUp_GerenciaProdutos();
-    
-        GlassPanePopup.showPopup(popUp_GP);
         produto_Selecionado = tabelaCardapio.getSelectedRow();
         int idSelecionado  = Integer.parseInt(tabelaCardapio.getValueAt(produto_Selecionado, 0).toString());
-        popUp_GP.receberSelecao(idSelecionado);
+        popUp_GP.receber(idSelecionado, this);
+        GlassPanePopup.showPopup(popUp_GP);
+        
     }//GEN-LAST:event_tabelaCardapioMouseClicked
+
     /**
      * @param args the command line arguments
      */

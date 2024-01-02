@@ -19,7 +19,7 @@ public class Pessoa {
         this.cpf = cpf;
         this.endereco = endereco;
         this.telefone = telefone;
-    }
+    }   
     
     public Pessoa(String nome, String cpf){
         this.nome = nome;

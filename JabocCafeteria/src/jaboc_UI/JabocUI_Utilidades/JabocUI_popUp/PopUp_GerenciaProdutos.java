@@ -6,6 +6,7 @@ package jaboc_UI.JabocUI_Utilidades.JabocUI_popUp;
 
 import jaboc_UI.Produtos.interface_apagarProduto;
 import jaboc_UI.Produtos.interface_editarProduto;
+import jaboc_UI.Produtos.interface_gerenciarProdutos;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -18,7 +19,11 @@ import raven.glasspanepopup.GlassPanePopup;
  * @author eeuar
  */
 public class PopUp_GerenciaProdutos extends javax.swing.JPanel {
+
     private int receberId;
+
+    interface_gerenciarProdutos i_gereProdutos;
+
     /**
      * Creates new form PopUp_GerenciaProdutos
      */
@@ -138,13 +143,13 @@ public class PopUp_GerenciaProdutos extends javax.swing.JPanel {
             .addGroup(panel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 324, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 318, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(bPopUpExit, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
             .addGroup(panel1Layout.createSequentialGroup()
-                .addGap(32, 32, 32)
+                .addGap(30, 30, 30)
                 .addComponent(panel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -181,7 +186,7 @@ public class PopUp_GerenciaProdutos extends javax.swing.JPanel {
     }//GEN-LAST:event_bEdiatr_ProdutoMouseEntered
 
     private void bEdiatr_ProdutoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bEdiatr_ProdutoMouseExited
-        bEdiatr_Produto.setBackground(new Color(79,84,101));
+        bEdiatr_Produto.setBackground(new Color(79, 84, 101));
     }//GEN-LAST:event_bEdiatr_ProdutoMouseExited
 
     private void bExcluir_ProdutoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bExcluir_ProdutoMouseEntered
@@ -189,26 +194,34 @@ public class PopUp_GerenciaProdutos extends javax.swing.JPanel {
     }//GEN-LAST:event_bExcluir_ProdutoMouseEntered
 
     private void bExcluir_ProdutoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bExcluir_ProdutoMouseExited
-        bExcluir_Produto.setBackground(new Color(79,84,101));
+        bExcluir_Produto.setBackground(new Color(79, 84, 101));
     }//GEN-LAST:event_bExcluir_ProdutoMouseExited
 
     private void bExcluir_ProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bExcluir_ProdutoActionPerformed
-       interface_apagarProduto i_apagarProduto = new interface_apagarProduto();
-       i_apagarProduto.receberSelecao(receberId);
-       i_apagarProduto.preencherCampos();
-       i_apagarProduto.setVisible(true);
-       
+        interface_apagarProduto i_apagarProduto = new interface_apagarProduto();
+        i_apagarProduto.receberSelecao(receberId);
+        i_apagarProduto.preencherCampos();
+        GlassPanePopup.closePopupLast();
+        i_gereProdutos.dispose();
+        i_apagarProduto.setVisible(true);
+
+
     }//GEN-LAST:event_bExcluir_ProdutoActionPerformed
 
     private void bEdiatr_ProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bEdiatr_ProdutoActionPerformed
-       interface_editarProduto i_editarProduto = new interface_editarProduto();
-       i_editarProduto.receberSelecao(receberId);
-       i_editarProduto.preencherCampos();
-       i_editarProduto.setVisible(true);
+        interface_editarProduto i_editarProduto = new interface_editarProduto();
+        i_editarProduto.receberSelecao(receberId);
+        i_editarProduto.preencherCampos();
+        GlassPanePopup.closePopupLast();
+        i_gereProdutos.dispose();
+        i_editarProduto.setVisible(true);
     }//GEN-LAST:event_bEdiatr_ProdutoActionPerformed
-    public void receberSelecao(int id){
+
+    public void receber(int id, interface_gerenciarProdutos i_gereProdutos) {
         this.receberId = id;
+        this.i_gereProdutos = i_gereProdutos;
     }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private jaboc_UI.jabocUI_Utilidades.ButtonCirculo bEdiatr_Produto;

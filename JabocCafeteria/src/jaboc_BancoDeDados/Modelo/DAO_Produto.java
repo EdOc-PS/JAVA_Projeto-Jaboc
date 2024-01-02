@@ -94,7 +94,7 @@ public class DAO_Produto implements DAO {
         return resultadoSelect;
     }
 
-    public Produto consultaP(int id) {
+    public Produto ListagemEspecifica(int id) {
         ResultSet resultadoSelect = this.selectEspecifico(id);
         Produto produto = new Produto();
 

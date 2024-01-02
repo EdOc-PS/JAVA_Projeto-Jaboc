@@ -14,7 +14,6 @@ public class Pedido {
     private String statusPedido;
     private String dataPedido;
     private String tipoPedido;
-    private int idProduto;
     private int idPedido;
     private double precoPedido;
 
@@ -23,7 +22,6 @@ public class Pedido {
         this.statusPedido = "";
         this.dataPedido = "";
         this.tipoPedido = "";
-        this.idProduto = 0;
         this.idPedido = 0;
         this.precoPedido = 0;
     }
@@ -36,12 +34,11 @@ public class Pedido {
         this.precoPedido = precoPedido;
     }
 
-    public Pedido(int idPedido, String statusPedido, String dataPedido, int idProduto, String tipoPedido, String nomePedido, double precoPedido) {
+    public Pedido(int idPedido, String statusPedido, String dataPedido, String tipoPedido, String nomePedido, double precoPedido) {
         this.nomePedido = nomePedido;
         this.statusPedido = statusPedido;
         this.dataPedido = dataPedido;
         this.tipoPedido = tipoPedido;
-        this.idProduto = idProduto;
         this.idPedido = idPedido;
         this.precoPedido = precoPedido;
     }
@@ -76,14 +73,6 @@ public class Pedido {
 
     public void setDataPedido(String dataPedido) {
         this.dataPedido = dataPedido;
-    }
-
-    public int getIdProduto() {
-        return idProduto;
-    }
-
-    public void setIdProduto(int idProduto) {
-        this.idProduto = idProduto;
     }
 
     public int getIdPedido() {

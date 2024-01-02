@@ -19,6 +19,12 @@ public class Conta_Funcionario extends Conta{
         this.salario = salario;    
     }
     
+    public Conta_Funcionario(Pessoa titularFuncionario, String cargoFuncionario, double salario){
+        super(titularFuncionario);
+        this.cargoFuncionario = cargoFuncionario;
+        this.salario = salario;
+    }
+    
     public void setCargoFuncionario(String cargoFuncionario){
         this.cargoFuncionario = cargoFuncionario;
     }
