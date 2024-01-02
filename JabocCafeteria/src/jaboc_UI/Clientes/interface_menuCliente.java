@@ -161,6 +161,7 @@ public class interface_menuCliente extends javax.swing.JFrame {
 
     private void bCriarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bCriarMouseEntered
         bCriar.setBackground(new Color(215, 229, 202));
+        bCriar.setToolTipText("Clique aqui para criar uma conta e acessar o cardápio");
     }//GEN-LAST:event_bCriarMouseEntered
 
     private void bCriarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bCriarMouseExited
@@ -169,6 +170,7 @@ public class interface_menuCliente extends javax.swing.JFrame {
 
     private void bLoginMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bLoginMouseEntered
         bLogin.setBackground(new Color(210, 224, 251));
+        bLogin.setToolTipText("Clique aqui para entrar em sua conta e acessar o cardápio");
     }//GEN-LAST:event_bLoginMouseEntered
 
     private void bLoginMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bLoginMouseExited
