@@ -27,7 +27,7 @@ public class Table extends JTable {
         getTableHeader().setBackground(new Color(79, 84, 101));
         getTableHeader().setForeground(new Color(255, 255, 255));
         getTableHeader().setFont(new java.awt.Font("Gill Sans MT", 1, 14));
-
+        setOpaque(false);
     }
 
     @Override

@@ -16,6 +16,7 @@ public class interface_finalizadoCardapio extends javax.swing.JFrame {
     public interface_finalizadoCardapio() {
         initComponents();
         setLocationRelativeTo(null);
+      
     }
 
     /**

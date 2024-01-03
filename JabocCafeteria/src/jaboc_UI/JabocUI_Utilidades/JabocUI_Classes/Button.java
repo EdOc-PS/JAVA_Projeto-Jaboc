@@ -15,7 +15,7 @@ import javax.swing.border.EmptyBorder;
  *
  * @author eeuar
  */
-public class Button extends JButton {
+public class Button extends JButton{
 
     public Button() {
         setContentAreaFilled(false);

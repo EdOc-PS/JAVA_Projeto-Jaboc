@@ -280,6 +280,10 @@ public class interface_editarCliente extends javax.swing.JFrame {
         jCb_atualizarSenha.setFont(new java.awt.Font("Gill Sans MT", 0, 15)); // NOI18N
         jCb_atualizarSenha.setForeground(new java.awt.Color(153, 153, 153));
         jCb_atualizarSenha.setText("Atualizar senha?");
+        jCb_atualizarSenha.setBorder(null);
+        jCb_atualizarSenha.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jCb_atualizarSenha.setFocusPainted(false);
+        jCb_atualizarSenha.setFocusable(false);
         jCb_atualizarSenha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCb_atualizarSenhaActionPerformed(evt);

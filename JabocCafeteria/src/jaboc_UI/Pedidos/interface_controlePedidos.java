@@ -247,12 +247,12 @@ public class interface_controlePedidos extends javax.swing.JFrame {
     }//GEN-LAST:event_bVoltarActionPerformed
 
     private void tabelaPedidosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaPedidosMouseClicked
-        PopUp_ControlePedido PopUp_CP = new PopUp_ControlePedido();
+        PopUp_ControlePedido PopUP_CP = new PopUp_ControlePedido();
         pedido_Selecionado = tabelaPedidos.getSelectedRow();
         int idSelecionado = Integer.parseInt(tabelaPedidos.getValueAt(pedido_Selecionado, 0).toString());
 
-        PopUp_CP.receber(idSelecionado);
-        GlassPanePopup.showPopup(PopUp_CP);
+        PopUP_CP.receber(idSelecionado);
+        GlassPanePopup.showPopup(PopUP_CP);
     }//GEN-LAST:event_tabelaPedidosMouseClicked
 
     private void carregarTabelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carregarTabelaActionPerformed
