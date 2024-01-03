@@ -244,9 +244,9 @@ public class interface_exibirFuncionarios extends javax.swing.JFrame {
     }//GEN-LAST:event_adicionar_ProdutoMouseExited
 
     private void adicionar_ProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adicionar_ProdutoActionPerformed
-        interface_criarFuncionario i_criarFuncionario = new interface_criarFuncionario();
+        interface_criarFuncionario i_criarFuncionario = new interface_criarFuncionario(this);
         i_criarFuncionario.setVisible(true);
-        this.dispose();
+        this.setVisible(false);
     }//GEN-LAST:event_adicionar_ProdutoActionPerformed
 
     private void tabelaFuncionarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaFuncionarioMouseClicked

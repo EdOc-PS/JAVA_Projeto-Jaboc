@@ -17,6 +17,7 @@ import jaboc_UI.jabocUI_Utilidades.JabocUI_popUp.PopUp_Senha;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Iterator;
+import javax.swing.JFrame;
 import javax.swing.JTextField;
 import raven.glasspanepopup.GlassPanePopup;
 
@@ -28,10 +29,13 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
     private final ArrayList<JTextField> CAMPOS_TEXTO = new ArrayList<>();
     private final ArrayList<String> DADOS_CAMPOS_TEXTO = new ArrayList<>();
     private boolean activeButton = true, activeButton1 = true;
+    private JFrame pai;
     /**
      * Creates new form NewJFrame
      */
-    public interface_criarFuncionario() {
+    public interface_criarFuncionario(JFrame pai) {
+       this.pai = pai;
+        
         initComponents();
         setLocationRelativeTo(null);
         GlassPanePopup.install(this);
@@ -171,16 +175,6 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
         panel4.setBackground(new java.awt.Color(255, 255, 255));
 
         nomeFuncionario.setText("Nome:");
-        nomeFuncionario.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                nomeFuncionarioFocusLost(evt);
-            }
-        });
-        nomeFuncionario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nomeFuncionarioActionPerformed(evt);
-            }
-        });
 
         iuser.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         iuser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconLabel/user.png"))); // NOI18N
@@ -238,11 +232,6 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
         itel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconLabel/tel.png"))); // NOI18N
 
         telefoneFuncionario.setText(" Telefone:");
-        telefoneFuncionario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                telefoneFuncionarioActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout panel6Layout = new javax.swing.GroupLayout(panel6);
         panel6.setLayout(panel6Layout);
@@ -298,16 +287,6 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
         panel22.setBackground(new java.awt.Color(255, 255, 255));
 
         enderecoFuncionario.setText(" Endereço:");
-        enderecoFuncionario.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                enderecoFuncionarioFocusLost(evt);
-            }
-        });
-        enderecoFuncionario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                enderecoFuncionarioActionPerformed(evt);
-            }
-        });
 
         iuser1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         iuser1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconLabel/casa.png"))); // NOI18N
@@ -485,11 +464,6 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
                 bOlhoMouseClicked(evt);
             }
         });
-        bOlho.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bOlhoActionPerformed(evt);
-            }
-        });
 
         bOlho1.setBackground(new java.awt.Color(252, 252, 252));
         bOlho1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconLabel/olho.png"))); // NOI18N
@@ -585,6 +559,7 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
 
     private void bVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVoltarActionPerformed
         this.dispose();
+        this.pai.setVisible(true);
     }//GEN-LAST:event_bVoltarActionPerformed
 
     private void criarFuncionarioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_criarFuncionarioMouseEntered
@@ -655,18 +630,6 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_criarFuncionarioActionPerformed1
 
-    private void nomeFuncionarioFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_nomeFuncionarioFocusLost
-
-    }//GEN-LAST:event_nomeFuncionarioFocusLost
-
-    private void nomeFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeFuncionarioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_nomeFuncionarioActionPerformed
-
-    private void telefoneFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_telefoneFuncionarioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_telefoneFuncionarioActionPerformed
-
     private void senhaFuncionario_cadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_senhaFuncionario_cadastrarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_senhaFuncionario_cadastrarActionPerformed
@@ -684,10 +647,6 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_bOlhoMouseClicked
 
-    private void bOlhoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bOlhoActionPerformed
-
-    }//GEN-LAST:event_bOlhoActionPerformed
-
     private void bOlho1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bOlho1MouseClicked
         if(activeButton1 &&  !(verificarSenhaFuncionario_cadastrar.getText().equals(" Repita a senha:"))){
             bOlho1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconLabel/olho-cruzado.png")));
@@ -700,14 +659,6 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
             activeButton1 = true;
         }
     }//GEN-LAST:event_bOlho1MouseClicked
-
-    private void enderecoFuncionarioFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_enderecoFuncionarioFocusLost
-        // TODO add your handling code here:
-    }//GEN-LAST:event_enderecoFuncionarioFocusLost
-
-    private void enderecoFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enderecoFuncionarioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_enderecoFuncionarioActionPerformed
     public javax.swing.JFormattedTextField getCpfFuncionario() {
         return this.cpfFuncionario;
     }
@@ -785,39 +736,6 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Windows".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(interface_criarFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(interface_criarFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(interface_criarFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(interface_criarFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                new interface_criarFuncionario().setVisible(true);
-            }
-        });
-    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private jaboc_UI.jabocUI_Utilidades.ButtonCirculo bOlho;
     private jaboc_UI.jabocUI_Utilidades.ButtonCirculo bOlho1;
