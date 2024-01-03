@@ -6,7 +6,9 @@ package jaboc_UI.JabocUI_Utilidades.JabocUI_popUp;
 
 import jaboc_Biblioteca.glasspanepopup.GlassPanePopup;
 import jaboc_Classes.Conta_Funcionario;
+import jaboc_UI.Administrador.interface_admApagarFuncionario;
 import jaboc_UI.Administrador.interface_admEditarFuncionario;
+import jaboc_UI.Funcionarios.interface_exibirFuncionarios;
 import java.awt.Color;
 
 /**
@@ -15,14 +17,15 @@ import java.awt.Color;
  */
 public class PopUp_GerenciarFuncionarios extends javax.swing.JPanel{
     private Conta_Funcionario funcionarioGerenciavel;
+    private final interface_exibirFuncionarios EXIBIR_FUNCIONARIOS;
     /**
      * Creates new form PopUp_GerenciarFuncionarios
      * @param funcionarioGerenciavel
      */
     
-    public PopUp_GerenciarFuncionarios(Conta_Funcionario funcionarioGerenciavel){
+    public PopUp_GerenciarFuncionarios(Conta_Funcionario funcionarioGerenciavel, interface_exibirFuncionarios exibirFuncionarios){
         this.funcionarioGerenciavel = funcionarioGerenciavel;
-     
+        this.EXIBIR_FUNCIONARIOS = exibirFuncionarios;
         initComponents();
     }
     /**
@@ -38,8 +41,8 @@ public class PopUp_GerenciarFuncionarios extends javax.swing.JPanel{
         jLabel1 = new javax.swing.JLabel();
         bPopUpExit = new jaboc_UI.jabocUI_Utilidades.ButtonCirculo();
         panel2 = new jaboc_UI.jabocUI_Utilidades.Panel();
-        bEdiatr_Produto = new jaboc_UI.jabocUI_Utilidades.ButtonCirculo();
-        bExcluir_Produto = new jaboc_UI.jabocUI_Utilidades.ButtonCirculo();
+        bEdiatr_Funcionario = new jaboc_UI.jabocUI_Utilidades.ButtonCirculo();
+        bExcluir_Funcionario = new jaboc_UI.jabocUI_Utilidades.ButtonCirculo();
 
         panel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -61,40 +64,40 @@ public class PopUp_GerenciarFuncionarios extends javax.swing.JPanel{
 
         panel2.setBackground(new java.awt.Color(255, 255, 255));
 
-        bEdiatr_Produto.setBackground(new java.awt.Color(79, 84, 101));
-        bEdiatr_Produto.setBorder(null);
-        bEdiatr_Produto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_editar3.png"))); // NOI18N
-        bEdiatr_Produto.addMouseListener(new java.awt.event.MouseAdapter() {
+        bEdiatr_Funcionario.setBackground(new java.awt.Color(79, 84, 101));
+        bEdiatr_Funcionario.setBorder(null);
+        bEdiatr_Funcionario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_editar3.png"))); // NOI18N
+        bEdiatr_Funcionario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                bEdiatr_ProdutoMouseEntered(evt);
+                bEdiatr_FuncionarioMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                bEdiatr_ProdutoMouseExited(evt);
+                bEdiatr_FuncionarioMouseExited(evt);
             }
         });
-        bEdiatr_Produto.addActionListener(new java.awt.event.ActionListener() {
+        bEdiatr_Funcionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bEdiatr_ProdutoActionPerformed(evt);
+                bEdiatr_FuncionarioActionPerformed(evt);
             }
         });
 
-        bExcluir_Produto.setBackground(new java.awt.Color(79, 84, 101));
-        bExcluir_Produto.setBorder(null);
-        bExcluir_Produto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_lixo2.png"))); // NOI18N
-        bExcluir_Produto.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        bExcluir_Produto.setIconTextGap(0);
-        bExcluir_Produto.setInheritsPopupMenu(true);
-        bExcluir_Produto.addMouseListener(new java.awt.event.MouseAdapter() {
+        bExcluir_Funcionario.setBackground(new java.awt.Color(79, 84, 101));
+        bExcluir_Funcionario.setBorder(null);
+        bExcluir_Funcionario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_lixo2.png"))); // NOI18N
+        bExcluir_Funcionario.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        bExcluir_Funcionario.setIconTextGap(0);
+        bExcluir_Funcionario.setInheritsPopupMenu(true);
+        bExcluir_Funcionario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                bExcluir_ProdutoMouseEntered(evt);
+                bExcluir_FuncionarioMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                bExcluir_ProdutoMouseExited(evt);
+                bExcluir_FuncionarioMouseExited(evt);
             }
         });
-        bExcluir_Produto.addActionListener(new java.awt.event.ActionListener() {
+        bExcluir_Funcionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bExcluir_ProdutoActionPerformed(evt);
+                bExcluir_FuncionarioActionPerformed(evt);
             }
         });
 
@@ -104,9 +107,9 @@ public class PopUp_GerenciarFuncionarios extends javax.swing.JPanel{
             panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel2Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addComponent(bEdiatr_Produto, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(bEdiatr_Funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
-                .addComponent(bExcluir_Produto, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(bExcluir_Funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30))
         );
         panel2Layout.setVerticalGroup(
@@ -114,8 +117,8 @@ public class PopUp_GerenciarFuncionarios extends javax.swing.JPanel{
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel2Layout.createSequentialGroup()
                 .addContainerGap(10, Short.MAX_VALUE)
                 .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(bExcluir_Produto, javax.swing.GroupLayout.DEFAULT_SIZE, 85, Short.MAX_VALUE)
-                    .addComponent(bEdiatr_Produto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(bExcluir_Funcionario, javax.swing.GroupLayout.DEFAULT_SIZE, 85, Short.MAX_VALUE)
+                    .addComponent(bEdiatr_Funcionario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(10, 10, 10))
         );
 
@@ -152,11 +155,11 @@ public class PopUp_GerenciarFuncionarios extends javax.swing.JPanel{
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -164,39 +167,40 @@ public class PopUp_GerenciarFuncionarios extends javax.swing.JPanel{
         GlassPanePopup.closePopupLast();
     }//GEN-LAST:event_bPopUpExitActionPerformed
 
-    private void bEdiatr_ProdutoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bEdiatr_ProdutoMouseEntered
-        bEdiatr_Produto.setBackground(new Color(210, 224, 251));
-    }//GEN-LAST:event_bEdiatr_ProdutoMouseEntered
+    private void bEdiatr_FuncionarioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bEdiatr_FuncionarioMouseEntered
+        bEdiatr_Funcionario.setBackground(new Color(210, 224, 251));
+    }//GEN-LAST:event_bEdiatr_FuncionarioMouseEntered
 
-    private void bEdiatr_ProdutoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bEdiatr_ProdutoMouseExited
-        bEdiatr_Produto.setBackground(new Color(79,84,101));
-    }//GEN-LAST:event_bEdiatr_ProdutoMouseExited
+    private void bEdiatr_FuncionarioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bEdiatr_FuncionarioMouseExited
+        bEdiatr_Funcionario.setBackground(new Color(79,84,101));
+    }//GEN-LAST:event_bEdiatr_FuncionarioMouseExited
 
-    private void bEdiatr_ProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bEdiatr_ProdutoActionPerformed
-        interface_admEditarFuncionario i_admEditarFuncionario = new interface_admEditarFuncionario(funcionarioGerenciavel);
-        i_admEditarFuncionario.setVisible(true);
+    private void bEdiatr_FuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bEdiatr_FuncionarioActionPerformed
         GlassPanePopup.closePopupLast();
-    }//GEN-LAST:event_bEdiatr_ProdutoActionPerformed
+        interface_admEditarFuncionario i_admEditarFuncionario = new interface_admEditarFuncionario(this.funcionarioGerenciavel, this.EXIBIR_FUNCIONARIOS);
+        i_admEditarFuncionario.setVisible(true);        
+    }//GEN-LAST:event_bEdiatr_FuncionarioActionPerformed
 
-    private void bExcluir_ProdutoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bExcluir_ProdutoMouseEntered
-        bExcluir_Produto.setBackground(new Color(255, 188, 188));
-    }//GEN-LAST:event_bExcluir_ProdutoMouseEntered
+    private void bExcluir_FuncionarioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bExcluir_FuncionarioMouseEntered
+        bExcluir_Funcionario.setBackground(new Color(255, 188, 188));
+    }//GEN-LAST:event_bExcluir_FuncionarioMouseEntered
 
-    private void bExcluir_ProdutoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bExcluir_ProdutoMouseExited
-        bExcluir_Produto.setBackground(new Color(79,84,101));
-    }//GEN-LAST:event_bExcluir_ProdutoMouseExited
+    private void bExcluir_FuncionarioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bExcluir_FuncionarioMouseExited
+        bExcluir_Funcionario.setBackground(new Color(79,84,101));
+    }//GEN-LAST:event_bExcluir_FuncionarioMouseExited
 
-    private void bExcluir_ProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bExcluir_ProdutoActionPerformed
-
-
-    }//GEN-LAST:event_bExcluir_ProdutoActionPerformed
+    private void bExcluir_FuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bExcluir_FuncionarioActionPerformed
+        GlassPanePopup.closePopupLast();
+        interface_admApagarFuncionario i_admApagarFuncionario = new interface_admApagarFuncionario(this.funcionarioGerenciavel, this.EXIBIR_FUNCIONARIOS);
+        i_admApagarFuncionario.setVisible(true);       
+    }//GEN-LAST:event_bExcluir_FuncionarioActionPerformed
 
     
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private jaboc_UI.jabocUI_Utilidades.ButtonCirculo bEdiatr_Produto;
-    private jaboc_UI.jabocUI_Utilidades.ButtonCirculo bExcluir_Produto;
+    private jaboc_UI.jabocUI_Utilidades.ButtonCirculo bEdiatr_Funcionario;
+    private jaboc_UI.jabocUI_Utilidades.ButtonCirculo bExcluir_Funcionario;
     private jaboc_UI.jabocUI_Utilidades.ButtonCirculo bPopUpExit;
     private javax.swing.JLabel jLabel1;
     private jaboc_UI.jabocUI_Utilidades.Panel panel1;
