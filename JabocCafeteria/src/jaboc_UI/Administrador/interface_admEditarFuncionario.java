@@ -221,6 +221,7 @@ public class interface_admEditarFuncionario extends javax.swing.JFrame {
         buttonCirculo1.setBackground(new java.awt.Color(79, 84, 101));
         buttonCirculo1.setForeground(new java.awt.Color(255, 255, 255));
         buttonCirculo1.setText("Atualizar");
+        buttonCirculo1.setBorderPainted(false);
         buttonCirculo1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonCirculo1ActionPerformed(evt);
