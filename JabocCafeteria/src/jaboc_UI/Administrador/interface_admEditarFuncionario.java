@@ -7,7 +7,9 @@ package jaboc_UI.Administrador;
 import jaboc_BancoDeDados.Modelo.DAO_ContaFuncionario;
 import jaboc_Classes.Conta_Funcionario;
 import jaboc_UI.JabocUI_Utilidades.JabocUI_popUp.PopUp_EditarPessoal;
+import jaboc_UI.Funcionarios.interface_exibirFuncionarios;
 import java.awt.Color;
+import javax.swing.table.DefaultTableModel;
 import raven.glasspanepopup.GlassPanePopup;
 
 /**
@@ -15,14 +17,19 @@ import raven.glasspanepopup.GlassPanePopup;
  * @author guilh
  */
 public class interface_admEditarFuncionario extends javax.swing.JFrame {
-    private Conta_Funcionario funcionarioEditavel;
+    private Conta_Funcionario FUNCIONARIO_EDITAVEL;
+    private interface_exibirFuncionarios EXIBIR_FUNCIONARIOS;
     /**
      * Creates new form interface_admEditarFuncionario
      */
-    public interface_admEditarFuncionario(Conta_Funcionario funcionarioEditavel) {
+    public interface_admEditarFuncionario(Conta_Funcionario funcionarioEditavel, interface_exibirFuncionarios exibirFuncionarios) {
         initComponents();
-        this.funcionarioEditavel = funcionarioEditavel;
+        this.FUNCIONARIO_EDITAVEL = funcionarioEditavel;
+        this.EXIBIR_FUNCIONARIOS = exibirFuncionarios;
         this.preencherCampos();
+        
+        this.setLocationRelativeTo(null);
+        GlassPanePopup.install(this);
     }
 
     /**
@@ -39,6 +46,7 @@ public class interface_admEditarFuncionario extends javax.swing.JFrame {
         panel1 = new jaboc_UI.jabocUI_Utilidades.Panel();
         panel4 = new jaboc_UI.jabocUI_Utilidades.Panel();
         nomeFuncionario_Editar = new jaboc_UI.jabocUI_Utilidades.TextField();
+        jLabel3 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         panel3 = new jaboc_UI.jabocUI_Utilidades.Panel();
         cargoFuncionario_Editar = new javax.swing.JComboBox<>();
@@ -70,21 +78,29 @@ public class interface_admEditarFuncionario extends javax.swing.JFrame {
         nomeFuncionario_Editar.setText("Nome:");
         nomeFuncionario_Editar.setEnabled(false);
 
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconLabel/user.png"))); // NOI18N
+
         javax.swing.GroupLayout panel4Layout = new javax.swing.GroupLayout(panel4);
         panel4.setLayout(panel4Layout);
         panel4Layout.setHorizontalGroup(
             panel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel4Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(nomeFuncionario_Editar, javax.swing.GroupLayout.DEFAULT_SIZE, 268, Short.MAX_VALUE)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(nomeFuncionario_Editar, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         panel4Layout.setVerticalGroup(
             panel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel4Layout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addComponent(nomeFuncionario_Editar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(panel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panel4Layout.createSequentialGroup()
+                        .addComponent(nomeFuncionario_Editar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         jLabel8.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
@@ -320,15 +336,19 @@ public class interface_admEditarFuncionario extends javax.swing.JFrame {
         DAO_ContaFuncionario daoFuncionario = new DAO_ContaFuncionario();
         
         String novoCargo = (String) this.cargoFuncionario_Editar.getSelectedItem();
-        double salario = Double.parseDouble(this.salarioFuncionario_Editar.getText());
+        double salario = Double.parseDouble(this.salarioFuncionario_Editar.getFormattedText());
         
-        this.funcionarioEditavel.setCargoFuncionario(novoCargo);
-        this.funcionarioEditavel.setSalario(salario);
+        this.FUNCIONARIO_EDITAVEL.setCargoFuncionario(novoCargo);
+        this.FUNCIONARIO_EDITAVEL.setSalario(salario);
         
         String mensagemPopUp;
         
-        if(daoFuncionario.update_Administrador(this.funcionarioEditavel)){
-            mensagemPopUp = "Edição concluída com sucesso!";       
+        if(daoFuncionario.update_Administrador(this.FUNCIONARIO_EDITAVEL)){
+            mensagemPopUp = "Edição concluída com sucesso!";  
+            DefaultTableModel dadosTabela = (DefaultTableModel) this.EXIBIR_FUNCIONARIOS.getTabelaFuncionario().getModel();
+            dadosTabela.setRowCount(0);
+            this.EXIBIR_FUNCIONARIOS.carregarTabela();
+            
         }else{
             mensagemPopUp = "Ocorreu um erro ao editar!";
         }
@@ -337,11 +357,9 @@ public class interface_admEditarFuncionario extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonCirculo1ActionPerformed
 
     private void preencherCampos(){
-        this.nomeFuncionario_Editar.setText(this.funcionarioEditavel.getTitular().getNome());
-        this.cargoFuncionario_Editar.setSelectedItem(this.funcionarioEditavel.getCargoFuncionario());
-        System.out.println(this.funcionarioEditavel.getSalario());
-        this.salarioFuncionario_Editar.setText(String.valueOf(this.funcionarioEditavel.getSalario()));  
-        System.out.println( this.salarioFuncionario_Editar.getText());
+        this.nomeFuncionario_Editar.setText(this.FUNCIONARIO_EDITAVEL.getTitular().getNome());
+        this.cargoFuncionario_Editar.setSelectedItem(this.FUNCIONARIO_EDITAVEL.getCargoFuncionario());
+        this.salarioFuncionario_Editar.setFormattedText(String.valueOf(this.FUNCIONARIO_EDITAVEL.getSalario()));  
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -353,6 +371,7 @@ public class interface_admEditarFuncionario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel3;
