@@ -97,6 +97,7 @@ public class PopUp_EditarPessoal extends javax.swing.JPanel {
         bPopUp.setBackground(new java.awt.Color(250, 112, 112));
         bPopUp.setForeground(new java.awt.Color(255, 255, 255));
         bPopUp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/x.png"))); // NOI18N
+        bPopUp.setBorderPainted(false);
         bPopUp.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         bPopUp.setPreferredSize(new java.awt.Dimension(27, 27));
         bPopUp.addActionListener(new java.awt.event.ActionListener() {
