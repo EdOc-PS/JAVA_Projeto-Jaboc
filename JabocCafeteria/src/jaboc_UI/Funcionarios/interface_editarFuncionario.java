@@ -259,7 +259,6 @@ public class interface_editarFuncionario extends javax.swing.JFrame {
 
         panel3.setBackground(new java.awt.Color(255, 255, 255));
 
-        cargoFuncionario_Editar.setBackground(new java.awt.Color(255, 255, 255));
         cargoFuncionario_Editar.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
         cargoFuncionario_Editar.setForeground(new java.awt.Color(153, 153, 153));
         cargoFuncionario_Editar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cozinheiro(a)", "Auxiliar de Cozinha", "Garçom", "Balconista", "Faxineiro(a)", "Administrador" }));

@@ -25,9 +25,11 @@ public class interface_exibirFuncionarios extends javax.swing.JFrame {
      * Creates new form interface_exibirFuncionarios
      */
     public interface_exibirFuncionarios() {
-        initComponents();
-        GlassPanePopup.install(this);
+        initComponents();       
         setLocationRelativeTo(null);
+        
+        GlassPanePopup.install(this);
+        this.carregarTabela();
     }
 
     /**
@@ -49,7 +51,6 @@ public class interface_exibirFuncionarios extends javax.swing.JFrame {
         panel2 = new jaboc_UI.jabocUI_Utilidades.Panel();
         scrollGerenciaFuncionarios = new javax.swing.JScrollPane();
         tabelaFuncionario = new jaboc_UI.JabocUI_Utilidades.JabocUI_Classes.Table();
-        carregarTabela_Funcionario = new jaboc_UI.jabocUI_Utilidades.ButtonCirculo();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -68,6 +69,7 @@ public class interface_exibirFuncionarios extends javax.swing.JFrame {
 
         bVoltar.setBackground(new java.awt.Color(252, 252, 252));
         bVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_back.png"))); // NOI18N
+        bVoltar.setBorderPainted(false);
         bVoltar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         bVoltar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -85,6 +87,7 @@ public class interface_exibirFuncionarios extends javax.swing.JFrame {
 
         adicionar_Produto.setBackground(new java.awt.Color(252, 252, 252));
         adicionar_Produto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_adicionar3.png"))); // NOI18N
+        adicionar_Produto.setBorderPainted(false);
         adicionar_Produto.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         adicionar_Produto.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -119,9 +122,9 @@ public class interface_exibirFuncionarios extends javax.swing.JFrame {
                 .addComponent(bVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(adicionar_Produto, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 299, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(39, 39, 39))
         );
 
         panel1.setBackground(new java.awt.Color(141, 123, 104));
@@ -182,15 +185,6 @@ public class interface_exibirFuncionarios extends javax.swing.JFrame {
                 .addContainerGap(25, Short.MAX_VALUE))
         );
 
-        carregarTabela_Funcionario.setBackground(new java.awt.Color(79, 84, 101));
-        carregarTabela_Funcionario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_recarregar.png"))); // NOI18N
-        carregarTabela_Funcionario.setText(" Carregar");
-        carregarTabela_Funcionario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                carregarTabela_FuncionarioActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -200,10 +194,7 @@ public class interface_exibirFuncionarios extends javax.swing.JFrame {
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 818, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(19, 19, 19)
-                        .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(264, 264, 264)
-                        .addComponent(carregarTabela_Funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -214,9 +205,7 @@ public class interface_exibirFuncionarios extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(carregarTabela_Funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(40, Short.MAX_VALUE))
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
@@ -243,7 +232,6 @@ public class interface_exibirFuncionarios extends javax.swing.JFrame {
     }//GEN-LAST:event_bVoltarMouseExited
 
     private void bVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVoltarActionPerformed
-
         this.dispose();
     }//GEN-LAST:event_bVoltarActionPerformed
 
@@ -263,16 +251,13 @@ public class interface_exibirFuncionarios extends javax.swing.JFrame {
 
     private void tabelaFuncionarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaFuncionarioMouseClicked
         Conta_Funcionario funcionarioGerenciavel = this.coletarDados_tabela();
-        PopUp_GerenciarFuncionarios gerenciarFunc = new PopUp_GerenciarFuncionarios(funcionarioGerenciavel);
+        PopUp_GerenciarFuncionarios gerenciarFunc = new PopUp_GerenciarFuncionarios(funcionarioGerenciavel, this);
+              
         GlassPanePopup.showPopup(gerenciarFunc);
 
     }//GEN-LAST:event_tabelaFuncionarioMouseClicked
-
-    private void carregarTabela_FuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carregarTabela_FuncionarioActionPerformed
-        this.carregarTabela();
-    }//GEN-LAST:event_carregarTabela_FuncionarioActionPerformed
   
-    private void carregarTabela(){
+    public void carregarTabela(){
         DAO_ContaFuncionario daoFuncionario = new DAO_ContaFuncionario();
         List<Conta_Funcionario> listaFuncionarios = daoFuncionario.listagem();
         DefaultTableModel modeloTabela_funcionarios = (DefaultTableModel) tabelaFuncionario.getModel();
@@ -306,6 +291,10 @@ public class interface_exibirFuncionarios extends javax.swing.JFrame {
         
     }
     
+    public JTable getTabelaFuncionario(){
+        return this.tabelaFuncionario;
+    }
+     
     public static void main(String args[]) {
          new interface_exibirFuncionarios().setVisible(true);
     }
@@ -317,7 +306,6 @@ public class interface_exibirFuncionarios extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private jaboc_UI.jabocUI_Utilidades.ButtonCirculo adicionar_Produto;
     private jaboc_UI.jabocUI_Utilidades.ButtonCirculo bVoltar;
-    private jaboc_UI.jabocUI_Utilidades.ButtonCirculo carregarTabela_Funcionario;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JPanel jPanel1;
