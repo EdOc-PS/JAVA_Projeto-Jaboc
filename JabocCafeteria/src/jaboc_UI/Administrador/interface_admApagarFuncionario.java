@@ -254,6 +254,7 @@ public class interface_admApagarFuncionario extends javax.swing.JFrame {
         apagarFuncionario.setBackground(new java.awt.Color(248, 36, 36));
         apagarFuncionario.setForeground(new java.awt.Color(255, 255, 255));
         apagarFuncionario.setText("Apagar");
+        apagarFuncionario.setBorderPainted(false);
         apagarFuncionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 apagarFuncionarioActionPerformed(evt);
