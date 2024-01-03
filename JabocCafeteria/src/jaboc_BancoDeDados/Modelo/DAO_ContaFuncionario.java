@@ -138,12 +138,20 @@ public class DAO_ContaFuncionario implements DAO, Logavel, SenhaEditavel{
     
     @Override
     public <T> boolean delete(T cpfFuncionario){       
-        
+        DAO_ContaCliente daoCliente = new DAO_ContaCliente();
+        ResultSet funcionarioCliente = daoCliente.selectEspecifico(cpfFuncionario);
         String comandoDelete = "DELETE FROM jaboc_servidor.Conta_Funcionario WHERE cpfFuncionario = '"+cpfFuncionario+"'";
+        
         try(Connection conexao = this.conectar()){
-                      
-            return conexao.createStatement().executeUpdate(comandoDelete) > 0;
+            boolean apagouFuncionario = conexao.createStatement().executeUpdate(comandoDelete) > 0;
             
+            if(!funcionarioCliente.next()){
+                comandoDelete = "DELETE FROM jaboc_servidor.Pessoa WHERE cpf = '"+ cpfFuncionario+"';";
+                apagouFuncionario = conexao.createStatement().executeUpdate(comandoDelete) > 0;
+            }
+            
+            return apagouFuncionario;
+                   
         }catch(SQLException error){
             System.out.println("Erro no delete(String cpfFuncionario) da Conta funcionário: "+ error.getMessage());
         }
@@ -179,16 +187,16 @@ public class DAO_ContaFuncionario implements DAO, Logavel, SenhaEditavel{
     public boolean update_Administrador(Conta_Funcionario funcionarioEditado){
         
         String comandoUpdate = "UPDATE  jaboc_servidor.Conta_Funcionario SET "
-                + "cargo = '"+funcionarioEditado.getCargoFuncionario()+ "' "
-                + "salario = "+ funcionarioEditado.getSalario()+ "' "
-                + "WHERE cpfFuncionario = '"+ funcionarioEditado.getTitular().getCpf();
+                + "cargo = '"+funcionarioEditado.getCargoFuncionario()+ "', "
+                + "salario = '"+ funcionarioEditado.getSalario()+"' "
+                + "WHERE cpfFuncionario = '"+ funcionarioEditado.getTitular().getCpf()+"';";
         
         try(Connection conexao = this.conectar()){
         
             return conexao.createStatement().executeUpdate(comandoUpdate) > 0;
             
         }catch(SQLException | NullPointerException error){
-            System.out.println("Erro no update_Administradir(Conta_Funcionario funcionarioEditado) da Conta funcionário: "+ error.getMessage());
+            System.out.println("Erro no update_Administrador(Conta_Funcionario funcionarioEditado) da Conta funcionário: "+ error.getMessage());
         }
         
         return false;
