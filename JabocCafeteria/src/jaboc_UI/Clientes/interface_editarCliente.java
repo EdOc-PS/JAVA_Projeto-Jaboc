@@ -97,7 +97,7 @@ public class interface_editarCliente extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Gill Sans MT", 1, 30)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_editaruser.png"))); // NOI18N
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_editaruser2.png"))); // NOI18N
         jLabel7.setText(" EDITAR CLIENTE");
 
         jPanel4.setBackground(new java.awt.Color(252, 252, 252));
@@ -274,7 +274,7 @@ public class interface_editarCliente extends javax.swing.JFrame {
         panel8.setBackground(new java.awt.Color(255, 255, 255));
 
         iuser4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        iuser4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconLabel/senha.png"))); // NOI18N
+        iuser4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconLabel/dinheiro-editar.png"))); // NOI18N
 
         jCb_atualizarSenha.setBackground(new java.awt.Color(255, 255, 255));
         jCb_atualizarSenha.setFont(new java.awt.Font("Gill Sans MT", 0, 15)); // NOI18N

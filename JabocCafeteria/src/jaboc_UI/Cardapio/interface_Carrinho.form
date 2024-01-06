@@ -42,7 +42,7 @@
     <Container class="jaboc_UI.jabocUI_Utilidades.Panel" name="panel1">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+          <Color blue="fb" green="f5" red="f7" type="rgb"/>
         </Property>
       </Properties>
 
@@ -59,8 +59,8 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="panelP" min="-2" max="-2" attributes="0"/>
                       <Group type="102" attributes="0">
-                          <Component id="carrinhotxt" min="-2" pref="105" max="-2" attributes="0"/>
-                          <EmptySpace pref="322" max="32767" attributes="0"/>
+                          <Component id="carrinhotxt" min="-2" pref="150" max="-2" attributes="0"/>
+                          <EmptySpace pref="277" max="32767" attributes="0"/>
                           <Component id="bPopUpExit" min="-2" pref="27" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -72,15 +72,15 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
+                      <Group type="102" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="bPopUpExit" min="-2" pref="27" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace pref="34" max="32767" attributes="0"/>
                       </Group>
-                      <Group type="102" attributes="0">
-                          <EmptySpace pref="17" max="32767" attributes="0"/>
-                          <Component id="carrinhotxt" min="-2" pref="35" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="carrinhotxt" min="-2" pref="40" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Component id="panelP" min="-2" max="-2" attributes="0"/>
@@ -103,6 +103,9 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="65" green="54" red="4f" type="rgb"/>
             </Property>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/img/icons/download.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Carrinho"/>
           </Properties>
         </Component>
@@ -124,6 +127,11 @@
           </Events>
         </Component>
         <Container class="jaboc_UI.jabocUI_Utilidades.Panel" name="panelP">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="fb" green="f5" red="f7" type="rgb"/>
+            </Property>
+          </Properties>
 
           <Layout>
             <DimensionLayout dim="0">
@@ -148,6 +156,9 @@
           <SubComponents>
             <Container class="javax.swing.JScrollPane" name="scrollCarrinho">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="null"/>
                 </Property>
@@ -157,6 +168,11 @@
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
                 <Container class="javax.swing.JPanel" name="panelCarrinho">
+                  <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="fb" green="f5" red="f7" type="rgb"/>
+                    </Property>
+                  </Properties>
 
                   <Layout>
                     <DimensionLayout dim="0">
@@ -181,7 +197,7 @@
               <Color blue="fb" green="cc" red="df" type="rgb"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="33" green="33" red="33" type="rgb"/>
+              <Color blue="65" green="54" red="4f" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Finalizar pedido"/>
           </Properties>

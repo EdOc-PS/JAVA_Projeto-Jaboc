@@ -7,7 +7,6 @@ package jaboc_UI.Pedidos;
 import jaboc_BancoDeDados.Modelo.DAO_Pedido;
 import jaboc_Biblioteca.outras.ModernScrollBarUI;
 import jaboc_Classes.Pedido;
-import jaboc_UI.JabocUI_Utilidades.JabocUI_popUp.PopUp_adicionar;
 import java.awt.Color;
 import java.awt.Dimension;
 import javax.swing.DefaultListModel;
@@ -279,7 +278,7 @@ public class interface_extratoPedidos extends javax.swing.JFrame {
     }//GEN-LAST:event_bVoltarMouseExited
 
     private void bVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVoltarActionPerformed
-        GlassPanePopup.showPopup(new PopUp_adicionar());
+
     }//GEN-LAST:event_bVoltarActionPerformed
 
     private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed

@@ -11,7 +11,7 @@ import jaboc_BancoDeDados.Modelo.DAO_Pessoa;
 import jaboc_Classes.Conta_Funcionario;
 import jaboc_Classes.Pessoa;
 import jaboc_UI.JabocUI_Utilidades.JabocUI_popUp.PopUp_ClienteParaFuncionario;
-import jaboc_UI.JabocUI_Utilidades.JabocUI_popUp.PopUp_adicionar;
+import jaboc_UI.JabocUI_Utilidades.JabocUI_popUp.PopUp_mensagemProduto;
 import jaboc_UI.JabocUI_Utilidades.JabocUI_popUp.PopUp_vazio;
 import jaboc_UI.jabocUI_Utilidades.JabocUI_popUp.PopUp_Senha;
 import java.awt.Color;
@@ -616,7 +616,7 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
                     daoPessoa.insert(objetoPessoa);
                     
                     if(daoFuncionario.insert(cadastrarFuncionario)){
-                        GlassPanePopup.showPopup(new PopUp_adicionar());
+                        GlassPanePopup.showPopup(new PopUp_mensagemProduto("Inserido com sucesso!"));
                         this.setarCamposVazios();
                     }
                 }

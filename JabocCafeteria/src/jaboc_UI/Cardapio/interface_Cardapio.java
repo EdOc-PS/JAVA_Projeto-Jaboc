@@ -9,6 +9,7 @@ import jaboc_Biblioteca.outras.ModernScrollBarUI;
 import jaboc_Classes.Produto;
 import jaboc_UI.Clientes.interface_editarCliente;
 import jaboc_UI.Clientes.interface_menuCliente;
+import jaboc_UI.JabocUI_Utilidades.JabocUI_popUp.PopUp_mensagemCarrinho;
 import jaboc_UI.JabocUI_Utilidades.JabocUI_popUp.PopUp_vazio;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -41,7 +42,7 @@ public class interface_Cardapio extends javax.swing.JFrame {
         bar.setUI(new ModernScrollBarUI());
         scrollCardapio.setViewportBorder(null);
         scrollCardapio.setBorder(null);
-        
+
         carregarCardapio();
     }
 
@@ -220,7 +221,7 @@ public class interface_Cardapio extends javax.swing.JFrame {
         );
         panel2Layout.setVerticalGroup(
             panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(scrollCardapio, javax.swing.GroupLayout.DEFAULT_SIZE, 351, Short.MAX_VALUE)
+            .addComponent(scrollCardapio, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
@@ -235,9 +236,9 @@ public class interface_Cardapio extends javax.swing.JFrame {
         panel1Layout.setVerticalGroup(
             panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel1Layout.createSequentialGroup()
-                .addGap(25, 25, 25)
+                .addGap(20, 20, 20)
                 .addComponent(panel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -310,22 +311,22 @@ public class interface_Cardapio extends javax.swing.JFrame {
                     return false;
                 }
             });
-            
+
             i_Carrinho.receber(this);
             i_Carrinho.recebeCarrinho(carrinho);
             i_Carrinho.addCarrinho();
-                   
-        }else{
-            GlassPanePopup.showPopup(new PopUp_vazio());
+
+        } else {
+            GlassPanePopup.showPopup(new PopUp_mensagemCarrinho("Seu carrinho está vázio!"));
         }
     }//GEN-LAST:event_bCarrinhoActionPerformed
 
     private void tabelaCardapioMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaCardapioMousePressed
-
         produto_Selecionado = tabelaCardapio.getSelectedRow();
         int idSelecionado = Integer.parseInt(tabelaCardapio.getValueAt(produto_Selecionado, 0).toString());
         Produto produto = daoProduto.ListagemEspecifica(idSelecionado);
         carrinho.add(produto);
+        GlassPanePopup.showPopup(new PopUp_mensagemCarrinho("Item adicionado ao carrinho."));
  }//GEN-LAST:event_tabelaCardapioMousePressed
 
     private void bVoltarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bVoltarMouseEntered
@@ -337,13 +338,13 @@ public class interface_Cardapio extends javax.swing.JFrame {
     }//GEN-LAST:event_bVoltarMouseExited
 
     private void bVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVoltarActionPerformed
-       interface_menuCliente i_menu = new interface_menuCliente();
-       i_menu.setVisible(true);
-       this.dispose();
+        interface_menuCliente i_menu = new interface_menuCliente();
+        i_menu.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_bVoltarActionPerformed
-   public void carregarCardapio(){  
-       tabelaCardapio.removeAll();
-      
+    public void carregarCardapio() {
+        tabelaCardapio.removeAll();
+
         DefaultTableModel cardapio = (DefaultTableModel) tabelaCardapio.getModel();
         for (Produto p : daoProduto.Listagem()) {
             cardapio.addRow(new Object[]{
@@ -355,7 +356,8 @@ public class interface_Cardapio extends javax.swing.JFrame {
 
             });
         }
-   }
+    }
+
     /**
      * @param args the command line arguments
      */

@@ -29,24 +29,27 @@ public class PopUp_mensagemProduto extends javax.swing.JPanel {
         this.setVisible(true);
         setOpaque(false);
     }
-    
-     private void conferirMensagem(String mensagem){
+
+    private void conferirMensagem(String mensagem) {
         String deletar = "Deletado com sucesso!";
         String adicionar = "Inserido com sucesso!";
         String atualizar = "Atualizado com sucesso!";
+        String carrinho = "Adicionado ao carrinho";
 
-        if(mensagem.equals(deletar)){
+        if (mensagem.equals(deletar)) {
             jMensagen.setText(deletar);
             jIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_apagou.png")));
-        }else if(mensagem.equals(adicionar)){
-            jMensagen.setText(adicionar); 
+        } else if (mensagem.equals(adicionar)) {
+            jMensagen.setText(adicionar);
             jIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_mais.png")));
-        }else if(mensagem.equals(atualizar)){
+        } else if (mensagem.equals(atualizar)) {
             jMensagen.setText(atualizar);
+            jIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_certo.png")));
+        } else if (mensagem.equals(carrinho)) {
+            jMensagen.setText(carrinho);
             jIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_certo.png")));
         }
     }
-    
 
     @Override
     protected void paintComponent(Graphics g) {

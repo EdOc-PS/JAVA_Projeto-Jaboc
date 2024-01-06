@@ -84,7 +84,7 @@
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/img/icons/i_editaruser.png"/>
+              <Image iconType="3" name="/img/icons/i_editaruser2.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value=" EDITAR CLIENTE"/>
           </Properties>
@@ -447,7 +447,7 @@
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/img/iconLabel/senha.png"/>
+                      <Image iconType="3" name="/img/iconLabel/dinheiro-editar.png"/>
                     </Property>
                   </Properties>
                 </Component>

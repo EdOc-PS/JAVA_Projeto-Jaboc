@@ -3,14 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/E:/ESTUDOS/GitHub/Projeto-Jaboc/JabocCafeteria/src/jaboc_UI/Administrador/interface_areaGerencia.java</file>
-            <file>file:/E:/ESTUDOS/GitHub/Projeto-Jaboc/JabocCafeteria/src/jaboc_UI/Clientes/interface_menuCliente.java</file>
-            <file>file:/E:/ESTUDOS/GitHub/Projeto-Jaboc/JabocCafeteria/src/jaboc_UI/JabocUI_Utilidades/JabocUI_Classes/Button.java</file>
-            <file>file:/E:/ESTUDOS/GitHub/Projeto-Jaboc/JabocCafeteria/src/jaboc_UI/Administrador/interface_admEditarFuncionario.java</file>
-            <file>file:/E:/ESTUDOS/GitHub/Projeto-Jaboc/JabocCafeteria/src/jaboc_UI/Funcionarios/interface_editarFuncionario.java</file>
-            <file>file:/E:/ESTUDOS/GitHub/Projeto-Jaboc/JabocCafeteria/src/jaboc_UI/Produtos/interface_gerenciarProdutos.java</file>
-            <file>file:/E:/ESTUDOS/GitHub/Projeto-Jaboc/JabocCafeteria/src/jaboc_UI/Funcionarios/interface_exibirFuncionarios.java</file>
-            <file>file:/E:/ESTUDOS/GitHub/Projeto-Jaboc/JabocCafeteria/src/jaboc_UI/Clientes/interface_loginCliente.java</file>
+            <file>file:/E:/ESTUDOS/GitHub/Projeto-Jaboc/JabocCafeteria/src/jaboc_UI/Cardapio/interface_Carrinho.java</file>
+            <file>file:/E:/ESTUDOS/GitHub/Projeto-Jaboc/JabocCafeteria/src/jaboc_UI/Cardapio/interface_itemCarrinho.java</file>
+            <file>file:/E:/ESTUDOS/GitHub/Projeto-Jaboc/JabocCafeteria/src/jaboc_UI/Cardapio/interface_Cardapio.java</file>
+            <file>file:/E:/ESTUDOS/GitHub/Projeto-Jaboc/JabocCafeteria/src/jaboc_UI/Clientes/interface_criarCliente.java</file>
         </group>
     </open-files>
 </project-private>

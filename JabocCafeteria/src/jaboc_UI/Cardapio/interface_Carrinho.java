@@ -82,11 +82,12 @@ public class interface_Carrinho extends javax.swing.JPanel {
         bPopUp.setForeground(new java.awt.Color(255, 255, 255));
         bPopUp.setText("X");
 
-        panel1.setBackground(new java.awt.Color(255, 255, 255));
+        panel1.setBackground(new java.awt.Color(247, 245, 251));
 
         carrinhotxt.setBackground(new java.awt.Color(79, 84, 101));
         carrinhotxt.setFont(new java.awt.Font("Gill Sans MT", 1, 22)); // NOI18N
         carrinhotxt.setForeground(new java.awt.Color(79, 84, 101));
+        carrinhotxt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/download.png"))); // NOI18N
         carrinhotxt.setText("Carrinho");
 
         bPopUpExit.setBackground(new java.awt.Color(250, 112, 112));
@@ -99,8 +100,13 @@ public class interface_Carrinho extends javax.swing.JPanel {
             }
         });
 
+        panelP.setBackground(new java.awt.Color(247, 245, 251));
+
+        scrollCarrinho.setBackground(new java.awt.Color(255, 255, 255));
         scrollCarrinho.setBorder(null);
         scrollCarrinho.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+
+        panelCarrinho.setBackground(new java.awt.Color(247, 245, 251));
 
         javax.swing.GroupLayout panelCarrinhoLayout = new javax.swing.GroupLayout(panelCarrinho);
         panelCarrinho.setLayout(panelCarrinhoLayout);
@@ -133,7 +139,7 @@ public class interface_Carrinho extends javax.swing.JPanel {
         );
 
         finalizarPedido.setBackground(new java.awt.Color(223, 204, 251));
-        finalizarPedido.setForeground(new java.awt.Color(51, 51, 51));
+        finalizarPedido.setForeground(new java.awt.Color(79, 84, 101));
         finalizarPedido.setText("Finalizar pedido");
         finalizarPedido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -154,8 +160,8 @@ public class interface_Carrinho extends javax.swing.JPanel {
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(panelP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(panel1Layout.createSequentialGroup()
-                        .addComponent(carrinhotxt, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 322, Short.MAX_VALUE)
+                        .addComponent(carrinhotxt, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 277, Short.MAX_VALUE)
                         .addComponent(bPopUpExit, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
@@ -166,11 +172,11 @@ public class interface_Carrinho extends javax.swing.JPanel {
                     .addGroup(panel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(bPopUpExit, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(panel1Layout.createSequentialGroup()
-                        .addContainerGap(17, Short.MAX_VALUE)
-                        .addComponent(carrinhotxt, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(15, 15, 15)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(carrinhotxt, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addComponent(panelP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(finalizarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
