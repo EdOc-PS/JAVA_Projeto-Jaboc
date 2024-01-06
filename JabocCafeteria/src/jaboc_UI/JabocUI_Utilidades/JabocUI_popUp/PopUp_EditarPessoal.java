@@ -6,7 +6,11 @@ package jaboc_UI.JabocUI_Utilidades.JabocUI_popUp;
 
 
 import jaboc_UI.JabocUI_Utilidades.JabocUI_Classes.MensagemIncorreta;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Image;
+import java.awt.RenderingHints;
+import java.awt.geom.RoundRectangle2D;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
@@ -28,8 +32,17 @@ public class PopUp_EditarPessoal extends javax.swing.JPanel {
         this.conferirMensagem(mensagem);
         this.estilizarIcone();
         this.setVisible(true);
+        this.setOpaque(false);
     }
-
+     @Override
+    protected void paintComponent(Graphics g) {
+        Graphics2D g2 = (Graphics2D) g.create();
+        g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+        g2.setColor(getBackground());
+        g2.fill(new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), 20, 20));
+        g2.dispose();
+        super.paintComponent(g); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+    }
     private void conferirMensagem(String mensagem){
         String editadoSucesso = "Edição concluída com sucesso!";
         String erroEditar = "Ocorreu um erro ao editar!";
@@ -84,6 +97,8 @@ public class PopUp_EditarPessoal extends javax.swing.JPanel {
         icone = new javax.swing.JLabel();
         jLabel_alerta = new javax.swing.JLabel();
         bPopUp = new jaboc_UI.jabocUI_Utilidades.ButtonCirculo();
+
+        setEnabled(false);
 
         jPanel1.setBackground(new java.awt.Color(252, 252, 252));
 

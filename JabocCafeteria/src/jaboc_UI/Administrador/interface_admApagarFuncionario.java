@@ -7,7 +7,7 @@ package jaboc_UI.Administrador;
 import jaboc_BancoDeDados.Modelo.DAO_ContaFuncionario;
 
 import jaboc_Classes.Conta_Funcionario;
-import jaboc_UI.JabocUI_Utilidades.JabocUI_popUp.PopUp_deletar;
+import jaboc_UI.JabocUI_Utilidades.JabocUI_popUp.PopUp_mensagemProduto;
 import jaboc_UI.Funcionarios.interface_exibirFuncionarios;
 import java.awt.Color;
 import javax.swing.table.DefaultTableModel;
@@ -358,7 +358,7 @@ public class interface_admApagarFuncionario extends javax.swing.JFrame {
     private void apagarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_apagarFuncionarioActionPerformed
         DAO_ContaFuncionario daoFuncionario = new DAO_ContaFuncionario();
         if(daoFuncionario.delete(this.FUNCIONARIO_APAGAVEL.getTitular().getCpf())){
-            GlassPanePopup.showPopup(new PopUp_deletar());
+            GlassPanePopup.showPopup(new PopUp_mensagemProduto());
             
             DefaultTableModel dadosTabela = (DefaultTableModel) this.EXIBIR_FUNCIONARIOS.getTabelaFuncionario().getModel();
             dadosTabela.setRowCount(0);

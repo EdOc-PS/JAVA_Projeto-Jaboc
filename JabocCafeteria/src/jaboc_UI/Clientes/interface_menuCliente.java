@@ -18,6 +18,8 @@ public class interface_menuCliente extends javax.swing.JFrame {
     public interface_menuCliente() {
         initComponents();
         setLocationRelativeTo(null);
+        bCriarConta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
     }
 
     /**
@@ -29,48 +31,78 @@ public class interface_menuCliente extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel4 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
+        panel4 = new jaboc_UI.jabocUI_Utilidades.Panel();
+        bCriarConta = new jaboc_UI.jabocUI_Utilidades.Panel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        bLogin = new jaboc_UI.jabocUI_Utilidades.Panel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
         jLogo = new javax.swing.JLabel();
-        panel1 = new jaboc_UI.jabocUI_Utilidades.Panel();
-        bCriar = new jaboc_UI.jabocUI_Utilidades.ButtonCirculo();
-        bLogin = new jaboc_UI.jabocUI_Utilidades.ButtonCirculo();
         jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+
+        jLabel4.setText("jLabel4");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(164, 144, 124));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/principal/logo2.png"))); // NOI18N
-        jLogo.setToolTipText("");
+        panel4.setBackground(new java.awt.Color(255, 255, 255));
 
-        panel1.setBackground(new java.awt.Color(255, 255, 255));
-
-        bCriar.setBackground(new java.awt.Color(255, 255, 255));
-        bCriar.setBorder(null);
-        bCriar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_add.png"))); // NOI18N
-        bCriar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        bCriar.setIconTextGap(0);
-        bCriar.setInheritsPopupMenu(true);
-        bCriar.addMouseListener(new java.awt.event.MouseAdapter() {
+        bCriarConta.setBackground(new java.awt.Color(255, 255, 255));
+        bCriarConta.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bCriarContaMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                bCriarMouseEntered(evt);
+                bCriarContaMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                bCriarMouseExited(evt);
-            }
-        });
-        bCriar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bCriarActionPerformed(evt);
+                bCriarContaMouseExited(evt);
             }
         });
 
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_editaruser.png"))); // NOI18N
+
+        jLabel8.setFont(new java.awt.Font("Gill Sans MT", 1, 15)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(79, 84, 101));
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setText("Criar Conta");
+
+        javax.swing.GroupLayout bCriarContaLayout = new javax.swing.GroupLayout(bCriarConta);
+        bCriarConta.setLayout(bCriarContaLayout);
+        bCriarContaLayout.setHorizontalGroup(
+            bCriarContaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(bCriarContaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(bCriarContaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(bCriarContaLayout.createSequentialGroup()
+                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        bCriarContaLayout.setVerticalGroup(
+            bCriarContaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(bCriarContaLayout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(14, Short.MAX_VALUE))
+        );
+
         bLogin.setBackground(new java.awt.Color(255, 255, 255));
-        bLogin.setBorder(null);
-        bLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_userLogin.png"))); // NOI18N
         bLogin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bLoginMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 bLoginMouseEntered(evt);
             }
@@ -78,38 +110,72 @@ public class interface_menuCliente extends javax.swing.JFrame {
                 bLoginMouseExited(evt);
             }
         });
-        bLogin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bLoginActionPerformed(evt);
-            }
-        });
 
-        javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
-        panel1.setLayout(panel1Layout);
-        panel1Layout.setHorizontalGroup(
-            panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel1Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(bCriar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38)
-                .addComponent(bLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(30, Short.MAX_VALUE))
+        jLabel12.setFont(new java.awt.Font("Gill Sans MT", 1, 15)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(79, 84, 101));
+        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel12.setText("Login");
+
+        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_editaruser.png"))); // NOI18N
+
+        javax.swing.GroupLayout bLoginLayout = new javax.swing.GroupLayout(bLogin);
+        bLogin.setLayout(bLoginLayout);
+        bLoginLayout.setHorizontalGroup(
+            bLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(bLoginLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(bLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(bLoginLayout.createSequentialGroup()
+                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
-        panel1Layout.setVerticalGroup(
-            panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel1Layout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(bCriar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(bLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+        bLoginLayout.setVerticalGroup(
+            bLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(bLoginLayout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(14, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout panel4Layout = new javax.swing.GroupLayout(panel4);
+        panel4.setLayout(panel4Layout);
+        panel4Layout.setHorizontalGroup(
+            panel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel4Layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(bCriarConta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                .addComponent(bLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(15, 15, 15))
+        );
+        panel4Layout.setVerticalGroup(
+            panel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel4Layout.createSequentialGroup()
+                .addContainerGap(10, Short.MAX_VALUE)
+                .addGroup(panel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(bLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bCriarConta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(10, Short.MAX_VALUE))
         );
+
+        jPanel1.add(panel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 360, -1, -1));
+
+        jLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/principal/logo6.png"))); // NOI18N
+        jLogo.setToolTipText("");
+        jPanel1.add(jLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 6, 900, 267));
 
         jLabel3.setBackground(new java.awt.Color(255, 255, 255));
         jLabel3.setFont(new java.awt.Font("Gill Sans MT", 1, 30)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("SEJA BEM VINDO!");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 279, 900, 72));
 
         jLabel1.setBackground(new java.awt.Color(164, 144, 124));
         jLabel1.setFont(new java.awt.Font("Gill Sans MT", 1, 12)); // NOI18N
@@ -117,33 +183,10 @@ public class interface_menuCliente extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Powerd by Jabaria and Edoc");
         jLabel1.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(321, 529, 258, -1));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLogo, javax.swing.GroupLayout.DEFAULT_SIZE, 900, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(321, 321, 321)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 258, Short.MAX_VALUE)
-                    .addComponent(panel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(60, 60, 60)
-                .addComponent(jLabel1)
-                .addContainerGap())
-        );
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/principal/fdn1.png"))); // NOI18N
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 550));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -159,35 +202,33 @@ public class interface_menuCliente extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void bCriarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bCriarMouseEntered
-        bCriar.setBackground(new Color(215, 229, 202));
-        bCriar.setToolTipText("Clique aqui para criar uma conta e acessar o cardápio");
-    }//GEN-LAST:event_bCriarMouseEntered
+    private void bCriarContaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bCriarContaMouseClicked
+        interface_criarCliente i_criarCliente = new interface_criarCliente();
+        i_criarCliente.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_bCriarContaMouseClicked
 
-    private void bCriarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bCriarMouseExited
-        bCriar.setBackground(new Color(252, 252, 252));
-    }//GEN-LAST:event_bCriarMouseExited
+    private void bCriarContaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bCriarContaMouseEntered
+        bCriarConta.setBackground(new Color(215, 229, 202));
+    }//GEN-LAST:event_bCriarContaMouseEntered
+
+    private void bCriarContaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bCriarContaMouseExited
+        bCriarConta.setBackground(new Color(252, 252, 252));
+    }//GEN-LAST:event_bCriarContaMouseExited
+
+    private void bLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bLoginMouseClicked
+        interface_loginCliente i_loginCliente = new interface_loginCliente();
+        i_loginCliente.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_bLoginMouseClicked
 
     private void bLoginMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bLoginMouseEntered
         bLogin.setBackground(new Color(210, 224, 251));
-        bLogin.setToolTipText("Clique aqui para entrar em sua conta e acessar o cardápio");
     }//GEN-LAST:event_bLoginMouseEntered
 
     private void bLoginMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bLoginMouseExited
         bLogin.setBackground(new Color(252, 252, 252));
     }//GEN-LAST:event_bLoginMouseExited
-
-    private void bCriarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCriarActionPerformed
-        interface_criarCliente i_criarCliente = new interface_criarCliente();
-        i_criarCliente.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_bCriarActionPerformed
-
-    private void bLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bLoginActionPerformed
-        interface_loginCliente i_loginCliente = new interface_loginCliente();
-        i_loginCliente.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_bLoginActionPerformed
 
     /**
      * @param args the command line arguments
@@ -228,12 +269,18 @@ public class interface_menuCliente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private jaboc_UI.jabocUI_Utilidades.ButtonCirculo bCriar;
-    private jaboc_UI.jabocUI_Utilidades.ButtonCirculo bLogin;
+    private jaboc_UI.jabocUI_Utilidades.Panel bCriarConta;
+    private jaboc_UI.jabocUI_Utilidades.Panel bLogin;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLogo;
     private javax.swing.JPanel jPanel1;
-    private jaboc_UI.jabocUI_Utilidades.Panel panel1;
+    private jaboc_UI.jabocUI_Utilidades.Panel panel4;
     // End of variables declaration//GEN-END:variables
 }

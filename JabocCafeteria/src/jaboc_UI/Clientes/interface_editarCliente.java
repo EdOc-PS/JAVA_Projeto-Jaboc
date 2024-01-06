@@ -580,9 +580,10 @@ public class interface_editarCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_bVoltarMouseExited
 
     private void bVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVoltarActionPerformed
-      interface_Cardapio i_Cardapio = new interface_Cardapio();
+        interface_Cardapio i_Cardapio = new interface_Cardapio();
         i_Cardapio.setVisible(true);
         this.dispose();
+        
     }//GEN-LAST:event_bVoltarActionPerformed
 
     private void editarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarClienteActionPerformed
@@ -703,8 +704,9 @@ public class interface_editarCliente extends javax.swing.JFrame {
     }
     
     private void dimensionarFrame(){
-        this.painelTotal.setBounds(0, 0, 900, 550);
-        this.setBounds(0, 0, 900, 550);
+        this.painelTotal.setBounds(0, 0, 950, 650);
+        this.setBounds(0, 0, 930, 600);
+        setLocationRelativeTo(null);
     }
     
     private void inicializarCamposSenha(){
@@ -714,8 +716,9 @@ public class interface_editarCliente extends javax.swing.JFrame {
     
     private void dimensionarPaineis_Senha(JPanel exibirPainel){
         this.painelTotal.setBounds(0, 0, 900, 715);
-        this.setBounds(0, 0, 900, 715);
-        exibirPainel.setVisible(true);      
+        this.setBounds(0, 0, 930, 715);
+        exibirPainel.setVisible(true); 
+        setLocationRelativeTo(null);
     }
      
     private void resetarCampoVerificarSenhaAtual(){

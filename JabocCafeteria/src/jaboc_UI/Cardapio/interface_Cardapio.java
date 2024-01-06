@@ -8,6 +8,7 @@ import jaboc_BancoDeDados.Modelo.DAO_Produto;
 import jaboc_Biblioteca.outras.ModernScrollBarUI;
 import jaboc_Classes.Produto;
 import jaboc_UI.Clientes.interface_editarCliente;
+import jaboc_UI.Clientes.interface_menuCliente;
 import jaboc_UI.JabocUI_Utilidades.JabocUI_popUp.PopUp_vazio;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -41,6 +42,7 @@ public class interface_Cardapio extends javax.swing.JFrame {
         scrollCardapio.setViewportBorder(null);
         scrollCardapio.setBorder(null);
         
+        carregarCardapio();
     }
 
     /**
@@ -68,7 +70,6 @@ public class interface_Cardapio extends javax.swing.JFrame {
         panel2 = new jaboc_UI.jabocUI_Utilidades.Panel();
         scrollCardapio = new javax.swing.JScrollPane();
         tabelaCardapio = new jaboc_UI.JabocUI_Utilidades.JabocUI_Classes.Table();
-        carregarTabela = new jaboc_UI.jabocUI_Utilidades.ButtonCirculo();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -219,7 +220,7 @@ public class interface_Cardapio extends javax.swing.JFrame {
         );
         panel2Layout.setVerticalGroup(
             panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(scrollCardapio, javax.swing.GroupLayout.DEFAULT_SIZE, 317, Short.MAX_VALUE)
+            .addComponent(scrollCardapio, javax.swing.GroupLayout.DEFAULT_SIZE, 351, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
@@ -236,50 +237,30 @@ public class interface_Cardapio extends javax.swing.JFrame {
             .addGroup(panel1Layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addComponent(panel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
-
-        carregarTabela.setBackground(new java.awt.Color(79, 84, 101));
-        carregarTabela.setForeground(new java.awt.Color(252, 252, 252));
-        carregarTabela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_recarregar.png"))); // NOI18N
-        carregarTabela.setText(" Carregar cardápio");
-        carregarTabela.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                carregarTabelaActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(20, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(carregarTabela, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(264, 264, 264))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 785, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)))
+                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 785, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(panel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(12, 12, 12)
+                .addGap(24, 24, 24)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(carregarTabela, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(15, 15, 15))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -339,23 +320,6 @@ public class interface_Cardapio extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_bCarrinhoActionPerformed
 
-    private void carregarTabelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carregarTabelaActionPerformed
-
-        DefaultTableModel cardapio = (DefaultTableModel) tabelaCardapio.getModel();
-        for (Produto p : daoProduto.Listagem()) {
-            cardapio.addRow(new Object[]{
-                p.getIdProduto(),
-                p.getNomeProduto(),
-                p.getTipoProduto(),
-                p.getQtdeProduto(),
-                p.getPrecoProduto()
-
-            });
-        }
-
-        carregarTabela.setEnabled(false);
-    }//GEN-LAST:event_carregarTabelaActionPerformed
-
     private void tabelaCardapioMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaCardapioMousePressed
 
         produto_Selecionado = tabelaCardapio.getSelectedRow();
@@ -373,9 +337,25 @@ public class interface_Cardapio extends javax.swing.JFrame {
     }//GEN-LAST:event_bVoltarMouseExited
 
     private void bVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVoltarActionPerformed
-        // TODO add your handling code here:
+       interface_menuCliente i_menu = new interface_menuCliente();
+       i_menu.setVisible(true);
+       this.dispose();
     }//GEN-LAST:event_bVoltarActionPerformed
-   
+   public void carregarCardapio(){  
+       tabelaCardapio.removeAll();
+      
+        DefaultTableModel cardapio = (DefaultTableModel) tabelaCardapio.getModel();
+        for (Produto p : daoProduto.Listagem()) {
+            cardapio.addRow(new Object[]{
+                p.getIdProduto(),
+                p.getNomeProduto(),
+                p.getTipoProduto(),
+                p.getQtdeProduto(),
+                p.getPrecoProduto()
+
+            });
+        }
+   }
     /**
      * @param args the command line arguments
      */
@@ -424,7 +404,6 @@ public class interface_Cardapio extends javax.swing.JFrame {
     private jaboc_UI.jabocUI_Utilidades.ButtonCirculo bCarrinho;
     private jaboc_UI.jabocUI_Utilidades.ButtonCirculo bEditar;
     private jaboc_UI.jabocUI_Utilidades.ButtonCirculo bVoltar;
-    private jaboc_UI.jabocUI_Utilidades.ButtonCirculo carregarTabela;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;

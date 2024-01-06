@@ -5,10 +5,8 @@
 package jaboc_UI.Produtos;
 
 import jaboc_BancoDeDados.Modelo.DAO_Produto;
-import jaboc_Biblioteca.glasspanepopup.Popup;
 import jaboc_Classes.Produto;
-import jaboc_UI.JabocUI_Utilidades.JabocUI_popUp.PopUp_adicionar;
-import jaboc_UI.JabocUI_Utilidades.JabocUI_popUp.PopUp_atualizar;
+import jaboc_UI.JabocUI_Utilidades.JabocUI_popUp.PopUp_mensagemProduto;
 import java.awt.Color;
 import raven.glasspanepopup.GlassPanePopup;
 
@@ -59,10 +57,12 @@ public class interface_editarProduto extends javax.swing.JFrame {
         tipoProduto = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel2.setBackground(new java.awt.Color(164, 144, 124));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel3.setBackground(new java.awt.Color(252, 252, 252));
 
@@ -123,11 +123,14 @@ public class interface_editarProduto extends javax.swing.JFrame {
                 .addGap(25, 25, 25))
         );
 
+        jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 0, -1, 550));
+
         jLabel7.setBackground(new java.awt.Color(255, 255, 255));
         jLabel7.setFont(new java.awt.Font("Gill Sans MT", 1, 30)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText(" EDITAR PRODUTO");
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 590, 95));
 
         panel1.setBackground(new java.awt.Color(200, 182, 166));
 
@@ -320,28 +323,10 @@ public class interface_editarProduto extends javax.swing.JFrame {
                 .addGap(25, 25, 25))
         );
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(69, 69, 69)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(107, Short.MAX_VALUE)
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(118, 118, 118))
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        jPanel2.add(panel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(69, 220, -1, -1));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/principal/fdn1.png"))); // NOI18N
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -396,7 +381,7 @@ public class interface_editarProduto extends javax.swing.JFrame {
 
         Produto obj_produto = new Produto(nome_Produto, qtde_Produto, 0, tipo_Produto, preco_Produto);
         daoProduto.update(obj_produto, receberId);
-        GlassPanePopup.showPopup(new PopUp_atualizar());
+        GlassPanePopup.showPopup(new PopUp_mensagemProduto("Atualizado com sucesso!"));
 
     }//GEN-LAST:event_editarProdutoActionPerformed
 
@@ -466,6 +451,7 @@ public class interface_editarProduto extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

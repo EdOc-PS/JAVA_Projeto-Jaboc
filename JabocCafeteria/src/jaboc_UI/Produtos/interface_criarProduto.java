@@ -6,7 +6,7 @@ package jaboc_UI.Produtos;
 
 import jaboc_BancoDeDados.Modelo.DAO_Produto;
 import jaboc_Classes.Produto;
-import jaboc_UI.JabocUI_Utilidades.JabocUI_popUp.PopUp_adicionar;
+import jaboc_UI.JabocUI_Utilidades.JabocUI_popUp.PopUp_mensagemProduto;
 import jaboc_UI.JabocUI_Utilidades.JabocUI_popUp.PopUp_vazio;
 import java.awt.Color;
 import java.util.ArrayList;
@@ -61,10 +61,12 @@ public class interface_criarProduto extends javax.swing.JFrame {
         tipoProduto = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(164, 144, 124));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel5.setBackground(new java.awt.Color(252, 252, 252));
         jPanel5.setPreferredSize(new java.awt.Dimension(244, 233));
@@ -136,11 +138,14 @@ public class interface_criarProduto extends javax.swing.JFrame {
                 .addGap(25, 25, 25))
         );
 
+        jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 0, 310, 550));
+
         jLabel6.setFont(new java.awt.Font("Gill Sans MT", 1, 30)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_adicionar2.png"))); // NOI18N
         jLabel6.setText(" ADICIONAR PRODUTO");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 70, 578, 100));
 
         panel1.setBackground(new java.awt.Color(200, 182, 166));
 
@@ -333,32 +338,10 @@ public class interface_criarProduto extends javax.swing.JFrame {
                 .addGap(25, 25, 25))
         );
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(70, 70, 70)
-                        .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, 550, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(70, Short.MAX_VALUE)
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(52, 52, 52)
-                .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(116, 116, 116))
-        );
+        jPanel1.add(panel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 222, -1, -1));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/principal/fdn1.png"))); // NOI18N
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 550));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -409,7 +392,7 @@ public class interface_criarProduto extends javax.swing.JFrame {
 
             DAO_Produto daoProduto = new DAO_Produto();
             daoProduto.insert(obj_produto);
-            GlassPanePopup.showPopup(new PopUp_adicionar());
+            GlassPanePopup.showPopup(new PopUp_mensagemProduto("Inserido com sucesso!"));
             this.setarCamposVazios();
 
         } else {
@@ -446,7 +429,7 @@ public class interface_criarProduto extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void criarProduto(String args[]) {
+    public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -488,6 +471,7 @@ public class interface_criarProduto extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel5;

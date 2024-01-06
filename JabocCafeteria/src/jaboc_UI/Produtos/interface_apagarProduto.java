@@ -6,7 +6,7 @@ package jaboc_UI.Produtos;
 
 import jaboc_BancoDeDados.Modelo.DAO_Produto;
 import jaboc_Classes.Produto;
-import jaboc_UI.JabocUI_Utilidades.JabocUI_popUp.PopUp_deletar;
+import jaboc_UI.JabocUI_Utilidades.JabocUI_popUp.PopUp_mensagemProduto;
 import java.awt.Color;
 import raven.glasspanepopup.GlassPanePopup;
 
@@ -40,7 +40,7 @@ public class interface_apagarProduto extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         bVoltar = new jaboc_UI.jabocUI_Utilidades.ButtonCirculo();
-        criaProduto = new jaboc_UI.jabocUI_Utilidades.ButtonCirculo();
+        apagarProduto = new jaboc_UI.jabocUI_Utilidades.ButtonCirculo();
         jLabel2 = new javax.swing.JLabel();
         panel1 = new jaboc_UI.jabocUI_Utilidades.Panel();
         panel4 = new jaboc_UI.jabocUI_Utilidades.Panel();
@@ -56,10 +56,12 @@ public class interface_apagarProduto extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         tipoProduto = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(164, 144, 124));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel3.setBackground(new java.awt.Color(252, 252, 252));
 
@@ -84,20 +86,20 @@ public class interface_apagarProduto extends javax.swing.JFrame {
             }
         });
 
-        criaProduto.setBackground(new java.awt.Color(79, 84, 101));
-        criaProduto.setForeground(new java.awt.Color(252, 252, 252));
-        criaProduto.setText("Deletar");
-        criaProduto.addMouseListener(new java.awt.event.MouseAdapter() {
+        apagarProduto.setBackground(new java.awt.Color(79, 84, 101));
+        apagarProduto.setForeground(new java.awt.Color(252, 252, 252));
+        apagarProduto.setText("Deletar");
+        apagarProduto.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                criaProdutoMouseEntered(evt);
+                apagarProdutoMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                criaProdutoMouseExited(evt);
+                apagarProdutoMouseExited(evt);
             }
         });
-        criaProduto.addActionListener(new java.awt.event.ActionListener() {
+        apagarProduto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                criaProdutoActionPerformed(evt);
+                apagarProdutoActionPerformed(evt);
             }
         });
 
@@ -114,7 +116,7 @@ public class interface_apagarProduto extends javax.swing.JFrame {
                         .addComponent(bVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(28, 28, 28)
-                        .addComponent(criaProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(apagarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 26, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -126,15 +128,18 @@ public class interface_apagarProduto extends javax.swing.JFrame {
                     .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(criaProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(apagarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18))
         );
+
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 0, -1, 550));
 
         jLabel2.setFont(new java.awt.Font("Gill Sans MT", 1, 30)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_lixo2.png"))); // NOI18N
         jLabel2.setText(" APAGAR PRODUTO");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 590, 90));
 
         panel1.setBackground(new java.awt.Color(200, 182, 166));
 
@@ -164,16 +169,16 @@ public class interface_apagarProduto extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(nomeProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(nomeProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(17, 17, 17))
         );
         panel4Layout.setVerticalGroup(
             panel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel4Layout.createSequentialGroup()
                 .addGap(0, 0, 0)
                 .addGroup(panel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
-                    .addComponent(nomeProduto))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(nomeProduto, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -198,16 +203,16 @@ public class interface_apagarProduto extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(itel1, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(qtdeProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(qtdeProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(16, 16, 16))
         );
         panel8Layout.setVerticalGroup(
             panel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel8Layout.createSequentialGroup()
                 .addGap(0, 0, 0)
                 .addGroup(panel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(itel1, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
-                    .addComponent(qtdeProduto))
+                    .addComponent(itel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(qtdeProduto, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -231,8 +236,8 @@ public class interface_apagarProduto extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(itel, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(precoProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(precoProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(17, 17, 17))
         );
         panel9Layout.setVerticalGroup(
             panel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -265,13 +270,13 @@ public class interface_apagarProduto extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(tipoProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(tipoProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(16, 16, 16))
         );
         panel2Layout.setVerticalGroup(
             panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
-            .addComponent(tipoProduto, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(tipoProduto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
         );
 
         jLabel4.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
@@ -311,35 +316,13 @@ public class interface_apagarProduto extends javax.swing.JFrame {
                 .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(panel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25))
+                .addGap(31, 31, 31))
         );
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 578, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(67, 67, 67)))
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(79, Short.MAX_VALUE)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(59, 59, 59)
-                .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(115, 115, 115))
-        );
+        jPanel1.add(panel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(73, 218, -1, -1));
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/principal/fdn1.png"))); // NOI18N
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 550));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -369,18 +352,18 @@ public class interface_apagarProduto extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_bVoltarActionPerformed
 
-    private void criaProdutoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_criaProdutoMouseEntered
-        criaProduto.setBackground(new Color(63, 66, 73));
-    }//GEN-LAST:event_criaProdutoMouseEntered
+    private void apagarProdutoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_apagarProdutoMouseEntered
+        apagarProduto.setBackground(new Color(63, 66, 73));
+    }//GEN-LAST:event_apagarProdutoMouseEntered
 
-    private void criaProdutoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_criaProdutoMouseExited
-        criaProduto.setBackground(new Color(79, 84, 101));
-    }//GEN-LAST:event_criaProdutoMouseExited
+    private void apagarProdutoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_apagarProdutoMouseExited
+        apagarProduto.setBackground(new Color(79, 84, 101));
+    }//GEN-LAST:event_apagarProdutoMouseExited
 
-    private void criaProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_criaProdutoActionPerformed
+    private void apagarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_apagarProdutoActionPerformed
         this.daoProduto.delete(receberId);
-        GlassPanePopup.showPopup(new PopUp_deletar());
-    }//GEN-LAST:event_criaProdutoActionPerformed
+        GlassPanePopup.showPopup(new PopUp_mensagemProduto("Deletado com sucesso!"));
+    }//GEN-LAST:event_apagarProdutoActionPerformed
 
     private void nomeProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeProdutoActionPerformed
         // TODO add your handling code here:
@@ -434,8 +417,8 @@ public class interface_apagarProduto extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private jaboc_UI.jabocUI_Utilidades.ButtonCirculo apagarProduto;
     private jaboc_UI.jabocUI_Utilidades.ButtonCirculo bVoltar;
-    private jaboc_UI.jabocUI_Utilidades.ButtonCirculo criaProduto;
     private javax.swing.JLabel itel;
     private javax.swing.JLabel itel1;
     private javax.swing.JLabel jLabel1;
@@ -443,6 +426,7 @@ public class interface_apagarProduto extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JTextField nomeProduto;
