@@ -4,6 +4,7 @@
  */
 package jaboc_UI.Pedidos;
 
+import jaboc_BancoDeDados.Modelo.DAO_ContaFuncionario;
 import jaboc_BancoDeDados.Modelo.DAO_Pedido;
 import jaboc_Biblioteca.outras.ModernScrollBarUI;
 import jaboc_Classes.Pedido;
@@ -12,6 +13,7 @@ import jaboc_UI.JabocUI_Utilidades.JabocUI_popUp.PopUp_GerenciaProdutos;
 import java.awt.Color;
 import java.awt.Dimension;
 import javax.swing.JScrollBar;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import raven.glasspanepopup.GlassPanePopup;
 
@@ -38,6 +40,8 @@ public class interface_controlePedidos extends javax.swing.JFrame {
         bar.setUI(new ModernScrollBarUI());
         scrollPedidos.setViewportBorder(null);
         scrollPedidos.setBorder(null);
+        
+        CarregarTotalmenteTabela();
     }
 
     /**
@@ -58,7 +62,6 @@ public class interface_controlePedidos extends javax.swing.JFrame {
         panel2 = new jaboc_UI.jabocUI_Utilidades.Panel();
         scrollPedidos = new javax.swing.JScrollPane();
         tabelaPedidos = new jaboc_UI.JabocUI_Utilidades.JabocUI_Classes.Table();
-        carregarTabela = new jaboc_UI.jabocUI_Utilidades.ButtonCirculo();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -120,7 +123,6 @@ public class interface_controlePedidos extends javax.swing.JFrame {
 
         scrollPedidos.setBorder(null);
 
-        tabelaPedidos.setBackground(new java.awt.Color(255, 255, 255));
         tabelaPedidos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -180,16 +182,6 @@ public class interface_controlePedidos extends javax.swing.JFrame {
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
-        carregarTabela.setBackground(new java.awt.Color(79, 84, 101));
-        carregarTabela.setForeground(new java.awt.Color(252, 252, 252));
-        carregarTabela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_recarregar.png"))); // NOI18N
-        carregarTabela.setText(" Carregar ");
-        carregarTabela.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                carregarTabelaActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -197,11 +189,7 @@ public class interface_controlePedidos extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap(21, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 780, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                            .addComponent(carregarTabela, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(248, 248, 248)))
+                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 780, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -213,9 +201,7 @@ public class interface_controlePedidos extends javax.swing.JFrame {
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(carregarTabela, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(40, Short.MAX_VALUE))
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
@@ -242,29 +228,23 @@ public class interface_controlePedidos extends javax.swing.JFrame {
     }//GEN-LAST:event_bVoltarMouseExited
 
     private void bVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVoltarActionPerformed
-        
+        this.dispose();
+        DAO_ContaFuncionario.limparDados_Memoria();
     }//GEN-LAST:event_bVoltarActionPerformed
 
     private void tabelaPedidosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaPedidosMouseClicked
-        PopUp_ControlePedido PopUP_CP = new PopUp_ControlePedido();
+        PopUp_ControlePedido PopUP_CP = new PopUp_ControlePedido(this);
         pedido_Selecionado = tabelaPedidos.getSelectedRow();
         int idSelecionado = Integer.parseInt(tabelaPedidos.getValueAt(pedido_Selecionado, 0).toString());
 
         PopUP_CP.receber(idSelecionado);
         GlassPanePopup.showPopup(PopUP_CP);
     }//GEN-LAST:event_tabelaPedidosMouseClicked
-
-    private void carregarTabelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carregarTabelaActionPerformed
-
-        CarregarTotalmenteTabela("Enviado");
-        CarregarTotalmenteTabela("Preparando ");
-        carregarTabela.setEnabled(false);
-    }//GEN-LAST:event_carregarTabelaActionPerformed
-    private void CarregarTotalmenteTabela(String status) {
+    public void CarregarTotalmenteTabela() {
         
         DAO_Pedido daoPedido = new DAO_Pedido();
         DefaultTableModel pedidos = (DefaultTableModel) tabelaPedidos.getModel();
-        for (Pedido p : daoPedido.ListagemEspecifica(status)) {
+        for (Pedido p : daoPedido.Listagem()) {
             pedidos.addRow(new Object[]{
                 p.getIdPedido(),
                 p.getNomePedido(),
@@ -275,6 +255,10 @@ public class interface_controlePedidos extends javax.swing.JFrame {
         }
     }
 
+    public JTable getTabelaPedidos(){
+        return this.tabelaPedidos;
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -312,7 +296,6 @@ public class interface_controlePedidos extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private jaboc_UI.jabocUI_Utilidades.ButtonCirculo bVoltar;
-    private jaboc_UI.jabocUI_Utilidades.ButtonCirculo carregarTabela;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;

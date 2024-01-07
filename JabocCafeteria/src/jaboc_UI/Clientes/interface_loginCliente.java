@@ -8,6 +8,7 @@ import jaboc_BancoDeDados.Controle.Logavel;
 import jaboc_BancoDeDados.Modelo.DAO_ContaCliente;
 import jaboc_Classes.Login;
 import jaboc_UI.Cardapio.interface_Cardapio;
+import jaboc_UI.JabocUI_Utilidades.JabocUI_popUp.PopUp_SenhaIncorreta;
 import jaboc_UI.JabocUI_Utilidades.JabocUI_popUp.PopUp_vazio;
 import java.awt.Color;
 import raven.glasspanepopup.GlassPanePopup;
@@ -367,8 +368,8 @@ public class interface_loginCliente extends javax.swing.JFrame {
                     iCardapio.setVisible(true);
                     this.dispose();                       
                 }else{
-                    senhaCliente_login.setText(" Senha:");
-                    senhaCliente_login.setEchoChar((char) 0);
+                    this.resetarCampoSenha();
+                    GlassPanePopup.showPopup(new PopUp_SenhaIncorreta());
                 } 
                 
             }else{
@@ -392,41 +393,15 @@ public class interface_loginCliente extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_bOlho_senhaMouseClicked
 
+    private void resetarCampoSenha(){
+        this.senhaCliente_login.setText(" Senha:");
+        this.senhaCliente_login.setEchoChar((char) 0);
+        this.bOlho_senha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconLabel/olho.png")));
+        this.activeBOlho_senha = true;
+    }
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Windows".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(interface_loginCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(interface_loginCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(interface_loginCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(interface_loginCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                new interface_loginCliente().setVisible(true);
-            }
-        });
-    }
 
     private void armazenaCamposTextos(){
         this.CAMPOS_TEXTO.add(cpfCliente_login);
@@ -455,18 +430,9 @@ public class interface_loginCliente extends javax.swing.JFrame {
    }
    
    private void setarCamposVazios(){
-       System.out.println(this.DADOS_CAMPOS_TEXTO);
-        Iterator<JTextField> percorrerCamposTextos = this.CAMPOS_TEXTO.iterator();
-        Iterator<String> percorrerDados_CamposTextos = this.DADOS_CAMPOS_TEXTO.iterator();
-       
-        while(percorrerCamposTextos.hasNext()){
-           JTextField campoAtual = percorrerCamposTextos.next();
-           String novoDadoCampoAtual = percorrerDados_CamposTextos.next();
-           
-           campoAtual.setText(novoDadoCampoAtual);
-       }
-        
-        senhaCliente_login.setEchoChar((char)0);
+       this.cpfCliente_login.removerFormatacao();
+       this.cpfCliente_login.setText(" CPF:");
+       this.resetarCampoSenha();
    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private jaboc_UI.jabocUI_Utilidades.ButtonCirculo bOlho_senha;

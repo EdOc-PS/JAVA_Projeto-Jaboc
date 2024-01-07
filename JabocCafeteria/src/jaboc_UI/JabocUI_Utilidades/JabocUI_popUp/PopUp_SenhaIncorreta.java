@@ -4,7 +4,9 @@
  */
 package jaboc_UI.JabocUI_Utilidades.JabocUI_popUp;
 
-import jaboc_Biblioteca.glasspanepopup.GlassPanePopup;
+import raven.glasspanepopup.GlassPanePopup;
+
+
 
 /**
  *

@@ -4,12 +4,14 @@
  */
 package jaboc_UI.Cardapio;
 
+import jaboc_BancoDeDados.Modelo.DAO_ContaCliente;
 import jaboc_BancoDeDados.Modelo.DAO_Produto;
 import jaboc_Biblioteca.outras.ModernScrollBarUI;
 import jaboc_Classes.Produto;
 import jaboc_UI.Clientes.interface_editarCliente;
 import jaboc_UI.Clientes.interface_menuCliente;
 import jaboc_UI.JabocUI_Utilidades.JabocUI_popUp.PopUp_mensagemCarrinho;
+import jaboc_UI.JabocUI_Utilidades.JabocUI_popUp.PopUp_resetarCliente;
 import jaboc_UI.JabocUI_Utilidades.JabocUI_popUp.PopUp_vazio;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -338,9 +340,16 @@ public class interface_Cardapio extends javax.swing.JFrame {
     }//GEN-LAST:event_bVoltarMouseExited
 
     private void bVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVoltarActionPerformed
-        interface_menuCliente i_menu = new interface_menuCliente();
-        i_menu.setVisible(true);
-        this.dispose();
+        PopUp_resetarCliente i_logout = new PopUp_resetarCliente();
+        
+        if(i_logout.getRespostaDialogo()){
+            interface_menuCliente i_menu = new interface_menuCliente();
+            i_menu.setVisible(true);
+            this.dispose();
+            
+            DAO_ContaCliente.limparDados_Memoria();
+        }
+              
     }//GEN-LAST:event_bVoltarActionPerformed
     public void carregarCardapio() {
         tabelaCardapio.removeAll();
@@ -358,48 +367,6 @@ public class interface_Cardapio extends javax.swing.JFrame {
         }
     }
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Windows".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(interface_Cardapio.class
-                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
-
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(interface_Cardapio.class
-                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
-
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(interface_Cardapio.class
-                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
-
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(interface_Cardapio.class
-                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new interface_Cardapio().setVisible(true);
-            }
-        });
-    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

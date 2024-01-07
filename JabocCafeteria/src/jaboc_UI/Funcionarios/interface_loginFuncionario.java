@@ -8,7 +8,9 @@ import jaboc_BancoDeDados.Controle.Logavel;
 import jaboc_BancoDeDados.Modelo.DAO_ContaFuncionario;
 import jaboc_Biblioteca.glasspanepopup.GlassPanePopup;
 import jaboc_Classes.Login;
+import jaboc_UI.JabocUI_Utilidades.JabocUI_popUp.PopUp_SenhaIncorreta;
 import jaboc_UI.JabocUI_Utilidades.JabocUI_popUp.PopUp_vazio;
+import jaboc_UI.Pedidos.interface_controlePedidos;
 import java.awt.Color;
 
 /**
@@ -24,6 +26,8 @@ public class interface_loginFuncionario extends javax.swing.JFrame {
         initComponents();
         
         this.cpfFuncionario_login.addFormatacao("###.###.###-##");
+        
+        GlassPanePopup.install(this);
     }
     
     public interface_loginFuncionario(String cpfFuncionario) {
@@ -284,9 +288,12 @@ public class interface_loginFuncionario extends javax.swing.JFrame {
                 if(buscandoLoginBD.login(clienteLogando)){
 
                     this.dispose();
+                    interface_controlePedidos i_Pedidos = new interface_controlePedidos();
+                    i_Pedidos.setVisible(true);
                     
                 }else{
                     this.resetarCampoSenha();
+                    GlassPanePopup.showPopup(new PopUp_SenhaIncorreta());
                 }
 
             }else{
@@ -322,6 +329,7 @@ public class interface_loginFuncionario extends javax.swing.JFrame {
     }
     
     private void setarCamposVazios(){
+        this.cpfFuncionario_login.removerFormatacao();
         this.cpfFuncionario_login.setText(" CPF:");
         this.resetarCampoSenha();
     }

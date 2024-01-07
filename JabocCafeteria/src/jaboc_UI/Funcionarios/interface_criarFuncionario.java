@@ -11,14 +11,15 @@ import jaboc_BancoDeDados.Modelo.DAO_Pessoa;
 import jaboc_Classes.Conta_Funcionario;
 import jaboc_Classes.Pessoa;
 import jaboc_UI.JabocUI_Utilidades.JabocUI_popUp.PopUp_ClienteParaFuncionario;
+import jaboc_UI.JabocUI_Utilidades.JabocUI_popUp.PopUp_FuncionarioJaCadastrado;
 import jaboc_UI.JabocUI_Utilidades.JabocUI_popUp.PopUp_mensagemProduto;
 import jaboc_UI.JabocUI_Utilidades.JabocUI_popUp.PopUp_vazio;
 import jaboc_UI.jabocUI_Utilidades.JabocUI_popUp.PopUp_Senha;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Iterator;
-import javax.swing.JFrame;
 import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
 import raven.glasspanepopup.GlassPanePopup;
 
 /**
@@ -29,11 +30,11 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
     private final ArrayList<JTextField> CAMPOS_TEXTO = new ArrayList<>();
     private final ArrayList<String> DADOS_CAMPOS_TEXTO = new ArrayList<>();
     private boolean activeButton = true, activeButton1 = true;
-    private JFrame pai;
+    private interface_exibirFuncionarios pai;
     /**
      * Creates new form NewJFrame
      */
-    public interface_criarFuncionario(JFrame pai) {
+    public interface_criarFuncionario(interface_exibirFuncionarios pai) {
        this.pai = pai;
         
         initComponents();
@@ -595,9 +596,8 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
                 
                 if(daoFuncionario.existeRegistro(objetoPessoa.getCpf())){
                     
-                    interface_loginFuncionario i_loginFuncionario = new interface_loginFuncionario(objetoPessoa.getCpf());
-                    i_loginFuncionario.setVisible(true);                   
-                    this.dispose();
+                    GlassPanePopup.showPopup(new PopUp_FuncionarioJaCadastrado());
+                    this.setarCamposVazios();
                     
                 }else if(daoCliente.existeRegistro(objetoPessoa.getCpf())){
                     
@@ -606,7 +606,10 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
                     
                     if(respostaDialogo == true){                       
                         
-                        daoFuncionario.insert(cadastrarFuncionario);
+                        if(daoFuncionario.insert(cadastrarFuncionario)){
+                            GlassPanePopup.showPopup(new PopUp_mensagemProduto("Inserido com sucesso!"));
+                            this.pai.carregarTabela();
+                        }              
                         
                     }else{
                         this.setarCamposVazios();
@@ -617,6 +620,7 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
                     
                     if(daoFuncionario.insert(cadastrarFuncionario)){
                         GlassPanePopup.showPopup(new PopUp_mensagemProduto("Inserido com sucesso!"));
+                        this.pai.carregarTabela();
                         this.setarCamposVazios();
                     }
                 }
@@ -682,7 +686,7 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
         this.DADOS_CAMPOS_TEXTO.add(telefoneFuncionario.getText());
         this.DADOS_CAMPOS_TEXTO.add(cpfFuncionario.getText());
         this.DADOS_CAMPOS_TEXTO.add(enderecoFuncionario.getText());
-        this.DADOS_CAMPOS_TEXTO.add(salarioFuncionario.getText());
+        this.DADOS_CAMPOS_TEXTO.add("0,00");
         this.DADOS_CAMPOS_TEXTO.add(String.valueOf(senhaFuncionario_cadastrar.getPassword()));
         this.DADOS_CAMPOS_TEXTO.add(String.valueOf(verificarSenhaFuncionario_cadastrar.getPassword()));
     }
@@ -733,6 +737,13 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
         this.cpfFuncionario.removerFormatacao();
         this.telefoneFuncionario.removerFormatacao();
     }
+    
+    private void atualizarTabelaFuncionarios(){
+        DefaultTableModel dadosTabela = (DefaultTableModel) this.pai.getTabelaFuncionario().getModel();
+        dadosTabela.setRowCount(0);
+        this.pai.carregarTabela();
+    }
+    
     /**
      * @param args the command line arguments
      */

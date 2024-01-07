@@ -80,4 +80,30 @@ public class FormattedNumberField extends JFormattedTextField{
              
         return formatadorNumerico;
     }
+    
+    public void setFormattedText(String t){
+        char[] numero = t.toCharArray();
+        
+        for(int posNumero = 0;posNumero < numero.length; posNumero++){
+            if(numero[posNumero] == '.'){
+                numero[posNumero] = ',';
+            }
+        }
+        
+        String numeroFormatado = String.valueOf(numero);
+        super.setText(numeroFormatado);
+    }
+    
+    public String getFormattedText(){
+        String numeroString = super.getText();
+        char[] numeroString_array = numeroString.toCharArray();
+        
+        for(int posNumero = 0; posNumero < numeroString_array.length;posNumero++){
+            if(numeroString_array[posNumero] == ','){
+                numeroString_array[posNumero] = '.';
+            }
+        }
+        
+        return String.valueOf(numeroString_array);
+    }
 }

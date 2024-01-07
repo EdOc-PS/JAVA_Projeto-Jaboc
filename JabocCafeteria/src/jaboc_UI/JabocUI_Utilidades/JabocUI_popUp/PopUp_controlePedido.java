@@ -5,12 +5,14 @@
 package jaboc_UI.JabocUI_Utilidades.JabocUI_popUp;
 
 import jaboc_BancoDeDados.Modelo.DAO_Pedido;
+import jaboc_UI.Pedidos.interface_controlePedidos;
 import jaboc_UI.Produtos.interface_gerenciarProdutos;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.awt.geom.RoundRectangle2D;
+import javax.swing.table.DefaultTableModel;
 import raven.glasspanepopup.GlassPanePopup;
 
 /**
@@ -18,15 +20,17 @@ import raven.glasspanepopup.GlassPanePopup;
  * @author eeuar
  */
 public class PopUp_ControlePedido extends javax.swing.JPanel {
-
+    private interface_controlePedidos pai;
     private int receberId;
     DAO_Pedido daoPedido = new DAO_Pedido();
     interface_gerenciarProdutos i_gereProdutos;
 
     /**
      * Creates new form PopUp_GerenciaProdutos
+     * @param pai
      */
-    public PopUp_ControlePedido() {
+    public PopUp_ControlePedido(interface_controlePedidos pai) {
+        this.pai = pai;
         initComponents();
         setOpaque(false);
     }
@@ -181,6 +185,12 @@ public class PopUp_ControlePedido extends javax.swing.JPanel {
 
     private void bPrepararActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bPrepararActionPerformed
         daoPedido.update("Preparando", this.receberId);
+        
+        DefaultTableModel estruturaTabela = (DefaultTableModel) this.pai.getTabelaPedidos().getModel();
+        estruturaTabela.setNumRows(0);
+        
+        this.pai.CarregarTotalmenteTabela();
+        GlassPanePopup.closePopupLast();
     }//GEN-LAST:event_bPrepararActionPerformed
 
     private void bPrepararMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bPrepararMouseEntered
@@ -202,7 +212,13 @@ public class PopUp_ControlePedido extends javax.swing.JPanel {
     }//GEN-LAST:event_bCancelarMouseExited
 
     private void bCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCancelarActionPerformed
-         daoPedido.update("Cancelado", this.receberId);
+        daoPedido.update("Cancelado", this.receberId);
+         
+        DefaultTableModel estruturaTabela = (DefaultTableModel) this.pai.getTabelaPedidos().getModel();
+        estruturaTabela.setNumRows(0);
+        
+        this.pai.CarregarTotalmenteTabela();
+        GlassPanePopup.closePopupLast();
     }//GEN-LAST:event_bCancelarActionPerformed
 
     public void receber(int id) {

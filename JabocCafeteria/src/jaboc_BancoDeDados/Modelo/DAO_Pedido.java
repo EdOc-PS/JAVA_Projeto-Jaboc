@@ -18,7 +18,7 @@ public class DAO_Pedido implements DAO {
 
     @Override
     public ResultSet selectTodos() {
-        String comandoSelect = "SELECT * FROM jaboc_servidor.Pedido;";
+        String comandoSelect = "SELECT * FROM jaboc_servidor.Pedido WHERE status IN ('Enviado', 'Preparando ') ORDER BY status;";
 
         ResultSet resultadosSelect = null;
 
