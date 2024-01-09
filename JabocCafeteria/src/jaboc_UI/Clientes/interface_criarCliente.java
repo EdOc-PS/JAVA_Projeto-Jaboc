@@ -598,7 +598,7 @@ public class interface_criarCliente extends javax.swing.JFrame {
                     
                 }   
             }else{
-                GlassPanePopup.showPopup(new PopUp_Senha());
+                GlassPanePopup.showPopup(new PopUp_Senha("As senhas não são iguais!"));
             }   
         }else{
           GlassPanePopup.showPopup(new PopUp_vazio());

@@ -85,12 +85,12 @@ public class PopUp_cpf extends javax.swing.JPanel {
         setBackground(new java.awt.Color(252, 252, 252));
 
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_atention.png"))); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_atention2.png"))); // NOI18N
 
         jLabel6.setFont(new java.awt.Font("Gill Sans MT", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(79, 84, 101));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("Existem campos vazíos!");
+        jLabel6.setText("Esse CPF não existe");
 
         bPopUp.setBackground(new java.awt.Color(250, 112, 112));
         bPopUp.setForeground(new java.awt.Color(255, 255, 255));

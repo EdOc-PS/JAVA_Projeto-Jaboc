@@ -11,8 +11,6 @@ import jaboc_Classes.Conta_Cliente;
 import jaboc_Classes.Pessoa;
 import jaboc_UI.Cardapio.interface_Cardapio;
 import jaboc_UI.JabocUI_Utilidades.JabocUI_popUp.PopUp_EditarPessoal;
-import jaboc_UI.JabocUI_Utilidades.JabocUI_popUp.PopUp_SenhaIncorreta;
-import jaboc_UI.JabocUI_Utilidades.JabocUI_popUp.PopUp_SenhaNaoVerificada;
 import jaboc_UI.jabocUI_Utilidades.JabocUI_popUp.PopUp_Senha;
 import java.awt.Color;
 import javax.swing.JPanel;
@@ -643,7 +641,7 @@ public class interface_editarCliente extends javax.swing.JFrame {
                 this.dimensionarPaineis_Senha(this.jPanel_atualizarSenha);
             }else{
                 this.resetarCampoVerificarSenhaAtual();
-                GlassPanePopup.showPopup(new PopUp_SenhaIncorreta());
+                GlassPanePopup.showPopup(new PopUp_Senha("Senha incorreta!"));
             }
         }
     }//GEN-LAST:event_btn_verificarSenhaAtualActionPerformed1
@@ -766,10 +764,10 @@ public class interface_editarCliente extends javax.swing.JFrame {
                     senhaAtualizada = String.valueOf(this.novaSenha_Cliente.getPassword());
                 }else{
                     this.resetarCamposNovaSenha();
-                    GlassPanePopup.showPopup(new PopUp_Senha());
+                    GlassPanePopup.showPopup(new PopUp_Senha("As senhas não são iguais!"));
                 }
             }else{
-                GlassPanePopup.showPopup(new PopUp_SenhaNaoVerificada());
+                GlassPanePopup.showPopup(new PopUp_Senha("A senha não foi verificada!"));
             }
         }   
         

@@ -5,7 +5,12 @@
         <group>
             <file>file:/E:/ESTUDOS/GitHub/Projeto-Jaboc/JabocCafeteria/src/jaboc_UI/Funcionarios/interface_inicioFuncionario.java</file>
             <file>file:/E:/ESTUDOS/GitHub/Projeto-Jaboc/JabocCafeteria/src/jaboc_UI/JabocUI_Utilidades/JabocUI_popUp/PopUp_GerenciarFuncionarios.java</file>
+            <file>file:/E:/ESTUDOS/GitHub/Projeto-Jaboc/JabocCafeteria/src/jaboc_UI/Funcionarios/interface_criarFuncionario.java</file>
+            <file>file:/E:/ESTUDOS/GitHub/Projeto-Jaboc/JabocCafeteria/src/jaboc_UI/JabocUI_Utilidades/JabocUI_popUp/PopUp_mensagemProduto.java</file>
             <file>file:/E:/ESTUDOS/GitHub/Projeto-Jaboc/JabocCafeteria/src/jaboc_UI/Funcionarios/interface_loginFuncionario.java</file>
+            <file>file:/E:/ESTUDOS/GitHub/Projeto-Jaboc/JabocCafeteria/src/jaboc_UI/JabocUI_Utilidades/JabocUI_popUp/PopUp_vazio.java</file>
+            <file>file:/E:/ESTUDOS/GitHub/Projeto-Jaboc/JabocCafeteria/src/jaboc_UI/JabocUI_Utilidades/JabocUI_popUp/PopUp_mensagemCarrinho.java</file>
+            <file>file:/E:/ESTUDOS/GitHub/Projeto-Jaboc/JabocCafeteria/src/jaboc_UI/JabocUI_Utilidades/JabocUI_popUp/PopUp_Senha.java</file>
             <file>file:/E:/ESTUDOS/GitHub/Projeto-Jaboc/JabocCafeteria/src/jaboc_UI/JabocUI_Utilidades/JabocUI_popUp/PopUp_GerenciaProdutos.java</file>
             <file>file:/E:/ESTUDOS/GitHub/Projeto-Jaboc/JabocCafeteria/src/jaboc_UI/Funcionarios/interface_areaFuncionario.java</file>
         </group>

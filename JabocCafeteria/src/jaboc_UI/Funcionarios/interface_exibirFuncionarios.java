@@ -4,16 +4,16 @@
  */
 package jaboc_UI.Funcionarios;
 
-
 import jaboc_BancoDeDados.Modelo.DAO_ContaFuncionario;
-import jaboc_Biblioteca.glasspanepopup.GlassPanePopup;
 import jaboc_Classes.Conta_Funcionario;
 import jaboc_Classes.Pessoa;
+import jaboc_UI.JabocUI_Utilidades.JabocUI_popUp.PopUp_GerenciaFun;
 import jaboc_UI.JabocUI_Utilidades.JabocUI_popUp.PopUp_GerenciarFuncionarios;
 import java.awt.Color;
 import java.util.List;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import raven.glasspanepopup.GlassPanePopup;
 
 /**
  *
@@ -25,9 +25,8 @@ public class interface_exibirFuncionarios extends javax.swing.JFrame {
      * Creates new form interface_exibirFuncionarios
      */
     public interface_exibirFuncionarios() {
-        initComponents();       
+        initComponents();
         setLocationRelativeTo(null);
-        
         GlassPanePopup.install(this);
         this.carregarTabela();
     }
@@ -251,52 +250,47 @@ public class interface_exibirFuncionarios extends javax.swing.JFrame {
 
     private void tabelaFuncionarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaFuncionarioMouseClicked
         Conta_Funcionario funcionarioGerenciavel = this.coletarDados_tabela();
-        PopUp_GerenciarFuncionarios gerenciarFunc = new PopUp_GerenciarFuncionarios(funcionarioGerenciavel, this);
-              
+        PopUp_GerenciaFun gerenciarFunc = new PopUp_GerenciaFun(funcionarioGerenciavel, this);
         GlassPanePopup.showPopup(gerenciarFunc);
 
     }//GEN-LAST:event_tabelaFuncionarioMouseClicked
-  
-    public void carregarTabela(){
+
+    public void carregarTabela() {
         DAO_ContaFuncionario daoFuncionario = new DAO_ContaFuncionario();
         List<Conta_Funcionario> listaFuncionarios = daoFuncionario.listagem();
         DefaultTableModel modeloTabela_funcionarios = (DefaultTableModel) tabelaFuncionario.getModel();
-        
-        for(Conta_Funcionario funcionarioAtual : listaFuncionarios){
-            
+
+        for (Conta_Funcionario funcionarioAtual : listaFuncionarios) {
             String nomeFunc = funcionarioAtual.getTitular().getNome();
             String cpfFunc = funcionarioAtual.getTitular().getCpf();
-            String dadosPessoais = "<html>" +funcionarioAtual.getTitular().getEndereco() + "<br>"
-                    + funcionarioAtual.getTitular().getTelefone()+ "</html>";
+            String dadosPessoais = "<html>" + funcionarioAtual.getTitular().getEndereco() + "<br>"
+                    + funcionarioAtual.getTitular().getTelefone() + "</html>";
             String cargoFunc = funcionarioAtual.getCargoFuncionario();
             double salario = funcionarioAtual.getSalario();
-            
+
             modeloTabela_funcionarios.addRow(new Object[]{nomeFunc, cpfFunc, dadosPessoais, cargoFunc, salario});
-        }        
-        
+        }
         this.tabelaFuncionario.setModel(modeloTabela_funcionarios);
     }
-    
-     private Conta_Funcionario coletarDados_tabela(){
+
+    private Conta_Funcionario coletarDados_tabela() {
         int linhaSelecionada = this.tabelaFuncionario.getSelectedRow();
-        
         String nomeFuncionario = (String) this.tabelaFuncionario.getValueAt(linhaSelecionada, 0);
         String cpfFuncionario = (String) this.tabelaFuncionario.getValueAt(linhaSelecionada, 1);
         String cargoFuncionario = (String) this.tabelaFuncionario.getValueAt(linhaSelecionada, 3);
         double salario = (double) this.tabelaFuncionario.getValueAt(linhaSelecionada, 4);
         System.out.println(salario);
         Pessoa objetoPessoa = new Pessoa(nomeFuncionario, cpfFuncionario);
-        
         return new Conta_Funcionario(objetoPessoa, cargoFuncionario, salario);
-        
+
     }
-    
-    public JTable getTabelaFuncionario(){
+
+    public JTable getTabelaFuncionario() {
         return this.tabelaFuncionario;
     }
-     
+
     public static void exibirFunc(String args[]) {
-         new interface_exibirFuncionarios().setVisible(true);
+        new interface_exibirFuncionarios().setVisible(true);
     }
 
     /**

@@ -8,8 +8,8 @@ import jaboc_BancoDeDados.Controle.Logavel;
 import jaboc_BancoDeDados.Modelo.DAO_ContaCliente;
 import jaboc_Classes.Login;
 import jaboc_UI.Cardapio.interface_Cardapio;
-import jaboc_UI.JabocUI_Utilidades.JabocUI_popUp.PopUp_SenhaIncorreta;
 import jaboc_UI.JabocUI_Utilidades.JabocUI_popUp.PopUp_vazio;
+import jaboc_UI.jabocUI_Utilidades.JabocUI_popUp.PopUp_Senha;
 import java.awt.Color;
 import raven.glasspanepopup.GlassPanePopup;
 import java.util.ArrayList;
@@ -369,7 +369,7 @@ public class interface_loginCliente extends javax.swing.JFrame {
                     this.dispose();                       
                 }else{
                     this.resetarCampoSenha();
-                    GlassPanePopup.showPopup(new PopUp_SenhaIncorreta());
+                    GlassPanePopup.showPopup(new PopUp_Senha("Senha incorreta!"));
                 } 
                 
             }else{

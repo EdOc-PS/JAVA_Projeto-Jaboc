@@ -190,11 +190,6 @@ public class interface_criarProduto extends javax.swing.JFrame {
         panel8.setBackground(new java.awt.Color(255, 255, 255));
 
         qtdeProduto.setText(" Quantidade:");
-        qtdeProduto.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                qtdeProdutoFocusLost(evt);
-            }
-        });
         qtdeProduto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 qtdeProdutoActionPerformed(evt);

@@ -20,13 +20,11 @@ public class PopUp_Senha extends javax.swing.JPanel {
     /**
      * Creates new form interface_mensagen
      */
-    public PopUp_Senha() {
-        initComponents();
-        setOpaque(false);
-    }
+
      public PopUp_Senha(String senha) {
         initComponents();
         setOpaque(false);
+        this.conferirSenha(senha);
     }
      
     @Override
@@ -45,9 +43,11 @@ public class PopUp_Senha extends javax.swing.JPanel {
         
         if (mensagem.equals(desigual)) {
             jtext.setText(desigual);
-        } else if(mensagem.equals(verificada)){
-            
-        }
+        }else if(mensagem.equals(verificada)){
+            jtext.setText(verificada);
+        }else if(mensagem.equals(incorreta)){
+            jtext.setText(incorreta);
+        } 
     }
     /**
      * This method is called from within the constructor to initialize the form.
