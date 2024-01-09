@@ -289,6 +289,9 @@ public class DAO_ContaFuncionario implements DAO, Logavel, SenhaEditavel{
         ResultSet selectContaFuncionario = this.selectEspecifico(funcionarioLogando.getCPF());
         
         try{
+            selectPessoa.next();
+            selectContaFuncionario.next();
+            
             String nomePessoa = selectPessoa.getString("nome");
             String cpfPessoa = selectPessoa.getString("cpf");
             String enderecoPessoa = selectPessoa.getString("endereco");
@@ -296,7 +299,7 @@ public class DAO_ContaFuncionario implements DAO, Logavel, SenhaEditavel{
             
             Pessoa dados_tabelaPessoaBD = new Pessoa(nomePessoa,cpfPessoa, enderecoPessoa, telefonePessoa);
             
-            String cargoContaFuncionario = selectContaFuncionario.getString("cargoContaFuncionario");
+            String cargoContaFuncionario = selectContaFuncionario.getString("cargo");
             String senhaFuncionario = selectContaFuncionario.getString("senhaFuncionario");
             double salario = selectContaFuncionario.getDouble("salario");
             
