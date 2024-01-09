@@ -6,6 +6,7 @@ package jaboc_BancoDeDados.Modelo;
 
 import jaboc_Classes.Pedido;
 import java.sql.ResultSet;
+import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,169 +19,70 @@ public class DAO_Pedido implements DAO {
 
     @Override
     public ResultSet selectTodos() {
+        String comandoSelect = "SELECT * FROM jaboc_servidor.Pedido;";
+
+        ResultSet resultadosSelect = null;
+
+        try (Connection conexao = this.conectar()) {
+            resultadosSelect = conexao.createStatement().executeQuery(comandoSelect);
+        } catch (SQLException error) {
+            System.out.println("Erro no selectTodos() do Pedido: " + error.getMessage());
+        }
+        return resultadosSelect;
+    }
+
+
+    private ArrayList<Pedido> listagemEspecifica(String comandoSelect){
+         ArrayList<Pedido> listaPedidos = new ArrayList<>();
+        
+        try(Connection conexao = this.conectar()){
+            ResultSet resultadosSelect = conexao.createStatement().executeQuery(comandoSelect);
+            
+            while(resultadosSelect.next()){
+                
+                int id = resultadosSelect.getInt("idpedido");
+                String status = resultadosSelect.getString("status");
+                String data = resultadosSelect.getString("datapedido");
+                String nomeCliente = resultadosSelect.getString("nomeCliente");
+                String tipo = resultadosSelect.getString("tipoproduto");
+                String nome = resultadosSelect.getString("nomeproduto");
+                double preco = resultadosSelect.getDouble("precoproduto");
+
+                Pedido pedido = new Pedido(id, status, data,  nomeCliente, tipo, nome, preco);
+                listaPedidos.add(pedido);
+            }
+        }catch(SQLException | NullPointerException error){
+            System.out.println("Erro no listagemEspceficica(String comandoSelect) do DAO_Pedido: "+ error.getMessage());
+        }
+        
+        return listaPedidos;
+    }
+    
+    public ArrayList<Pedido> listagemPedidos_Todos() {
         String comandoSelect = "SELECT * FROM jaboc_servidor.Pedido WHERE status IN ('Enviado', 'Preparando ') ORDER BY status;";
-
-        ResultSet resultadosSelect = null;
-
-        try (java.sql.Connection conexao = this.conectar()) {
-            resultadosSelect = conexao.createStatement().executeQuery(comandoSelect);
-        } catch (SQLException error) {
-            System.out.println("Erro no selectTodos() do Pedido: " + error.getMessage());
-        }
-        return resultadosSelect;
+        return this.listagemEspecifica(comandoSelect);
     }
+    
+    public ArrayList<Pedido> listagemExtrato_Todos() {
 
-    public ResultSet selectExtrato() {
-        String comandoSelect = "SELECT * FROM jaboc_servidor.Pedido WHERE status IN ('Concluido ', 'Cancelado ') ORDER BY status;";
-
-        ResultSet resultadosSelect = null;
-
-        try (java.sql.Connection conexao = this.conectar()) {
-            resultadosSelect = conexao.createStatement().executeQuery(comandoSelect);
-        } catch (SQLException error) {
-            System.out.println("Erro no selectTodos() do Pedido: " + error.getMessage());
-        }
-        return resultadosSelect;
+        String comandoSelect = "SELECT * FROM jaboc_servidor.Pedido WHERE status = 'Concluido ' ORDER BY idpedido";
+        return this.listagemEspecifica(comandoSelect);
     }
-
-    public List<Pedido> Listagem(String statusPedido) {
-        List<Pedido> lista_pedidos = new ArrayList<Pedido>();
-        ResultSet resultadosListagem = null;
-
-        if (statusPedido.equals("controle")){
-            resultadosListagem = this.selectTodos();
-        } else if (statusPedido.equals("extrato")) {
-            resultadosListagem = this.selectExtrato();
-        }
-
-        try (java.sql.Connection conexao = this.conectar()) {
-
-            while (resultadosListagem.next()) {
-
-                int id = resultadosListagem.getInt("idpedido");
-                String status = resultadosListagem.getString("status");
-                String data = resultadosListagem.getString("datapedido");
-                String tipo = resultadosListagem.getString("tipoproduto");
-                String nome = resultadosListagem.getString("nomeproduto");
-                double preco = resultadosListagem.getDouble("precoproduto");
-
-                Pedido pedido = new Pedido(id, status, data, tipo, nome, preco);
-                lista_pedidos.add(pedido);
-            }
-
-        } catch (SQLException error) {
-            System.out.println("Erro no selectTodos() do Pedido: " + error.getMessage());
-        }
-        return lista_pedidos;
+    
+    public ArrayList<Pedido> listagem_TipoProduto(String tipoProduto){
+       
+        String comandoSelect = "SELECT * FROM jaboc_servidor.Pedido WHERE status = 'Concluido ' AND tipoproduto = '"+tipoProduto+"' ORDER BY idpedido;";
+        return this.listagemEspecifica(comandoSelect);
     }
-
-    public List<Pedido> ListagemEspecifica(String statusPedido) {
-        List<Pedido> lista_pedidos = new ArrayList<Pedido>();
-        String comandoSelect = "SELECT * FROM jaboc_servidor.Pedido WHERE status = '" + statusPedido + "';";
-        ResultSet resultadosListagem = null;
-
-        try (java.sql.Connection conexao = this.conectar()) {
-            resultadosListagem = conexao.createStatement().executeQuery(comandoSelect);
-
-            while (resultadosListagem.next()) {
-
-                int id = resultadosListagem.getInt("idpedido");
-                String status = resultadosListagem.getString("status");
-                String data = resultadosListagem.getString("datapedido");
-                String tipo = resultadosListagem.getString("tipoproduto");
-                String nome = resultadosListagem.getString("nomeproduto");
-                double preco = resultadosListagem.getDouble("precoproduto");
-
-                Pedido pedido = new Pedido(id, status, data, tipo, nome, preco);
-                lista_pedidos.add(pedido);
-            }
-
-        } catch (SQLException error) {
-            System.out.println("Erro no selectTodos() do Pedido: " + error.getMessage());
-        }
-        return lista_pedidos;
+    
+    public ArrayList<Pedido> listagem_Data(String dataPedido){
+        String comandoSelect = "SELECT * FROM jaboc_servidor.Pedido WHERE status = 'Concluido ' AND datapedido = '"+dataPedido+"' ORDER BY idpedido;";
+        return this.listagemEspecifica(comandoSelect);
     }
-
-    public List<Pedido> ListagemTipo(String tipoPediodo) {
-        List<Pedido> lista_pedidos = new ArrayList<Pedido>();
-        String comandoSelect = "SELECT * FROM jaboc_servidor.Pedido WHERE tipoproduto = '" + tipoPediodo + "' AND status IN ('Concluido', 'Cancelado ') ORDER BY status;";
-        ResultSet resultadosListagem = null;
-
-        try (java.sql.Connection conexao = this.conectar()) {
-            resultadosListagem = conexao.createStatement().executeQuery(comandoSelect);
-
-            while (resultadosListagem.next()) {
-
-                int id = resultadosListagem.getInt("idpedido");
-                String status = resultadosListagem.getString("status");
-                String data = resultadosListagem.getString("datapedido");
-                String tipo = resultadosListagem.getString("tipoproduto");
-                String nome = resultadosListagem.getString("nomeproduto");
-                double preco = resultadosListagem.getDouble("precoproduto");
-
-                Pedido pedido = new Pedido(id, status, data, tipo, nome, preco);
-                lista_pedidos.add(pedido);
-            }
-
-        } catch (SQLException error) {
-            System.out.println("Erro no selectTodos() do Pedido: " + error.getMessage());
-        }
-        return lista_pedidos;
-    }
-
-    public List<Pedido> ListagemData(String dataPedido) {
-        List<Pedido> lista_pedidos = new ArrayList<Pedido>();
-        String comandoSelect = "SELECT * FROM jaboc_servidor.Pedido WHERE datapedido = '" + dataPedido + "' AND status IN ('Concluido', 'Cancelado ') ORDER BY status;";
-        ResultSet resultadosListagem = null;
-
-        try (java.sql.Connection conexao = this.conectar()) {
-            resultadosListagem = conexao.createStatement().executeQuery(comandoSelect);
-
-            while (resultadosListagem.next()) {
-
-                int id = resultadosListagem.getInt("idpedido");
-                String status = resultadosListagem.getString("status");
-                String data = resultadosListagem.getString("datapedido");
-                String tipo = resultadosListagem.getString("tipoproduto");
-                String nome = resultadosListagem.getString("nomeproduto");
-                double preco = resultadosListagem.getDouble("precoproduto");
-
-                Pedido pedido = new Pedido(id, status, data, tipo, nome, preco);
-                lista_pedidos.add(pedido);
-            }
-
-        } catch (SQLException error) {
-            System.out.println("Erro no selectTodos() do Pedido: " + error.getMessage());
-        }
-        return lista_pedidos;
-    }
-
-    public List<Pedido> ListagemSeleta(String dataPedido, String tipoPedido) {
-        List<Pedido> lista_pedidos = new ArrayList<Pedido>();
-        String comandoSelect = "SELECT * FROM jaboc_servidor.Pedido WHERE datapedido = '" + dataPedido + "' AND tipoproduto = '"
-                + tipoPedido + "' AND status IN ('Concluido', 'Cancelado ') ORDER BY status;";
-        ResultSet resultadosListagem = null;
-
-        try (java.sql.Connection conexao = this.conectar()) {
-            resultadosListagem = conexao.createStatement().executeQuery(comandoSelect);
-
-            while (resultadosListagem.next()) {
-
-                int id = resultadosListagem.getInt("idpedido");
-                String status = resultadosListagem.getString("status");
-                String data = resultadosListagem.getString("datapedido");
-                String tipo = resultadosListagem.getString("tipoproduto");
-                String nome = resultadosListagem.getString("nomeproduto");
-                double preco = resultadosListagem.getDouble("precoproduto");
-
-                Pedido pedido = new Pedido(id, status, data, tipo, nome, preco);
-                lista_pedidos.add(pedido);
-            }
-
-        } catch (SQLException error) {
-            System.out.println("Erro no selectTodos() do Pedido: " + error.getMessage());
-        }
-        return lista_pedidos;
+    
+    public ArrayList<Pedido> listagem_TipoPorData(String tipoProduto, String dataPedido){
+        String comandoSelect = "SELECT * FROM jaboc_servidor.Pedido WHERE status = 'Concluido ' AND tipoproduto= '"+ tipoProduto+ "' AND datapedido = '"+dataPedido+"' ORDER BY idpedido;";
+        return this.listagemEspecifica(comandoSelect);
     }
 
     public <T> boolean update(String status, T id) {
@@ -189,7 +91,7 @@ public class DAO_Pedido implements DAO {
                 + "status = '" + status + " '"
                 + "WHERE idpedido = '" + id + "' ;";
 
-        try (java.sql.Connection conexao = this.conectar()) {
+        try (Connection conexao = this.conectar()) {
 
             return conexao.createStatement().executeUpdate(comandoUpdate) > 0;
 
@@ -216,12 +118,12 @@ public class DAO_Pedido implements DAO {
         if (obj instanceof Pedido) {
             Pedido inserirPedido = (Pedido) obj;
 
-            String comandoInsert = "INSERT INTO jaboc_servidor.Pedido (status, datapedido, tipoproduto, nomeproduto, precoproduto) "
-                    + "VALUES ('" + inserirPedido.getStatusPedido() + "','" + inserirPedido.getDataPedido() + "', '"
+            String comandoInsert = "INSERT INTO jaboc_servidor.Pedido (status, datapedido, nomeCliente, tipoproduto, nomeproduto, precoproduto) "
+                    + "VALUES ('" + inserirPedido.getStatusPedido() + "','" + inserirPedido.getDataPedido()+ "', '" + inserirPedido.getNOME_CLIENTE()+"', '"
                     + inserirPedido.getTipoPedido() + "', '" + inserirPedido.getNomePedido() + "', '"
                     + inserirPedido.getPrecoPedido() + "');";
 
-            try (java.sql.Connection conexao = this.conectar()) {
+            try (Connection conexao = this.conectar()) {
 
                 return conexao.createStatement().executeUpdate(comandoInsert) > 0;
 
