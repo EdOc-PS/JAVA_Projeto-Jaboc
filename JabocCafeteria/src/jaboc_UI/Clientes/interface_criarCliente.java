@@ -6,7 +6,6 @@ package jaboc_UI.Clientes;
  */
 import java.awt.Color;
 import javax.swing.JTextField;
-import jaboc_Biblioteca.glasspanepopup.GlassPanePopup;
 import jaboc_Classes.Conta_Cliente;
 import jaboc_BancoDeDados.Modelo.DAO_ContaCliente;
 import jaboc_BancoDeDados.Modelo.DAO_ContaFuncionario;
@@ -18,6 +17,7 @@ import jaboc_UI.JabocUI_Utilidades.JabocUI_popUp.PopUp_vazio;
 import jaboc_UI.jabocUI_Utilidades.JabocUI_popUp.PopUp_Senha;
 import java.util.ArrayList;
 import java.util.Iterator;
+import raven.glasspanepopup.GlassPanePopup;
 /**
  *
  * @author guilh

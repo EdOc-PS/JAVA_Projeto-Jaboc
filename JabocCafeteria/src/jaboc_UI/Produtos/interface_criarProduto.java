@@ -152,16 +152,6 @@ public class interface_criarProduto extends javax.swing.JFrame {
         panel4.setBackground(new java.awt.Color(255, 255, 255));
 
         nomeProduto.setText(" Nome:");
-        nomeProduto.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                nomeProdutoFocusLost(evt);
-            }
-        });
-        nomeProduto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nomeProdutoActionPerformed(evt);
-            }
-        });
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconLabel/cafe.png"))); // NOI18N
@@ -190,11 +180,6 @@ public class interface_criarProduto extends javax.swing.JFrame {
         panel8.setBackground(new java.awt.Color(255, 255, 255));
 
         qtdeProduto.setText(" Quantidade:");
-        qtdeProduto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                qtdeProdutoActionPerformed(evt);
-            }
-        });
 
         itel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         itel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconLabel/qtde.png"))); // NOI18N
@@ -223,16 +208,6 @@ public class interface_criarProduto extends javax.swing.JFrame {
         panel9.setBackground(new java.awt.Color(255, 255, 255));
 
         precoProduto.setText(" Preço:");
-        precoProduto.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                precoProdutoFocusLost(evt);
-            }
-        });
-        precoProduto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                precoProdutoActionPerformed(evt);
-            }
-        });
 
         itel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         itel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconLabel/dinheiro.png"))); // NOI18N
