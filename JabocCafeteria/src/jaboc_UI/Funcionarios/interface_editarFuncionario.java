@@ -11,7 +11,6 @@ import jaboc_BancoDeDados.Modelo.DAO_Pessoa;
 import jaboc_Classes.Conta_Funcionario;
 import jaboc_Classes.Pessoa;
 import jaboc_UI.JabocUI_Utilidades.JabocUI_popUp.PopUp_EditarPessoal;
-import jaboc_UI.JabocUI_Utilidades.JabocUI_popUp.PopUp_SenhaNaoVerificada;
 import jaboc_UI.jabocUI_Utilidades.JabocUI_popUp.PopUp_Senha;
 import java.awt.Color;
 import javax.swing.JPanel;
@@ -259,6 +258,7 @@ public class interface_editarFuncionario extends javax.swing.JFrame {
 
         panel3.setBackground(new java.awt.Color(255, 255, 255));
 
+        cargoFuncionario_Editar.setBackground(new java.awt.Color(255, 255, 255));
         cargoFuncionario_Editar.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
         cargoFuncionario_Editar.setForeground(new java.awt.Color(153, 153, 153));
         cargoFuncionario_Editar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cozinheiro(a)", "Auxiliar de Cozinha", "Garçom", "Balconista", "Faxineiro(a)", "Administrador" }));
@@ -808,10 +808,10 @@ public class interface_editarFuncionario extends javax.swing.JFrame {
                     novaSenha = String.valueOf(this.novaSenha_funcionario.getPassword());
                 }else{
                     this.resetarCampos_novaSenha();
-                    GlassPanePopup.showPopup(new PopUp_Senha());
+                    GlassPanePopup.showPopup(new PopUp_Senha("As senhas não são iguais!"));
                 }
             }else{
-                GlassPanePopup.showPopup(new PopUp_SenhaNaoVerificada());
+                GlassPanePopup.showPopup(new PopUp_Senha("A senha não foi verificada!"));
             }
         }
      

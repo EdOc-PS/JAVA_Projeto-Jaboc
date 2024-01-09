@@ -70,7 +70,7 @@ public class PopUp_EditarPessoal extends javax.swing.JPanel {
         Image imagemLida;
         try{
             if(this.mensagem.equals(editadoSucesso)){
-                imagemLida = ImageIO.read(new File("src/img/icons/i_edFuncionario2.png"));
+                imagemLida = ImageIO.read(new File("src/img/icons/i_certo3.png"));
             }else if(this.mensagem.equals(erroEditar)){
                 imagemLida = ImageIO.read(new File("src/img/icons/i_erroEditar.png"));
             }else{
@@ -93,22 +93,12 @@ public class PopUp_EditarPessoal extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        icone = new javax.swing.JLabel();
-        jLabel_alerta = new javax.swing.JLabel();
         bPopUp = new jaboc_UI.jabocUI_Utilidades.ButtonCirculo();
+        jLabel_alerta = new javax.swing.JLabel();
+        icone = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setEnabled(false);
-
-        jPanel1.setBackground(new java.awt.Color(252, 252, 252));
-
-        icone.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        icone.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_edfuncionario2.png"))); // NOI18N
-
-        jLabel_alerta.setFont(new java.awt.Font("Gill Sans MT", 1, 18)); // NOI18N
-        jLabel_alerta.setForeground(new java.awt.Color(79, 84, 101));
-        jLabel_alerta.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel_alerta.setText("Um texto de edição será exibido!");
 
         bPopUp.setBackground(new java.awt.Color(250, 112, 112));
         bPopUp.setForeground(new java.awt.Color(255, 255, 255));
@@ -122,38 +112,36 @@ public class PopUp_EditarPessoal extends javax.swing.JPanel {
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel_alerta, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
-            .addComponent(icone, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(bPopUp, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(bPopUp, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(icone, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel_alerta, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26))
-        );
+        jLabel_alerta.setFont(new java.awt.Font("Gill Sans MT", 1, 18)); // NOI18N
+        jLabel_alerta.setForeground(new java.awt.Color(79, 84, 101));
+        jLabel_alerta.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel_alerta.setText("Um texto de edição será exibido!");
+
+        icone.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        icone.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_edfuncionario2.png"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel_alerta, javax.swing.GroupLayout.DEFAULT_SIZE, 348, Short.MAX_VALUE)
+                    .addComponent(icone, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(bPopUp, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(bPopUp, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(icone, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel_alerta, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
+                .addGap(16, 16, 16))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -166,6 +154,5 @@ public class PopUp_EditarPessoal extends javax.swing.JPanel {
     private jaboc_UI.jabocUI_Utilidades.ButtonCirculo bPopUp;
     private javax.swing.JLabel icone;
     private javax.swing.JLabel jLabel_alerta;
-    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

@@ -4,7 +4,7 @@
  */
 package jaboc_UI.Pedidos;
 
-import jaboc_BancoDeDados.Modelo.DAO_ContaFuncionario;
+
 import jaboc_BancoDeDados.Modelo.DAO_Pedido;
 import jaboc_UI.JabocUI_Utilidades.JabocUI_Classes.ModernScrollBarUI;
 import jaboc_Classes.Pedido;

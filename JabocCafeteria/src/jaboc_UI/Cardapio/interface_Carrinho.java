@@ -4,6 +4,7 @@
  */
 package jaboc_UI.Cardapio;
 
+import jaboc_BancoDeDados.Modelo.DAO_ContaCliente;
 import jaboc_BancoDeDados.Modelo.DAO_Pedido;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -76,7 +77,8 @@ public class interface_Carrinho extends javax.swing.JPanel {
         panelP = new jaboc_UI.jabocUI_Utilidades.Panel();
         scrollCarrinho = new javax.swing.JScrollPane();
         panelCarrinho = new javax.swing.JPanel();
-        finalizarPedido = new jaboc_UI.jabocUI_Utilidades.Button();
+        bRemover = new jaboc_UI.jabocUI_Utilidades.Button();
+        bExcluir = new jaboc_UI.jabocUI_Utilidades.Button();
 
         bPopUp.setBackground(new java.awt.Color(250, 112, 112));
         bPopUp.setForeground(new java.awt.Color(255, 255, 255));
@@ -137,12 +139,21 @@ public class interface_Carrinho extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        finalizarPedido.setBackground(new java.awt.Color(223, 204, 251));
-        finalizarPedido.setForeground(new java.awt.Color(79, 84, 101));
-        finalizarPedido.setText("Finalizar pedido");
-        finalizarPedido.addActionListener(new java.awt.event.ActionListener() {
+        bRemover.setBackground(new java.awt.Color(223, 204, 251));
+        bRemover.setForeground(new java.awt.Color(79, 84, 101));
+        bRemover.setText("Finalizar pedido");
+        bRemover.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                finalizarPedidoActionPerformed(evt);
+                bRemoverActionPerformed(evt);
+            }
+        });
+
+        bExcluir.setBackground(new java.awt.Color(255, 188, 188));
+        bExcluir.setForeground(new java.awt.Color(79, 84, 101));
+        bExcluir.setText("Limpar carrinho");
+        bExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bExcluirActionPerformed(evt);
             }
         });
 
@@ -150,18 +161,23 @@ public class interface_Carrinho extends javax.swing.JPanel {
         panel1.setLayout(panel1Layout);
         panel1Layout.setHorizontalGroup(
             panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(finalizarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(118, 118, 118))
             .addGroup(panel1Layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(panelP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(panel1Layout.createSequentialGroup()
                         .addComponent(carrinhotxt, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 277, Short.MAX_VALUE)
-                        .addComponent(bPopUpExit, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(bPopUpExit, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panel1Layout.createSequentialGroup()
+                        .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(panelP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
+                                .addGap(7, 7, 7)
+                                .addComponent(bExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(bRemover, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(15, 15, 15)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         panel1Layout.setVerticalGroup(
@@ -177,9 +193,11 @@ public class interface_Carrinho extends javax.swing.JPanel {
                         .addComponent(carrinhotxt, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addComponent(panelP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(finalizarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(15, 15, 15))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(bRemover, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -198,14 +216,14 @@ public class interface_Carrinho extends javax.swing.JPanel {
         GlassPanePopup.closePopupLast();
     }//GEN-LAST:event_bPopUpExitActionPerformed
 
-    private void finalizarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finalizarPedidoActionPerformed
+    private void bRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRemoverActionPerformed
 
         for (Produto produto : carrinho) {
             String tipo = produto.getTipoProduto();
             String nome = produto.getNomeProduto();
             double preco = produto.getPrecoProduto();
 
-            Pedido itemPedido = new Pedido(0, "Enviado", dataAtual.toString(), tipo, nome, preco);
+            Pedido itemPedido = new Pedido(0, "Enviado", dataAtual.toString(), DAO_ContaCliente.getClienteLogado().getTitular().getNome(), tipo, nome, preco);
             daoPedido.insert(itemPedido);
         }
         GlassPanePopup.closePopupLast();
@@ -214,7 +232,12 @@ public class interface_Carrinho extends javax.swing.JPanel {
         i_finalizado.setVisible(true);
 
 
-    }//GEN-LAST:event_finalizarPedidoActionPerformed
+    }//GEN-LAST:event_bRemoverActionPerformed
+
+    private void bExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bExcluirActionPerformed
+        carrinho.removeAll(carrinho);
+        GlassPanePopup.closePopupLast();
+    }//GEN-LAST:event_bExcluirActionPerformed
     public void receber(interface_Cardapio i_Cardapio) {
         this.i_Cardapio = i_Cardapio;
     }
@@ -224,10 +247,11 @@ public class interface_Carrinho extends javax.swing.JPanel {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private jaboc_UI.jabocUI_Utilidades.Button bExcluir;
     private jaboc_UI.jabocUI_Utilidades.ButtonCirculo bPopUp;
     private jaboc_UI.jabocUI_Utilidades.ButtonCirculo bPopUpExit;
+    private jaboc_UI.jabocUI_Utilidades.Button bRemover;
     private javax.swing.JLabel carrinhotxt;
-    private jaboc_UI.jabocUI_Utilidades.Button finalizarPedido;
     private jaboc_UI.jabocUI_Utilidades.Panel panel1;
     private javax.swing.JPanel panelCarrinho;
     private jaboc_UI.jabocUI_Utilidades.Panel panelP;

@@ -358,7 +358,7 @@ public class interface_admApagarFuncionario extends javax.swing.JFrame {
     private void apagarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_apagarFuncionarioActionPerformed
         DAO_ContaFuncionario daoFuncionario = new DAO_ContaFuncionario();
         if(daoFuncionario.delete(this.FUNCIONARIO_APAGAVEL.getTitular().getCpf())){
-            GlassPanePopup.showPopup(new PopUp_mensagemProduto());
+            GlassPanePopup.showPopup(new PopUp_mensagemProduto("Deletado com sucesso!"));
             
             DefaultTableModel dadosTabela = (DefaultTableModel) this.EXIBIR_FUNCIONARIOS.getTabelaFuncionario().getModel();
             dadosTabela.setRowCount(0);

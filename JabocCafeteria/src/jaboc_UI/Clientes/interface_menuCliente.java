@@ -4,7 +4,9 @@
  */
 package jaboc_UI.Clientes;
 
+import jaboc_UI.JabocUI_Utilidades.JabocUI_popUp.PopUp_EditarPessoal;
 import java.awt.Color;
+import raven.glasspanepopup.GlassPanePopup;
 
 /**
  *
@@ -18,6 +20,7 @@ public class interface_menuCliente extends javax.swing.JFrame {
     public interface_menuCliente() {
         initComponents();
         setLocationRelativeTo(null);
+        GlassPanePopup.install(this);
         bCriarConta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         bLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
     }

@@ -16,7 +16,6 @@ import raven.glasspanepopup.GlassPanePopup;
  */
 public class PopUp_mensagemProduto extends javax.swing.JPanel {
 
-    private String mensagem;
 
     /**
      * Creates new form interface_mensagen

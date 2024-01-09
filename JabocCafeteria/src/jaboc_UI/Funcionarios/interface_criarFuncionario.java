@@ -4,7 +4,6 @@
  */
 package jaboc_UI.Funcionarios;
 
-
 import jaboc_BancoDeDados.Modelo.DAO_ContaCliente;
 import jaboc_BancoDeDados.Modelo.DAO_ContaFuncionario;
 import jaboc_BancoDeDados.Modelo.DAO_Pessoa;
@@ -27,23 +26,25 @@ import raven.glasspanepopup.GlassPanePopup;
  * @author eeuar
  */
 public class interface_criarFuncionario extends javax.swing.JFrame {
+
     private final ArrayList<JTextField> CAMPOS_TEXTO = new ArrayList<>();
     private final ArrayList<String> DADOS_CAMPOS_TEXTO = new ArrayList<>();
     private boolean activeButton = true, activeButton1 = true;
     private interface_exibirFuncionarios pai;
+
     /**
      * Creates new form NewJFrame
      */
     public interface_criarFuncionario(interface_exibirFuncionarios pai) {
-       this.pai = pai;
-        
+        this.pai = pai;
+
         initComponents();
         setLocationRelativeTo(null);
         GlassPanePopup.install(this);
-        
+
         cpfFuncionario.addFormatacao("###.###.###-##");
         telefoneFuncionario.addFormatacao("(##) #####-####");
-        
+
         this.armazenarCAMPOS_TEXTO();
         this.armazenarDADOS_CAMPOS_TEXTO();
     }
@@ -166,7 +167,7 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 302, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 304, Short.MAX_VALUE)
                 .addComponent(criarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25))
         );
@@ -319,6 +320,7 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
 
         panel7.setBackground(new java.awt.Color(255, 255, 255));
 
+        cargoFuncionario.setBackground(new java.awt.Color(255, 255, 255));
         cargoFuncionario.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
         cargoFuncionario.setForeground(new java.awt.Color(79, 84, 101));
         cargoFuncionario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cozinheiro(a)", "Auxiliar de Cozinha", "Garçom", "Balconista", "Faxineiro(a)", "Administrador" }));
@@ -517,7 +519,7 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(panel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(panel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(0, 62, Short.MAX_VALUE)))
+                        .addGap(0, 63, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -530,7 +532,7 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
                 .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(panel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addContainerGap(51, Short.MAX_VALUE))
             .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
@@ -564,72 +566,72 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
     }//GEN-LAST:event_bVoltarActionPerformed
 
     private void criarFuncionarioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_criarFuncionarioMouseEntered
-        criarFuncionario.setBackground(new Color(63,66,73));
+        criarFuncionario.setBackground(new Color(63, 66, 73));
     }//GEN-LAST:event_criarFuncionarioMouseEntered
 
     private void criarFuncionarioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_criarFuncionarioMouseExited
-        criarFuncionario.setBackground(new Color(79,84,101));
+        criarFuncionario.setBackground(new Color(79, 84, 101));
     }//GEN-LAST:event_criarFuncionarioMouseExited
 
     private void criarFuncionarioActionPerformed1(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_criarFuncionarioActionPerformed1
-        if(this.camposPreenchidos()){
+        if (this.camposPreenchidos()) {
             String senha_criarFuncionario = String.valueOf(senhaFuncionario_cadastrar.getPassword());
             String verificarSenha_criarFuncionario = String.valueOf(verificarSenhaFuncionario_cadastrar.getPassword());
-            
-            if(senha_criarFuncionario.equals(verificarSenha_criarFuncionario)){
+
+            if (senha_criarFuncionario.equals(verificarSenha_criarFuncionario)) {
                 String nome_cadastrarFuncionario = nomeFuncionario.getText();
                 String cpf_cadastrarFuncionario = cpfFuncionario.getText();
                 String endereco_cadastrarFuncionario = enderecoFuncionario.getText();
                 String telefone_cadastrarFuncionario = telefoneFuncionario.getText();
                 String cargo_cadastrarFuncionario = (String) cargoFuncionario.getSelectedItem();
                 double salario_cadastrarFuncionario = salarioFuncionario.formatarDouble();
-                
+
                 Pessoa objetoPessoa = new Pessoa(nome_cadastrarFuncionario, cpf_cadastrarFuncionario,
-                endereco_cadastrarFuncionario, telefone_cadastrarFuncionario);
-                   
+                        endereco_cadastrarFuncionario, telefone_cadastrarFuncionario);
+
                 Conta_Funcionario cadastrarFuncionario = new Conta_Funcionario(objetoPessoa, senha_criarFuncionario,
-                    cargo_cadastrarFuncionario, salario_cadastrarFuncionario); 
-                
+                        cargo_cadastrarFuncionario, salario_cadastrarFuncionario);
+
                 DAO_ContaCliente daoCliente = new DAO_ContaCliente();
                 DAO_ContaFuncionario daoFuncionario = new DAO_ContaFuncionario();
                 DAO_Pessoa daoPessoa = new DAO_Pessoa();
-                
-                if(daoFuncionario.existeRegistro(objetoPessoa.getCpf())){
-                    
+
+                if (daoFuncionario.existeRegistro(objetoPessoa.getCpf())) {
+
                     GlassPanePopup.showPopup(new PopUp_FuncionarioJaCadastrado());
                     this.setarCamposVazios();
-                    
-                }else if(daoCliente.existeRegistro(objetoPessoa.getCpf())){
-                    
+
+                } else if (daoCliente.existeRegistro(objetoPessoa.getCpf())) {
+
                     PopUp_ClienteParaFuncionario dialogoFunc = new PopUp_ClienteParaFuncionario(this);
                     boolean respostaDialogo = dialogoFunc.getRespostaDialogo();
-                    
-                    if(respostaDialogo == true){                       
-                        
-                        if(daoFuncionario.insert(cadastrarFuncionario)){
+
+                    if (respostaDialogo == true) {
+
+                        if (daoFuncionario.insert(cadastrarFuncionario)) {
                             GlassPanePopup.showPopup(new PopUp_mensagemProduto("Inserido com sucesso!"));
                             this.atualizarTabelaFuncionarios();
-                        }              
-                        
-                    }else{
+                        }
+
+                    } else {
                         this.setarCamposVazios();
                     }
-                }else{                     
-                 
+                } else {
+
                     daoPessoa.insert(objetoPessoa);
-                    
-                    if(daoFuncionario.insert(cadastrarFuncionario)){
+
+                    if (daoFuncionario.insert(cadastrarFuncionario)) {
                         GlassPanePopup.showPopup(new PopUp_mensagemProduto("Inserido com sucesso!"));
                         this.atualizarTabelaFuncionarios();
                         this.setarCamposVazios();
                     }
                 }
-                
-            }else{
-                GlassPanePopup.showPopup(new PopUp_Senha());
+
+            } else {
+                GlassPanePopup.showPopup(new PopUp_Senha("As senhas não são iguais!"));
                 this.resetarCamposSenha();
             }
-        }else{
+        } else {
             GlassPanePopup.showPopup(new PopUp_vazio());
         }
     }//GEN-LAST:event_criarFuncionarioActionPerformed1
@@ -639,12 +641,12 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
     }//GEN-LAST:event_senhaFuncionario_cadastrarActionPerformed
 
     private void bOlhoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bOlhoMouseClicked
-        if(activeButton &&  !(senhaFuncionario_cadastrar.getText().equals(" Senha:"))){
+        if (activeButton && !(senhaFuncionario_cadastrar.getText().equals(" Senha:"))) {
             bOlho.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconLabel/olho-cruzado.png")));
             senhaFuncionario_cadastrar.setEchoChar('*');
             activeButton = false;
 
-        }else if(activeButton == false &&  !(senhaFuncionario_cadastrar.getText().equals(" Senha:"))){
+        } else if (activeButton == false && !(senhaFuncionario_cadastrar.getText().equals(" Senha:"))) {
             bOlho.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconLabel/olho.png")));
             senhaFuncionario_cadastrar.setEchoChar((char) 0);
             activeButton = true;
@@ -652,12 +654,12 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
     }//GEN-LAST:event_bOlhoMouseClicked
 
     private void bOlho1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bOlho1MouseClicked
-        if(activeButton1 &&  !(verificarSenhaFuncionario_cadastrar.getText().equals(" Repita a senha:"))){
+        if (activeButton1 && !(verificarSenhaFuncionario_cadastrar.getText().equals(" Repita a senha:"))) {
             bOlho1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconLabel/olho-cruzado.png")));
             verificarSenhaFuncionario_cadastrar.setEchoChar('*');
             activeButton1 = false;
 
-        }else if(activeButton1 == false &&  !(verificarSenhaFuncionario_cadastrar.getText().equals(" Repita a senha:"))){
+        } else if (activeButton1 == false && !(verificarSenhaFuncionario_cadastrar.getText().equals(" Repita a senha:"))) {
             bOlho1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconLabel/olho.png")));
             verificarSenhaFuncionario_cadastrar.setEchoChar((char) 0);
             activeButton1 = true;
@@ -670,8 +672,8 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
     public javax.swing.JFormattedTextField getTelefoneFuncionario() {
         return this.telefoneFuncionario;
     }
-    
-    private void armazenarCAMPOS_TEXTO(){
+
+    private void armazenarCAMPOS_TEXTO() {
         this.CAMPOS_TEXTO.add(nomeFuncionario);
         this.CAMPOS_TEXTO.add(telefoneFuncionario);
         this.CAMPOS_TEXTO.add(cpfFuncionario);
@@ -680,8 +682,8 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
         this.CAMPOS_TEXTO.add(senhaFuncionario_cadastrar);
         this.CAMPOS_TEXTO.add(verificarSenhaFuncionario_cadastrar);
     }
-    
-    private void armazenarDADOS_CAMPOS_TEXTO(){
+
+    private void armazenarDADOS_CAMPOS_TEXTO() {
         this.DADOS_CAMPOS_TEXTO.add(nomeFuncionario.getText());
         this.DADOS_CAMPOS_TEXTO.add(telefoneFuncionario.getText());
         this.DADOS_CAMPOS_TEXTO.add(cpfFuncionario.getText());
@@ -690,60 +692,60 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
         this.DADOS_CAMPOS_TEXTO.add(String.valueOf(senhaFuncionario_cadastrar.getPassword()));
         this.DADOS_CAMPOS_TEXTO.add(String.valueOf(verificarSenhaFuncionario_cadastrar.getPassword()));
     }
-    
-    private boolean camposPreenchidos(){
+
+    private boolean camposPreenchidos() {
         Iterator<JTextField> percorrerCamposTexto = this.CAMPOS_TEXTO.iterator();
         Iterator<String> percorrerDadosCamposTexto = this.DADOS_CAMPOS_TEXTO.iterator();
-        
-        while(percorrerCamposTexto.hasNext()){
+
+        while (percorrerCamposTexto.hasNext()) {
             JTextField campoAtual = percorrerCamposTexto.next();
             String dadoCampoAtual = percorrerDadosCamposTexto.next();
-            
-            if(campoAtual.getText().equals(dadoCampoAtual)){
+
+            if (campoAtual.getText().equals(dadoCampoAtual)) {
                 return false;
             }
         }
-        
+
         return true;
     }
-    
-    private void setarCamposVazios(){
+
+    private void setarCamposVazios() {
         this.resetarCamposSenha();
         this.removerMascaras();
-        
+
         Iterator<JTextField> percorrerCamposTexto = this.CAMPOS_TEXTO.iterator();
         Iterator<String> percorrerDadosCamposTexto = this.DADOS_CAMPOS_TEXTO.iterator();
-        
-        while(percorrerCamposTexto.hasNext()){
+
+        while (percorrerCamposTexto.hasNext()) {
             JTextField campoAtual = percorrerCamposTexto.next();
             String novoDadoCampoAtual = percorrerDadosCamposTexto.next();
-            
+
             campoAtual.setText(novoDadoCampoAtual);
-        }    
+        }
     }
-    
-    private void resetarCamposSenha(){
+
+    private void resetarCamposSenha() {
         this.senhaFuncionario_cadastrar.setText(" Senha:");
         this.verificarSenhaFuncionario_cadastrar.setText(" Repita a senha:");
-        
-        this.senhaFuncionario_cadastrar.setEchoChar((char)0);
+
+        this.senhaFuncionario_cadastrar.setEchoChar((char) 0);
         this.verificarSenhaFuncionario_cadastrar.setEchoChar((char) 0);
-        
+
         bOlho.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconLabel/olho.png")));
         bOlho1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconLabel/olho.png")));
     }
-    
-    private void removerMascaras(){
+
+    private void removerMascaras() {
         this.cpfFuncionario.removerFormatacao();
         this.telefoneFuncionario.removerFormatacao();
     }
-    
-    private void atualizarTabelaFuncionarios(){
+
+    private void atualizarTabelaFuncionarios() {
         DefaultTableModel dadosTabela = (DefaultTableModel) this.pai.getTabelaFuncionario().getModel();
         dadosTabela.setRowCount(0);
         this.pai.carregarTabela();
     }
-    
+
     /**
      * @param args the command line arguments
      */

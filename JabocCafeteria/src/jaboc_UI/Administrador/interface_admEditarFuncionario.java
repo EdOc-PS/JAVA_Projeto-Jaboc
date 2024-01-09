@@ -310,6 +310,7 @@ public class interface_admEditarFuncionario extends javax.swing.JFrame {
     }//GEN-LAST:event_bVoltarMouseExited
 
     private void bVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVoltarActionPerformed
+        
         this.dispose();
     }//GEN-LAST:event_bVoltarActionPerformed
 

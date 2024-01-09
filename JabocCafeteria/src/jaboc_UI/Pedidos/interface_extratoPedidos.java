@@ -4,16 +4,14 @@
  */
 package jaboc_UI.Pedidos;
 
+import jaboc_BancoDeDados.Modelo.DAO_ContaFuncionario;
 import jaboc_BancoDeDados.Modelo.DAO_Pedido;
-import jaboc_UI.JabocUI_Utilidades.JabocUI_Classes.ModernScrollBarUI;
 import jaboc_Classes.Pedido;
 import jaboc_UI.Funcionarios.interface_areaFuncionario;
+import jaboc_UI.JabocUI_Utilidades.JabocUI_Classes.ModernScrollBarUI;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.ArrayList;
 import javax.swing.JScrollBar;
 import javax.swing.table.DefaultTableModel;
 import raven.glasspanepopup.GlassPanePopup;
@@ -134,7 +132,6 @@ public class interface_extratoPedidos extends javax.swing.JFrame {
 
         panel3.setBackground(new java.awt.Color(255, 255, 255));
 
-        tipoProduto.setBackground(new java.awt.Color(255, 255, 255));
         tipoProduto.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
         tipoProduto.setForeground(new java.awt.Color(153, 153, 153));
         tipoProduto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "Cafe", "Salgado", "Doce", "Outras bebidas" }));
@@ -223,7 +220,7 @@ public class interface_extratoPedidos extends javax.swing.JFrame {
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(panel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(bTabela, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(bTabela, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18))
         );
         panel1Layout.setVerticalGroup(
@@ -253,11 +250,11 @@ public class interface_extratoPedidos extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "Pedido", "Data", "Tipo", "Status"
+                "ID", "Pedido", "Data", "Cliente", "Tipo", "Status"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, true, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -367,13 +364,14 @@ public class interface_extratoPedidos extends javax.swing.JFrame {
         pedidos.getDataVector().removeAllElements();
 
         if (tipoProduto.getSelectedItem().equals("Todos") && dataPedido.getText().equals("")) {
+            System.out.println("aq");
             this.carregarTabelaTodos();
         } else if (!tipoProduto.getSelectedItem().equals("Todos") && dataPedido.getText().equals("")) {
             carregarTabelaTipo();
         } else if (tipoProduto.getSelectedItem().equals("Todos") && !dataPedido.getText().equals("")) {
             carregarTabelaData();
         } else {
-            carregarTabelaEspecifico();
+            carregarTabela_TipoPorData();
         }
 //GEN-LAST:event_bTabelaActionPerformed
     }
@@ -387,11 +385,13 @@ public class interface_extratoPedidos extends javax.swing.JFrame {
 
     private void carregarTabelaTodos() {
         DefaultTableModel pedidos = (DefaultTableModel) tabelaPedidos.getModel();
-        for (Pedido p : daoPedido.Listagem("extrato")) {
+        ArrayList<Pedido> extratoTodos = daoPedido.listagemExtrato_Todos();
+        for (Pedido p : extratoTodos) {
             pedidos.addRow(new Object[]{
                 p.getIdPedido(),
                 p.getNomePedido(),
                 p.getDataPedido(),
+                p.getNOME_CLIENTE(),
                 p.getTipoPedido(),
                 p.getStatusPedido()
             });
@@ -400,11 +400,14 @@ public class interface_extratoPedidos extends javax.swing.JFrame {
 
     private void carregarTabelaTipo() {
         DefaultTableModel pedidos = (DefaultTableModel) tabelaPedidos.getModel();
-        for (Pedido p : daoPedido.ListagemTipo(String.valueOf(tipoProduto.getSelectedItem()))) {
+        ArrayList<Pedido> extratoTipo = daoPedido.listagem_TipoProduto(String.valueOf(tipoProduto.getSelectedItem()));
+
+        for (Pedido p : extratoTipo) {
             pedidos.addRow(new Object[]{
                 p.getIdPedido(),
                 p.getNomePedido(),
                 p.getDataPedido(),
+                p.getNOME_CLIENTE(),
                 p.getTipoPedido(),
                 p.getStatusPedido()
             });
@@ -413,24 +416,29 @@ public class interface_extratoPedidos extends javax.swing.JFrame {
 
     private void carregarTabelaData() {
         DefaultTableModel pedidos = (DefaultTableModel) tabelaPedidos.getModel();
-        for (Pedido p : daoPedido.ListagemData(dataPedido.getText())) {
+        ArrayList<Pedido> extratoData = daoPedido.listagem_Data(this.dataPedido.getText());
+
+        for (Pedido p : extratoData) {
             pedidos.addRow(new Object[]{
                 p.getIdPedido(),
                 p.getNomePedido(),
                 p.getDataPedido(),
+                p.getNOME_CLIENTE(),
                 p.getTipoPedido(),
                 p.getStatusPedido()
             });
         }
     }
 
-    private void carregarTabelaEspecifico() {
+    private void carregarTabela_TipoPorData() {
         DefaultTableModel pedidos = (DefaultTableModel) tabelaPedidos.getModel();
-        for (Pedido p : daoPedido.ListagemSeleta(dataPedido.getText(), String.valueOf(tipoProduto.getSelectedItem()))) {
+        ArrayList<Pedido> extratoTipoPorData = daoPedido.listagem_TipoPorData(String.valueOf(tipoProduto.getSelectedItem()), this.dataPedido.getText());
+        for (Pedido p : extratoTipoPorData) {
             pedidos.addRow(new Object[]{
                 p.getIdPedido(),
                 p.getNomePedido(),
                 p.getDataPedido(),
+                p.getNOME_CLIENTE(),
                 p.getTipoPedido(),
                 p.getStatusPedido()
             });
