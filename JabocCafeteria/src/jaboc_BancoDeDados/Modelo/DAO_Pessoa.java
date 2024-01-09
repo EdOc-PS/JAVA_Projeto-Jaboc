@@ -113,7 +113,8 @@ public class DAO_Pessoa implements DAO{
             String comandoUpdate = "UPDATE jaboc_servidor.Pessoa SET "
                     + "nome = '" + updatePessoa.getNome() + "', "
                     + "endereco = '" + updatePessoa.getEndereco() + "', "
-                    + "telefone = '" + updatePessoa.getTelefone() + "';";
+                    + "telefone = '" + updatePessoa.getTelefone() + "'"
+                    + "WHERE cpf = '"+ cpf+ "';";
             
             try(Connection conexao = this.conectar()){
                 

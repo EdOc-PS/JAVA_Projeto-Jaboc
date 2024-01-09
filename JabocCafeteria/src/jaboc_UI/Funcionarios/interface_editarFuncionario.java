@@ -4,11 +4,14 @@
  */
 package jaboc_UI.Funcionarios;
 
+
 import jaboc_BancoDeDados.Controle.SenhaEditavel;
 import jaboc_BancoDeDados.Modelo.DAO_ContaFuncionario;
 import jaboc_BancoDeDados.Modelo.DAO_Pessoa;
 import jaboc_Classes.Conta_Funcionario;
 import jaboc_Classes.Pessoa;
+import jaboc_UI.JabocUI_Utilidades.JabocUI_popUp.PopUp_EditarPessoal;
+import jaboc_UI.JabocUI_Utilidades.JabocUI_popUp.PopUp_SenhaNaoVerificada;
 import jaboc_UI.jabocUI_Utilidades.JabocUI_popUp.PopUp_Senha;
 import java.awt.Color;
 import javax.swing.JPanel;
@@ -19,24 +22,22 @@ import raven.glasspanepopup.GlassPanePopup;
  * @author guilh
  */
 public class interface_editarFuncionario extends javax.swing.JFrame {
-
     private Conta_Funcionario editar_contaFuncionario = DAO_ContaFuncionario.getDadosCadastro();
     private boolean activeButton_verificarSenha = true;
     private boolean activeButton_novaSenha = true;
     private boolean activeButton_verificarNovaSenha = true;
     private boolean alterarSenha = false, senhaVerificada = false;
-
-    /**
+     /**
      * Creates new form interface_editarFuncionario
      */
     public interface_editarFuncionario() {
         initComponents();
         setLocationRelativeTo(null);
-        GlassPanePopup.install(this);
+        GlassPanePopup.install(this);       
         this.dimensionarFrame();
         this.inicializarCamposSenha();
-
-        //this.preencherDadosFuncionarios();
+        
+        this.preencherDadosFuncionarios();
         this.cpfFuncionario_Editar.addFormatacao("###.###.###-##");
         this.telefoneFuncionario_Editar.addFormatacao("(##) #####-####");
     }
@@ -101,7 +102,7 @@ public class interface_editarFuncionario extends javax.swing.JFrame {
 
         editarFuncionario.setBackground(new java.awt.Color(79, 84, 101));
         editarFuncionario.setForeground(new java.awt.Color(252, 252, 252));
-        editarFuncionario.setText("Cadastrar");
+        editarFuncionario.setText("Editar");
         editarFuncionario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 editarFuncionarioMouseEntered(evt);
@@ -258,7 +259,6 @@ public class interface_editarFuncionario extends javax.swing.JFrame {
 
         panel3.setBackground(new java.awt.Color(255, 255, 255));
 
-        cargoFuncionario_Editar.setBackground(new java.awt.Color(255, 255, 255));
         cargoFuncionario_Editar.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
         cargoFuncionario_Editar.setForeground(new java.awt.Color(153, 153, 153));
         cargoFuncionario_Editar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cozinheiro(a)", "Auxiliar de Cozinha", "Garçom", "Balconista", "Faxineiro(a)", "Administrador" }));
@@ -399,6 +399,8 @@ public class interface_editarFuncionario extends javax.swing.JFrame {
         iuser8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         iuser8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconLabel/senha.png"))); // NOI18N
 
+        novaSenha_funcionario.setText(" Nova senha:");
+
         javax.swing.GroupLayout panel27Layout = new javax.swing.GroupLayout(panel27);
         panel27.setLayout(panel27Layout);
         panel27Layout.setHorizontalGroup(
@@ -423,6 +425,8 @@ public class interface_editarFuncionario extends javax.swing.JFrame {
 
         iuser7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         iuser7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconLabel/senha.png"))); // NOI18N
+
+        verificarNovaSenha_funcionario.setText(" Repita a nova senha: ");
 
         javax.swing.GroupLayout panel26Layout = new javax.swing.GroupLayout(panel26);
         panel26.setLayout(panel26Layout);
@@ -611,32 +615,41 @@ public class interface_editarFuncionario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void editarFuncionarioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editarFuncionarioMouseEntered
-        editarFuncionario.setBackground(new Color(63, 66, 73));
+        editarFuncionario.setBackground(new Color(63,66,73));
     }//GEN-LAST:event_editarFuncionarioMouseEntered
 
     private void editarFuncionarioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editarFuncionarioMouseExited
-        editarFuncionario.setBackground(new Color(79, 84, 101));
+        editarFuncionario.setBackground(new Color(79,84,101));
     }//GEN-LAST:event_editarFuncionarioMouseExited
 
     private void editarFuncionarioActionPerformed1(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarFuncionarioActionPerformed1
         String senhaAtualizada = this.atualizarSenha();
-
-        if (senhaAtualizada != null || this.alterarSenha == false) {
-
+        
+        if(senhaAtualizada != null ||this.alterarSenha == false){
+        
             String novo_nomeFuncionario = this.nomeFuncionario_Editar.getText();
             String novo_cpfFuncionario = this.cpfFuncionario_Editar.getText();
             String novo_enderecoFuncionario = this.enderecoFuncionario_Editar.getText();
-            String novo_telefoneFuncionario = this.telefoneFuncionario_Editar.getText();
+            String novo_telefoneFuncionario = this.telefoneFuncionario_Editar.getText();       
 
-            if (senhaAtualizada != null) {
+            if(senhaAtualizada != null){
                 SenhaEditavel daoFuncionario = new DAO_ContaFuncionario();
                 daoFuncionario.atualizarSenha(senhaAtualizada, editar_contaFuncionario.getTitular().getCpf());
             }
-
+            
             Pessoa editarPessoa = new Pessoa(novo_nomeFuncionario, novo_cpfFuncionario, novo_enderecoFuncionario, novo_telefoneFuncionario);
             DAO_Pessoa daoPessoa = new DAO_Pessoa();
-            daoPessoa.update(editarPessoa, editar_contaFuncionario.getTitular().getCpf());
-        }
+            
+            String mensagemEdicao;
+            if(daoPessoa.update(editarPessoa, editar_contaFuncionario.getTitular().getCpf())){
+                mensagemEdicao = "Edição concluída com sucesso!";                
+                DAO_ContaFuncionario.getDadosCadastro().setTitular(editarPessoa);
+            }else{
+                mensagemEdicao = "Ocorreu um erro ao editar!";
+            }
+            
+            GlassPanePopup.showPopup(new PopUp_EditarPessoal("Edição concluída com sucesso!"));
+        }    
     }//GEN-LAST:event_editarFuncionarioActionPerformed1
 
     private void bVoltarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bVoltarMouseEntered
@@ -653,32 +666,32 @@ public class interface_editarFuncionario extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_bVoltarActionPerformed
 
-    private void dimensionarFrame() {
+    private void dimensionarFrame(){
         this.jPanel3.setBounds(0, 0, 950, 560);
-        this.setBounds(0, 0, 930, 600);
+        this.setBounds(0, 0, 930, 600); 
         this.setLocationRelativeTo(null);
     }
-
+    
     private void jCb_atualizarSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCb_atualizarSenhaActionPerformed
-        if (this.alterarSenha == false) {
+        if(this.alterarSenha == false){
             this.dimensionarPaineis_senha(this.jPanel_verificarSenhaAtual);
             this.alterarSenha = true;
-        } else {
+        }else{
             this.dimensionarFrame();
             this.resetarCamposSenha();
             this.alterarSenha = false;
         }
-
+        
     }//GEN-LAST:event_jCb_atualizarSenhaActionPerformed
 
     private void bOlho_novaSenhaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bOlho_novaSenhaMouseClicked
         String verificarSenha = String.valueOf(novaSenha_funcionario.getPassword());
-        if (activeButton_novaSenha && !(verificarSenha.equals(" Nova senha:"))) {
+        if(activeButton_novaSenha &&  !(verificarSenha.equals(" Nova senha:"))){
             bOlho_novaSenha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconLabel/olho-cruzado.png")));
             verificarSenhaAtual_Funcionario.setEchoChar('*');
             activeButton_novaSenha = false;
 
-        } else if (activeButton_novaSenha == false && !(verificarSenha.equals(" Nova senha:"))) {
+        }else if(activeButton_novaSenha == false &&  !(verificarSenha.equals(" Nova senha:"))){
             bOlho_novaSenha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconLabel/olho.png")));
             verificarSenhaAtual_Funcionario.setEchoChar((char) 0);
             activeButton_novaSenha = true;
@@ -687,12 +700,12 @@ public class interface_editarFuncionario extends javax.swing.JFrame {
 
     private void bOlho_verificarNovaSenhaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bOlho_verificarNovaSenhaMouseClicked
         String verificarSenha = String.valueOf(verificarNovaSenha_funcionario.getPassword());
-        if (activeButton_verificarNovaSenha && !(verificarSenha.equals(" Repita a nova senha:"))) {
+        if(activeButton_verificarNovaSenha &&  !(verificarSenha.equals(" Repita a nova senha:"))){
             bOlho_verificarNovaSenha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconLabel/olho-cruzado.png")));
             verificarSenhaAtual_Funcionario.setEchoChar('*');
             activeButton_verificarNovaSenha = false;
 
-        } else if (activeButton_verificarNovaSenha == false && !(verificarSenha.equals(" Repita a nova senha:"))) {
+        }else if(activeButton_verificarNovaSenha == false &&  !(verificarSenha.equals(" Repita a nova senha:"))){
             bOlho_verificarNovaSenha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconLabel/olho.png")));
             verificarSenhaAtual_Funcionario.setEchoChar((char) 0);
             activeButton_verificarNovaSenha = true;
@@ -701,12 +714,12 @@ public class interface_editarFuncionario extends javax.swing.JFrame {
 
     private void bOlho_verificarSenhaAtualMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bOlho_verificarSenhaAtualMouseClicked
         String verificarSenha = String.valueOf(verificarSenhaAtual_Funcionario.getPassword());
-        if (activeButton_verificarSenha && !(verificarSenha.equals(" Verificar senha atual:"))) {
+        if(activeButton_verificarSenha &&  !(verificarSenha.equals(" Verificar senha atual:"))){
             bOlho_verificarSenhaAtual.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconLabel/olho-cruzado.png")));
             verificarSenhaAtual_Funcionario.setEchoChar('*');
             activeButton_verificarSenha = false;
 
-        } else if (activeButton_verificarSenha == false && !(verificarSenha.equals(" Verificar senha atual:"))) {
+        }else if(activeButton_verificarSenha == false &&  !(verificarSenha.equals(" Verificar senha atual:"))){
             bOlho_verificarSenhaAtual.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconLabel/olho.png")));
             verificarSenhaAtual_Funcionario.setEchoChar((char) 0);
             activeButton_verificarSenha = true;
@@ -714,75 +727,94 @@ public class interface_editarFuncionario extends javax.swing.JFrame {
     }//GEN-LAST:event_bOlho_verificarSenhaAtualMouseClicked
 
     private void btn_verificarSenhaAtualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_verificarSenhaAtualActionPerformed
-
+        DAO_ContaFuncionario daoFuncionario = new DAO_ContaFuncionario();
+        
+        if(daoFuncionario.verificarSenha(String.valueOf(this.verificarSenhaAtual_Funcionario.getPassword()))){
+            this.dimensionarPaineis_senha(this.jPanel_atualizarSenha);
+            this.jPanel_verificarSenhaAtual.setVisible(false);
+            this.senhaVerificada = true;
+        }
     }//GEN-LAST:event_btn_verificarSenhaAtualActionPerformed
 
-    private void preencherDadosFuncionarios() {
+    private void preencherDadosFuncionarios(){        
         this.nomeFuncionario_Editar.setText(editar_contaFuncionario.getTitular().getNome());
         this.telefoneFuncionario_Editar.setText(editar_contaFuncionario.getTitular().getTelefone());
         this.cpfFuncionario_Editar.setText(editar_contaFuncionario.getTitular().getCpf());
         this.enderecoFuncionario_Editar.setText(editar_contaFuncionario.getTitular().getEndereco());
         this.cargoFuncionario_Editar.setSelectedItem(editar_contaFuncionario.getCargoFuncionario());
-    }
-
-    private void dimensionarPaineis_senha(JPanel exibirPainel) {
+    }    
+    
+    private void dimensionarPaineis_senha(JPanel exibirPainel){
         //exibirPainel.setBounds(0, 0, 950, 540);
         exibirPainel.setVisible(true);
         this.setBounds(0, 0, 930, 715);
         this.setLocationRelativeTo(null);
     }
-
-    private void inicializarCamposSenha() {
+    
+    private void inicializarCamposSenha(){
         this.verificarSenhaAtual_Funcionario.setEchoChar((char) 0);
         this.novaSenha_funcionario.setEchoChar((char) 0);
         this.verificarNovaSenha_funcionario.setEchoChar((char) 0);
         this.jPanel_verificarSenhaAtual.setVisible(false);
         this.jPanel_atualizarSenha.setVisible(false);
     }
-
-    private void resetarCamposSenha() {
+    
+    private void resetarCamposSenha(){
         this.jPanel_verificarSenhaAtual.setVisible(false);
         this.jPanel_atualizarSenha.setVisible(false);
         this.senhaVerificada = false;
-
+        
         this.verificarSenhaAtual_Funcionario.setEchoChar((char) 0);
         this.novaSenha_funcionario.setEchoChar((char) 0);
         this.verificarNovaSenha_funcionario.setEchoChar((char) 0);
-
+        
         this.bOlho_verificarSenhaAtual.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconLabel/olho.png")));
         this.bOlho_novaSenha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconLabel/olho.png")));
         this.bOlho_verificarNovaSenha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconLabel/olho.png")));
-
+        
         this.verificarSenhaAtual_Funcionario.setText(" Verificar senha atual:");
         this.novaSenha_funcionario.setText(" Nova senha:");
         this.verificarNovaSenha_funcionario.setText(" Repita a nova senha: ");
     }
-
-    private boolean camposSenhasIguais() {
+    
+    private boolean camposSenhasIguais(){
         String conferir_novaSenha = String.valueOf(this.novaSenha_funcionario.getPassword());
         String conferir_verificarNovaSenha = String.valueOf(this.verificarNovaSenha_funcionario.getPassword());
-
+        
         boolean senhasIguais = conferir_novaSenha.equals(conferir_verificarNovaSenha);
-
+        
         return senhasIguais;
     }
-
-    private String atualizarSenha() {
+    
+    private void resetarCampos_novaSenha(){
+        this.novaSenha_funcionario.setEchoChar((char) 0);
+        this.verificarNovaSenha_funcionario.setEchoChar((char) 0);
+        
+        
+        this.bOlho_novaSenha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconLabel/olho.png")));
+        this.bOlho_verificarNovaSenha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconLabel/olho.png")));
+        
+        this.novaSenha_funcionario.setText(" Nova senha:");
+        this.verificarNovaSenha_funcionario.setText(" Repita a nova senha: ");
+    }
+    
+    private String atualizarSenha(){
         String novaSenha = null;
-
-        if (this.alterarSenha) {
-
-            if (this.senhaVerificada) {
-                if (this.camposSenhasIguais()) {
+        
+        if(this.alterarSenha){
+            
+            if(this.senhaVerificada){
+                if(this.camposSenhasIguais()){
                     novaSenha = String.valueOf(this.novaSenha_funcionario.getPassword());
-                } else {
-                    GlassPanePopup.showPopup(new PopUp_Senha("As senhas não são iguais!"));
+                }else{
+                    this.resetarCampos_novaSenha();
+                    GlassPanePopup.showPopup(new PopUp_Senha());
                 }
-            } else {
-                GlassPanePopup.showPopup(new PopUp_Senha("A senha não foi verificada!"));
+            }else{
+                GlassPanePopup.showPopup(new PopUp_SenhaNaoVerificada());
             }
         }
-
+     
         return novaSenha;
     }
 

@@ -319,7 +319,6 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
 
         panel7.setBackground(new java.awt.Color(255, 255, 255));
 
-        cargoFuncionario.setBackground(new java.awt.Color(255, 255, 255));
         cargoFuncionario.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
         cargoFuncionario.setForeground(new java.awt.Color(79, 84, 101));
         cargoFuncionario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cozinheiro(a)", "Auxiliar de Cozinha", "Garçom", "Balconista", "Faxineiro(a)", "Administrador" }));
@@ -627,7 +626,7 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
                 }
                 
             }else{
-                GlassPanePopup.showPopup(new PopUp_Senha("As senhas não são iguais!"));
+                GlassPanePopup.showPopup(new PopUp_Senha());
                 this.resetarCamposSenha();
             }
         }else{
