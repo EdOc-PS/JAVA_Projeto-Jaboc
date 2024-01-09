@@ -4,6 +4,7 @@
  */
 package jaboc_UI.Funcionarios;
 
+import jaboc_BancoDeDados.Modelo.DAO_ContaFuncionario;
 import jaboc_UI.Administrador.*;
 import jaboc_UI.Produtos.interface_gerenciarProdutos;
 import jaboc_UI.Funcionarios.interface_exibirFuncionarios;
@@ -24,6 +25,7 @@ public class interface_areaFuncionario extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
 
+        this.jL_boasVindas.setText("Olá: "+ DAO_ContaFuncionario.getDadosCadastro().getTitular().getNome());
         bPedidos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         bExtrato.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         bEditarConta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -51,7 +53,7 @@ public class interface_areaFuncionario extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        jL_boasVindas = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -225,12 +227,12 @@ public class interface_areaFuncionario extends javax.swing.JFrame {
         jLabel3.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(321, 529, 258, -1));
 
-        jLabel4.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel4.setFont(new java.awt.Font("Gill Sans MT", 1, 30)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("OLÁ: NOME FUNCIONARIO");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 279, 900, 72));
+        jL_boasVindas.setBackground(new java.awt.Color(255, 255, 255));
+        jL_boasVindas.setFont(new java.awt.Font("Gill Sans MT", 1, 30)); // NOI18N
+        jL_boasVindas.setForeground(new java.awt.Color(255, 255, 255));
+        jL_boasVindas.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jL_boasVindas.setText("OLÁ: NOME FUNCIONARIO");
+        jPanel1.add(jL_boasVindas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 279, 900, 72));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/principal/fdn3.png"))); // NOI18N
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 550));
@@ -332,6 +334,7 @@ public class interface_areaFuncionario extends javax.swing.JFrame {
     private jaboc_UI.jabocUI_Utilidades.Panel bEditarConta;
     private jaboc_UI.jabocUI_Utilidades.Panel bExtrato;
     private jaboc_UI.jabocUI_Utilidades.Panel bPedidos;
+    private javax.swing.JLabel jL_boasVindas;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -339,7 +342,6 @@ public class interface_areaFuncionario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
