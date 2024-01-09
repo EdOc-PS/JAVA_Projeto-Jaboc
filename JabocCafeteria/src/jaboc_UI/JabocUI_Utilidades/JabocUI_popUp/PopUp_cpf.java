@@ -4,6 +4,7 @@
  */
 package jaboc_UI.JabocUI_Utilidades.JabocUI_popUp;
 
+
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
@@ -14,40 +15,14 @@ import raven.glasspanepopup.GlassPanePopup;
  *
  * @author eeuar
  */
-public class PopUp_mensagemProduto extends javax.swing.JPanel {
-
-    private String mensagem;
+public class PopUp_cpf extends javax.swing.JPanel {
 
     /**
      * Creates new form interface_mensagen
      */
-    public PopUp_mensagemProduto(String mensagem) {
+    public PopUp_cpf() {
         initComponents();
-        this.conferirMensagem(mensagem);
-
-        this.setVisible(true);
         setOpaque(false);
-    }
-
-    private void conferirMensagem(String mensagem) {
-        String deletar = "Deletado com sucesso!";
-        String adicionar = "Inserido com sucesso!";
-        String atualizar = "Atualizado com sucesso!";
-        String carrinho = "Adicionado ao carrinho";
-
-        if (mensagem.equals(deletar)) {
-            jMensagen.setText(deletar);
-            jIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_apagou.png")));
-        } else if (mensagem.equals(adicionar)) {
-            jMensagen.setText(adicionar);
-            jIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_mais.png")));
-        } else if (mensagem.equals(atualizar)) {
-            jMensagen.setText(atualizar);
-            jIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_certo.png")));
-        } else if (mensagem.equals(carrinho)) {
-            jMensagen.setText(carrinho);
-            jIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_certo.png")));
-        }
     }
 
     @Override
@@ -74,8 +49,8 @@ public class PopUp_mensagemProduto extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
         botao1 = new jaboc_UI.jabocUI_Utilidades.Button();
         botao2 = new jaboc_UI.jabocUI_Utilidades.Button();
-        jIcon = new javax.swing.JLabel();
-        jMensagen = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
         bPopUp = new jaboc_UI.jabocUI_Utilidades.ButtonCirculo();
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -109,13 +84,13 @@ public class PopUp_mensagemProduto extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(252, 252, 252));
 
-        jIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_atention.png"))); // NOI18N
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_atention.png"))); // NOI18N
 
-        jMensagen.setFont(new java.awt.Font("Gill Sans MT", 1, 18)); // NOI18N
-        jMensagen.setForeground(new java.awt.Color(79, 84, 101));
-        jMensagen.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jMensagen.setText("Algo vai aqui");
+        jLabel6.setFont(new java.awt.Font("Gill Sans MT", 1, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(79, 84, 101));
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setText("Existem campos vazíos!");
 
         bPopUp.setBackground(new java.awt.Color(250, 112, 112));
         bPopUp.setForeground(new java.awt.Color(255, 255, 255));
@@ -130,8 +105,8 @@ public class PopUp_mensagemProduto extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jMensagen, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
-            .addComponent(jIcon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
+            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(bPopUp, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -143,9 +118,9 @@ public class PopUp_mensagemProduto extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(bPopUp, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jMensagen, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(23, 23, 23))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -159,10 +134,10 @@ public class PopUp_mensagemProduto extends javax.swing.JPanel {
     private jaboc_UI.jabocUI_Utilidades.ButtonCirculo bPopUp;
     private jaboc_UI.jabocUI_Utilidades.Button botao1;
     private jaboc_UI.jabocUI_Utilidades.Button botao2;
-    private javax.swing.JLabel jIcon;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jMensagen;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

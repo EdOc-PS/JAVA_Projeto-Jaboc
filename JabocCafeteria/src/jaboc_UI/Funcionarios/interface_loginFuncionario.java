@@ -8,9 +8,12 @@ import jaboc_BancoDeDados.Controle.Logavel;
 import jaboc_BancoDeDados.Modelo.DAO_ContaFuncionario;
 import jaboc_Biblioteca.glasspanepopup.GlassPanePopup;
 import jaboc_Classes.Login;
+import jaboc_UI.JabocUI_Utilidades.JabocUI_popUp.PopUp_ClienteParaFuncionario;
 import jaboc_UI.JabocUI_Utilidades.JabocUI_popUp.PopUp_SenhaIncorreta;
+import jaboc_UI.JabocUI_Utilidades.JabocUI_popUp.PopUp_SenhaNaoVerificada;
 import jaboc_UI.JabocUI_Utilidades.JabocUI_popUp.PopUp_vazio;
 import jaboc_UI.Pedidos.interface_controlePedidos;
+import jaboc_UI.jabocUI_Utilidades.JabocUI_popUp.PopUp_Senha;
 import java.awt.Color;
 
 /**
@@ -279,7 +282,7 @@ public class interface_loginFuncionario extends javax.swing.JFrame {
                     
                 }else{
                     this.resetarCampoSenha();
-                    GlassPanePopup.showPopup(new PopUp_SenhaIncorreta());
+                    GlassPanePopup.showPopup(new PopUp_Senha());
                 }
 
             }else{

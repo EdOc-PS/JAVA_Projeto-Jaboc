@@ -4,7 +4,7 @@
  */
 package jaboc_UI.JabocUI_Utilidades.JabocUI_popUp;
 
-import java.awt.Color;
+
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;

@@ -24,7 +24,11 @@ public class PopUp_Senha extends javax.swing.JPanel {
         initComponents();
         setOpaque(false);
     }
-
+     public PopUp_Senha(String senha) {
+        initComponents();
+        setOpaque(false);
+    }
+     
     @Override
     protected void paintComponent(Graphics g) {
         Graphics2D g2 = (Graphics2D) g.create();
@@ -34,7 +38,17 @@ public class PopUp_Senha extends javax.swing.JPanel {
         g2.dispose();
         super.paintComponent(g); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
     }
-
+    private void conferirSenha(String mensagem){
+        String desigual = "As senhas não são iguais!";
+        String verificada = "A senha não foi verificada!";
+        String incorreta = "Senha incorreta!";
+        
+        if (mensagem.equals(desigual)) {
+            jtext.setText(desigual);
+        } else if(mensagem.equals(verificada)){
+            
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -50,7 +64,7 @@ public class PopUp_Senha extends javax.swing.JPanel {
         botao1 = new jaboc_UI.jabocUI_Utilidades.Button();
         botao2 = new jaboc_UI.jabocUI_Utilidades.Button();
         jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        jtext = new javax.swing.JLabel();
         bPopUp = new jaboc_UI.jabocUI_Utilidades.ButtonCirculo();
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -87,10 +101,10 @@ public class PopUp_Senha extends javax.swing.JPanel {
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_atention.png"))); // NOI18N
 
-        jLabel6.setFont(new java.awt.Font("Gill Sans MT", 1, 18)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(79, 84, 101));
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("As senhas não são iguais!");
+        jtext.setFont(new java.awt.Font("Gill Sans MT", 1, 18)); // NOI18N
+        jtext.setForeground(new java.awt.Color(79, 84, 101));
+        jtext.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jtext.setText("texto");
 
         bPopUp.setBackground(new java.awt.Color(250, 112, 112));
         bPopUp.setForeground(new java.awt.Color(255, 255, 255));
@@ -107,7 +121,7 @@ public class PopUp_Senha extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
+            .addComponent(jtext, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
             .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -122,7 +136,7 @@ public class PopUp_Senha extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jtext, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -139,7 +153,7 @@ public class PopUp_Senha extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jtext;
     // End of variables declaration//GEN-END:variables
 }
