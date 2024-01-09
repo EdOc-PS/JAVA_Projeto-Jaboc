@@ -183,9 +183,6 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/img/icons/i_edFuncionario.png"/>
-            </Property>
             <Property name="text" type="java.lang.String" value=" EDITAR FUNCION&#xc1;RIO"/>
           </Properties>
         </Component>

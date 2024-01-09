@@ -2,6 +2,12 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/E:/ESTUDOS/GitHub/Projeto-Jaboc/JabocCafeteria/src/jaboc_BancoDeDados/Modelo/DAO_Pedido.java</file>
+            <file>file:/E:/ESTUDOS/GitHub/Projeto-Jaboc/JabocCafeteria/src/jaboc_UI/JabocUI_Utilidades/JabocUI_Classes/MensagemIncorreta.java</file>
+            <file>file:/E:/ESTUDOS/GitHub/Projeto-Jaboc/JabocCafeteria/src/jaboc_UI/Pedidos/interface_extratoPedidos.java</file>
+            <file>file:/E:/ESTUDOS/GitHub/Projeto-Jaboc/JabocCafeteria/src/jaboc_UI/Pedidos/interface_controlePedidos.java</file>
+            <file>file:/E:/ESTUDOS/GitHub/Projeto-Jaboc/JabocCafeteria/src/jaboc_UI/JabocUI_Utilidades/JabocUI_Classes/FormattedNumberField.java</file>
+        </group>
     </open-files>
 </project-private>

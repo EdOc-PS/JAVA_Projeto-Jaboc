@@ -9,8 +9,8 @@ import jaboc_Biblioteca.outras.ModernScrollBarUI;
 import jaboc_Classes.Pedido;
 import java.awt.Color;
 import java.awt.Dimension;
-import javax.swing.DefaultListModel;
 import javax.swing.JScrollBar;
+import javax.swing.table.DefaultTableModel;
 import raven.glasspanepopup.GlassPanePopup;
 
 /**
@@ -19,18 +19,25 @@ import raven.glasspanepopup.GlassPanePopup;
  */
 public class interface_extratoPedidos extends javax.swing.JFrame {
 
+    DAO_Pedido daoPedido = new DAO_Pedido();
+
     /**
      * Creates new form interface_extratoPedidos
      */
     public interface_extratoPedidos() {
         initComponents();
-        
-        JScrollBar bar = scrollLista.getVerticalScrollBar();
+        setLocationRelativeTo(null);
+        GlassPanePopup.install(this);
+
+        JScrollBar bar = scrollPedidos.getVerticalScrollBar();
         bar.setOpaque(false);
         bar.setForeground(new Color(223, 204, 251));
         bar.setPreferredSize(new Dimension(10, 5));
         bar.setUI(new ModernScrollBarUI());
-        scrollLista.setOpaque(false);
+        scrollPedidos.setViewportBorder(null);
+        scrollPedidos.setBorder(null);
+
+        dataPedido.addFormatacao("####-##-##");
     }
 
     /**
@@ -47,14 +54,19 @@ public class interface_extratoPedidos extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         bVoltar = new jaboc_UI.jabocUI_Utilidades.ButtonCirculo();
         panel1 = new jaboc_UI.jabocUI_Utilidades.Panel();
-        button1 = new jaboc_UI.jabocUI_Utilidades.Button();
+        bTabela = new jaboc_UI.jabocUI_Utilidades.Button();
         panel3 = new jaboc_UI.jabocUI_Utilidades.Panel();
         tipoProduto = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        panel4 = new jaboc_UI.jabocUI_Utilidades.Panel();
+        jLabel5 = new javax.swing.JLabel();
+        dataPedido = new jaboc_UI.JabocUI_Utilidades.JabocUI_Classes.FormattedTextField();
+        buttonCirculo1 = new jaboc_UI.jabocUI_Utilidades.ButtonCirculo();
         panel2 = new jaboc_UI.jabocUI_Utilidades.Panel();
-        scrollLista = new javax.swing.JScrollPane();
-        listaExtrato = new javax.swing.JList<>();
+        scrollPedidos = new javax.swing.JScrollPane();
+        tabelaPedidos = new jaboc_UI.JabocUI_Utilidades.JabocUI_Classes.Table();
         jLabel7 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -105,12 +117,14 @@ public class interface_extratoPedidos extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        panel1.setBackground(new java.awt.Color(255, 255, 255));
+        panel1.setBackground(new java.awt.Color(200, 182, 166));
 
-        button1.setText("Carregar");
-        button1.addActionListener(new java.awt.event.ActionListener() {
+        bTabela.setBackground(new java.awt.Color(79, 84, 101));
+        bTabela.setForeground(new java.awt.Color(255, 255, 255));
+        bTabela.setText("Carregar");
+        bTabela.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button1ActionPerformed(evt);
+                bTabelaActionPerformed(evt);
             }
         });
 
@@ -119,7 +133,7 @@ public class interface_extratoPedidos extends javax.swing.JFrame {
         tipoProduto.setBackground(new java.awt.Color(255, 255, 255));
         tipoProduto.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
         tipoProduto.setForeground(new java.awt.Color(153, 153, 153));
-        tipoProduto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cafe", "Salgado", "Doce", "Outras bebidas" }));
+        tipoProduto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "Cafe", "Salgado", "Doce", "Outras bebidas" }));
         tipoProduto.setBorder(null);
         tipoProduto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         tipoProduto.setFocusable(false);
@@ -138,8 +152,8 @@ public class interface_extratoPedidos extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tipoProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(tipoProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(15, Short.MAX_VALUE))
         );
         panel3Layout.setVerticalGroup(
             panel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -151,9 +165,53 @@ public class interface_extratoPedidos extends javax.swing.JFrame {
         );
 
         jLabel4.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel4.setFont(new java.awt.Font("Gill Sans MT", 0, 12)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel4.setFont(new java.awt.Font("Gill Sans MT", 1, 12)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Tipo: ");
+
+        jLabel2.setFont(new java.awt.Font("Gill Sans MT", 1, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Data:");
+
+        panel4.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel5.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconLabel/calendario.png"))); // NOI18N
+
+        dataPedido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dataPedidoActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panel4Layout = new javax.swing.GroupLayout(panel4);
+        panel4.setLayout(panel4Layout);
+        panel4Layout.setHorizontalGroup(
+            panel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(dataPedido, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        panel4Layout.setVerticalGroup(
+            panel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel4Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(panel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(dataPedido, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)))
+        );
+
+        buttonCirculo1.setBackground(new java.awt.Color(79, 84, 101));
+        buttonCirculo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_download.png"))); // NOI18N
+        buttonCirculo1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonCirculo1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
         panel1.setLayout(panel1Layout);
@@ -161,51 +219,83 @@ public class interface_extratoPedidos extends javax.swing.JFrame {
             panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
                 .addGap(19, 19, 19)
-                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(panel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 408, Short.MAX_VALUE)
-                .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(panel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(25, 25, 25)
+                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(panel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(buttonCirculo1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(bTabela, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18))
         );
         panel1Layout.setVerticalGroup(
             panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
+            .addGroup(panel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(button1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(panel1Layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(panel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panel1Layout.createSequentialGroup()
+                        .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 9, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 9, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(panel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(panel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(buttonCirculo1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(bTabela, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        panel2.setBackground(new java.awt.Color(255, 255, 255));
+        panel2.setBackground(new java.awt.Color(200, 182, 166));
 
-        scrollLista.setBorder(null);
+        scrollPedidos.setBorder(null);
 
-        listaExtrato.setBackground(new java.awt.Color(255, 255, 255));
-        listaExtrato.setBorder(null);
-        listaExtrato.setFont(new java.awt.Font("Gill Sans MT", 0, 15)); // NOI18N
-        listaExtrato.setForeground(new java.awt.Color(0, 0, 0));
-        scrollLista.setViewportView(listaExtrato);
+        tabelaPedidos.setBackground(new java.awt.Color(255, 255, 255));
+        tabelaPedidos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID", "Pedido", "Data", "Tipo", "Status"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tabelaPedidos.setSelectionBackground(new java.awt.Color(204, 204, 255));
+        tabelaPedidos.setSelectionForeground(new java.awt.Color(255, 255, 255));
+        tabelaPedidos.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        tabelaPedidos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabelaPedidosMouseClicked(evt);
+            }
+        });
+        scrollPedidos.setViewportView(tabelaPedidos);
 
         javax.swing.GroupLayout panel2Layout = new javax.swing.GroupLayout(panel2);
         panel2.setLayout(panel2Layout);
         panel2Layout.setHorizontalGroup(
             panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(scrollLista)
-                .addContainerGap())
+                .addGap(10, 10, 10)
+                .addComponent(scrollPedidos, javax.swing.GroupLayout.PREFERRED_SIZE, 733, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(10, Short.MAX_VALUE))
         );
         panel2Layout.setVerticalGroup(
             panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(scrollLista, javax.swing.GroupLayout.DEFAULT_SIZE, 298, Short.MAX_VALUE)
-                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel2Layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(scrollPedidos, javax.swing.GroupLayout.DEFAULT_SIZE, 313, Short.MAX_VALUE)
+                .addGap(10, 10, 10))
         );
 
         jLabel7.setBackground(new java.awt.Color(255, 255, 255));
@@ -225,19 +315,15 @@ public class interface_extratoPedidos extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(33, 33, 33)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(panel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(67, 67, 67)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(panel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(panel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)))
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(293, 293, 293))
+                    .addComponent(panel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 37, Short.MAX_VALUE)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -248,9 +334,9 @@ public class interface_extratoPedidos extends javax.swing.JFrame {
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1)
-                .addGap(8, 8, 8)
-                .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(panel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -281,22 +367,88 @@ public class interface_extratoPedidos extends javax.swing.JFrame {
 
     }//GEN-LAST:event_bVoltarActionPerformed
 
-    private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
-       DAO_Pedido daoPedido = new DAO_Pedido();
-       DefaultListModel list = new DefaultListModel();
-       for(Pedido p : daoPedido.Listagem()){
-           
-           list.addElement("Nome: "+ p.getNomePedido()+" - Tipo: " +p.getTipoPedido()+
-                   " - Data: "+ p.getDataPedido() + " - Status: "+p.getStatusPedido());
- 
-       }
-       listaExtrato.setModel(list);
-    }//GEN-LAST:event_button1ActionPerformed
+    private void bTabelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bTabelaActionPerformed
+         DefaultTableModel pedidos = (DefaultTableModel) tabelaPedidos.getModel();
+         pedidos.getDataVector().removeAllElements();
+         
+        if (tipoProduto.getSelectedItem().equals("Todos") && dataPedido.getText().equals("")) {
+            this.carregarTabelaTodos();
+        }else if (!tipoProduto.getSelectedItem().equals("Todos") && dataPedido.getText().equals("")) {
+            carregarTabelaTipo();
+        }else if(tipoProduto.getSelectedItem().equals("Todos") && !dataPedido.getText().equals("")){
+            carregarTabelaData();
+        }else{
+            carregarTabelaEspecifico();
+        }
+//GEN-LAST:event_bTabelaActionPerformed
+    }
+    private void tabelaPedidosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaPedidosMouseClicked
 
+    }//GEN-LAST:event_tabelaPedidosMouseClicked
+
+    private void buttonCirculo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCirculo1ActionPerformed
+
+    }//GEN-LAST:event_buttonCirculo1ActionPerformed
+
+    private void dataPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataPedidoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dataPedidoActionPerformed
+
+    private void carregarTabelaTodos() {
+        DefaultTableModel pedidos = (DefaultTableModel) tabelaPedidos.getModel();
+        for (Pedido p : daoPedido.Listagem("extrato")) {       
+            pedidos.addRow(new Object[]{
+                p.getIdPedido(),
+                p.getNomePedido(),
+                p.getDataPedido(),
+                p.getTipoPedido(),
+                p.getStatusPedido()
+            });
+        }
+    }
+    
+    private void carregarTabelaTipo(){
+        DefaultTableModel pedidos = (DefaultTableModel) tabelaPedidos.getModel();
+        for (Pedido p : daoPedido.ListagemTipo(String.valueOf(tipoProduto.getSelectedItem()))) {
+                pedidos.addRow(new Object[]{
+                    p.getIdPedido(),
+                    p.getNomePedido(),
+                    p.getDataPedido(),
+                    p.getTipoPedido(),
+                    p.getStatusPedido()
+                });
+            }
+    }
+    
+    private void carregarTabelaData(){
+         DefaultTableModel pedidos = (DefaultTableModel) tabelaPedidos.getModel();
+        for (Pedido p : daoPedido.ListagemData(dataPedido.getText())) {
+                pedidos.addRow(new Object[]{
+                    p.getIdPedido(),
+                    p.getNomePedido(),
+                    p.getDataPedido(),
+                    p.getTipoPedido(),
+                    p.getStatusPedido()
+                });
+            }
+    }
+    
+    private void carregarTabelaEspecifico(){
+        DefaultTableModel pedidos = (DefaultTableModel) tabelaPedidos.getModel();
+        for (Pedido p : daoPedido.ListagemSeleta(dataPedido.getText(), String.valueOf(tipoProduto.getSelectedItem()))) {       
+            pedidos.addRow(new Object[]{
+                p.getIdPedido(),
+                p.getNomePedido(),
+                p.getDataPedido(),
+                p.getTipoPedido(),
+                p.getStatusPedido()
+            });
+        }
+    }
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void extrato(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -329,20 +481,25 @@ public class interface_extratoPedidos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private jaboc_UI.jabocUI_Utilidades.Button bTabela;
     private jaboc_UI.jabocUI_Utilidades.ButtonCirculo bVoltar;
-    private jaboc_UI.jabocUI_Utilidades.Button button1;
+    private jaboc_UI.jabocUI_Utilidades.ButtonCirculo buttonCirculo1;
+    private jaboc_UI.JabocUI_Utilidades.JabocUI_Classes.FormattedTextField dataPedido;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JList<String> listaExtrato;
     private jaboc_UI.jabocUI_Utilidades.Panel panel1;
     private jaboc_UI.jabocUI_Utilidades.Panel panel2;
     private jaboc_UI.jabocUI_Utilidades.Panel panel3;
-    private javax.swing.JScrollPane scrollLista;
+    private jaboc_UI.jabocUI_Utilidades.Panel panel4;
+    private javax.swing.JScrollPane scrollPedidos;
+    private jaboc_UI.JabocUI_Utilidades.JabocUI_Classes.Table tabelaPedidos;
     private javax.swing.JComboBox<String> tipoProduto;
     // End of variables declaration//GEN-END:variables
 }

@@ -176,6 +176,16 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
         panel4.setBackground(new java.awt.Color(255, 255, 255));
 
         nomeFuncionario.setText("Nome:");
+        nomeFuncionario.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                nomeFuncionarioFocusLost(evt);
+            }
+        });
+        nomeFuncionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nomeFuncionarioActionPerformed(evt);
+            }
+        });
 
         iuser.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         iuser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconLabel/user.png"))); // NOI18N
@@ -233,6 +243,11 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
         itel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconLabel/tel.png"))); // NOI18N
 
         telefoneFuncionario.setText(" Telefone:");
+        telefoneFuncionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                telefoneFuncionarioActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panel6Layout = new javax.swing.GroupLayout(panel6);
         panel6.setLayout(panel6Layout);
@@ -288,6 +303,16 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
         panel22.setBackground(new java.awt.Color(255, 255, 255));
 
         enderecoFuncionario.setText(" Endereço:");
+        enderecoFuncionario.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                enderecoFuncionarioFocusLost(evt);
+            }
+        });
+        enderecoFuncionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                enderecoFuncionarioActionPerformed(evt);
+            }
+        });
 
         iuser1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         iuser1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconLabel/casa.png"))); // NOI18N
@@ -319,6 +344,7 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
 
         panel7.setBackground(new java.awt.Color(255, 255, 255));
 
+        cargoFuncionario.setBackground(new java.awt.Color(255, 255, 255));
         cargoFuncionario.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
         cargoFuncionario.setForeground(new java.awt.Color(79, 84, 101));
         cargoFuncionario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cozinheiro(a)", "Auxiliar de Cozinha", "Garçom", "Balconista", "Faxineiro(a)", "Administrador" }));
@@ -463,6 +489,11 @@ public class interface_criarFuncionario extends javax.swing.JFrame {
         bOlho.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 bOlhoMouseClicked(evt);
+            }
+        });
+        bOlho.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bOlhoActionPerformed(evt);
             }
         });
 
