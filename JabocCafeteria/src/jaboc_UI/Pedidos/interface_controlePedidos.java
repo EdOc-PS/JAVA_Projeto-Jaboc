@@ -132,17 +132,16 @@ public class interface_controlePedidos extends javax.swing.JFrame {
 
         scrollPedidos.setBorder(null);
 
-        tabelaPedidos.setBackground(new java.awt.Color(255, 255, 255));
         tabelaPedidos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "ID", "Pedido", "Data", "Tipo", "Status"
+                "ID", "Pedido", "Cliente", "Data", "Tipo", "Status"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -160,8 +159,8 @@ public class interface_controlePedidos extends javax.swing.JFrame {
         scrollPedidos.setViewportView(tabelaPedidos);
         if (tabelaPedidos.getColumnModel().getColumnCount() > 0) {
             tabelaPedidos.getColumnModel().getColumn(0).setPreferredWidth(10);
-            tabelaPedidos.getColumnModel().getColumn(2).setPreferredWidth(20);
-            tabelaPedidos.getColumnModel().getColumn(3).setPreferredWidth(25);
+            tabelaPedidos.getColumnModel().getColumn(3).setPreferredWidth(20);
+            tabelaPedidos.getColumnModel().getColumn(4).setPreferredWidth(25);
         }
 
         javax.swing.GroupLayout panel2Layout = new javax.swing.GroupLayout(panel2);
@@ -245,7 +244,6 @@ public class interface_controlePedidos extends javax.swing.JFrame {
         interface_areaFuncionario i_area = new interface_areaFuncionario();
         i_area.setVisible(true);
         this.dispose();
-        DAO_ContaFuncionario.limparDados_Memoria();
     }//GEN-LAST:event_bVoltarActionPerformed
 
     private void tabelaPedidosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaPedidosMouseClicked
@@ -263,10 +261,11 @@ public class interface_controlePedidos extends javax.swing.JFrame {
         DAO_Pedido daoPedido = new DAO_Pedido();
         DefaultTableModel pedidos = (DefaultTableModel) tabelaPedidos.getModel();
         
-        for (Pedido p : daoPedido.Listagem("controle")) {
+        for (Pedido p : daoPedido.listagemPedidos_Todos()) {
             pedidos.addRow(new Object[]{
                 p.getIdPedido(),
                 p.getNomePedido(),
+                p.getNOME_CLIENTE(),
                 p.getDataPedido(),
                 p.getTipoPedido(),
                 p.getStatusPedido()
@@ -281,37 +280,6 @@ public class interface_controlePedidos extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void cotrolePedidos(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Windows".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(interface_controlePedidos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(interface_controlePedidos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(interface_controlePedidos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(interface_controlePedidos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new interface_controlePedidos().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private jaboc_UI.jabocUI_Utilidades.ButtonCirculo bVoltar;
