@@ -28,7 +28,7 @@ public class interface_exibirFuncionarios extends javax.swing.JFrame {
     public interface_exibirFuncionarios() {
         initComponents();       
         setLocationRelativeTo(null);
-        
+
         GlassPanePopup.install(this);
         this.carregarTabela();
     }
@@ -251,8 +251,10 @@ public class interface_exibirFuncionarios extends javax.swing.JFrame {
     }//GEN-LAST:event_adicionar_ProdutoActionPerformed
 
     private void tabelaFuncionarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaFuncionarioMouseClicked
+        
         Conta_Funcionario funcionarioGerenciavel = this.coletarDados_tabela();
-        PopUp_GerenciarFuncionarios gerenciarFunc = new PopUp_GerenciarFuncionarios(funcionarioGerenciavel, this);          
+        PopUp_GerenciarFuncionarios gerenciarFunc = new PopUp_GerenciarFuncionarios(funcionarioGerenciavel, this);
+              
         GlassPanePopup.showPopup(gerenciarFunc);
 
     }//GEN-LAST:event_tabelaFuncionarioMouseClicked
@@ -284,20 +286,12 @@ public class interface_exibirFuncionarios extends javax.swing.JFrame {
         String cpfFuncionario = (String) this.tabelaFuncionario.getValueAt(linhaSelecionada, 1);
         String cargoFuncionario = (String) this.tabelaFuncionario.getValueAt(linhaSelecionada, 3);
         double salario = (double) this.tabelaFuncionario.getValueAt(linhaSelecionada, 4);
-        System.out.println(salario);
         Pessoa objetoPessoa = new Pessoa(nomeFuncionario, cpfFuncionario);
         
         return new Conta_Funcionario(objetoPessoa, cargoFuncionario, salario);
         
     }
     
-    public JTable getTabelaFuncionario(){
-        return this.tabelaFuncionario;
-    }
-     
-    public static void exibirFunc(String args[]) {
-         new interface_exibirFuncionarios().setVisible(true);
-    }
 
     /**
      * @param args the command line arguments
