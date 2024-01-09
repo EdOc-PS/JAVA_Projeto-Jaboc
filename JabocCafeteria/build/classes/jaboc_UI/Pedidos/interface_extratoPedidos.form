@@ -158,9 +158,7 @@
                           <Component id="panel4" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="buttonCirculo1" min="-2" pref="50" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="bTabela" min="-2" pref="125" max="-2" attributes="0"/>
+                      <Component id="bTabela" min="-2" pref="175" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -181,7 +179,6 @@
                                   <Component id="panel3" max="32767" attributes="0"/>
                               </Group>
                           </Group>
-                          <Component id="buttonCirculo1" alignment="1" max="32767" attributes="0"/>
                           <Component id="bTabela" alignment="1" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
@@ -364,19 +361,6 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="jaboc_UI.jabocUI_Utilidades.ButtonCirculo" name="buttonCirculo1">
-              <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="65" green="54" red="4f" type="rgb"/>
-                </Property>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/img/icons/i_download.png"/>
-                </Property>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonCirculo1ActionPerformed"/>
-              </Events>
-            </Component>
           </SubComponents>
         </Container>
         <Container class="jaboc_UI.jabocUI_Utilidades.Panel" name="panel2">

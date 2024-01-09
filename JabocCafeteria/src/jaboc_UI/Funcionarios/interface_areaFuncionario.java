@@ -4,9 +4,7 @@
  */
 package jaboc_UI.Funcionarios;
 
-import jaboc_UI.Administrador.*;
-import jaboc_UI.Produtos.interface_gerenciarProdutos;
-import jaboc_UI.Funcionarios.interface_exibirFuncionarios;
+
 import jaboc_UI.Pedidos.interface_controlePedidos;
 import jaboc_UI.Pedidos.interface_extratoPedidos;
 import java.awt.Color;
@@ -293,7 +291,7 @@ public class interface_areaFuncionario extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void areaFuncionario(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.

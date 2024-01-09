@@ -47,9 +47,9 @@ public class DAO_Pedido implements DAO {
         List<Pedido> lista_pedidos = new ArrayList<Pedido>();
         ResultSet resultadosListagem = null;
 
-        if (statusPedido == "controle") {
+        if (statusPedido.equals("controle")){
             resultadosListagem = this.selectTodos();
-        } else if (statusPedido == "extrato") {
+        } else if (statusPedido.equals("extrato")) {
             resultadosListagem = this.selectExtrato();
         }
 

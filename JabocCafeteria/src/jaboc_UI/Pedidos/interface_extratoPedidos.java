@@ -5,11 +5,15 @@
 package jaboc_UI.Pedidos;
 
 import jaboc_BancoDeDados.Modelo.DAO_Pedido;
-import jaboc_Biblioteca.outras.ModernScrollBarUI;
+import jaboc_UI.JabocUI_Utilidades.JabocUI_Classes.ModernScrollBarUI;
 import jaboc_Classes.Pedido;
 import jaboc_UI.Funcionarios.interface_areaFuncionario;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JScrollBar;
 import javax.swing.table.DefaultTableModel;
 import raven.glasspanepopup.GlassPanePopup;
@@ -64,7 +68,6 @@ public class interface_extratoPedidos extends javax.swing.JFrame {
         panel4 = new jaboc_UI.jabocUI_Utilidades.Panel();
         jLabel5 = new javax.swing.JLabel();
         dataPedido = new jaboc_UI.JabocUI_Utilidades.JabocUI_Classes.FormattedTextField();
-        buttonCirculo1 = new jaboc_UI.jabocUI_Utilidades.ButtonCirculo();
         panel2 = new jaboc_UI.jabocUI_Utilidades.Panel();
         scrollPedidos = new javax.swing.JScrollPane();
         tabelaPedidos = new jaboc_UI.JabocUI_Utilidades.JabocUI_Classes.Table();
@@ -206,14 +209,6 @@ public class interface_extratoPedidos extends javax.swing.JFrame {
                     .addComponent(dataPedido, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)))
         );
 
-        buttonCirculo1.setBackground(new java.awt.Color(79, 84, 101));
-        buttonCirculo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_download.png"))); // NOI18N
-        buttonCirculo1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonCirculo1ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
         panel1.setLayout(panel1Layout);
         panel1Layout.setHorizontalGroup(
@@ -228,9 +223,7 @@ public class interface_extratoPedidos extends javax.swing.JFrame {
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(panel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(buttonCirculo1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(bTabela, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(bTabela, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18))
         );
         panel1Layout.setVerticalGroup(
@@ -246,7 +239,6 @@ public class interface_extratoPedidos extends javax.swing.JFrame {
                         .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(panel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(panel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addComponent(buttonCirculo1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(bTabela, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -389,10 +381,6 @@ public class interface_extratoPedidos extends javax.swing.JFrame {
 
     }//GEN-LAST:event_tabelaPedidosMouseClicked
 
-    private void buttonCirculo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCirculo1ActionPerformed
-
-    }//GEN-LAST:event_buttonCirculo1ActionPerformed
-
     private void dataPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataPedidoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_dataPedidoActionPerformed
@@ -487,7 +475,6 @@ public class interface_extratoPedidos extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private jaboc_UI.jabocUI_Utilidades.Button bTabela;
     private jaboc_UI.jabocUI_Utilidades.ButtonCirculo bVoltar;
-    private jaboc_UI.jabocUI_Utilidades.ButtonCirculo buttonCirculo1;
     private jaboc_UI.JabocUI_Utilidades.JabocUI_Classes.FormattedTextField dataPedido;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;

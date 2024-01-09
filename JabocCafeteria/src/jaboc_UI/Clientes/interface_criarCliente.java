@@ -175,7 +175,6 @@ public class interface_criarCliente extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Gill Sans MT", 1, 30)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_user.png"))); // NOI18N
         jLabel5.setText(" CRIAR CONTA");
 
         panel1.setBackground(new java.awt.Color(141, 123, 104));
@@ -420,8 +419,8 @@ public class interface_criarCliente extends javax.swing.JFrame {
             .addGroup(panel2Layout.createSequentialGroup()
                 .addGap(40, 40, 40)
                 .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(panel9, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(panel8, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(panel9, javax.swing.GroupLayout.PREFERRED_SIZE, 318, Short.MAX_VALUE)
+                    .addComponent(panel8, javax.swing.GroupLayout.PREFERRED_SIZE, 318, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(bOlho, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)

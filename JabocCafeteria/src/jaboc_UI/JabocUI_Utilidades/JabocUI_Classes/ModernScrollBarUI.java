@@ -1,4 +1,4 @@
-package jaboc_Biblioteca.outras;
+package jaboc_UI.JabocUI_Utilidades.JabocUI_Classes;
 
 import java.awt.Color;
 import java.awt.Dimension;

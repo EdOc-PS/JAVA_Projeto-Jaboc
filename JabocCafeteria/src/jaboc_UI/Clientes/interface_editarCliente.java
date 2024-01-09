@@ -95,7 +95,6 @@ public class interface_editarCliente extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Gill Sans MT", 1, 30)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_editaruser2.png"))); // NOI18N
         jLabel7.setText(" EDITAR CLIENTE");
 
         jPanel4.setBackground(new java.awt.Color(252, 252, 252));

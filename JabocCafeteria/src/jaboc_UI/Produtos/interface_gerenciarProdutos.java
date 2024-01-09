@@ -5,7 +5,7 @@
 package jaboc_UI.Produtos;
 
 import jaboc_BancoDeDados.Modelo.DAO_Produto;
-import jaboc_Biblioteca.outras.ModernScrollBarUI;
+import jaboc_UI.JabocUI_Utilidades.JabocUI_Classes.ModernScrollBarUI;
 import jaboc_Classes.Produto;
 import jaboc_UI.Administrador.interface_areaGerencia;
 import jaboc_UI.JabocUI_Utilidades.JabocUI_popUp.PopUp_GerenciaProdutos;

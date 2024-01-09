@@ -24,6 +24,7 @@ public class interface_apagarProduto extends javax.swing.JFrame {
     
     public interface_apagarProduto() {
         initComponents();
+        GlassPanePopup.install(this);
         setLocationRelativeTo(null);
     }
 
@@ -127,7 +128,7 @@ public class interface_apagarProduto extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 311, Short.MAX_VALUE)
                 .addComponent(apagarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18))
         );
@@ -137,7 +138,6 @@ public class interface_apagarProduto extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Gill Sans MT", 1, 30)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_lixo2.png"))); // NOI18N
         jLabel2.setText(" APAGAR PRODUTO");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 590, 90));
 
@@ -361,8 +361,9 @@ public class interface_apagarProduto extends javax.swing.JFrame {
     }//GEN-LAST:event_apagarProdutoMouseExited
 
     private void apagarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_apagarProdutoActionPerformed
-        this.daoProduto.delete(receberId);
+        this.daoProduto.delete(receberId); 
         GlassPanePopup.showPopup(new PopUp_mensagemProduto("Deletado com sucesso!"));
+        apagarProduto.setEnabled(false);
     }//GEN-LAST:event_apagarProdutoActionPerformed
 
     private void nomeProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeProdutoActionPerformed

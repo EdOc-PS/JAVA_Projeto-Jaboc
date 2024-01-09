@@ -6,7 +6,7 @@ package jaboc_UI.Cardapio;
 
 import jaboc_BancoDeDados.Modelo.DAO_ContaCliente;
 import jaboc_BancoDeDados.Modelo.DAO_Produto;
-import jaboc_Biblioteca.outras.ModernScrollBarUI;
+import jaboc_UI.JabocUI_Utilidades.JabocUI_Classes.ModernScrollBarUI;
 import jaboc_Classes.Produto;
 import jaboc_UI.Clientes.interface_editarCliente;
 import jaboc_UI.Clientes.interface_menuCliente;

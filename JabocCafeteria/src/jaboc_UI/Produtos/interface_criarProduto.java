@@ -143,7 +143,6 @@ public class interface_criarProduto extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Gill Sans MT", 1, 30)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_adicionar2.png"))); // NOI18N
         jLabel6.setText(" ADICIONAR PRODUTO");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 70, 578, 100));
 

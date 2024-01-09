@@ -95,7 +95,7 @@ public class PopUp_resetarCliente extends JDialog{
     
     private void adicionarIcone(){
         try{
-            //Talvez o arquivo não exista!
+            //Talvez o arquivo não exista! // não existe mesmo jaba!
             Image imagem = ImageIO.read(new File("src\\img\\icons\\i_logout.png"));
             Icon icone = new ImageIcon(imagem);
             this.icone.setIcon(icone);
@@ -108,7 +108,7 @@ public class PopUp_resetarCliente extends JDialog{
     private void estilizarMensagemAviso(){
         this.mensagemAviso.setForeground(new Color(79, 84, 101));
         this.mensagemAviso.setFont(new Font("Gill Sans MT", Font.BOLD, 14));
-        this.mensagemAviso.setBounds(largura - 220, altura - 80,240,20);
+        this.mensagemAviso.setBounds(largura - 220, altura - 130,240,20);
     }
     
     private void estilizarSimBotao(){
@@ -117,7 +117,7 @@ public class PopUp_resetarCliente extends JDialog{
         this.simBotao.setFont(new Font("Gill Sans MT", Font.BOLD, 14));
         this.simBotao.setForeground(Color.white);
         this.simBotao.setBackground(new Color(188, 226, 158));
-        this.simBotao.setBounds(largura - 280, altura - 45, 70, 25);
+        this.simBotao.setBounds(largura - 280, altura - 55, 70, 35);
     }
     
     private void estilizarNaoBotao(){
@@ -126,6 +126,6 @@ public class PopUp_resetarCliente extends JDialog{
         this.naoBotao.setFont(new Font("Gill Sans MT", Font.BOLD, 13));
         this.naoBotao.setForeground(Color.white);
         this.naoBotao.setBackground(new Color(255, 128, 128));
-        this.naoBotao.setBounds(largura - 90, altura - 45, 70, 25);       
+        this.naoBotao.setBounds(largura - 90, altura - 55, 70, 35);       
     }
 }

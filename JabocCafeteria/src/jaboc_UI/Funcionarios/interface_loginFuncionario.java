@@ -130,7 +130,7 @@ public class interface_loginFuncionario extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Gill Sans MT", 1, 30)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("LOGIN  ");
+        jLabel1.setText(" LOGIN  ");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 584, 80));
 
         panel1.setBackground(new java.awt.Color(141, 123, 104));
