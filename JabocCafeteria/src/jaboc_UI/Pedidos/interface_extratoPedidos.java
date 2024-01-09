@@ -7,6 +7,7 @@ package jaboc_UI.Pedidos;
 import jaboc_BancoDeDados.Modelo.DAO_Pedido;
 import jaboc_Biblioteca.outras.ModernScrollBarUI;
 import jaboc_Classes.Pedido;
+import jaboc_UI.Funcionarios.interface_areaFuncionario;
 import java.awt.Color;
 import java.awt.Dimension;
 import javax.swing.JScrollBar;
@@ -364,20 +365,22 @@ public class interface_extratoPedidos extends javax.swing.JFrame {
     }//GEN-LAST:event_bVoltarMouseExited
 
     private void bVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVoltarActionPerformed
-
+        interface_areaFuncionario i_area = new interface_areaFuncionario();
+        i_area.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_bVoltarActionPerformed
 
     private void bTabelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bTabelaActionPerformed
-         DefaultTableModel pedidos = (DefaultTableModel) tabelaPedidos.getModel();
-         pedidos.getDataVector().removeAllElements();
-         
+        DefaultTableModel pedidos = (DefaultTableModel) tabelaPedidos.getModel();
+        pedidos.getDataVector().removeAllElements();
+
         if (tipoProduto.getSelectedItem().equals("Todos") && dataPedido.getText().equals("")) {
             this.carregarTabelaTodos();
-        }else if (!tipoProduto.getSelectedItem().equals("Todos") && dataPedido.getText().equals("")) {
+        } else if (!tipoProduto.getSelectedItem().equals("Todos") && dataPedido.getText().equals("")) {
             carregarTabelaTipo();
-        }else if(tipoProduto.getSelectedItem().equals("Todos") && !dataPedido.getText().equals("")){
+        } else if (tipoProduto.getSelectedItem().equals("Todos") && !dataPedido.getText().equals("")) {
             carregarTabelaData();
-        }else{
+        } else {
             carregarTabelaEspecifico();
         }
 //GEN-LAST:event_bTabelaActionPerformed
@@ -396,7 +399,7 @@ public class interface_extratoPedidos extends javax.swing.JFrame {
 
     private void carregarTabelaTodos() {
         DefaultTableModel pedidos = (DefaultTableModel) tabelaPedidos.getModel();
-        for (Pedido p : daoPedido.Listagem("extrato")) {       
+        for (Pedido p : daoPedido.Listagem("extrato")) {
             pedidos.addRow(new Object[]{
                 p.getIdPedido(),
                 p.getNomePedido(),
@@ -406,36 +409,10 @@ public class interface_extratoPedidos extends javax.swing.JFrame {
             });
         }
     }
-    
-    private void carregarTabelaTipo(){
+
+    private void carregarTabelaTipo() {
         DefaultTableModel pedidos = (DefaultTableModel) tabelaPedidos.getModel();
         for (Pedido p : daoPedido.ListagemTipo(String.valueOf(tipoProduto.getSelectedItem()))) {
-                pedidos.addRow(new Object[]{
-                    p.getIdPedido(),
-                    p.getNomePedido(),
-                    p.getDataPedido(),
-                    p.getTipoPedido(),
-                    p.getStatusPedido()
-                });
-            }
-    }
-    
-    private void carregarTabelaData(){
-         DefaultTableModel pedidos = (DefaultTableModel) tabelaPedidos.getModel();
-        for (Pedido p : daoPedido.ListagemData(dataPedido.getText())) {
-                pedidos.addRow(new Object[]{
-                    p.getIdPedido(),
-                    p.getNomePedido(),
-                    p.getDataPedido(),
-                    p.getTipoPedido(),
-                    p.getStatusPedido()
-                });
-            }
-    }
-    
-    private void carregarTabelaEspecifico(){
-        DefaultTableModel pedidos = (DefaultTableModel) tabelaPedidos.getModel();
-        for (Pedido p : daoPedido.ListagemSeleta(dataPedido.getText(), String.valueOf(tipoProduto.getSelectedItem()))) {       
             pedidos.addRow(new Object[]{
                 p.getIdPedido(),
                 p.getNomePedido(),
@@ -445,6 +422,33 @@ public class interface_extratoPedidos extends javax.swing.JFrame {
             });
         }
     }
+
+    private void carregarTabelaData() {
+        DefaultTableModel pedidos = (DefaultTableModel) tabelaPedidos.getModel();
+        for (Pedido p : daoPedido.ListagemData(dataPedido.getText())) {
+            pedidos.addRow(new Object[]{
+                p.getIdPedido(),
+                p.getNomePedido(),
+                p.getDataPedido(),
+                p.getTipoPedido(),
+                p.getStatusPedido()
+            });
+        }
+    }
+
+    private void carregarTabelaEspecifico() {
+        DefaultTableModel pedidos = (DefaultTableModel) tabelaPedidos.getModel();
+        for (Pedido p : daoPedido.ListagemSeleta(dataPedido.getText(), String.valueOf(tipoProduto.getSelectedItem()))) {
+            pedidos.addRow(new Object[]{
+                p.getIdPedido(),
+                p.getNomePedido(),
+                p.getDataPedido(),
+                p.getTipoPedido(),
+                p.getStatusPedido()
+            });
+        }
+    }
+
     /**
      * @param args the command line arguments
      */

@@ -36,7 +36,7 @@ public class PopUp_mensagemCarrinho extends javax.swing.JPanel {
 
         if (mensagem.equals(carrinhoVazio)) {
             jMensagen.setText(carrinhoVazio);
-            jIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_apagou.png")));
+            jIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_disfarce.png")));
         } else if (mensagem.equals(carrinho)) {
             jMensagen.setText(carrinho);
             jIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_certo.png")));

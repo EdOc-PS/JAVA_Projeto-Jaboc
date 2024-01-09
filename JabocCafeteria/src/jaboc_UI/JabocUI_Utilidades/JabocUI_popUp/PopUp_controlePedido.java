@@ -60,6 +60,7 @@ public class PopUp_ControlePedido extends javax.swing.JPanel {
         panel2 = new jaboc_UI.jabocUI_Utilidades.Panel();
         bPreparar = new jaboc_UI.jabocUI_Utilidades.Button();
         bCancelar = new jaboc_UI.jabocUI_Utilidades.Button();
+        bConcluido = new jaboc_UI.jabocUI_Utilidades.Button();
 
         panel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -117,6 +118,24 @@ public class PopUp_ControlePedido extends javax.swing.JPanel {
             }
         });
 
+        bConcluido.setBackground(new java.awt.Color(79, 84, 101));
+        bConcluido.setForeground(new java.awt.Color(255, 255, 255));
+        bConcluido.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/i_certo2.png"))); // NOI18N
+        bConcluido.setText(" Concluido");
+        bConcluido.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                bConcluidoMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                bConcluidoMouseExited(evt);
+            }
+        });
+        bConcluido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bConcluidoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panel2Layout = new javax.swing.GroupLayout(panel2);
         panel2.setLayout(panel2Layout);
         panel2Layout.setHorizontalGroup(
@@ -125,7 +144,8 @@ public class PopUp_ControlePedido extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(bPreparar, javax.swing.GroupLayout.DEFAULT_SIZE, 257, Short.MAX_VALUE)
-                    .addComponent(bCancelar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(bCancelar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(bConcluido, javax.swing.GroupLayout.DEFAULT_SIZE, 257, Short.MAX_VALUE))
                 .addContainerGap())
         );
         panel2Layout.setVerticalGroup(
@@ -133,9 +153,11 @@ public class PopUp_ControlePedido extends javax.swing.JPanel {
             .addGroup(panel2Layout.createSequentialGroup()
                 .addGap(8, 8, 8)
                 .addComponent(bPreparar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(bConcluido, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(bCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(8, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
@@ -150,10 +172,10 @@ public class PopUp_ControlePedido extends javax.swing.JPanel {
                         .addComponent(bPopUpExit, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
-            .addGroup(panel1Layout.createSequentialGroup()
-                .addGap(29, 29, 29)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(panel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(27, 27, 27))
         );
         panel1Layout.setVerticalGroup(
             panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -161,10 +183,10 @@ public class PopUp_ControlePedido extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(bPopUpExit, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(panel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -175,7 +197,7 @@ public class PopUp_ControlePedido extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(panel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -221,6 +243,25 @@ public class PopUp_ControlePedido extends javax.swing.JPanel {
         GlassPanePopup.closePopupLast();
     }//GEN-LAST:event_bCancelarActionPerformed
 
+    private void bConcluidoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bConcluidoMouseEntered
+        bConcluido.setBackground(new Color(215, 229, 202));
+        bConcluido.setToolTipText("Concluir o pedido");
+    }//GEN-LAST:event_bConcluidoMouseEntered
+
+    private void bConcluidoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bConcluidoMouseExited
+        bConcluido.setBackground(new Color(79, 84, 101));
+    }//GEN-LAST:event_bConcluidoMouseExited
+
+    private void bConcluidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bConcluidoActionPerformed
+        daoPedido.update("Concluido", this.receberId);
+         
+        DefaultTableModel estruturaTabela = (DefaultTableModel) this.pai.getTabelaPedidos().getModel();
+        estruturaTabela.setNumRows(0);
+        
+        this.pai.CarregarTotalmenteTabela();
+        GlassPanePopup.closePopupLast();
+    }//GEN-LAST:event_bConcluidoActionPerformed
+
     public void receber(int id) {
         this.receberId = id;
     }
@@ -228,6 +269,7 @@ public class PopUp_ControlePedido extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private jaboc_UI.jabocUI_Utilidades.Button bCancelar;
+    private jaboc_UI.jabocUI_Utilidades.Button bConcluido;
     private jaboc_UI.jabocUI_Utilidades.ButtonCirculo bPopUpExit;
     private jaboc_UI.jabocUI_Utilidades.Button bPreparar;
     private javax.swing.JLabel jLabel1;

@@ -41,7 +41,7 @@ public class interface_itemCarrinho extends javax.swing.JPanel {
 
         nomeCarrinho.setBackground(new java.awt.Color(79, 84, 101));
         nomeCarrinho.setFont(new java.awt.Font("Gill Sans MT", 1, 16)); // NOI18N
-        nomeCarrinho.setForeground(new java.awt.Color(0, 0, 0));
+        nomeCarrinho.setForeground(new java.awt.Color(79, 84, 101));
         nomeCarrinho.setText("Produto_X");
 
         descCarrinho.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N

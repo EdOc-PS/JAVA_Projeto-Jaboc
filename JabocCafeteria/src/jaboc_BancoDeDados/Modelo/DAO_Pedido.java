@@ -31,7 +31,7 @@ public class DAO_Pedido implements DAO {
     }
 
     public ResultSet selectExtrato() {
-        String comandoSelect = "SELECT * FROM jaboc_servidor.Pedido WHERE status IN ('Concluido', 'Cancelado ') ORDER BY status;";
+        String comandoSelect = "SELECT * FROM jaboc_servidor.Pedido WHERE status IN ('Concluido ', 'Cancelado ') ORDER BY status;";
 
         ResultSet resultadosSelect = null;
 

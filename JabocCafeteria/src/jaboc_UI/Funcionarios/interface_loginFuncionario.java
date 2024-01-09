@@ -23,16 +23,15 @@ public class interface_loginFuncionario extends javax.swing.JFrame {
      * Creates new form interface_loginFuncionario
      */
     public interface_loginFuncionario() {
-        initComponents();
-        
+        initComponents();     
         this.cpfFuncionario_login.addFormatacao("###.###.###-##");
-        
+        setLocationRelativeTo(null);
         GlassPanePopup.install(this);
     }
     
     public interface_loginFuncionario(String cpfFuncionario) {
         initComponents();
-        
+        setLocationRelativeTo(null);
         this.cpfFuncionario_login.addFormatacao("###.###.###-##");
         this.cpfFuncionario_login.setText(cpfFuncionario);
     }
@@ -257,6 +256,8 @@ public class interface_loginFuncionario extends javax.swing.JFrame {
     }//GEN-LAST:event_bVoltarMouseExited
 
     private void bVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVoltarActionPerformed
+        interface_inicioFuncionario i_inFuncionario = new interface_inicioFuncionario();
+        i_inFuncionario.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_bVoltarActionPerformed
 
@@ -272,8 +273,9 @@ public class interface_loginFuncionario extends javax.swing.JFrame {
                 if(buscandoLoginBD.login(clienteLogando)){
 
                     this.dispose();
-                    interface_controlePedidos i_Pedidos = new interface_controlePedidos();
-                    i_Pedidos.setVisible(true);
+                    interface_areaFuncionario i_areaF = new interface_areaFuncionario();
+                    i_areaF.setVisible(true);
+                    this.dispose();
                     
                 }else{
                     this.resetarCampoSenha();
@@ -328,7 +330,7 @@ public class interface_loginFuncionario extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void loginFunc(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.

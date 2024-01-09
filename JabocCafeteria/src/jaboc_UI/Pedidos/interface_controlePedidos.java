@@ -8,6 +8,7 @@ import jaboc_BancoDeDados.Modelo.DAO_ContaFuncionario;
 import jaboc_BancoDeDados.Modelo.DAO_Pedido;
 import jaboc_Biblioteca.outras.ModernScrollBarUI;
 import jaboc_Classes.Pedido;
+import jaboc_UI.Funcionarios.interface_areaFuncionario;
 import jaboc_UI.JabocUI_Utilidades.JabocUI_popUp.PopUp_ControlePedido;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -241,6 +242,8 @@ public class interface_controlePedidos extends javax.swing.JFrame {
     }//GEN-LAST:event_bVoltarMouseExited
 
     private void bVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVoltarActionPerformed
+        interface_areaFuncionario i_area = new interface_areaFuncionario();
+        i_area.setVisible(true);
         this.dispose();
         DAO_ContaFuncionario.limparDados_Memoria();
     }//GEN-LAST:event_bVoltarActionPerformed

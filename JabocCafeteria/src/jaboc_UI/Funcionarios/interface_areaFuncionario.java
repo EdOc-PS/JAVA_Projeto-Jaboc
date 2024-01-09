@@ -211,7 +211,7 @@ public class interface_areaFuncionario extends javax.swing.JFrame {
                 .addGap(12, 12, 12))
         );
 
-        jPanel1.add(panel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 360, 440, -1));
+        jPanel1.add(panel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 360, 440, -1));
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/principal/Chef-cuate.png"))); // NOI18N

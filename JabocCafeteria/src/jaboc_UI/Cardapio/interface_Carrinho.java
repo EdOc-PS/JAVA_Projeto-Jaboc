@@ -87,7 +87,6 @@ public class interface_Carrinho extends javax.swing.JPanel {
         carrinhotxt.setBackground(new java.awt.Color(79, 84, 101));
         carrinhotxt.setFont(new java.awt.Font("Gill Sans MT", 1, 22)); // NOI18N
         carrinhotxt.setForeground(new java.awt.Color(79, 84, 101));
-        carrinhotxt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/download.png"))); // NOI18N
         carrinhotxt.setText("Carrinho");
 
         bPopUpExit.setBackground(new java.awt.Color(250, 112, 112));

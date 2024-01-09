@@ -71,11 +71,11 @@
                   <Component id="jLabel7" min="-2" pref="72" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                   <Component id="panel1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                   <Component id="jPanel_verificarSenhaAtual" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="jPanel_atualizarSenha" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="20" max="32767" attributes="0"/>
+                  <EmptySpace pref="47" max="32767" attributes="0"/>
               </Group>
               <Component id="jPanel4" alignment="0" pref="802" max="32767" attributes="0"/>
           </Group>
@@ -103,8 +103,8 @@
                               <Component id="editarFuncionario" min="-2" pref="250" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="jLabel14" min="-2" pref="60" max="-2" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="jLabel14" min="-2" pref="64" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
                               <Component id="bVoltar" min="-2" pref="60" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
@@ -219,12 +219,12 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                       <Component id="panel4" min="-2" pref="35" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="panel5" max="32767" attributes="0"/>
                           <Component id="panel6" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="panel22" min="-2" pref="35" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jLabel8" min="-2" pref="23" max="-2" attributes="0"/>
@@ -418,6 +418,9 @@
               <SubComponents>
                 <Component class="javax.swing.JComboBox" name="cargoFuncionario_Editar">
                   <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Gill Sans MT" size="14" style="0"/>
                     </Property>
@@ -602,7 +605,7 @@
                           <Component id="bOlho_novaSenha" alignment="1" min="-2" pref="35" max="-2" attributes="0"/>
                           <Component id="panel27" alignment="1" min="-2" pref="35" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Component id="panel26" min="-2" pref="35" max="-2" attributes="0"/>
                           <Component id="bOlho_verificarNovaSenha" min="-2" pref="35" max="-2" attributes="0"/>
@@ -654,9 +657,6 @@
                   </Properties>
                 </Component>
                 <Component class="jaboc_UI.jabocUI_Utilidades.PasswordField" name="novaSenha_funcionario">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="passwordField1"/>
-                  </Properties>
                 </Component>
               </SubComponents>
             </Container>
