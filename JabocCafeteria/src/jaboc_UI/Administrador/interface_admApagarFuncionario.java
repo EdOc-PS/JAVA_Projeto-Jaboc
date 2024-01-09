@@ -19,16 +19,13 @@ import raven.glasspanepopup.GlassPanePopup;
  */
 public class interface_admApagarFuncionario extends javax.swing.JFrame {
     private final Conta_Funcionario FUNCIONARIO_APAGAVEL;
-    private final interface_exibirFuncionarios EXIBIR_FUNCIONARIOS;
     /**
      * Creates new form interface_admApagarFuncionario
      * @param funcionarioApagavel
-     * @param exibirFuncionarios
      */
-    public interface_admApagarFuncionario(Conta_Funcionario funcionarioApagavel, interface_exibirFuncionarios exibirFuncionarios) {
+    public interface_admApagarFuncionario(Conta_Funcionario funcionarioApagavel) {
         initComponents();
         this.FUNCIONARIO_APAGAVEL = funcionarioApagavel;
-        this.EXIBIR_FUNCIONARIOS = exibirFuncionarios;
         this.preencherCampos();
         
         this.pack();        
@@ -357,13 +354,11 @@ public class interface_admApagarFuncionario extends javax.swing.JFrame {
 
     private void apagarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_apagarFuncionarioActionPerformed
         DAO_ContaFuncionario daoFuncionario = new DAO_ContaFuncionario();
-        if(daoFuncionario.delete(this.FUNCIONARIO_APAGAVEL.getTitular().getCpf())){
-            GlassPanePopup.showPopup(new PopUp_mensagemProduto("Deletado com sucesso!"));
-            
-            DefaultTableModel dadosTabela = (DefaultTableModel) this.EXIBIR_FUNCIONARIOS.getTabelaFuncionario().getModel();
-            dadosTabela.setRowCount(0);
-            this.EXIBIR_FUNCIONARIOS.carregarTabela();
-        }
+        daoFuncionario.delete(this.FUNCIONARIO_APAGAVEL.getTitular().getCpf());               
+        
+        interface_exibirFuncionarios i_exibirF = new interface_exibirFuncionarios();
+        this.dispose();
+        i_exibirF.setVisible(true);
     }//GEN-LAST:event_apagarFuncionarioActionPerformed
 
     private void bVoltarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bVoltarMouseEntered
@@ -376,6 +371,8 @@ public class interface_admApagarFuncionario extends javax.swing.JFrame {
 
     private void bVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVoltarActionPerformed
         this.dispose();
+        interface_exibirFuncionarios i_exibirF = new interface_exibirFuncionarios();
+        i_exibirF.setVisible(true); 
     }//GEN-LAST:event_bVoltarActionPerformed
 
     private void preencherCampos(){
