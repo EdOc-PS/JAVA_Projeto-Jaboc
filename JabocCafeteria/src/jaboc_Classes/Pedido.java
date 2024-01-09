@@ -4,12 +4,15 @@
  */
 package jaboc_Classes;
 
+import jaboc_BancoDeDados.Modelo.DAO_ContaCliente;
+
 /**
  *
  * @author eeuar
  */
 public class Pedido {
 
+    private final String NOME_CLIENTE;
     private String nomePedido;
     private String statusPedido;
     private String dataPedido;
@@ -17,24 +20,9 @@ public class Pedido {
     private int idPedido;
     private double precoPedido;
 
-    public Pedido() {
-        this.nomePedido = "";
-        this.statusPedido = "";
-        this.dataPedido = "";
-        this.tipoPedido = "";
-        this.idPedido = 0;
-        this.precoPedido = 0;
-    }
 
-    public double getPrecoPedido() {
-        return precoPedido;
-    }
-
-    public void setPrecoPedido(double precoPedido) {
-        this.precoPedido = precoPedido;
-    }
-
-    public Pedido(int idPedido, String statusPedido, String dataPedido, String tipoPedido, String nomePedido, double precoPedido) {
+    public Pedido(int idPedido, String statusPedido, String dataPedido, String nomeCliente, String tipoPedido, String nomePedido, double precoPedido) {
+        this.NOME_CLIENTE = nomeCliente;
         this.nomePedido = nomePedido;
         this.statusPedido = statusPedido;
         this.dataPedido = dataPedido;
@@ -43,6 +31,10 @@ public class Pedido {
         this.precoPedido = precoPedido;
     }
 
+    public String getNOME_CLIENTE(){
+        return this.NOME_CLIENTE;
+    }
+    
     public String getTipoPedido() {
         return tipoPedido;
     }
@@ -82,6 +74,12 @@ public class Pedido {
     public void setIdPedido(int idPedido) {
         this.idPedido = idPedido;
     }
+    
+    public double getPrecoPedido() {
+        return precoPedido;
+    }
 
-
+    public void setPrecoPedido(double precoPedido) {
+        this.precoPedido = precoPedido;
+    }
 }
