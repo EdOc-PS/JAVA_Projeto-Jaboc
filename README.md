@@ -11,10 +11,6 @@
 - 🎨 Paleta de cores usadas: https://colorhunt.co/palette/8d7b68a4907cc8b6a6f1dec9
 - 👩‍🍳 Icones: https://www.flaticon.com/br/icon-fonts-mas-baixados?weight=bold&type=uicon
 
-### 🛠️Coisas a fazer:
-**🦱 Guilherme Victor**
-- Ao editar a conta de um cliente ou funcionário, criar uma instnância de Objeto a partir de um determinado dado coletado do banco de dados, paa assim facilitar a 
-manipulação dos atributos;
 <br>
 <samp> Feito por <b><a href="https://github.com/EdOc-PS">Eduardo Octávio</a></b> e <b><a href="https://github.com/GuilhermeVRF">Guilherme Victor</a></b> </samp>
 
